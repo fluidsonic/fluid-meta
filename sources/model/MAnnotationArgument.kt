@@ -20,10 +20,24 @@ sealed class MAnnotationArgument<out Value : Any> {
 	data class LongValue(override val value: Long) : MAnnotationArgument<Long>()
 	data class ShortValue(override val value: Short) : MAnnotationArgument<Short>()
 	data class StringValue(override val value: String) : MAnnotationArgument<String>()
-	data class UByteValue(override val value: UByte) : MAnnotationArgument<UByte>()
-	data class UIntValue(override val value: UInt) : MAnnotationArgument<UInt>()
-	data class ULongValue(override val value: ULong) : MAnnotationArgument<ULong>()
-	data class UShortValue(override val value: UShort) : MAnnotationArgument<UShort>()
+
+	// TODO remove manual toString()s once fixed: https://youtrack.jetbrains.com/issue/KT-29655
+
+	data class UByteValue(override val value: UByte) : MAnnotationArgument<UByte>() {
+		override fun toString() = value.toString()
+	}
+
+	data class UIntValue(override val value: UInt) : MAnnotationArgument<UInt>() {
+		override fun toString() = value.toString()
+	}
+
+	data class ULongValue(override val value: ULong) : MAnnotationArgument<ULong>() {
+		override fun toString() = value.toString()
+	}
+
+	data class UShortValue(override val value: UShort) : MAnnotationArgument<UShort>() {
+		override fun toString() = value.toString()
+	}
 
 	data class EnumValue(val className: MQualifiedTypeName, val entryName: String) : MAnnotationArgument<String>() {
 		override val value = "$className.$entryName"
