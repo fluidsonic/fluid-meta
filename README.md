@@ -6,8 +6,6 @@ fluid-meta
 
 Converts Kotlin metadata into a usable data model
 
-**WORK IN PROGRESS**
-
 
 
 Installation
@@ -19,7 +17,7 @@ in the group `com.github.fluidsonic`.
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("com.github.fluidsonic:fluid-meta:0.9.0")
+    implementation("com.github.fluidsonic:fluid-meta:0.9.1")
 }
 ```
 
