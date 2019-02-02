@@ -17,10 +17,10 @@ internal class MPropertyBuilder(
 	private val setterFlags: Flags
 ) : KmPropertyVisitor() {
 
-	private var jvmFieldSignature: JvmFieldSignature? = null
-	private var jvmGetterSignature: JvmMethodSignature? = null
-	private var jvmSetterSignature: JvmMethodSignature? = null
-	private var jvmSyntheticMethodForAnnotationsSignature: JvmMethodSignature? = null
+	private var jvmFieldSignature: MJvmMemberSignature.Field? = null
+	private var jvmGetterSignature: MJvmMemberSignature.Method? = null
+	private var jvmSetterSignature: MJvmMemberSignature.Method? = null
+	private var jvmSyntheticMethodForAnnotationsSignature: MJvmMemberSignature.Method? = null
 	private var receiverParameter: MTypeReferenceBuilder? = null
 	private var returnType: MTypeReferenceBuilder? = null
 	private var setterParameter: MValueParameterBuilder? = null
@@ -37,8 +37,7 @@ internal class MPropertyBuilder(
 		jvmSyntheticMethodForAnnotationsSignature = jvmSyntheticMethodForAnnotationsSignature,
 		name = name,
 		receiverParameter = receiverParameter?.build(),
-		returnType = returnType?.build()
-			?: throw MetadataException("Property '$name' has no return type"),
+		returnType = returnType?.build() ?: throw MetaException("Property '$name' has no return type"),
 		setterFlags = setterFlags,
 		setterParameter = setterParameter?.build(),
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
@@ -51,14 +50,14 @@ internal class MPropertyBuilder(
 			object : JvmPropertyExtensionVisitor() {
 
 				override fun visit(fieldDesc: JvmFieldSignature?, getterDesc: JvmMethodSignature?, setterDesc: JvmMethodSignature?) {
-					jvmFieldSignature = fieldDesc
-					jvmGetterSignature = getterDesc
-					jvmSetterSignature = setterDesc
+					jvmFieldSignature = fieldDesc?.let(::MJvmMemberSignature)
+					jvmGetterSignature = getterDesc?.let(::MJvmMemberSignature)
+					jvmSetterSignature = setterDesc?.let(::MJvmMemberSignature)
 				}
 
 
 				override fun visitSyntheticMethodForAnnotations(desc: JvmMethodSignature?) {
-					jvmSyntheticMethodForAnnotationsSignature = desc
+					jvmSyntheticMethodForAnnotationsSignature = desc?.let(::MJvmMemberSignature)
 				}
 			}
 		}

@@ -10,7 +10,7 @@ internal class MLambdaBuilder : KmLambdaVisitor() {
 
 
 	fun build() = MLambda(
-		function = function?.build() ?: throw MetadataException("Lambda has no function")
+		function = function?.build() ?: throw MetaException("Lambda has no function")
 	)
 
 

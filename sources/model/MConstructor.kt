@@ -2,13 +2,12 @@ package com.github.fluidsonic.fluid.meta
 
 import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
-import kotlinx.metadata.jvm.JvmMethodSignature
 import java.util.Objects
 
 
 class MConstructor internal constructor(
 	private val flags: Flags,
-	val jvmSignature: JvmMethodSignature?,
+	val jvmSignature: MJvmMemberSignature.Method?,
 	val valueParameters: List<MValueParameter>,
 	val versionRequirement: MVersionRequirement?
 ) {
@@ -22,7 +21,6 @@ class MConstructor internal constructor(
 	val modality = MModality.forFlags(flags)
 
 	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Constructor has an unsupported visibility (flags: $flags)")
 
 
 	override fun equals(other: Any?): Boolean {

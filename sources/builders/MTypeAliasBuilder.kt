@@ -20,20 +20,17 @@ internal class MTypeAliasBuilder(
 
 	fun build() = MTypeAlias(
 		annotations = annotations.toListOrEmpty(),
-		expandedType = expandedType?.build() ?: throw MetadataException("Type alias '$name' has no expanded type"),
+		expandedType = expandedType?.build() ?: throw MetaException("Type alias '$name' has no expanded type"),
 		flags = flags,
 		name = name,
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
-		underlyingType = underlyingType?.build() ?: throw MetadataException("Type alias '$name' has no underlying type"),
+		underlyingType = underlyingType?.build() ?: throw MetaException("Type alias '$name' has no underlying type"),
 		versionRequirement = versionRequirement?.build()
 	)
 
 
 	override fun visitAnnotation(annotation: KmAnnotation) {
-		MAnnotation(
-			className = MTypeName(annotation.className),
-			arguments = annotation.arguments.mapKeys { MTypeParameterName(it.key) }
-		).let {
+		MAnnotation(annotation).let {
 			annotations?.apply { add(it) }
 				?: { annotations = mutableListOf(it) }()
 		}

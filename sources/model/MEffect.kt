@@ -1,15 +1,13 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.KmEffectInvocationKind
-import kotlinx.metadata.KmEffectType
 import java.util.Objects
 
 
 class MEffect internal constructor(
 	val conclusionOfConditionalEffect: MEffectExpression?,
 	val contructorArguments: List<MEffectExpression>,
-	val invocationKind: KmEffectInvocationKind?,
-	val type: KmEffectType
+	val invocationKind: InvocationKind?,
+	val type: Type
 ) {
 
 	override fun equals(other: Any?): Boolean {
@@ -39,5 +37,21 @@ class MEffect internal constructor(
 	)
 
 
-	companion object
+	companion object;
+
+
+	enum class InvocationKind {
+
+		atLeastOnce,
+		atMostOnce,
+		exactlyOnce
+	}
+
+
+	enum class Type {
+
+		calls,
+		returnsConstant,
+		returnsNotNull
+	}
 }

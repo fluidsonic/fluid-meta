@@ -1,13 +1,11 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.KmEffectInvocationKind
-import kotlinx.metadata.KmEffectType
 import kotlinx.metadata.KmEffectVisitor
 
 
 internal class MEffectBuilder(
-	private val invocationKind: KmEffectInvocationKind?,
-	private val type: KmEffectType
+	private val invocationKind: MEffect.InvocationKind?,
+	private val type: MEffect.Type
 ) : KmEffectVisitor() {
 
 	private var conclusionOfConditionalEffect: MEffectExpressionBuilder? = null

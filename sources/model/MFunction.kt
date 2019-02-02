@@ -2,15 +2,14 @@ package com.github.fluidsonic.fluid.meta
 
 import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
-import kotlinx.metadata.jvm.JvmMethodSignature
 import java.util.Objects
 
 
 class MFunction internal constructor(
 	val contract: MContract?,
 	private val flags: Flags,
-	val jvmSignature: JvmMethodSignature?,
-	val lambdaClassOriginName: MTypeName?,
+	val jvmSignature: MJvmMemberSignature.Method?,
+	val lambdaClassOriginName: MQualifiedTypeName?,
 	val name: MFunctionName,
 	val receiverParameter: MTypeReference?,
 	val returnType: MTypeReference,
@@ -48,13 +47,12 @@ class MFunction internal constructor(
 		Flag.Function.IS_FAKE_OVERRIDE(flags) -> Kind.FAKE_OVERRIDE
 		Flag.Function.IS_DELEGATION(flags) -> Kind.DECLARATION
 		Flag.Function.IS_SYNTHESIZED(flags) -> Kind.SYNTHESIZED
-		else -> throw MetadataException("Function '$name' has an unsupported kind (flags: $flags)")
+		else -> throw MetaException("Function '$name' has an unsupported kind (flags: $flags)")
 	}
 
 	val modality = MModality.forFlags(flags)
 
 	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Function '$name' has an unsupported visibility (flags: $flags)")
 
 
 	override fun equals(other: Any?): Boolean {

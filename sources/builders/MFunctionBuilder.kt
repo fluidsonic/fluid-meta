@@ -1,6 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
+import kotlinx.metadata.ClassName
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmExtensionType
 import kotlinx.metadata.KmFunctionVisitor
@@ -15,8 +16,8 @@ internal class MFunctionBuilder(
 ) : KmFunctionVisitor() {
 
 	private var contract: MContractBuilder? = null
-	private var jvmSignature: JvmMethodSignature? = null
-	private var lambdaClassOriginName: MTypeName? = null
+	private var jvmSignature: MJvmMemberSignature.Method? = null
+	private var lambdaClassOriginName: MQualifiedTypeName? = null
 	private var receiverParameter: MTypeReferenceBuilder? = null
 	private var returnType: MTypeReferenceBuilder? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
@@ -32,7 +33,7 @@ internal class MFunctionBuilder(
 		name = name,
 		receiverParameter = receiverParameter?.build(),
 		returnType = returnType?.build()
-			?: throw MetadataException("Function '$name' has no return type"),
+			?: throw MetaException("Function '$name' has no return type"),
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
 		valueParameters = valueParameters.mapOrEmpty { it.build() },
 		versionRequirement = versionRequirement?.build()
@@ -49,12 +50,12 @@ internal class MFunctionBuilder(
 			object : JvmFunctionExtensionVisitor() {
 
 				override fun visit(desc: JvmMethodSignature?) {
-					jvmSignature = desc
+					jvmSignature = desc?.let(::MJvmMemberSignature)
 				}
 
 
-				override fun visitLambdaClassOriginName(internalName: String) {
-					lambdaClassOriginName = MTypeName(internalName)
+				override fun visitLambdaClassOriginName(internalName: ClassName) {
+					lambdaClassOriginName = MQualifiedTypeName.fromKotlinInternal(internalName)
 				}
 			}
 		}

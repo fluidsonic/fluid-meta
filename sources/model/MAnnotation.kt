@@ -1,13 +1,21 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.KmAnnotationArgument
+import kotlinx.metadata.KmAnnotation
 import java.util.Objects
 
 
 class MAnnotation internal constructor(
-	val arguments: Map<MTypeParameterName, KmAnnotationArgument<*>>, // FIXME
-	val className: MTypeName
+	val arguments: Map<MVariableName, MAnnotationArgument<*>>,
+	val className: MQualifiedTypeName
 ) {
+
+	constructor(annotation: KmAnnotation) : this(
+		arguments = annotation.arguments
+			.map { MVariableName(it.key) to MAnnotationArgument(it.value) }
+			.toMap(),
+		className = MQualifiedTypeName.fromKotlinInternal(annotation.className)
+	)
+
 
 	override fun equals(other: Any?): Boolean {
 		if (other === this) return true

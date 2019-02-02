@@ -17,10 +17,10 @@ internal class MVersionRequirementBuilder : KmVersionRequirementVisitor() {
 
 	fun build() = MVersionRequirement(
 		errorCode = errorCode,
-		level = level ?: throw MetadataException("Value requirement has no level"),
+		level = level ?: throw MetaException("Value requirement has no level"),
 		message = message,
-		kind = kind ?: throw MetadataException("Value requirement has no kind"),
-		version = version ?: throw MetadataException("Value requirement has no version")
+		kind = kind ?: throw MetaException("Value requirement has no kind"),
+		version = version ?: throw MetaException("Value requirement has no version")
 	)
 
 

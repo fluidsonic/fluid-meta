@@ -17,7 +17,7 @@ internal class MValueParameterBuilder(
 		flags = flags,
 		isVariadic = isVariadic,
 		name = name,
-		type = type?.build() ?: throw MetadataException("Value parameter '$name' has no types")
+		type = type?.build() ?: throw MetaException("Value parameter '$name' has no type")
 	)
 
 

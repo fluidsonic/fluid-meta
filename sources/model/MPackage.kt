@@ -4,8 +4,8 @@ import java.util.Objects
 
 
 class MPackage internal constructor(
-	val fileFacades: List<MTypeName>,
-	val multiFileClassParts: Map<MTypeName, MTypeName>,
+	val fileFacades: List<MQualifiedTypeName>,
+	val multiFileClassParts: Map<MQualifiedTypeName, MQualifiedTypeName>,
 	val name: MPackageName
 ) {
 
@@ -28,7 +28,7 @@ class MPackage internal constructor(
 
 
 	override fun toString() = typeToString(
-		"name" to if (name.raw.isEmpty()) "root package" else name,
+		"name" to if (name.isRoot) "<root>" else name,
 		"fileFacades" to fileFacades,
 		"multiFileClassParts" to multiFileClassParts
 	)

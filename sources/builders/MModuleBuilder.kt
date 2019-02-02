@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+import kotlinx.metadata.ClassName
 import kotlinx.metadata.KmAnnotation
 import kotlinx.metadata.jvm.KmModuleVisitor
 
@@ -17,21 +18,19 @@ internal class MModuleBuilder : KmModuleVisitor() {
 
 
 	override fun visitAnnotation(annotation: KmAnnotation) {
-		MAnnotation(
-			className = MTypeName(annotation.className),
-			arguments = annotation.arguments.mapKeys { MTypeParameterName(it.key) }
-		).let {
+		MAnnotation(annotation).let {
 			annotations?.apply { add(it) }
 				?: { annotations = mutableListOf(it) }()
 		}
 	}
 
 
-	override fun visitPackageParts(fqName: String, fileFacades: List<String>, multiFileClassParts: Map<String, String>) {
+	override fun visitPackageParts(fqName: ClassName, fileFacades: List<String>, multiFileClassParts: Map<String, String>) {
 		MPackage(
-			fileFacades = fileFacades.map(::MTypeName),
-			multiFileClassParts = multiFileClassParts.entries.associate { MTypeName(it.key) to MTypeName(it.value) },
-			name = MPackageName(fqName)
+			fileFacades = fileFacades.map { MQualifiedTypeName.fromKotlinInternal(it) },
+			multiFileClassParts = multiFileClassParts.entries
+				.associate { MQualifiedTypeName.fromKotlinInternal(it.key) to MQualifiedTypeName.fromKotlinInternal(it.value) },
+			name = MPackageName.fromKotlinInternal(fqName)
 		).let {
 			packages?.apply { add(it) }
 				?: { packages = mutableListOf(it) }()

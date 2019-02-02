@@ -24,11 +24,6 @@ class MValueParameter internal constructor(
 	val isNoinline
 		get() = Flag.ValueParameter.IS_NOINLINE(flags)
 
-	val modality = MModality.forFlags(flags)
-
-	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Value parameter '$name' has an unsupported visibility (flags: $flags)")
-
 
 	override fun equals(other: Any?): Boolean {
 		if (other === this) return true
@@ -57,9 +52,7 @@ class MValueParameter internal constructor(
 		"isCrossinline" to isCrossinline,
 		"isNoinline" to isNoinline,
 		"isVariadic" to isVariadic,
-		"modality" to modality,
-		"type" to type,
-		"visibility" to visibility
+		"type" to type
 	)
 
 

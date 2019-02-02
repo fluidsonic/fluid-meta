@@ -16,7 +16,19 @@ internal class MContractBuilder : KmContractVisitor() {
 
 
 	override fun visitEffect(type: KmEffectType, invocationKind: KmEffectInvocationKind?) =
-		MEffectBuilder(type = type, invocationKind = invocationKind)
+		MEffectBuilder(
+			type = when (type) {
+				KmEffectType.CALLS -> MEffect.Type.calls
+				KmEffectType.RETURNS_CONSTANT -> MEffect.Type.returnsConstant
+				KmEffectType.RETURNS_NOT_NULL -> MEffect.Type.returnsNotNull
+			},
+			invocationKind = when (invocationKind) {
+				KmEffectInvocationKind.AT_LEAST_ONCE -> MEffect.InvocationKind.atLeastOnce
+				KmEffectInvocationKind.AT_MOST_ONCE -> MEffect.InvocationKind.atMostOnce
+				KmEffectInvocationKind.EXACTLY_ONCE -> MEffect.InvocationKind.exactlyOnce
+				null -> null
+			}
+		)
 			.also {
 				effects?.apply { add(it) } ?: { effects = mutableListOf(it) }()
 			}

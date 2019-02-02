@@ -9,17 +9,17 @@ sealed class MType
 
 
 class MClass internal constructor(
-	val anonymousObjectOriginName: MTypeName?,
-	val companion: MTypeName?,
+	val anonymousObjectOriginName: MQualifiedTypeName?,
+	val companion: MQualifiedTypeName?,
 	val constructors: List<MConstructor>,
 	val enumEntries: List<MEnumEntry>,
 	private val flags: Flags,
 	val functions: List<MFunction>,
 	val localDelegatedProperties: List<MProperty>,
-	val name: MTypeName?,
-	val nestedClasses: List<MTypeName>,
+	val name: MQualifiedTypeName?,
+	val nestedClasses: List<MQualifiedTypeName>,
 	val properties: List<MProperty>,
-	val sealedSubclasses: List<MTypeName>,
+	val sealedSubclasses: List<MQualifiedTypeName>,
 	val supertype: MTypeReference?,
 	val typeAliases: List<MTypeAlias>,
 	val typeParameters: List<MTypeParameter>,
@@ -50,13 +50,12 @@ class MClass internal constructor(
 		Flag.Class.IS_ENUM_ENTRY(flags) -> Kind.ENUM_ENTRY
 		Flag.Class.IS_INTERFACE(flags) -> Kind.INTERFACE
 		Flag.Class.IS_OBJECT(flags) -> Kind.OBJECT
-		else -> throw MetadataException("Class '$name' has an unsupported class kind (flags: $flags)")
+		else -> throw MetaException("Class '$name' has an unsupported class kind (flags: $flags)")
 	}
 
 	val modality = MModality.forFlags(flags)
 
 	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Class '$name' has an unsupported visibility (flags: $flags)")
 
 
 	override fun equals(other: Any?): Boolean {
@@ -161,6 +160,10 @@ class MClass internal constructor(
 }
 
 
+val MClass.primaryConstructor
+	get() = constructors.firstOrNull { it.isPrimary }
+
+
 class MFileFacade internal constructor(
 	val functions: List<MFunction>,
 	val localDelegatedProperties: List<MProperty>,
@@ -228,7 +231,7 @@ class MLambda internal constructor(
 
 
 class MMultiFileClassFacade internal constructor(
-	val partClassNames: List<MTypeName>
+	val partClassNames: List<MQualifiedTypeName>
 ) : MType() {
 
 	override fun equals(other: Any?): Boolean {
@@ -255,7 +258,7 @@ class MMultiFileClassFacade internal constructor(
 
 
 class MMultiFileClassPart internal constructor(
-	val facadeClassName: MTypeName,
+	val facadeClassName: MQualifiedTypeName,
 	val fileFacade: MFileFacade
 ) : MType() {
 

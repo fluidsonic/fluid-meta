@@ -19,7 +19,6 @@ class MTypeAlias internal constructor(
 		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Type alias '$name' has an unsupported visibility (flags: $flags)")
 
 
 	override fun equals(other: Any?): Boolean {

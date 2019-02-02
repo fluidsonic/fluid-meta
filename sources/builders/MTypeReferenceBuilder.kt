@@ -14,13 +14,14 @@ internal class MTypeReferenceBuilder(
 	private val flags: Flags
 ) : KmTypeVisitor() {
 
+	private var abbreviatedType: MTypeReferenceBuilder? = null
 	private var annotations: MutableList<MAnnotation>? = null
 	private var arguments: MutableList<TypeArgument>? = null
-	private var className: MTypeName? = null
+	private var className: MQualifiedTypeName? = null
 	private var flexibilityTypeUpperBound: FlexibilityTypeUpperBound? = null
 	private var isRaw = false
 	private var outerType: MTypeReferenceBuilder? = null
-	private var typeAliasName: MTypeName? = null
+	private var typeAliasName: MQualifiedTypeName? = null
 	private var typeParameterId: MTypeParameterId? = null
 
 
@@ -31,6 +32,7 @@ internal class MTypeReferenceBuilder(
 
 		return when {
 			className != null -> MClassReference(
+				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
 				flags = flags,
@@ -40,6 +42,7 @@ internal class MTypeReferenceBuilder(
 				outerType = outerType?.build()
 			)
 			typeAliasName != null -> MTypeAliasReference(
+				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
 				flags = flags,
@@ -55,9 +58,14 @@ internal class MTypeReferenceBuilder(
 				id = typeParameterId,
 				isRaw = isRaw
 			)
-			else -> throw MetadataException("Type not supported")
+			else -> throw MetaException("Type not supported")
 		}
 	}
+
+
+	override fun visitAbbreviatedType(flags: Flags) =
+		MTypeReferenceBuilder(flags = flags)
+			.also { abbreviatedType = it }
 
 
 	override fun visitArgument(flags: Flags, variance: KmVariance) =
@@ -69,7 +77,7 @@ internal class MTypeReferenceBuilder(
 
 
 	override fun visitClass(name: ClassName) {
-		className = MTypeName(name)
+		className = MQualifiedTypeName.fromKotlinInternal(name)
 	}
 
 
@@ -83,10 +91,7 @@ internal class MTypeReferenceBuilder(
 
 
 				override fun visitAnnotation(annotation: KmAnnotation) {
-					MAnnotation(
-						className = MTypeName(annotation.className),
-						arguments = annotation.arguments.mapKeys { MTypeParameterName(it.key) }
-					).let {
+					MAnnotation(annotation).let {
 						annotations?.apply { add(it) }
 							?: { annotations = mutableListOf(it) }()
 					}
@@ -115,16 +120,13 @@ internal class MTypeReferenceBuilder(
 
 
 	override fun visitTypeAlias(name: ClassName) {
-		typeAliasName = MTypeName(name)
+		typeAliasName = MQualifiedTypeName.fromKotlinInternal(name)
 	}
 
 
 	override fun visitTypeParameter(id: Int) {
 		typeParameterId = MTypeParameterId(id)
 	}
-
-
-	override fun visitAbbreviatedType(flags: Flags) = TODO()
 
 
 	private data class FlexibilityTypeUpperBound(

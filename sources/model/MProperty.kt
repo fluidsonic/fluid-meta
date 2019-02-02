@@ -2,18 +2,16 @@ package com.github.fluidsonic.fluid.meta
 
 import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
-import kotlinx.metadata.jvm.JvmFieldSignature
-import kotlinx.metadata.jvm.JvmMethodSignature
 import java.util.Objects
 
 
 class MProperty internal constructor(
 	private val flags: Flags,
 	private val getterFlags: Flags,
-	val jvmFieldSignature: JvmFieldSignature?,
-	val jvmGetterSignature: JvmMethodSignature?,
-	val jvmSetterSignature: JvmMethodSignature?,
-	val jvmSyntheticMethodForAnnotationsSignature: JvmMethodSignature?,
+	val jvmFieldSignature: MJvmMemberSignature.Field?,
+	val jvmGetterSignature: MJvmMemberSignature.Method?,
+	val jvmSetterSignature: MJvmMemberSignature.Method?,
+	val jvmSyntheticMethodForAnnotationsSignature: MJvmMemberSignature.Method?,
 	val name: MVariableName,
 	val receiverParameter: MTypeReference?,
 	val returnType: MTypeReference,
@@ -67,7 +65,7 @@ class MProperty internal constructor(
 		Flag.Property.IS_FAKE_OVERRIDE(flags) -> Kind.FAKE_OVERRIDE
 		Flag.Property.IS_DELEGATION(flags) -> Kind.DECLARATION
 		Flag.Property.IS_SYNTHESIZED(flags) -> Kind.SYNTHESIZED
-		else -> throw MetadataException("Property '$name' has an unsupported kind (flags: $flags)")
+		else -> throw MetaException("Property '$name' has an unsupported kind (flags: $flags)")
 	}
 
 	val modality = MModality.forFlags(flags)
@@ -82,7 +80,6 @@ class MProperty internal constructor(
 		get() = Flag.PropertyAccessor.IS_NOT_DEFAULT(setterFlags)
 
 	val visibility = MVisibility.forFlags(flags)
-		?: throw MetadataException("Property '$name' has an unsupported visibility (flags: $flags)")
 
 
 	override fun equals(other: Any?): Boolean {

@@ -1,10 +1,35 @@
 package com.github.fluidsonic.fluid.meta
 
 
-inline class MPackageName(val raw: String) {
+@Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")
+inline class MPackageName private constructor(val kotlinInternal: String) {
 
-	override fun toString() = raw
+	override fun toString() = kotlin
 
 
-	companion object
+	companion object {
+
+		fun fromKotlin(kotlin: String) =
+			MPackageName(kotlinInternal = kotlin.replace('.', '/'))
+
+
+		fun fromJvmInternal(jvmInternal: String) =
+			MPackageName(kotlinInternal = jvmInternal)
+
+
+		fun fromKotlinInternal(kotlinInternal: String) =
+			MPackageName(kotlinInternal = kotlinInternal)
+	}
 }
+
+
+val MPackageName.jvmInternal
+	get() = kotlinInternal
+
+
+val MPackageName.kotlin
+	get() = kotlinInternal.replace('/', '.')
+
+
+val MPackageName.isRoot
+	get() = kotlinInternal.isEmpty()

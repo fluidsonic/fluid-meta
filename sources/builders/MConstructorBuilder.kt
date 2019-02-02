@@ -12,7 +12,7 @@ internal class MConstructorBuilder(
 	private val flags: Flags
 ) : KmConstructorVisitor() {
 
-	private var jvmSignature: JvmMethodSignature? = null
+	private var jvmSignature: MJvmMemberSignature.Method? = null
 	private var valueParameters: MutableList<MValueParameterBuilder>? = null
 	private var versionRequirement: MVersionRequirementBuilder? = null
 
@@ -30,7 +30,7 @@ internal class MConstructorBuilder(
 			object : JvmConstructorExtensionVisitor() {
 
 				override fun visit(desc: JvmMethodSignature?) {
-					jvmSignature = desc
+					jvmSignature = desc?.let(::MJvmMemberSignature)
 				}
 			}
 		}

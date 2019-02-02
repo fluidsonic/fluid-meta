@@ -30,7 +30,7 @@ enum class MModality {
 				Flag.IS_FINAL(flags) -> FINAL
 				Flag.IS_OPEN(flags) -> OPEN
 				Flag.IS_SEALED(flags) -> SEALED
-				else -> null
+				else -> throw MetaException("unknown modality flag in ${flags.toString(16)}")
 			}
 	}
 }

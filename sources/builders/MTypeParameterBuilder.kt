@@ -34,10 +34,7 @@ internal class MTypeParameterBuilder(
 			object : JvmTypeParameterExtensionVisitor() {
 
 				override fun visitAnnotation(annotation: KmAnnotation) {
-					MAnnotation(
-						className = MTypeName(annotation.className),
-						arguments = annotation.arguments.mapKeys { MTypeParameterName(it.key) }
-					).let {
+					MAnnotation(annotation).let {
 						annotations?.apply { add(it) }
 							?: { annotations = mutableListOf(it) }()
 					}

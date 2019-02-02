@@ -19,13 +19,22 @@ sealed class MTypeReference {
 }
 
 
+val MTypeReference.name
+	get() = when (this) {
+		is MClassReference -> name
+		is MTypeAliasReference -> name
+		is MTypeParameterReference -> null
+	}
+
+
 class MClassReference internal constructor(
+	val abbreviatedType: MTypeReference?,
 	override val annotations: List<MAnnotation>,
 	override val arguments: List<MTypeArgument>,
 	private val flags: Flags,
 	override val flexibilityTypeUpperBound: MFlexibilityTypeUpperBound?,
 	override val isRaw: Boolean,
-	val name: MTypeName,
+	val name: MQualifiedTypeName,
 	val outerType: MTypeReference?
 ) : MTypeReference() {
 
@@ -43,7 +52,8 @@ class MClassReference internal constructor(
 		if (other === this) return true
 		if (other !is MClassReference) return false
 
-		return annotations == other.annotations &&
+		return abbreviatedType == other.abbreviatedType &&
+			annotations == other.annotations &&
 			arguments == other.arguments &&
 			flags == other.flags &&
 			flexibilityTypeUpperBound == other.flexibilityTypeUpperBound &&
@@ -55,6 +65,7 @@ class MClassReference internal constructor(
 
 	override fun hashCode() =
 		Objects.hash(
+			abbreviatedType,
 			annotations,
 			arguments,
 			flags,
@@ -66,6 +77,7 @@ class MClassReference internal constructor(
 
 
 	override fun toString() = typeToString(
+		"abbreviatedType" to abbreviatedType,
 		"name" to name,
 		"annotations" to annotations,
 		"arguments" to arguments,
@@ -82,12 +94,13 @@ class MClassReference internal constructor(
 
 
 class MTypeAliasReference internal constructor(
+	val abbreviatedType: MTypeReference?,
 	override val annotations: List<MAnnotation>,
 	override val arguments: List<MTypeArgument>,
 	private val flags: Flags,
 	override val flexibilityTypeUpperBound: MFlexibilityTypeUpperBound?,
 	override val isRaw: Boolean,
-	val name: MTypeName
+	val name: MQualifiedTypeName
 ) : MTypeReference() {
 
 	override val hasAnnotations
@@ -101,7 +114,8 @@ class MTypeAliasReference internal constructor(
 		if (other === this) return true
 		if (other !is MTypeAliasReference) return false
 
-		return annotations == other.annotations &&
+		return abbreviatedType == other.abbreviatedType &&
+			annotations == other.annotations &&
 			arguments == other.arguments &&
 			flags == other.flags &&
 			flexibilityTypeUpperBound == other.flexibilityTypeUpperBound &&
@@ -112,6 +126,7 @@ class MTypeAliasReference internal constructor(
 
 	override fun hashCode() =
 		Objects.hash(
+			abbreviatedType,
 			annotations,
 			arguments,
 			flags,
@@ -122,6 +137,7 @@ class MTypeAliasReference internal constructor(
 
 
 	override fun toString() = typeToString(
+		"abbreviatedType" to abbreviatedType,
 		"name" to name,
 		"annotations" to annotations,
 		"arguments" to arguments,

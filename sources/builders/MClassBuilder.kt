@@ -11,17 +11,17 @@ import kotlinx.metadata.jvm.JvmClassExtensionVisitor
 
 internal class MClassBuilder : KmClassVisitor() {
 
-	private var anonymousObjectOriginName: MTypeName? = null
-	private var companion: MTypeName? = null
+	private var anonymousObjectOriginName: MQualifiedTypeName? = null
+	private var companion: MQualifiedTypeName? = null
 	private var constructors: MutableList<MConstructorBuilder>? = null
 	private var enumEntries: MutableList<MEnumEntry>? = null
 	private var flags: Flags = 0
 	private var functions: MutableList<MFunctionBuilder>? = null
 	private var localDelegatedProperties: MutableList<MPropertyBuilder>? = null
-	private var name: MTypeName? = null
-	private var nestedClasses: MutableList<MTypeName>? = null
+	private var name: MQualifiedTypeName? = null
+	private var nestedClasses: MutableList<MQualifiedTypeName>? = null
 	private var properties: MutableList<MPropertyBuilder>? = null
-	private var sealedSubclasses: MutableList<MTypeName>? = null
+	private var sealedSubclasses: MutableList<MQualifiedTypeName>? = null
 	private var supertype: MTypeReferenceBuilder? = null
 	private var typeAliases: MutableList<MTypeAliasBuilder>? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
@@ -49,12 +49,12 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	override fun visit(flags: Flags, name: ClassName) {
 		this.flags = flags
-		this.name = MTypeName(name)
+		this.name = MQualifiedTypeName.fromKotlinInternal(name)
 	}
 
 
 	override fun visitCompanionObject(name: ClassName) {
-		companion = MTypeName(name)
+		companion = MQualifiedTypeName.fromKotlinInternal(name)
 	}
 
 
@@ -74,8 +74,8 @@ internal class MClassBuilder : KmClassVisitor() {
 		(type == JvmClassExtensionVisitor.TYPE).thenTake {
 			object : JvmClassExtensionVisitor() {
 
-				override fun visitAnonymousObjectOriginName(internalName: String) {
-					anonymousObjectOriginName = MTypeName(internalName)
+				override fun visitAnonymousObjectOriginName(internalName: ClassName) {
+					anonymousObjectOriginName = MQualifiedTypeName.fromKotlinInternal(internalName)
 				}
 
 
@@ -97,7 +97,8 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitNestedClass(name: ClassName) {
-		nestedClasses?.apply { add(MTypeName(name)) } ?: { nestedClasses = mutableListOf(MTypeName(name)) }()
+		nestedClasses?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
+			?: { nestedClasses = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
 	}
 
 
@@ -109,7 +110,8 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitSealedSubclass(name: ClassName) {
-		sealedSubclasses?.apply { add(MTypeName(name)) } ?: { sealedSubclasses = mutableListOf(MTypeName(name)) }()
+		sealedSubclasses?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
+			?: { sealedSubclasses = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
 	}
 
 

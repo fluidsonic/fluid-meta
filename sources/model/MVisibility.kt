@@ -36,7 +36,7 @@ enum class MVisibility {
 				Flag.IS_PRIVATE_TO_THIS(flags) -> PRIVATE_TO_THIS
 				Flag.IS_PROTECTED(flags) -> PROTECTED
 				Flag.IS_PUBLIC(flags) -> PUBLIC
-				else -> null
+				else -> throw MetaException("unknown visibility flag in ${flags.toString(16)}")
 			}
 	}
 }
