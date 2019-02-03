@@ -66,7 +66,6 @@ MClass(
 	companion: null
 	constructors: [
 		MConstructor(
-			hasAnnotations: false
 			isPrimary: false
 			jvmSignature: <init>()V
 			modality: open
@@ -75,7 +74,6 @@ MClass(
 			versionRequirement: null
 		)
 		MConstructor(
-			hasAnnotations: false
 			isPrimary: true
 			jvmSignature: <init>(Ljava/lang/String;I)V
 			modality: final
@@ -83,7 +81,6 @@ MClass(
 				MValueParameter(
 					name: world
 					declaresDefaultValue: true
-					hasAnnotations: false
 					isCrossinline: false
 					isNoinline: false
 					isVariadic: false
@@ -93,7 +90,6 @@ MClass(
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
-						hasAnnotations: false
 						isNullable: false
 						isRaw: false
 						isSuspend: false
@@ -103,7 +99,6 @@ MClass(
 				MValueParameter(
 					name: foo
 					declaresDefaultValue: false
-					hasAnnotations: false
 					isCrossinline: false
 					isNoinline: false
 					isVariadic: false
@@ -113,7 +108,6 @@ MClass(
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
-						hasAnnotations: false
 						isNullable: false
 						isRaw: false
 						isSuspend: false
@@ -126,12 +120,10 @@ MClass(
 		)
 	]
 	enumEntries: []
-	hasAnnotations: false
 	functions: [
 		MFunction(
 			name: component1
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -150,7 +142,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -164,7 +155,6 @@ MClass(
 		MFunction(
 			name: component2
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -183,7 +173,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -197,7 +186,6 @@ MClass(
 		MFunction(
 			name: copy
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -216,7 +204,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -227,7 +214,6 @@ MClass(
 				MValueParameter(
 					name: world
 					declaresDefaultValue: true
-					hasAnnotations: false
 					isCrossinline: false
 					isNoinline: false
 					isVariadic: false
@@ -237,7 +223,6 @@ MClass(
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
-						hasAnnotations: false
 						isNullable: false
 						isRaw: false
 						isSuspend: false
@@ -247,7 +232,6 @@ MClass(
 				MValueParameter(
 					name: foo
 					declaresDefaultValue: true
-					hasAnnotations: false
 					isCrossinline: false
 					isNoinline: false
 					isVariadic: false
@@ -257,7 +241,6 @@ MClass(
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
-						hasAnnotations: false
 						isNullable: false
 						isRaw: false
 						isSuspend: false
@@ -271,7 +254,6 @@ MClass(
 		MFunction(
 			name: equals
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -290,7 +272,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -301,7 +282,6 @@ MClass(
 				MValueParameter(
 					name: other
 					declaresDefaultValue: false
-					hasAnnotations: false
 					isCrossinline: false
 					isNoinline: false
 					isVariadic: false
@@ -311,7 +291,6 @@ MClass(
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
-						hasAnnotations: true
 						isNullable: true
 						isRaw: false
 						isSuspend: false
@@ -325,7 +304,6 @@ MClass(
 		MFunction(
 			name: hashCode
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -344,7 +322,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -358,7 +335,6 @@ MClass(
 		MFunction(
 			name: hey
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -377,7 +353,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -391,7 +366,6 @@ MClass(
 		MFunction(
 			name: toString
 			contract: null
-			hasAnnotations: false
 			isExpect: false
 			isExternal: false
 			isInfix: false
@@ -410,7 +384,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -436,7 +409,6 @@ MClass(
 			getterIsExternal: false
 			getterIsInline: false
 			getterIsNotDefault: false
-			hasAnnotations: false
 			hasConstant: false
 			hasGetter: true
 			hasSetter: false
@@ -459,7 +431,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -478,7 +449,6 @@ MClass(
 			getterIsExternal: false
 			getterIsInline: false
 			getterIsNotDefault: false
-			hasAnnotations: false
 			hasConstant: false
 			hasGetter: true
 			hasSetter: false
@@ -501,7 +471,6 @@ MClass(
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
-				hasAnnotations: false
 				isNullable: false
 				isRaw: false
 				isSuspend: false
@@ -523,7 +492,6 @@ MClass(
 		annotations: []
 		arguments: []
 		flexibilityTypeUpperBound: null
-		hasAnnotations: false
 		isNullable: false
 		isRaw: false
 		isSuspend: false

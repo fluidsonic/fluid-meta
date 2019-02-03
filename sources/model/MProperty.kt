@@ -30,9 +30,6 @@ class MProperty internal constructor(
 	val getterIsNotDefault
 		get() = Flag.PropertyAccessor.IS_NOT_DEFAULT(getterFlags)
 
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
-
 	val hasConstant
 		get() = Flag.Property.HAS_CONSTANT(flags)
 
@@ -125,7 +122,6 @@ class MProperty internal constructor(
 		"getterIsExternal" to getterIsExternal,
 		"getterIsInline" to getterIsInline,
 		"getterIsNotDefault" to getterIsNotDefault,
-		"hasAnnotations" to hasAnnotations,
 		"hasConstant" to hasConstant,
 		"hasGetter" to hasGetter,
 		"hasSetter" to hasSetter,

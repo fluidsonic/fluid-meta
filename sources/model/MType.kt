@@ -20,14 +20,11 @@ class MClass internal constructor(
 	val nestedClasses: List<MQualifiedTypeName>,
 	val properties: List<MProperty>,
 	val sealedSubclasses: List<MQualifiedTypeName>,
-	val supertype: MTypeReference?,
+	val supertypes: List<MTypeReference>,
 	val typeAliases: List<MTypeAlias>,
 	val typeParameters: List<MTypeParameter>,
 	val versionRequirement: MVersionRequirement?
 ) : MType() {
-
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	val isExpect
 		get() = Flag.Class.IS_EXPECT(flags)
@@ -73,7 +70,7 @@ class MClass internal constructor(
 			nestedClasses == other.nestedClasses &&
 			properties == other.properties &&
 			sealedSubclasses == other.sealedSubclasses &&
-			supertype == other.supertype &&
+			supertypes == other.supertypes &&
 			typeAliases == other.typeAliases &&
 			typeParameters == other.typeParameters &&
 			versionRequirement == other.versionRequirement
@@ -93,7 +90,7 @@ class MClass internal constructor(
 			nestedClasses,
 			properties,
 			sealedSubclasses,
-			supertype,
+			supertypes,
 			typeAliases,
 			typeParameters,
 			versionRequirement
@@ -106,7 +103,6 @@ class MClass internal constructor(
 		"companion" to companion,
 		"constructors" to constructors,
 		"enumEntries" to enumEntries,
-		"hasAnnotations" to hasAnnotations,
 		"functions" to functions,
 		"isExpect" to isExpect,
 		"isExternal" to isExternal,
@@ -118,7 +114,7 @@ class MClass internal constructor(
 		"nestedClasses" to nestedClasses,
 		"properties" to properties,
 		"sealedSubclasses" to sealedSubclasses,
-		"supertype" to supertype,
+		"supertypes" to supertypes,
 		"typeAliases" to typeAliases,
 		"typeParameters" to typeParameters,
 		"visibility" to visibility,

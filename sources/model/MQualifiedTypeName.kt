@@ -1,5 +1,9 @@
 package com.github.fluidsonic.fluid.meta
 
+import javax.lang.model.element.Element
+import javax.lang.model.element.PackageElement
+import kotlin.reflect.KClass
+
 
 @Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")
 inline class MQualifiedTypeName private constructor(val kotlinInternal: String) {
@@ -16,6 +20,43 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 
 
 	companion object {
+
+		fun from(kotlinClass: KClass<*>) = when (kotlinClass) {
+			Any::class ->
+				MQualifiedTypeName("kotlin/Any")
+
+			else -> {
+				// TODO we have to handle primitives, arrays, etc.
+				val qualifiedJavaName = kotlinClass.java.name
+				val packageName = qualifiedJavaName.substringBeforeLast('.', missingDelimiterValue = "").replace('.', '/')
+				val typeName = qualifiedJavaName.substringAfterLast('.')
+
+				fromJvmInternal("$packageName/$typeName")
+			}
+		}
+
+
+		fun from(element: Element): MQualifiedTypeName {
+			var packageName = ""
+			val components = mutableListOf<String>()
+			components += element.simpleName.toString()
+
+			var enclosingElement: Element? = element.enclosingElement
+			while (enclosingElement != null) {
+				if (enclosingElement is PackageElement)
+					packageName = enclosingElement.qualifiedName.toString().replace('.', '/')
+				else
+					components += enclosingElement.simpleName.toString()
+
+				enclosingElement = enclosingElement.enclosingElement
+			}
+			components.reverse()
+
+			val typeName = components.joinToString(separator = "$")
+
+			return fromJvmInternal("$packageName/$typeName")
+		}
+
 
 		fun fromKotlin(packageName: String, typeName: String) =
 			MQualifiedTypeName(

@@ -14,9 +14,6 @@ class MTypeParameter internal constructor(
 	val variance: MVariance
 ) {
 
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
-
 	val isReified
 		get() = Flag.TypeParameter.IS_REIFIED(flags)
 
@@ -48,7 +45,6 @@ class MTypeParameter internal constructor(
 	override fun toString() = typeToString(
 		"name" to name,
 		"annotations" to annotations,
-		"hasAnnotations" to hasAnnotations,
 		"id" to id,
 		"isReified" to isReified,
 		"upperBounds" to upperBounds,

@@ -12,9 +12,6 @@ class MConstructor internal constructor(
 	val versionRequirement: MVersionRequirement?
 ) {
 
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
-
 	val isPrimary
 		get() = Flag.Constructor.IS_PRIMARY(flags)
 
@@ -44,7 +41,6 @@ class MConstructor internal constructor(
 
 
 	override fun toString() = typeToString(
-		"hasAnnotations" to hasAnnotations,
 		"isPrimary" to isPrimary,
 		"jvmSignature" to jvmSignature,
 		"modality" to modality,

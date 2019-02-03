@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import java.util.Objects
 
@@ -14,9 +13,6 @@ class MTypeAlias internal constructor(
 	val underlyingType: MTypeReference,
 	val versionRequirement: MVersionRequirement?
 ) {
-
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	val visibility = MVisibility.forFlags(flags)
 
@@ -51,7 +47,6 @@ class MTypeAlias internal constructor(
 		"name" to name,
 		"annotations" to annotations,
 		"expandedType" to expandedType,
-		"hasAnnotations" to hasAnnotations,
 		"typeParameters" to typeParameters,
 		"underlyingType" to underlyingType,
 		"visibility" to visibility,

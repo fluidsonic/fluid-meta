@@ -22,7 +22,7 @@ internal class MClassBuilder : KmClassVisitor() {
 	private var nestedClasses: MutableList<MQualifiedTypeName>? = null
 	private var properties: MutableList<MPropertyBuilder>? = null
 	private var sealedSubclasses: MutableList<MQualifiedTypeName>? = null
-	private var supertype: MTypeReferenceBuilder? = null
+	private var supertypes: MutableList<MTypeReferenceBuilder>? = null
 	private var typeAliases: MutableList<MTypeAliasBuilder>? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
 	private var versionRequirement: MVersionRequirementBuilder? = null
@@ -40,7 +40,7 @@ internal class MClassBuilder : KmClassVisitor() {
 		nestedClasses = nestedClasses.toListOrEmpty(),
 		properties = properties.mapOrEmpty { it.build() },
 		sealedSubclasses = sealedSubclasses.toListOrEmpty(),
-		supertype = supertype?.build(),
+		supertypes = supertypes.mapOrEmpty { it.build() },
 		typeAliases = typeAliases.mapOrEmpty { it.build() },
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
 		versionRequirement = versionRequirement?.build()
@@ -117,7 +117,9 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	override fun visitSupertype(flags: Flags) =
 		MTypeReferenceBuilder(flags = flags)
-			.also { supertype = it }
+			.also {
+				supertypes?.apply { add(it) } ?: { supertypes = mutableListOf(it) }()
+			}
 
 
 	override fun visitTypeAlias(flags: Flags, name: String) =

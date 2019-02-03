@@ -18,9 +18,6 @@ class MFunction internal constructor(
 	val versionRequirement: MVersionRequirement?
 ) {
 
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
-
 	val isExpect
 		get() = Flag.Function.IS_EXPECT(flags)
 
@@ -90,7 +87,6 @@ class MFunction internal constructor(
 	override fun toString() = typeToString(
 		"name" to name,
 		"contract" to contract,
-		"hasAnnotations" to hasAnnotations,
 		"isExpect" to isExpect,
 		"isExternal" to isExternal,
 		"isInfix" to isInfix,

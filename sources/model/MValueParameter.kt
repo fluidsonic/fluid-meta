@@ -15,9 +15,6 @@ class MValueParameter internal constructor(
 	val declaresDefaultValue
 		get() = Flag.ValueParameter.DECLARES_DEFAULT_VALUE(flags)
 
-	val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
-
 	val isCrossinline
 		get() = Flag.ValueParameter.IS_CROSSINLINE(flags)
 
@@ -48,7 +45,6 @@ class MValueParameter internal constructor(
 	override fun toString() = typeToString(
 		"name" to name,
 		"declaresDefaultValue" to declaresDefaultValue,
-		"hasAnnotations" to hasAnnotations,
 		"isCrossinline" to isCrossinline,
 		"isNoinline" to isNoinline,
 		"isVariadic" to isVariadic,

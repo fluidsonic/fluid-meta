@@ -10,7 +10,6 @@ sealed class MTypeReference {
 	abstract val annotations: List<MAnnotation>
 	abstract val arguments: List<MTypeArgument>
 	abstract val flexibilityTypeUpperBound: MFlexibilityTypeUpperBound?
-	abstract val hasAnnotations: Boolean
 	abstract val isNullable: Boolean
 	abstract val isRaw: Boolean
 
@@ -37,9 +36,6 @@ class MClassReference internal constructor(
 	val name: MQualifiedTypeName,
 	val outerType: MTypeReference?
 ) : MTypeReference() {
-
-	override val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	override val isNullable
 		get() = Flag.Type.IS_NULLABLE(flags)
@@ -82,7 +78,6 @@ class MClassReference internal constructor(
 		"annotations" to annotations,
 		"arguments" to arguments,
 		"flexibilityTypeUpperBound" to flexibilityTypeUpperBound,
-		"hasAnnotations" to hasAnnotations,
 		"isNullable" to isNullable,
 		"isRaw" to isRaw,
 		"isSuspend" to isSuspend,
@@ -102,9 +97,6 @@ class MTypeAliasReference internal constructor(
 	override val isRaw: Boolean,
 	val name: MQualifiedTypeName
 ) : MTypeReference() {
-
-	override val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	override val isNullable
 		get() = Flag.Type.IS_NULLABLE(flags)
@@ -142,7 +134,6 @@ class MTypeAliasReference internal constructor(
 		"annotations" to annotations,
 		"arguments" to arguments,
 		"flexibilityTypeUpperBound" to flexibilityTypeUpperBound,
-		"hasAnnotations" to hasAnnotations,
 		"isNullable" to isNullable,
 		"isRaw" to isRaw
 	)
@@ -160,9 +151,6 @@ class MTypeParameterReference internal constructor(
 	val id: MTypeParameterId,
 	override val isRaw: Boolean
 ) : MTypeReference() {
-
-	override val hasAnnotations
-		get() = Flag.HAS_ANNOTATIONS(flags)
 
 	override val isNullable
 		get() = Flag.Type.IS_NULLABLE(flags)
@@ -197,7 +185,6 @@ class MTypeParameterReference internal constructor(
 		"annotations" to annotations,
 		"arguments" to arguments,
 		"flexibilityTypeUpperBound" to flexibilityTypeUpperBound,
-		"hasAnnotations" to hasAnnotations,
 		"isNullable" to isNullable,
 		"isRaw" to isRaw
 	)
