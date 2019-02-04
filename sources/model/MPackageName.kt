@@ -9,6 +9,10 @@ inline class MPackageName private constructor(val kotlinInternal: String) {
 
 	companion object {
 
+		fun empty() =
+			MPackageName(kotlinInternal = "")
+
+
 		fun fromKotlin(kotlin: String) =
 			MPackageName(kotlinInternal = kotlin.replace('.', '/'))
 
@@ -21,6 +25,14 @@ inline class MPackageName private constructor(val kotlinInternal: String) {
 			MPackageName(kotlinInternal = kotlinInternal)
 	}
 }
+
+
+fun MPackageName.isEmpty() =
+	kotlinInternal.isEmpty()
+
+
+fun MPackageName.isNotEmpty() =
+	kotlinInternal.isNotEmpty()
 
 
 val MPackageName.jvmInternal
