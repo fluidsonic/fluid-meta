@@ -5,6 +5,12 @@ import java.util.Objects
 
 sealed class MTypeArgument {
 
+	object StarProjection : MTypeArgument() {
+
+		override fun toString() = "*"
+	}
+
+
 	class Type internal constructor(
 		val type: MTypeReference,
 		val variance: MVariance
@@ -33,11 +39,6 @@ sealed class MTypeArgument {
 
 
 		companion object
-	}
-
-	object StarProjection : MTypeArgument() {
-
-		override fun toString() = "*"
 	}
 
 
