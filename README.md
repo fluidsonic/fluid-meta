@@ -61,8 +61,8 @@ And you'll get this:
 
 ```text
 MClass(
-	anonymousObjectOriginName: null
 	name: hello.world.Hello
+	anonymousObjectOriginName: null
 	companion: null
 	constructors: [
 		MConstructor(
@@ -85,8 +85,8 @@ MClass(
 					isNoinline: false
 					isVariadic: false
 					type: MClassReference(
-						abbreviatedType: null
 						name: kotlin.String
+						abbreviatedType: null
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
@@ -103,8 +103,8 @@ MClass(
 					isNoinline: false
 					isVariadic: false
 					type: MClassReference(
-						abbreviatedType: null
 						name: kotlin.Int
+						abbreviatedType: null
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
@@ -119,7 +119,7 @@ MClass(
 			versionRequirement: null
 		)
 	]
-	enumEntries: []
+	enumEntryNames: []
 	functions: [
 		MFunction(
 			name: component1
@@ -137,8 +137,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.String
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -168,8 +168,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.Int
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -199,8 +199,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: hello.world.Hello
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -218,8 +218,8 @@ MClass(
 					isNoinline: false
 					isVariadic: false
 					type: MClassReference(
-						abbreviatedType: null
 						name: kotlin.String
+						abbreviatedType: null
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
@@ -236,8 +236,8 @@ MClass(
 					isNoinline: false
 					isVariadic: false
 					type: MClassReference(
-						abbreviatedType: null
 						name: kotlin.Int
+						abbreviatedType: null
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
@@ -267,8 +267,8 @@ MClass(
 			modality: open
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.Boolean
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -286,8 +286,8 @@ MClass(
 					isNoinline: false
 					isVariadic: false
 					type: MClassReference(
-						abbreviatedType: null
 						name: kotlin.Any
+						abbreviatedType: null
 						annotations: []
 						arguments: []
 						flexibilityTypeUpperBound: null
@@ -317,8 +317,8 @@ MClass(
 			modality: open
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.Int
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -348,8 +348,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.Unit
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -379,8 +379,8 @@ MClass(
 			modality: open
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.String
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -426,8 +426,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.Int
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -466,8 +466,8 @@ MClass(
 			modality: final
 			receiverParameter: null
 			returnType: MClassReference(
-				abbreviatedType: null
 				name: kotlin.String
+				abbreviatedType: null
 				annotations: []
 				arguments: []
 				flexibilityTypeUpperBound: null
@@ -486,17 +486,19 @@ MClass(
 		)
 	]
 	sealedSubclasses: []
-	supertype: MClassReference(
-		abbreviatedType: null
-		name: kotlin.Any
-		annotations: []
-		arguments: []
-		flexibilityTypeUpperBound: null
-		isNullable: false
-		isRaw: false
-		isSuspend: false
-		outerType: null
-	)
+	supertypes: [
+		MClassReference(
+			name: kotlin.Any
+			abbreviatedType: null
+			annotations: []
+			arguments: []
+			flexibilityTypeUpperBound: null
+			isNullable: false
+			isRaw: false
+			isSuspend: false
+			outerType: null
+		)
+	]
 	typeAliases: []
 	typeParameters: []
 	visibility: internal
