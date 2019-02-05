@@ -12,7 +12,7 @@ class MClass internal constructor(
 	val anonymousObjectOriginName: MQualifiedTypeName?,
 	val companion: MQualifiedTypeName?,
 	val constructors: List<MConstructor>,
-	val enumEntries: List<MEnumEntry>,
+	val enumEntryNames: List<MEnumEntryNamae>,
 	private val flags: Flags,
 	val functions: List<MFunction>,
 	val localDelegatedProperties: List<MProperty>,
@@ -62,7 +62,7 @@ class MClass internal constructor(
 		return anonymousObjectOriginName == other.anonymousObjectOriginName &&
 			companion == other.companion &&
 			constructors == other.constructors &&
-			enumEntries == other.enumEntries &&
+			enumEntryNames == other.enumEntryNames &&
 			flags == other.flags &&
 			functions == other.functions &&
 			localDelegatedProperties == other.localDelegatedProperties &&
@@ -82,7 +82,7 @@ class MClass internal constructor(
 			anonymousObjectOriginName,
 			companion,
 			constructors,
-			enumEntries,
+			enumEntryNames,
 			flags,
 			functions,
 			localDelegatedProperties,
@@ -102,7 +102,7 @@ class MClass internal constructor(
 		"name" to name,
 		"companion" to companion,
 		"constructors" to constructors,
-		"enumEntries" to enumEntries,
+		"enumEntryNames" to enumEntryNames,
 		"functions" to functions,
 		"isExpect" to isExpect,
 		"isExternal" to isExternal,

@@ -14,7 +14,7 @@ internal class MClassBuilder : KmClassVisitor() {
 	private var anonymousObjectOriginName: MQualifiedTypeName? = null
 	private var companion: MQualifiedTypeName? = null
 	private var constructors: MutableList<MConstructorBuilder>? = null
-	private var enumEntries: MutableList<MEnumEntry>? = null
+	private var enumEntryNames: MutableList<MEnumEntryNamae>? = null
 	private var flags: Flags = 0
 	private var functions: MutableList<MFunctionBuilder>? = null
 	private var localDelegatedProperties: MutableList<MPropertyBuilder>? = null
@@ -32,7 +32,7 @@ internal class MClassBuilder : KmClassVisitor() {
 		anonymousObjectOriginName = anonymousObjectOriginName,
 		companion = companion,
 		constructors = constructors.mapOrEmpty { it.build() },
-		enumEntries = enumEntries.toListOrEmpty(),
+		enumEntryNames = enumEntryNames.toListOrEmpty(),
 		flags = flags,
 		functions = functions.mapOrEmpty { it.build() },
 		name = name,
@@ -66,7 +66,8 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitEnumEntry(name: String) {
-		enumEntries?.apply { add(MEnumEntry(name)) } ?: { enumEntries = mutableListOf(MEnumEntry(name)) }()
+		enumEntryNames?.apply { add(MEnumEntryNamae(name)) }
+			?: { enumEntryNames = mutableListOf(MEnumEntryNamae(name)) }()
 	}
 
 
