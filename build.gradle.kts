@@ -19,7 +19,3 @@ dependencies {
 
 	implementation(kotlinx("metadata-jvm", "0.0.5"))
 }
-
-repositories {
-	bintray("fluidsonic/maven")
-}
