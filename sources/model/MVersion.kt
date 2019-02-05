@@ -8,9 +8,11 @@ data class MVersion(
 ) : Comparable<MVersion> {
 
 	init {
-		check(major >= 0) { "'major' must be positive" }
-		check(minor >= 0) { "'minor' must be positive" }
-		check(patch >= 0) { "'patch' must be positive" }
+		if (major != 256 || minor != 256 || patch != 256) {
+			check(major in 0 .. 255) { "'major' must be in range 0 .. 255" }
+			check(minor in 0 .. 255) { "'minor' must be in range 0 .. 255" }
+			check(patch in 0 .. 255) { "'patch' must be in range 0 .. 255" }
+		}
 	}
 
 
@@ -31,7 +33,11 @@ data class MVersion(
 
 
 	override fun toString() =
-		if (patch == 0) "$major.$minor" else "$major.$minor.$patch"
+		when {
+			patch == 0 -> "$major.$minor"
+			major == 256 && minor == 256 && patch == 256 -> "infinity"
+			else -> "$major.$minor.$patch"
+		}
 
 
 	companion object {

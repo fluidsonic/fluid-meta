@@ -42,16 +42,16 @@ class MEffect internal constructor(
 
 	enum class InvocationKind {
 
-		atLeastOnce,
-		atMostOnce,
-		exactlyOnce
+		AT_LEAST_ONCE,
+		AT_MOST_ONCE,
+		EXACTLY_ONCE
 	}
 
 
 	enum class Type {
 
-		calls,
-		returnsConstant,
-		returnsNotNull
+		CALLS,
+		RETURNS_CONSTANT,
+		RETURNS_NOT_NULL
 	}
 }

@@ -14,7 +14,14 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 	private var parameterIndex: MValueParameterIndex? = null
 
 
-	fun build() = MEffectExpression()
+	fun build(): MEffectExpression = MEffectExpression(
+		andArguments = andArguments.mapOrEmpty { it.build() },
+		constantValue = constantValue,
+		flags = flags,
+		instanceType = instanceType?.build(),
+		orArguments = orArguments.mapOrEmpty { it.build() },
+		parameterIndex = parameterIndex
+	)
 
 
 	override fun visit(flags: Flags, parameterIndex: Int?) {
@@ -24,10 +31,10 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 
 	override fun visitAndArgument() =
-		MEffectExpressionBuilder()
-			.also {
-				andArguments?.apply { add(it) } ?: { andArguments = mutableListOf(it) }()
-			}
+		MEffectExpressionBuilder().also {
+			andArguments?.apply { add(it) }
+				?: { andArguments = mutableListOf(it) }()
+		}
 
 
 	override fun visitConstantValue(value: Any?) {
@@ -41,8 +48,8 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 
 	override fun visitOrArgument() =
-		MEffectExpressionBuilder()
-			.also {
-				orArguments?.apply { add(it) } ?: { orArguments = mutableListOf(it) }()
-			}
+		MEffectExpressionBuilder().also {
+			orArguments?.apply { add(it) }
+				?: { orArguments = mutableListOf(it) }()
+		}
 }

@@ -14,8 +14,7 @@ inline class MTypeName private constructor(val kotlinInternal: String) {
 
 
 		fun fromJvmInternal(jvmInternal: String) =
-			MTypeName(kotlinInternal = jvmInternal.replace('$', '.')
-			)
+			MTypeName(kotlinInternal = jvmInternal.replace('$', '.'))
 
 
 		fun fromKotlinInternal(kotlinInternal: String) =

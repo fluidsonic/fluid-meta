@@ -12,7 +12,7 @@ class MClass internal constructor(
 	val anonymousObjectOriginName: MQualifiedTypeName?,
 	val companion: MQualifiedTypeName?,
 	val constructors: List<MConstructor>,
-	val enumEntryNames: List<MEnumEntryNamae>,
+	val enumEntryNames: List<MEnumEntryName>,
 	private val flags: Flags,
 	val functions: List<MFunction>,
 	val localDelegatedProperties: List<MProperty>,
@@ -98,8 +98,8 @@ class MClass internal constructor(
 
 
 	override fun toString() = typeToString(
-		"anonymousObjectOriginName" to anonymousObjectOriginName,
 		"name" to name,
+		"anonymousObjectOriginName" to anonymousObjectOriginName,
 		"companion" to companion,
 		"constructors" to constructors,
 		"enumEntryNames" to enumEntryNames,

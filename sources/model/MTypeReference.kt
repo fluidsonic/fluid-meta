@@ -73,8 +73,8 @@ class MClassReference internal constructor(
 
 
 	override fun toString() = typeToString(
-		"abbreviatedType" to abbreviatedType,
 		"name" to name,
+		"abbreviatedType" to abbreviatedType,
 		"annotations" to annotations,
 		"arguments" to arguments,
 		"flexibilityTypeUpperBound" to flexibilityTypeUpperBound,
@@ -129,8 +129,8 @@ class MTypeAliasReference internal constructor(
 
 
 	override fun toString() = typeToString(
-		"abbreviatedType" to abbreviatedType,
 		"name" to name,
+		"abbreviatedType" to abbreviatedType,
 		"annotations" to annotations,
 		"arguments" to arguments,
 		"flexibilityTypeUpperBound" to flexibilityTypeUpperBound,
