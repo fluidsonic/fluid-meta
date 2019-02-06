@@ -1,47 +1,23 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
 import java.util.Objects
 
 
-class MEffectExpression internal constructor(
+@Suppress("EqualsOrHashCode")
+data class MEffectExpression(
 	val andArguments: List<MEffectExpression>,
 	val constantValue: Any?,
-	private val flags: Flags,
 	val instanceType: MTypeReference?,
+	val isNegated: Boolean,
+	val isNullCheckPredicate: Boolean,
 	val orArguments: List<MEffectExpression>,
 	val parameterIndex: MValueParameterIndex?
 ) {
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MEffectExpression) return false
-
-		return andArguments == other.andArguments &&
-			constantValue == other.constantValue &&
-			flags == other.flags &&
-			instanceType == other.instanceType &&
-			orArguments == other.orArguments &&
-			parameterIndex == other.parameterIndex
-	}
-
-
-	val isNegated
-		get() = Flag.EffectExpression.IS_NEGATED(flags)
-
-
-	val isNullCheckPredicate
-		get() = Flag.EffectExpression.IS_NULL_CHECK_PREDICATE(flags)
-
-
 	override fun hashCode() =
 		Objects.hash(
-			andArguments,
 			constantValue,
-			flags,
 			instanceType,
-			orArguments,
 			parameterIndex
 		)
 

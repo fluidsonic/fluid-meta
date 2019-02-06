@@ -8,31 +8,30 @@ import kotlinx.metadata.KmVariance
 
 internal class MTypeAliasBuilder(
 	private val flags: Flags,
-	private val name: String
+	private val name: MQualifiedTypeName
 ) : KmTypeAliasVisitor() {
 
 	private var annotations: MutableList<MAnnotation>? = null
 	private var expandedType: MTypeReferenceBuilder? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
 	private var underlyingType: MTypeReferenceBuilder? = null
-	private var versionRequirement: MVersionRequirementBuilder? = null
+	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
 	fun build() = MTypeAlias(
 		annotations = annotations.toListOrEmpty(),
 		expandedType = expandedType?.build() ?: throw MetaException("Type alias '$name' has no expanded type"),
-		flags = flags,
 		name = name,
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
 		underlyingType = underlyingType?.build() ?: throw MetaException("Type alias '$name' has no underlying type"),
-		versionRequirement = versionRequirement?.build()
+		versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+		visibility = MVisibility.forFlags(flags)
 	)
 
 
 	override fun visitAnnotation(annotation: KmAnnotation) {
 		MAnnotation(annotation).let {
-			annotations?.apply { add(it) }
-				?: { annotations = mutableListOf(it) }()
+			annotations?.apply { add(it) } ?: { annotations = mutableListOf(it) }()
 		}
 	}
 
@@ -56,5 +55,7 @@ internal class MTypeAliasBuilder(
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
-			.also { versionRequirement = it }
+			.also {
+				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+			}
 }

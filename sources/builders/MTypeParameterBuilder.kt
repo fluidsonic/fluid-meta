@@ -1,6 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmAnnotation
 import kotlinx.metadata.KmExtensionType
@@ -21,8 +22,8 @@ internal class MTypeParameterBuilder(
 
 	fun build() = MTypeParameter(
 		annotations = annotations.toListOrEmpty(),
-		flags = flags,
 		id = id,
+		isReified = Flag.TypeParameter.IS_REIFIED(flags),
 		name = name,
 		upperBounds = upperBounds.mapOrEmpty { it.build() },
 		variance = variance
@@ -35,8 +36,7 @@ internal class MTypeParameterBuilder(
 
 				override fun visitAnnotation(annotation: KmAnnotation) {
 					MAnnotation(annotation).let {
-						annotations?.apply { add(it) }
-							?: { annotations = mutableListOf(it) }()
+						annotations?.apply { add(it) } ?: { annotations = mutableListOf(it) }()
 					}
 				}
 			}

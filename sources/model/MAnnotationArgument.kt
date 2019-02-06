@@ -42,6 +42,9 @@ sealed class MAnnotationArgument<out Value : Any> {
 	data class EnumValue(val className: MQualifiedTypeName, val entryName: String) : MAnnotationArgument<String>() {
 		override val value = "$className.$entryName"
 	}
+
+
+	companion object
 }
 
 

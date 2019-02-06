@@ -11,10 +11,13 @@ internal fun <T> Iterable<T>?.toListOrEmpty() =
 
 internal fun Any.typeToString(vararg properties: Pair<String, Any?>) =
 	buildString {
-		append(this@typeToString::class.java.simpleName ?: "(unnamed)")
+		if (this@typeToString is MIdentifyable)
+			append(localId)
+		else
+			append(this@typeToString::class.java.simpleName ?: "?")
 
 		if (properties.isNotEmpty()) {
-			append('(')
+			append(" {")
 
 			for ((property, value) in properties) {
 				append("\n\t")
@@ -44,7 +47,7 @@ internal fun Any.typeToString(vararg properties: Pair<String, Any?>) =
 				}
 			}
 
-			append("\n)")
+			append("\n}")
 		}
 	}
 

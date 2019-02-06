@@ -1,35 +1,23 @@
 package com.github.fluidsonic.fluid.meta
 
-import java.util.Objects
 
-
-class MPackage internal constructor(
-	val fileFacades: List<MQualifiedTypeName>,
+@Suppress("EqualsOrHashCode")
+data class MPackage(
+	override val fileFacadeTypes: List<MQualifiedTypeName>,
 	val multiFileClassParts: Map<MQualifiedTypeName, MQualifiedTypeName>,
 	val name: MPackageName
-) {
+) : MFileFacadeTypeContainer, MIdentifyable {
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MPackage) return false
-
-		return fileFacades == other.fileFacades &&
-			multiFileClassParts == other.multiFileClassParts &&
-			name == other.name
-	}
+	override val localId = MLocalId.Package(name = name)
 
 
 	override fun hashCode() =
-		Objects.hash(
-			fileFacades,
-			multiFileClassParts,
-			name
-		)
+		localId.hashCode()
 
 
 	override fun toString() = typeToString(
 		"name" to if (name.isRoot) "<root>" else name,
-		"fileFacades" to fileFacades,
+		"fileFacadeTypes" to fileFacadeTypes,
 		"multiFileClassParts" to multiFileClassParts
 	)
 

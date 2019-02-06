@@ -3,7 +3,6 @@ package com.github.fluidsonic.fluid.meta
 import kotlinx.metadata.KmVariance
 
 
-@Suppress("EnumEntryName")
 enum class MVariance {
 
 	INVARIANT,

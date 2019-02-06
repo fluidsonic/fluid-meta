@@ -1,6 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmExtensionType
 import kotlinx.metadata.KmPropertyVisitor
@@ -25,23 +26,43 @@ internal class MPropertyBuilder(
 	private var returnType: MTypeReferenceBuilder? = null
 	private var setterParameter: MValueParameterBuilder? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
-	private var versionRequirement: MVersionRequirementBuilder? = null
+	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
 	fun build() = MProperty(
-		flags = flags,
-		getterFlags = getterFlags,
+		getter = Flag.Property.HAS_GETTER(flags).thenTake {
+			MPropertyAccessor.Getter(
+				isDefault = !Flag.PropertyAccessor.IS_NOT_DEFAULT(getterFlags),
+				isExternal = Flag.PropertyAccessor.IS_EXTERNAL(getterFlags),
+				isInline = Flag.PropertyAccessor.IS_INLINE(getterFlags),
+				jvmSignature = jvmGetterSignature,
+				returnType = returnType?.build() ?: throw MetaException("property '$name' has a getter without return type")
+			)
+		} ?: throw MetaException("property '$name' has no getter"),
+		inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
+		isConst = Flag.Property.IS_CONST(flags),
+		isDelegated = Flag.Property.IS_DELEGATED(flags),
+		isExpect = Flag.Property.IS_EXPECT(flags),
+		isExternal = Flag.Property.IS_EXTERNAL(flags),
+		isLateinit = Flag.Property.IS_LATEINIT(flags),
+		isVar = Flag.Property.IS_VAR(flags),
 		jvmFieldSignature = jvmFieldSignature,
-		jvmGetterSignature = jvmGetterSignature,
-		jvmSetterSignature = jvmSetterSignature,
 		jvmSyntheticMethodForAnnotationsSignature = jvmSyntheticMethodForAnnotationsSignature,
 		name = name,
-		receiverParameter = receiverParameter?.build(),
-		returnType = returnType?.build() ?: throw MetaException("Property '$name' has no return type"),
-		setterFlags = setterFlags,
-		setterParameter = setterParameter?.build(),
+		receiverParameterType = receiverParameter?.build(),
+		setter = Flag.Property.HAS_SETTER(flags).thenTake {
+			MPropertyAccessor.Setter(
+				isDefault = !Flag.PropertyAccessor.IS_NOT_DEFAULT(getterFlags),
+				isExternal = Flag.PropertyAccessor.IS_EXTERNAL(getterFlags),
+				isInline = Flag.PropertyAccessor.IS_INLINE(getterFlags),
+				jvmSignature = jvmGetterSignature,
+				parameter = setterParameter?.build() ?: throw MetaException("property '$name' has a setter without parameter type")
+			)
+		},
+		source = MClassMemberSource.forFlags(flags),
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
-		versionRequirement = versionRequirement?.build()
+		versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+		visibility = MVisibility.forFlags(flags)
 	)
 
 
@@ -87,5 +108,7 @@ internal class MPropertyBuilder(
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
-			.also { versionRequirement = it }
+			.also {
+				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+			}
 }

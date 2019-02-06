@@ -1,6 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmConstructorVisitor
 import kotlinx.metadata.KmExtensionType
@@ -14,14 +15,15 @@ internal class MConstructorBuilder(
 
 	private var jvmSignature: MJvmMemberSignature.Method? = null
 	private var valueParameters: MutableList<MValueParameterBuilder>? = null
-	private var versionRequirement: MVersionRequirementBuilder? = null
+	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
 	fun build() = MConstructor(
-		flags = flags,
+		isPrimary = Flag.Constructor.IS_PRIMARY(flags),
 		jvmSignature = jvmSignature,
 		valueParameters = valueParameters.mapOrEmpty { it.build() },
-		versionRequirement = versionRequirement?.build()
+		versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+		visibility = MVisibility.forFlags(flags)
 	)
 
 
@@ -45,5 +47,7 @@ internal class MConstructorBuilder(
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
-			.also { versionRequirement = it }
+			.also {
+				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+			}
 }

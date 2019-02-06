@@ -1,92 +1,53 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
-import java.util.Objects
 
-
-class MFunction internal constructor(
+@Suppress("EqualsOrHashCode")
+data class MFunction(
 	val contract: MContract?,
-	private val flags: Flags,
-	val jvmSignature: MJvmMemberSignature.Method?,
+	override val inheritanceRestriction: MInheritanceRestriction,
+	override val isExpect: Boolean,
+	override val isExternal: Boolean,
+	val isInfix: Boolean,
+	override val isInline: Boolean,
+	val isOperator: Boolean,
+	val isSuspend: Boolean,
+	val isTailrec: Boolean,
+	override val jvmSignature: MJvmMemberSignature.Method?,
 	val lambdaClassOriginName: MQualifiedTypeName?,
 	val name: MFunctionName,
-	val receiverParameter: MTypeReference?,
+	override val receiverParameterType: MTypeReference?,
 	val returnType: MTypeReference,
-	val typeParameters: List<MTypeParameter>,
-	val valueParameters: List<MValueParameter>,
-	val versionRequirement: MVersionRequirement?
-) {
+	override val source: MClassMemberSource,
+	override val typeParameters: List<MTypeParameter>,
+	override val valueParameters: List<MValueParameter>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MClassMember,
+	MExecutable,
+	MExpectable,
+	MExternalizable,
+	MGeneralizable,
+	MIdentifyable,
+	MInlineable,
+	MInheritanceRestrictable,
+	MReceiverDeclarable,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
 
-	val isExpect
-		get() = Flag.Function.IS_EXPECT(flags)
-
-	val isExternal
-		get() = Flag.Function.IS_EXTERNAL(flags)
-
-	val isInfix
-		get() = Flag.Function.IS_INFIX(flags)
-
-	val isInline
-		get() = Flag.Function.IS_INLINE(flags)
-
-	val isOperator
-		get() = Flag.Function.IS_OPERATOR(flags)
-
-	val isSuspend
-		get() = Flag.Function.IS_SUSPEND(flags)
-
-	val isTailrec
-		get() = Flag.Function.IS_TAILREC(flags)
-
-	val kind = when {
-		Flag.Function.IS_DECLARATION(flags) -> Kind.DECLARATION
-		Flag.Function.IS_FAKE_OVERRIDE(flags) -> Kind.FAKE_OVERRIDE
-		Flag.Function.IS_DELEGATION(flags) -> Kind.DECLARATION
-		Flag.Function.IS_SYNTHESIZED(flags) -> Kind.SYNTHESIZED
-		else -> throw MetaException("Function '$name' has an unsupported kind (flags: $flags)")
-	}
-
-	val modality = MModality.forFlags(flags)
-
-	val visibility = MVisibility.forFlags(flags)
-
-
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MFunction) return false
-
-		return contract == other.contract &&
-			flags == other.flags &&
-			jvmSignature == other.jvmSignature &&
-			lambdaClassOriginName == other.lambdaClassOriginName &&
-			name == other.name &&
-			receiverParameter == other.receiverParameter &&
-			returnType == other.returnType &&
-			typeParameters == other.typeParameters &&
-			valueParameters == other.valueParameters &&
-			versionRequirement == other.versionRequirement
-	}
+	override val localId = MLocalId.Function(
+		name = name,
+		receiverParameterType = receiverParameterType,
+		valueParameterTypes = valueParameters.map { it.type }
+	)
 
 
 	override fun hashCode() =
-		Objects.hash(
-			contract,
-			flags,
-			jvmSignature,
-			lambdaClassOriginName,
-			name,
-			receiverParameter,
-			returnType,
-			typeParameters,
-			valueParameters,
-			versionRequirement
-		)
+		localId.hashCode()
 
 
 	override fun toString() = typeToString(
-		"name" to name,
 		"contract" to contract,
+		"inheritanceRestriction" to inheritanceRestriction,
 		"isExpect" to isExpect,
 		"isExternal" to isExternal,
 		"isInfix" to isInfix,
@@ -95,39 +56,17 @@ class MFunction internal constructor(
 		"isSuspend" to isSuspend,
 		"isTailrec" to isTailrec,
 		"jvmSignature" to jvmSignature,
-		"kind" to kind,
 		"lambdaClassOriginName" to lambdaClassOriginName,
-		"modality" to modality,
-		"receiverParameter" to receiverParameter,
+		"name" to name,
+		"receiverParameterType" to receiverParameterType,
 		"returnType" to returnType,
+		"source" to source,
 		"typeParameters" to typeParameters,
 		"valueParameters" to valueParameters,
-		"visibility" to visibility,
-		"versionRequirement" to versionRequirement
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
 	)
 
 
 	companion object
-
-
-	@Suppress("EnumEntryName")
-	enum class Kind {
-
-		DECLARATION,
-		DELEGATION,
-		FAKE_OVERRIDE,
-		SYNTHESIZED;
-
-
-		override fun toString() =
-			when (this) {
-				DECLARATION -> "declaration"
-				DELEGATION -> "delegation"
-				FAKE_OVERRIDE -> "fake override"
-				SYNTHESIZED -> "synthesized"
-			}
-
-
-		companion object
-	}
 }

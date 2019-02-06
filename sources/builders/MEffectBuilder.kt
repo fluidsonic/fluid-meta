@@ -14,7 +14,7 @@ internal class MEffectBuilder(
 
 	fun build() = MEffect(
 		conclusionOfConditionalEffect = conclusionOfConditionalEffect?.build(),
-		contructorArguments = contructorArguments.mapOrEmpty { it.build() },
+		constructorArguments = contructorArguments.mapOrEmpty { it.build() },
 		invocationKind = invocationKind,
 		type = type
 	)

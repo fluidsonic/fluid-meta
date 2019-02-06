@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmEffectExpressionVisitor
 
@@ -17,8 +18,9 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 	fun build(): MEffectExpression = MEffectExpression(
 		andArguments = andArguments.mapOrEmpty { it.build() },
 		constantValue = constantValue,
-		flags = flags,
 		instanceType = instanceType?.build(),
+		isNegated = Flag.EffectExpression.IS_NEGATED(flags),
+		isNullCheckPredicate = Flag.EffectExpression.IS_NULL_CHECK_PREDICATE(flags),
 		orArguments = orArguments.mapOrEmpty { it.build() },
 		parameterIndex = parameterIndex
 	)
@@ -32,8 +34,7 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 	override fun visitAndArgument() =
 		MEffectExpressionBuilder().also {
-			andArguments?.apply { add(it) }
-				?: { andArguments = mutableListOf(it) }()
+			andArguments?.apply { add(it) } ?: { andArguments = mutableListOf(it) }()
 		}
 
 
@@ -49,7 +50,6 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 	override fun visitOrArgument() =
 		MEffectExpressionBuilder().also {
-			orArguments?.apply { add(it) }
-				?: { orArguments = mutableListOf(it) }()
+			orArguments?.apply { add(it) } ?: { orArguments = mutableListOf(it) }()
 		}
 }

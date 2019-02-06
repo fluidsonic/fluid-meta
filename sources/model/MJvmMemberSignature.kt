@@ -13,6 +13,9 @@ sealed class MJvmMemberSignature {
 	abstract override fun toString(): String
 
 
+	companion object;
+
+
 	data class Field(
 		override val name: String,
 		override val typeEncoding: String

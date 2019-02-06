@@ -30,8 +30,7 @@ internal class MFileFacadeBuilder : KmPackageVisitor() {
 				override fun visitLocalDelegatedProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 					MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 						.also {
-							localDelegatedProperties?.apply { add(it) }
-								?: { localDelegatedProperties = mutableListOf(it) }()
+							localDelegatedProperties?.apply { add(it) } ?: { localDelegatedProperties = mutableListOf(it) }()
 						}
 			}
 		}
@@ -52,7 +51,7 @@ internal class MFileFacadeBuilder : KmPackageVisitor() {
 
 
 	override fun visitTypeAlias(flags: Flags, name: String) =
-		MTypeAliasBuilder(flags = flags, name = name)
+		MTypeAliasBuilder(flags = flags, name = MQualifiedTypeName.fromKotlinInternal(name))
 			.also {
 				typeAliases?.apply { add(it) } ?: { typeAliases = mutableListOf(it) }()
 			}

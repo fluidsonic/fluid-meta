@@ -4,13 +4,11 @@ import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 
 
-@Suppress("EnumEntryName")
-enum class MModality {
+enum class MInheritanceRestriction {
 
 	ABSTRACT,
 	FINAL,
-	OPEN,
-	SEALED;
+	OPEN;
 
 
 	override fun toString() =
@@ -18,7 +16,6 @@ enum class MModality {
 			ABSTRACT -> "abstract"
 			FINAL -> "final"
 			OPEN -> "open"
-			SEALED -> "sealed"
 		}
 
 
@@ -29,8 +26,8 @@ enum class MModality {
 				Flag.IS_ABSTRACT(flags) -> ABSTRACT
 				Flag.IS_FINAL(flags) -> FINAL
 				Flag.IS_OPEN(flags) -> OPEN
-				Flag.IS_SEALED(flags) -> SEALED
-				else -> throw MetaException("unknown modality flag in ${flags.toString(16)}")
+				Flag.IS_SEALED(flags) -> ABSTRACT
+				else -> throw MetaException("unknown inheritance restriction in flags ${flags.toString(16)}")
 			}
 	}
 }

@@ -1,154 +1,144 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
-import java.util.Objects
-
 
 sealed class MType
 
 
-class MClass internal constructor(
-	val anonymousObjectOriginName: MQualifiedTypeName?,
-	val companion: MQualifiedTypeName?,
-	val constructors: List<MConstructor>,
-	val enumEntryNames: List<MEnumEntryName>,
-	private val flags: Flags,
-	val functions: List<MFunction>,
-	val localDelegatedProperties: List<MProperty>,
-	val name: MQualifiedTypeName?,
-	val nestedClasses: List<MQualifiedTypeName>,
-	val properties: List<MProperty>,
-	val sealedSubclasses: List<MQualifiedTypeName>,
-	val supertypes: List<MTypeReference>,
-	val typeAliases: List<MTypeAlias>,
-	val typeParameters: List<MTypeParameter>,
-	val versionRequirement: MVersionRequirement?
-) : MType() {
+@Suppress("EqualsOrHashCode")
+data class MAnnotationClass(
+	override val companion: MQualifiedTypeName?,
+	val constructor: MConstructor,
+	override val isExpect: Boolean,
+	val name: MQualifiedTypeName,
+	override val properties: List<MProperty>,
+	override val types: List<MQualifiedTypeName>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MType(),
+	MCompanionable,
+	MConstructable,
+	MExpectable,
+	MIdentifyable,
+	MPropertyContainer,
+	MTypeContainer,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
 
-	val isExpect
-		get() = Flag.Class.IS_EXPECT(flags)
-
-	val isExternal
-		get() = Flag.Class.IS_EXTERNAL(flags)
-
-	val isInline
-		get() = Flag.Class.IS_INLINE(flags)
-
-	val isInner
-		get() = Flag.Class.IS_INNER(flags)
-
-	val kind = when {
-		Flag.Class.IS_DATA(flags) -> Kind.DATA_CLASS // special case of IS_CLASS, check first
-		Flag.Class.IS_ANNOTATION_CLASS(flags) -> Kind.ANNOTATION_CLASS
-		Flag.Class.IS_CLASS(flags) -> Kind.CLASS
-		Flag.Class.IS_COMPANION_OBJECT(flags) -> Kind.COMPANION_OBJECT
-		Flag.Class.IS_ENUM_CLASS(flags) -> Kind.ENUM_CLASS
-		Flag.Class.IS_ENUM_ENTRY(flags) -> Kind.ENUM_ENTRY
-		Flag.Class.IS_INTERFACE(flags) -> Kind.INTERFACE
-		Flag.Class.IS_OBJECT(flags) -> Kind.OBJECT
-		else -> throw MetaException("Class '$name' has an unsupported class kind (flags: $flags)")
-	}
-
-	val modality = MModality.forFlags(flags)
-
-	val visibility = MVisibility.forFlags(flags)
+	override val localId = MLocalId.Type(name = name.withoutPackage())
 
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MClass) return false
-
-		return anonymousObjectOriginName == other.anonymousObjectOriginName &&
-			companion == other.companion &&
-			constructors == other.constructors &&
-			enumEntryNames == other.enumEntryNames &&
-			flags == other.flags &&
-			functions == other.functions &&
-			localDelegatedProperties == other.localDelegatedProperties &&
-			name == other.name &&
-			nestedClasses == other.nestedClasses &&
-			properties == other.properties &&
-			sealedSubclasses == other.sealedSubclasses &&
-			supertypes == other.supertypes &&
-			typeAliases == other.typeAliases &&
-			typeParameters == other.typeParameters &&
-			versionRequirement == other.versionRequirement
-	}
+	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Annotation classes only have a single constructor")
+	override val constructors: List<MConstructor>
+		get() = listOf(constructor)
 
 
 	override fun hashCode() =
-		Objects.hash(
-			anonymousObjectOriginName,
-			companion,
-			constructors,
-			enumEntryNames,
-			flags,
-			functions,
-			localDelegatedProperties,
-			name,
-			nestedClasses,
-			properties,
-			sealedSubclasses,
-			supertypes,
-			typeAliases,
-			typeParameters,
-			versionRequirement
-		)
+		localId.hashCode()
 
 
 	override fun toString() = typeToString(
+		"companion" to companion,
+		"constructor" to constructor,
+		"isExpect" to isExpect,
 		"name" to name,
-		"anonymousObjectOriginName" to anonymousObjectOriginName,
+		"properties" to properties,
+		"types" to types,
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
+	)
+
+
+	companion object
+}
+
+
+@Suppress("EqualsOrHashCode")
+data class MClass(
+	override val companion: MQualifiedTypeName?,
+	override val constructors: List<MConstructor>,
+	override val functions: List<MFunction>,
+	override val inheritanceRestriction: MInheritanceRestriction,
+	override val isExpect: Boolean,
+	override val isExternal: Boolean,
+	override val isInline: Boolean,
+	val isInner: Boolean,
+	override val localDelegatedProperties: List<MProperty>,
+	val name: MQualifiedTypeName,
+	override val properties: List<MProperty>,
+	val specialization: Specialization?,
+	override val supertypes: List<MTypeReference>,
+	override val typeAliases: List<MTypeAlias>,
+	override val typeParameters: List<MTypeParameter>,
+	override val types: List<MQualifiedTypeName>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MType(),
+	MCompanionable,
+	MConstructable,
+	MExpectable,
+	MExternalizable,
+	MFunctionContainer,
+	MGeneralizable,
+	MIdentifyable,
+	MInheritanceRestrictable,
+	MInlineable,
+	MLocalDelegatedPropertyContainer,
+	MPropertyContainer,
+	MSupertypable,
+	MTypeAliasContainer,
+	MTypeContainer,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
+
+	override val localId = MLocalId.Type(name = name.withoutPackage())
+
+
+	override fun hashCode() =
+		localId.hashCode()
+
+
+	override fun toString() = typeToString(
 		"companion" to companion,
 		"constructors" to constructors,
-		"enumEntryNames" to enumEntryNames,
 		"functions" to functions,
+		"inheritanceRestriction" to inheritanceRestriction,
 		"isExpect" to isExpect,
 		"isExternal" to isExternal,
 		"isInline" to isInline,
 		"isInner" to isInner,
-		"kind" to kind,
 		"localDelegatedProperties" to localDelegatedProperties,
-		"modality" to modality,
-		"nestedClasses" to nestedClasses,
+		"name" to name,
 		"properties" to properties,
-		"sealedSubclasses" to sealedSubclasses,
+		"specialization" to specialization,
 		"supertypes" to supertypes,
 		"typeAliases" to typeAliases,
 		"typeParameters" to typeParameters,
-		"visibility" to visibility,
-		"versionRequirement" to versionRequirement
+		"types" to types,
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
 	)
 
 
 	companion object;
 
 
-	@Suppress("EnumEntryName")
-	enum class Kind {
-
-		ANNOTATION_CLASS,
-		COMPANION_OBJECT,
-		DATA_CLASS,
-		CLASS,
-		ENUM_CLASS,
-		ENUM_ENTRY,
-		INTERFACE,
-		OBJECT;
+	sealed class Specialization {
 
 
-		override fun toString() =
-			when (this) {
-				ANNOTATION_CLASS -> "annotation class"
-				COMPANION_OBJECT -> "companion object"
-				DATA_CLASS -> "data class"
-				CLASS -> "class"
-				ENUM_CLASS -> "enum class"
-				ENUM_ENTRY -> "enum entry"
-				INTERFACE -> "interface"
-				OBJECT -> "object"
-			}
+		object Data : Specialization() {
+
+			override fun toString() = "data"
+		}
+
+
+		data class Sealed(
+			val subclassTypes: List<MQualifiedTypeName>
+		) : Specialization() {
+
+			override fun toString() = typeToString(
+				"subclassTypes" to subclassTypes
+			)
+		}
 
 
 		companion object
@@ -156,36 +146,111 @@ class MClass internal constructor(
 }
 
 
-val MClass.primaryConstructor
-	get() = constructors.firstOrNull { it.isPrimary }
+@Suppress("EqualsOrHashCode")
+data class MEnumClass(
+	override val companion: MQualifiedTypeName?,
+	override val constructors: List<MConstructor>,
+	val entryNames: List<MEnumEntryName>,
+	override val functions: List<MFunction>,
+	override val isExpect: Boolean,
+	override val isExternal: Boolean,
+	override val localDelegatedProperties: List<MProperty>,
+	val name: MQualifiedTypeName,
+	override val properties: List<MProperty>,
+	override val supertypes: List<MTypeReference>,
+	override val typeAliases: List<MTypeAlias>,
+	override val types: List<MQualifiedTypeName>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MType(),
+	MCompanionable,
+	MConstructable,
+	MExpectable,
+	MExternalizable,
+	MFunctionContainer,
+	MIdentifyable,
+	MLocalDelegatedPropertyContainer,
+	MPropertyContainer,
+	MSupertypable,
+	MTypeAliasContainer,
+	MTypeContainer,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
 
-
-class MFileFacade internal constructor(
-	val functions: List<MFunction>,
-	val localDelegatedProperties: List<MProperty>,
-	val properties: List<MProperty>,
-	val typeAliases: List<MTypeAlias>
-) : MType() {
-
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MFileFacade) return false
-
-		return functions == other.functions &&
-			localDelegatedProperties == other.localDelegatedProperties &&
-			properties == other.properties &&
-			typeAliases == other.typeAliases
-	}
+	override val localId = MLocalId.Type(name = name.withoutPackage())
 
 
 	override fun hashCode() =
-		Objects.hash(
-			functions,
-			localDelegatedProperties,
-			properties,
-			typeAliases
-		)
+		localId.hashCode()
 
+
+	override fun toString() = typeToString(
+		"companion" to companion,
+		"constructors" to constructors,
+		"enumEntryNames" to entryNames,
+		"functions" to functions,
+		"isExpect" to isExpect,
+		"isExternal" to isExternal,
+		"localDelegatedProperties" to localDelegatedProperties,
+		"name" to name,
+		"nestedClasses" to types,
+		"properties" to properties,
+		"supertypes" to supertypes,
+		"typeAliases" to typeAliases,
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
+	)
+
+
+	companion object
+}
+
+
+@Suppress("EqualsOrHashCode")
+data class MEnumEntryClass(
+	override val functions: List<MFunction>,
+	val name: MQualifiedTypeName,
+	override val properties: List<MProperty>,
+	val supertype: MTypeReference,
+	override val versionRequirements: List<MVersionRequirement>
+) : MType(),
+	MFunctionContainer,
+	MPropertyContainer,
+	MSupertypable,
+	MVersionRestrictable {
+
+	override fun hashCode() =
+		name.hashCode()
+
+
+	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Enum entries only have a single supertype")
+	override val supertypes: List<MTypeReference>
+		get() = listOf(supertype)
+
+
+	override fun toString() = typeToString(
+		"functions" to functions,
+		"name" to name,
+		"properties" to properties,
+		"supertype" to supertype,
+		"versionRequirements" to versionRequirements
+	)
+
+
+	companion object
+}
+
+
+data class MFileFacade(
+	override val functions: List<MFunction>,
+	override val localDelegatedProperties: List<MProperty>,
+	override val properties: List<MProperty>,
+	override val typeAliases: List<MTypeAlias>
+) : MType(),
+	MFunctionContainer,
+	MLocalDelegatedPropertyContainer,
+	MPropertyContainer,
+	MTypeAliasContainer {
 
 	override fun toString() = typeToString(
 		"functions" to functions,
@@ -199,22 +264,72 @@ class MFileFacade internal constructor(
 }
 
 
-class MLambda internal constructor(
-	val function: MFunction
-) : MType() {
+@Suppress("EqualsOrHashCode")
+data class MInterface(
+	override val companion: MQualifiedTypeName?,
+	override val functions: List<MFunction>,
+	override val isExpect: Boolean,
+	override val isExternal: Boolean,
+	override val localDelegatedProperties: List<MProperty>,
+	val name: MQualifiedTypeName,
+	override val properties: List<MProperty>,
+	override val supertypes: List<MTypeReference>,
+	override val typeAliases: List<MTypeAlias>,
+	override val typeParameters: List<MTypeParameter>,
+	override val types: List<MQualifiedTypeName>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MType(),
+	MCompanionable,
+	MExpectable,
+	MExternalizable,
+	MFunctionContainer,
+	MGeneralizable,
+	MIdentifyable,
+	MLocalDelegatedPropertyContainer,
+	MPropertyContainer,
+	MSupertypable,
+	MTypeAliasContainer,
+	MTypeContainer,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MLambda) return false
-
-		return function == other.function
-	}
+	override val localId = MLocalId.Type(name = name.withoutPackage())
 
 
 	override fun hashCode() =
-		Objects.hash(
-			function
-		)
+		localId.hashCode()
+
+
+	override fun toString() = typeToString(
+		"companion" to companion,
+		"functions" to functions,
+		"isExpect" to isExpect,
+		"isExternal" to isExternal,
+		"localDelegatedProperties" to localDelegatedProperties,
+		"name" to name,
+		"properties" to properties,
+		"supertypes" to supertypes,
+		"typeAliases" to typeAliases,
+		"typeParameters" to typeParameters,
+		"types" to types,
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
+	)
+
+
+	companion object
+}
+
+
+data class MLambda(
+	val function: MFunction
+) : MType(),
+	MFunctionContainer {
+
+	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Lambdas only have a single function")
+	override val functions: List<MFunction>
+		get() = listOf(function)
 
 
 	override fun toString() = typeToString(
@@ -226,23 +341,9 @@ class MLambda internal constructor(
 }
 
 
-class MMultiFileClassFacade internal constructor(
+data class MMultiFileClassFacade(
 	val partClassNames: List<MQualifiedTypeName>
 ) : MType() {
-
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MMultiFileClassFacade) return false
-
-		return partClassNames == other.partClassNames
-	}
-
-
-	override fun hashCode() =
-		Objects.hash(
-			partClassNames
-		)
-
 
 	override fun toString() = typeToString(
 		"partClassNames" to partClassNames
@@ -253,31 +354,84 @@ class MMultiFileClassFacade internal constructor(
 }
 
 
-class MMultiFileClassPart internal constructor(
+data class MMultiFileClassPart(
 	val facadeClassName: MQualifiedTypeName,
 	val fileFacade: MFileFacade
 ) : MType() {
-
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MMultiFileClassPart) return false
-
-		return facadeClassName == other.facadeClassName &&
-			fileFacade == other.fileFacade
-	}
-
-
-	override fun hashCode() =
-		Objects.hash(
-			facadeClassName,
-			fileFacade
-		)
-
 
 	override fun toString() = typeToString(
 		"facadeClassName" to facadeClassName,
 		"fileFacade" to fileFacade
 	)
+
+
+	companion object
+}
+
+
+@Suppress("EqualsOrHashCode")
+data class MObject(
+	val constructor: MConstructor,
+	override val functions: List<MFunction>,
+	val isCompanion: Boolean,
+	override val isExpect: Boolean,
+	override val isExternal: Boolean,
+	override val localDelegatedProperties: List<MProperty>,
+	val name: MQualifiedTypeName,
+	val originName: MQualifiedTypeName?,
+	override val properties: List<MProperty>,
+	override val supertypes: List<MTypeReference>,
+	override val typeAliases: List<MTypeAlias>,
+	override val types: List<MQualifiedTypeName>,
+	override val versionRequirements: List<MVersionRequirement>,
+	override val visibility: MVisibility
+) : MType(),
+	MConstructable,
+	MExpectable,
+	MExternalizable,
+	MFunctionContainer,
+	MIdentifyable,
+	MLocalDelegatedPropertyContainer,
+	MPropertyContainer,
+	MSupertypable,
+	MTypeAliasContainer,
+	MTypeContainer,
+	MVersionRestrictable,
+	MVisibilityRestrictable {
+
+	override val localId = MLocalId.Type(name = name.withoutPackage())
+
+
+	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Objects only have a single constructor")
+	override val constructors: List<MConstructor>
+		get() = listOf(constructor)
+
+
+	override fun hashCode() =
+		localId.hashCode()
+
+
+	override fun toString() = typeToString(
+		"constructor" to constructor,
+		"functions" to functions,
+		"isCompanion" to isCompanion,
+		"isExpect" to isExpect,
+		"isExternal" to isExternal,
+		"localDelegatedProperties" to localDelegatedProperties,
+		"name" to name,
+		"originName" to originName,
+		"properties" to properties,
+		"supertypes" to supertypes,
+		"typeAliases" to typeAliases,
+		"types" to types,
+		"versionRequirements" to versionRequirements,
+		"visibility" to visibility
+	)
+
+
+	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Objects only have a single constructor")
+	val secondaryConstructors: List<MConstructor>
+		get() = listOf(constructor)
 
 
 	companion object

@@ -4,7 +4,6 @@ import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 
 
-@Suppress("EnumEntryName")
 enum class MVisibility {
 
 	INTERNAL,
@@ -36,7 +35,18 @@ enum class MVisibility {
 				Flag.IS_PRIVATE_TO_THIS(flags) -> PRIVATE_TO_THIS
 				Flag.IS_PROTECTED(flags) -> PROTECTED
 				Flag.IS_PUBLIC(flags) -> PUBLIC
-				else -> throw MetaException("unknown visibility flag in ${flags.toString(16)}")
+				else -> throw MetaException("unknown visibility in flags ${flags.toString(16)}")
 			}
 	}
 }
+
+
+internal val MVisibility.flag
+	get() = when (this) {
+		MVisibility.INTERNAL -> Flag.IS_INTERNAL
+		MVisibility.LOCAL -> Flag.IS_LOCAL
+		MVisibility.PRIVATE -> Flag.IS_PRIVATE
+		MVisibility.PRIVATE_TO_THIS -> Flag.IS_PRIVATE_TO_THIS
+		MVisibility.PROTECTED -> Flag.IS_PROTECTED
+		MVisibility.PUBLIC -> Flag.IS_PUBLIC
+	}

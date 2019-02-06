@@ -3,35 +3,24 @@ package com.github.fluidsonic.fluid.meta
 import java.util.Objects
 
 
-class MEffect internal constructor(
+@Suppress("EqualsOrHashCode")
+data class MEffect(
 	val conclusionOfConditionalEffect: MEffectExpression?,
-	val contructorArguments: List<MEffectExpression>,
+	val constructorArguments: List<MEffectExpression>,
 	val invocationKind: InvocationKind?,
 	val type: Type
 ) {
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MEffect) return false
-
-		return conclusionOfConditionalEffect == other.conclusionOfConditionalEffect &&
-			contructorArguments == other.contructorArguments &&
-			invocationKind == other.invocationKind &&
-			type == other.type
-	}
-
-
 	override fun hashCode() =
 		Objects.hash(
-			conclusionOfConditionalEffect,
-			contructorArguments,
 			invocationKind,
 			type
 		)
 
+
 	override fun toString() = typeToString(
 		"conclusionOfConditionalEffect" to conclusionOfConditionalEffect,
-		"contructorArguments" to contructorArguments,
+		"constructorArguments" to constructorArguments,
 		"invocationKind" to invocationKind,
 		"type" to type
 	)
@@ -44,7 +33,10 @@ class MEffect internal constructor(
 
 		AT_LEAST_ONCE,
 		AT_MOST_ONCE,
-		EXACTLY_ONCE
+		EXACTLY_ONCE;
+
+
+		companion object;
 	}
 
 
@@ -52,6 +44,9 @@ class MEffect internal constructor(
 
 		CALLS,
 		RETURNS_CONSTANT,
-		RETURNS_NOT_NULL
+		RETURNS_NOT_NULL;
+
+
+		companion object;
 	}
 }

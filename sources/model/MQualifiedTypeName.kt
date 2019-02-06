@@ -26,7 +26,7 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 				MQualifiedTypeName("kotlin/Any")
 
 			else -> {
-				// TODO we have to handle primitives, arrays, etc.
+				// FIXME we have to handle primitives, arrays, etc.
 				val qualifiedJavaName = kotlinClass.java.name
 				val packageName = qualifiedJavaName.substringBeforeLast('.', missingDelimiterValue = "").replace('.', '/')
 				val typeName = qualifiedJavaName.substringAfterLast('.')

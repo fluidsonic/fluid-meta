@@ -2,6 +2,7 @@ package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
 import kotlinx.metadata.ClassName
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmExtensionType
 import kotlinx.metadata.KmFunctionVisitor
@@ -22,21 +23,29 @@ internal class MFunctionBuilder(
 	private var returnType: MTypeReferenceBuilder? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
 	private var valueParameters: MutableList<MValueParameterBuilder>? = null
-	private var versionRequirement: MVersionRequirementBuilder? = null
+	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
 	fun build() = MFunction(
 		contract = contract?.build(),
-		flags = flags,
+		inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
+		isExpect = Flag.Function.IS_EXPECT(flags),
+		isExternal = Flag.Function.IS_EXTERNAL(flags),
+		isInfix = Flag.Function.IS_INFIX(flags),
+		isInline = Flag.Function.IS_INLINE(flags),
+		isOperator = Flag.Function.IS_OPERATOR(flags),
+		isSuspend = Flag.Function.IS_SUSPEND(flags),
+		isTailrec = Flag.Function.IS_TAILREC(flags),
 		jvmSignature = jvmSignature,
 		lambdaClassOriginName = lambdaClassOriginName,
 		name = name,
-		receiverParameter = receiverParameter?.build(),
-		returnType = returnType?.build()
-			?: throw MetaException("Function '$name' has no return type"),
+		receiverParameterType = receiverParameter?.build(),
+		returnType = returnType?.build() ?: throw MetaException("function '$name' has no return type"),
+		source = MClassMemberSource.forFlags(flags),
 		typeParameters = typeParameters.mapOrEmpty { it.build() },
 		valueParameters = valueParameters.mapOrEmpty { it.build() },
-		versionRequirement = versionRequirement?.build()
+		versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+		visibility = MVisibility.forFlags(flags)
 	)
 
 
@@ -87,5 +96,7 @@ internal class MFunctionBuilder(
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
-			.also { versionRequirement = it }
+			.also {
+				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+			}
 }

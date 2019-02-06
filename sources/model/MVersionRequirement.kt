@@ -1,51 +1,26 @@
 package com.github.fluidsonic.fluid.meta
 
-import java.util.Objects
 
-
-class MVersionRequirement internal constructor(
+data class MVersionRequirement(
 	val errorCode: Int?,
+	val kind: Kind,
 	val level: Level,
 	val message: String?,
-	val kind: Kind,
 	val version: MVersion
 ) {
 
-	override fun equals(other: Any?): Boolean {
-		if (other === this) return true
-		if (other !is MVersionRequirement) return false
-
-		return errorCode == other.errorCode &&
-			level == other.level &&
-			message == other.message &&
-			kind == other.kind &&
-			version == other.version
-	}
-
-
-	override fun hashCode() =
-		Objects.hash(
-			errorCode,
-			level,
-			message,
-			kind,
-			version
-		)
-
-
 	override fun toString() = typeToString(
 		"errorCode" to errorCode,
+		"kind" to kind,
 		"level" to level,
 		"message" to message,
-		"kind" to kind,
 		"version" to version
 	)
 
 
-	companion object
+	companion object;
 
 
-	@Suppress("EnumEntryName")
 	enum class Kind {
 
 		API_VERSION,
@@ -65,7 +40,6 @@ class MVersionRequirement internal constructor(
 	}
 
 
-	@Suppress("EnumEntryName")
 	enum class Level {
 		ERROR,
 		HIDDEN,

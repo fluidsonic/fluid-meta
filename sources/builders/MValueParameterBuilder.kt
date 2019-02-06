@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmValueParameterVisitor
 
@@ -14,7 +15,9 @@ internal class MValueParameterBuilder(
 
 
 	fun build() = MValueParameter(
-		flags = flags,
+		declaresDefaultValue = Flag.ValueParameter.DECLARES_DEFAULT_VALUE(flags),
+		isCrossinline = Flag.ValueParameter.IS_CROSSINLINE(flags),
+		isNoinline = Flag.ValueParameter.IS_NOINLINE(flags),
 		isVariadic = isVariadic,
 		name = name,
 		type = type?.build() ?: throw MetaException("Value parameter '$name' has no type")

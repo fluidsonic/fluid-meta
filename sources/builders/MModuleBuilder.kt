@@ -19,21 +19,19 @@ internal class MModuleBuilder : KmModuleVisitor() {
 
 	override fun visitAnnotation(annotation: KmAnnotation) {
 		MAnnotation(annotation).let {
-			annotations?.apply { add(it) }
-				?: { annotations = mutableListOf(it) }()
+			annotations?.apply { add(it) } ?: { annotations = mutableListOf(it) }()
 		}
 	}
 
 
 	override fun visitPackageParts(fqName: ClassName, fileFacades: List<String>, multiFileClassParts: Map<String, String>) {
 		MPackage(
-			fileFacades = fileFacades.map { MQualifiedTypeName.fromKotlinInternal(it) },
+			fileFacadeTypes = fileFacades.map { MQualifiedTypeName.fromKotlinInternal(it) },
 			multiFileClassParts = multiFileClassParts.entries
 				.associate { MQualifiedTypeName.fromKotlinInternal(it.key) to MQualifiedTypeName.fromKotlinInternal(it.value) },
 			name = MPackageName.fromKotlinInternal(fqName)
 		).let {
-			packages?.apply { add(it) }
-				?: { packages = mutableListOf(it) }()
+			packages?.apply { add(it) } ?: { packages = mutableListOf(it) }()
 		}
 	}
 }

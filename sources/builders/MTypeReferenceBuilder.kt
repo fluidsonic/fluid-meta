@@ -2,6 +2,7 @@ package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
 import kotlinx.metadata.ClassName
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmAnnotation
 import kotlinx.metadata.KmExtensionType
@@ -18,7 +19,7 @@ internal class MTypeReferenceBuilder(
 	private var annotations: MutableList<MAnnotation>? = null
 	private var arguments: MutableList<TypeArgument>? = null
 	private var className: MQualifiedTypeName? = null
-	private var flexibilityTypeUpperBound: FlexibilityTypeUpperBound? = null
+	private var flexibleTypeUpperBound: FlexibleTypeUpperBound? = null
 	private var isRaw = false
 	private var outerType: MTypeReferenceBuilder? = null
 	private var typeAliasName: MQualifiedTypeName? = null
@@ -35,8 +36,9 @@ internal class MTypeReferenceBuilder(
 				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
-				flags = flags,
-				flexibilityTypeUpperBound = flexibilityTypeUpperBound?.build(),
+				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
+				isNullable = Flag.Type.IS_NULLABLE(flags),
+				isSuspend = Flag.Type.IS_SUSPEND(flags),
 				isRaw = isRaw,
 				name = className,
 				outerType = outerType?.build()
@@ -45,16 +47,16 @@ internal class MTypeReferenceBuilder(
 				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
-				flags = flags,
-				flexibilityTypeUpperBound = flexibilityTypeUpperBound?.build(),
+				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
+				isNullable = Flag.Type.IS_NULLABLE(flags),
 				isRaw = isRaw,
 				name = typeAliasName
 			)
 			typeParameterId != null -> MTypeParameterReference(
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
-				flags = flags,
-				flexibilityTypeUpperBound = flexibilityTypeUpperBound?.build(),
+				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
+				isNullable = Flag.Type.IS_NULLABLE(flags),
 				id = typeParameterId,
 				isRaw = isRaw
 			)
@@ -104,7 +106,7 @@ internal class MTypeReferenceBuilder(
 	override fun visitFlexibleTypeUpperBound(flags: Flags, typeFlexibilityId: String?) =
 		MTypeReferenceBuilder(flags = flags)
 			.also {
-				flexibilityTypeUpperBound = FlexibilityTypeUpperBound(it, typeFlexibilityId = typeFlexibilityId?.let(::MTypeFlexibilityId))
+				flexibleTypeUpperBound = FlexibleTypeUpperBound(it, typeFlexibilityId = typeFlexibilityId?.let(::MTypeFlexibilityId))
 			}
 
 
@@ -129,12 +131,12 @@ internal class MTypeReferenceBuilder(
 	}
 
 
-	private data class FlexibilityTypeUpperBound(
+	private data class FlexibleTypeUpperBound(
 		val type: MTypeReferenceBuilder,
 		val typeFlexibilityId: MTypeFlexibilityId?
 	) {
 
-		fun build() = MFlexibilityTypeUpperBound(
+		fun build() = MFlexibleTypeUpperBound(
 			type = type.build(),
 			typeFlexibilityId = typeFlexibilityId
 		)

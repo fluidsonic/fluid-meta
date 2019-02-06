@@ -2,6 +2,7 @@ package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
 import kotlinx.metadata.ClassName
+import kotlinx.metadata.Flag
 import kotlinx.metadata.Flags
 import kotlinx.metadata.KmClassVisitor
 import kotlinx.metadata.KmExtensionType
@@ -19,32 +20,138 @@ internal class MClassBuilder : KmClassVisitor() {
 	private var functions: MutableList<MFunctionBuilder>? = null
 	private var localDelegatedProperties: MutableList<MPropertyBuilder>? = null
 	private var name: MQualifiedTypeName? = null
-	private var nestedClasses: MutableList<MQualifiedTypeName>? = null
 	private var properties: MutableList<MPropertyBuilder>? = null
 	private var sealedSubclasses: MutableList<MQualifiedTypeName>? = null
 	private var supertypes: MutableList<MTypeReferenceBuilder>? = null
 	private var typeAliases: MutableList<MTypeAliasBuilder>? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
-	private var versionRequirement: MVersionRequirementBuilder? = null
+	private var types: MutableList<MQualifiedTypeName>? = null
+	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
-	fun build() = MClass(
-		anonymousObjectOriginName = anonymousObjectOriginName,
-		companion = companion,
-		constructors = constructors.mapOrEmpty { it.build() },
-		enumEntryNames = enumEntryNames.toListOrEmpty(),
-		flags = flags,
-		functions = functions.mapOrEmpty { it.build() },
-		name = name,
-		localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
-		nestedClasses = nestedClasses.toListOrEmpty(),
-		properties = properties.mapOrEmpty { it.build() },
-		sealedSubclasses = sealedSubclasses.toListOrEmpty(),
-		supertypes = supertypes.mapOrEmpty { it.build() },
-		typeAliases = typeAliases.mapOrEmpty { it.build() },
-		typeParameters = typeParameters.mapOrEmpty { it.build() },
-		versionRequirement = versionRequirement?.build()
-	)
+	fun build(): MType =
+		when {
+			// order of flag checks is important
+			Flag.Class.IS_ANNOTATION_CLASS(flags) -> buildAnnotationClass()
+			Flag.Class.IS_CLASS(flags) -> buildClass()
+			Flag.Class.IS_COMPANION_OBJECT(flags) -> buildObject(isCompanion = true)
+			Flag.Class.IS_ENUM_CLASS(flags) -> buildEnumClass()
+			Flag.Class.IS_ENUM_ENTRY(flags) -> buildEnumEntryClass()
+			Flag.Class.IS_INTERFACE(flags) -> buildInterface()
+			Flag.Class.IS_OBJECT(flags) -> buildObject(isCompanion = false)
+			else -> throw MetaException("unknown clas kind in flags ${flags.toString(16)}")
+		}
+
+
+	private fun buildAnnotationClass() =
+		MAnnotationClass(
+			companion = companion,
+			constructor = constructors?.singleOrNull()?.build()
+				?: throw MetaException("an annotation class must have exactly one constructor"),
+			isExpect = Flag.Class.IS_EXPECT(flags),
+			name = name ?: throw MetaException("annotation class has no name"),
+			properties = properties.mapOrEmpty { it.build() },
+			types = types.toListOrEmpty(),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
+
+
+	private fun buildClass() =
+		MClass(
+			companion = companion,
+			constructors = constructors.mapOrEmpty { it.build() },
+			functions = functions.mapOrEmpty { it.build() },
+			inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
+			isExpect = Flag.Class.IS_EXPECT(flags),
+			isExternal = Flag.Class.IS_EXTERNAL(flags),
+			isInline = Flag.Class.IS_INLINE(flags),
+			isInner = Flag.Class.IS_INNER(flags),
+			name = name ?: throw MetaException("class has no name"),
+			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
+			properties = properties.mapOrEmpty { it.build() },
+			specialization = when {
+				Flag.Class.IS_DATA(flags) -> MClass.Specialization.Data
+				Flag.IS_SEALED(flags) -> MClass.Specialization.Sealed(
+					subclassTypes = sealedSubclasses.toListOrEmpty()
+				)
+				else -> null
+			},
+			supertypes = supertypes.mapOrEmpty { it.build() },
+			typeAliases = typeAliases.mapOrEmpty { it.build() },
+			typeParameters = typeParameters.mapOrEmpty { it.build() },
+			types = types.toListOrEmpty(),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
+
+
+	private fun buildEnumClass() =
+		MEnumClass(
+			companion = companion,
+			constructors = constructors.mapOrEmpty { it.build() },
+			entryNames = enumEntryNames.toListOrEmpty(),
+			functions = functions.mapOrEmpty { it.build() },
+			isExpect = Flag.Class.IS_EXPECT(flags),
+			isExternal = Flag.Class.IS_EXTERNAL(flags),
+			name = name ?: throw MetaException("class has no name"),
+			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
+			properties = properties.mapOrEmpty { it.build() },
+			supertypes = supertypes.mapOrEmpty { it.build() },
+			typeAliases = typeAliases.mapOrEmpty { it.build() },
+			types = types.toListOrEmpty(),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
+
+
+	private fun buildEnumEntryClass() =
+		MEnumEntryClass(
+			functions = functions.mapOrEmpty { it.build() },
+			name = name ?: throw MetaException("class has no name"),
+			properties = properties.mapOrEmpty { it.build() },
+			supertype = supertypes?.singleOrNull()?.build()
+				?: throw MetaException("an enum entry class must have exactly one supertype"),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() }
+		)
+
+
+	private fun buildInterface() =
+		MInterface(
+			companion = companion,
+			functions = functions.mapOrEmpty { it.build() },
+			isExpect = Flag.Class.IS_EXPECT(flags),
+			isExternal = Flag.Class.IS_EXTERNAL(flags),
+			name = name ?: throw MetaException("class has no name"),
+			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
+			properties = properties.mapOrEmpty { it.build() },
+			supertypes = supertypes.mapOrEmpty { it.build() },
+			typeAliases = typeAliases.mapOrEmpty { it.build() },
+			typeParameters = typeParameters.mapOrEmpty { it.build() },
+			types = types.toListOrEmpty(),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
+
+
+	private fun buildObject(isCompanion: Boolean) =
+		MObject(
+			constructor = constructors?.singleOrNull()?.build()
+				?: throw MetaException("an object must have exactly one constructor"),
+			functions = functions.mapOrEmpty { it.build() },
+			isCompanion = isCompanion,
+			isExpect = Flag.Class.IS_EXPECT(flags),
+			isExternal = Flag.Class.IS_EXTERNAL(flags),
+			name = name ?: throw MetaException("object has no name"),
+			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
+			originName = anonymousObjectOriginName,
+			properties = properties.mapOrEmpty { it.build() },
+			supertypes = supertypes.mapOrEmpty { it.build() },
+			typeAliases = typeAliases.mapOrEmpty { it.build() },
+			types = types.toListOrEmpty(),
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
 
 
 	override fun visit(flags: Flags, name: ClassName) {
@@ -83,8 +190,7 @@ internal class MClassBuilder : KmClassVisitor() {
 				override fun visitLocalDelegatedProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 					MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 						.also {
-							localDelegatedProperties?.apply { add(it) }
-								?: { localDelegatedProperties = mutableListOf(it) }()
+							localDelegatedProperties?.apply { add(it) } ?: { localDelegatedProperties = mutableListOf(it) }()
 						}
 			}
 		}
@@ -98,8 +204,8 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitNestedClass(name: ClassName) {
-		nestedClasses?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
-			?: { nestedClasses = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
+		types?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
+			?: { types = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
 	}
 
 
@@ -124,7 +230,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitTypeAlias(flags: Flags, name: String) =
-		MTypeAliasBuilder(flags = flags, name = name)
+		MTypeAliasBuilder(flags = flags, name = MQualifiedTypeName.fromKotlinInternal(name))
 			.also {
 				typeAliases?.apply { add(it) } ?: { typeAliases = mutableListOf(it) }()
 			}
@@ -139,5 +245,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
-			.also { versionRequirement = it }
+			.also {
+				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+			}
 }
