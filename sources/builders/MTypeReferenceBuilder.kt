@@ -32,7 +32,7 @@ internal class MTypeReferenceBuilder(
 		val typeParameterId = typeParameterId
 
 		return when {
-			className != null -> MClassReference(
+			className != null -> MTypeReference.Class(
 				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
@@ -43,7 +43,7 @@ internal class MTypeReferenceBuilder(
 				name = className,
 				outerType = outerType?.build()
 			)
-			typeAliasName != null -> MTypeAliasReference(
+			typeAliasName != null -> MTypeReference.TypeAlias(
 				abbreviatedType = abbreviatedType?.build(),
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
@@ -52,7 +52,7 @@ internal class MTypeReferenceBuilder(
 				isRaw = isRaw,
 				name = typeAliasName
 			)
-			typeParameterId != null -> MTypeParameterReference(
+			typeParameterId != null -> MTypeReference.TypeParameter(
 				annotations = annotations.toListOrEmpty(),
 				arguments = arguments.mapOrEmpty { it.build() },
 				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
