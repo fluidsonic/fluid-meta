@@ -3,16 +3,14 @@ package com.github.fluidsonic.fluid.meta
 import java.util.Objects
 
 
-// FIXME rework output
 sealed class MLocalId {
 
-	// FIXME what about class generics & vararg
 	class Constructor(
-		private val valueParameterTypes: List<MTypeReference>
+		valueParameters: List<MValueParameter>
 	) : MLocalId() {
 
-		private val hashCode =
-			Objects.hash(*valueParameterTypes.toTypedArray())
+		private val valueParameterIds = valueParameters.map { it.localId }
+		private val hashCode = Objects.hash(*valueParameterIds.toTypedArray())
 
 
 		override fun hashCode() =
@@ -20,27 +18,28 @@ sealed class MLocalId {
 
 
 		override fun equals(other: Any?) =
-			valueParameterTypes == (other as? Constructor)?.valueParameterTypes
+			valueParameterIds == (other as? Constructor)?.valueParameterIds
 
 
 		override fun toString() =
-			"[constructor(${valueParameterTypes.joinToString { it.name.toString() }})]"
+			"MLocalId [constructor(${valueParameterIds.joinToString()})]"
 	}
 
 
-	// FIXME what about generics and return type & vararg
 	class Function(
 		name: MFunctionName,
-		private val receiverParameterType: MTypeReference?,
-		private val valueParameterTypes: List<MTypeReference>
+		receiverParameterType: MTypeReference?,
+		valueParameters: List<MValueParameter>
 	) : MLocalId() {
 
 		private val name = name.toString()
+		private val receiverParameterId = receiverParameterType?.localId
+		private val valueParameterIds = valueParameters.map { it.localId }
 
 		private val hashCode =
 			Objects.hash(*(
 				listOf(name, receiverParameterType) +
-					valueParameterTypes.fold(0) { hashCode, parameter -> hashCode xor parameter.hashCode() }
+					valueParameters.fold(0) { hashCode, parameter -> hashCode xor parameter.hashCode() }
 				).toTypedArray()
 			)
 
@@ -54,16 +53,16 @@ sealed class MLocalId {
 			if (other !is Function) return false
 
 			return name == other.name &&
-				receiverParameterType == other.receiverParameterType &&
-				valueParameterTypes == other.valueParameterTypes
+				receiverParameterId == other.receiverParameterId &&
+				valueParameterIds == other.valueParameterIds
 		}
 
 
 		override fun toString() =
-			if (receiverParameterType != null)
-				"[fun ${receiverParameterType.name}.$name(${valueParameterTypes.joinToString { it.name.toString() }})]"
+			if (receiverParameterId != null)
+				"MLocalId [fun $receiverParameterId.$name(${valueParameterIds.joinToString()})]"
 			else
-				"[fun $name(${valueParameterTypes.joinToString { it.name.toString() }})]" // FIXME tostring nullable
+				"MLocalId [fun $name(${valueParameterIds.joinToString()})]"
 	}
 
 
@@ -83,20 +82,21 @@ sealed class MLocalId {
 
 
 		override fun toString() =
-			"[package $name]"
+			"MLocalId [package $name]"
 	}
 
 
 	class Property(
 		name: MVariableName,
-		private val receiverParameterType: MTypeReference?
+		receiverParameterType: MTypeReference?
 	) : MLocalId() {
 
 		private val name = name.toString()
+		private val receiverParameterId = receiverParameterType?.localId
 
 
 		override fun hashCode() =
-			Objects.hash(name, receiverParameterType)
+			Objects.hash(name, receiverParameterId)
 
 
 		override fun equals(other: Any?): Boolean {
@@ -104,15 +104,15 @@ sealed class MLocalId {
 			if (other !is Property) return false
 
 			return name == other.name &&
-				receiverParameterType == other.receiverParameterType
+				receiverParameterId == other.receiverParameterId
 		}
 
 
 		override fun toString() =
-			if (receiverParameterType != null)
-				"[property ${receiverParameterType.name}.$name]"
+			if (receiverParameterId != null)
+				"MLocalId [property $receiverParameterId.$name]"
 			else
-				"[property $name]"
+				"MLocalId [property $name]"
 	}
 
 
@@ -132,9 +132,26 @@ sealed class MLocalId {
 
 
 		override fun toString() =
-			"[type $name]"
+			"MLocalId [type $name]"
 	}
 
 
 	companion object
 }
+
+
+private val MTypeReference.localId
+	get() = when (this) {
+		is MClassReference -> name.toString()
+		is MTypeAliasReference -> name.toString()
+		is MTypeParameterReference -> "<$id>"
+	}
+
+
+private val MValueParameter.localId
+	get() = buildString {
+		if (isVariadic)
+			append("vararg ")
+
+		append(type.localId)
+	}

@@ -13,7 +13,7 @@ data class MConstructor(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Constructor(valueParameterTypes = valueParameters.map { it.type })
+	override val localId = MLocalId.Constructor(valueParameters = valueParameters)
 
 
 	override fun hashCode() =

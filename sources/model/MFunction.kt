@@ -37,7 +37,7 @@ data class MFunction(
 	override val localId = MLocalId.Function(
 		name = name,
 		receiverParameterType = receiverParameterType,
-		valueParameterTypes = valueParameters.map { it.type }
+		valueParameters = valueParameters
 	)
 
 
