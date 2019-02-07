@@ -34,11 +34,13 @@ data class MFunction(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Function(
-		name = name,
-		receiverParameterType = receiverParameterType,
-		valueParameters = valueParameters
-	)
+	override val localId by lazy {
+		MLocalId.Function(
+			name = name,
+			receiverParameterType = receiverParameterType,
+			valueParameters = valueParameters
+		)
+	}
 
 
 	override fun hashCode() =

@@ -30,10 +30,12 @@ data class MProperty(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Property(
-		name = name,
-		receiverParameterType = receiverParameterType
-	)
+	override val localId by lazy {
+		MLocalId.Property(
+			name = name,
+			receiverParameterType = receiverParameterType
+		)
+	}
 
 
 	override fun hashCode() =

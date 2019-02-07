@@ -142,9 +142,9 @@ sealed class MLocalId {
 
 private val MTypeReference.localId
 	get() = when (this) {
-		is MClassReference -> name.toString()
-		is MTypeAliasReference -> name.toString()
-		is MTypeParameterReference -> "<$id>"
+		is MTypeReference.Class -> name.toString()
+		is MTypeReference.TypeAlias -> name.toString()
+		is MTypeReference.TypeParameter -> "<$id>"
 	}
 
 

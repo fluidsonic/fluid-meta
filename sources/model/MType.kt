@@ -24,7 +24,7 @@ data class MAnnotationClass(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Type(name = name.withoutPackage())
+	override val localId by lazy { MLocalId.Type(name = name.withoutPackage()) }
 
 
 	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Annotation classes only have a single constructor")
@@ -90,7 +90,7 @@ data class MClass(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Type(name = name.withoutPackage())
+	override val localId by lazy { MLocalId.Type(name = name.withoutPackage()) }
 
 
 	override fun hashCode() =
@@ -177,7 +177,7 @@ data class MEnumClass(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Type(name = name.withoutPackage())
+	override val localId by lazy { MLocalId.Type(name = name.withoutPackage()) }
 
 
 	override fun hashCode() =
@@ -294,7 +294,7 @@ data class MInterface(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Type(name = name.withoutPackage())
+	override val localId by lazy { MLocalId.Type(name = name.withoutPackage()) }
 
 
 	override fun hashCode() =
@@ -399,7 +399,7 @@ data class MObject(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Type(name = name.withoutPackage())
+	override val localId by lazy { MLocalId.Type(name = name.withoutPackage()) }
 
 
 	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Objects only have a single constructor")

@@ -8,7 +8,7 @@ data class MPackage(
 	val name: MPackageName
 ) : MFileFacadeTypeContainer, MIdentifyable {
 
-	override val localId = MLocalId.Package(name = name)
+	override val localId by lazy { MLocalId.Package(name = name) }
 
 
 	override fun hashCode() =

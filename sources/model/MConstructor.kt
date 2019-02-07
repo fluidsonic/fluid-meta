@@ -13,7 +13,9 @@ data class MConstructor(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
-	override val localId = MLocalId.Constructor(valueParameters = valueParameters)
+	override val localId by lazy {
+		MLocalId.Constructor(valueParameters = valueParameters)
+	}
 
 
 	override fun hashCode() =
