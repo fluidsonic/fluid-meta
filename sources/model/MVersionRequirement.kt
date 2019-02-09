@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 data class MVersionRequirement(
 	val errorCode: Int?,
 	val kind: Kind,

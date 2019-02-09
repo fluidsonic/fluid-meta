@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 data class MModule(
 	override val annotations: List<MAnnotation>,
 	val name: MModuleName,

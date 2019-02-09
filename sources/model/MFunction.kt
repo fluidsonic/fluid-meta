@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 @Suppress("EqualsOrHashCode")
 data class MFunction(
 	val contract: MContract?,

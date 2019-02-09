@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 sealed class MTypeArgument {
 
 	object StarProjection : MTypeArgument() {

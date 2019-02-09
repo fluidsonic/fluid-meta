@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 sealed class MPropertyAccessor : MExecutable, MExternalizable, MInlineable, MVisibilityRestrictable {
 
 	abstract val isDefault: Boolean

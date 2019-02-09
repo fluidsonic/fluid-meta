@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 @Suppress("EqualsOrHashCode")
 data class MPackage(
 	override val fileTypes: List<MQualifiedTypeName>,

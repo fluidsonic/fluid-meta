@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 sealed class MEffectExpression {
 
 	abstract val andArguments: List<MEffectExpression>

@@ -1,5 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
+
 sealed class MTypeReference : MAnnotatable {
 
 	abstract val flexibleTypeUpperBound: MFlexibleTypeUpperBound?
