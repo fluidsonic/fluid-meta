@@ -20,3 +20,7 @@ data class MValueParameter(
 
 	companion object
 }
+
+
+val MValueParameter.isVariadic
+	get() = varargElementType != null
