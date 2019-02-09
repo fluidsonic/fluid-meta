@@ -1,15 +1,13 @@
 package com.github.fluidsonic.fluid.meta
 
-
 data class MModule(
 	override val annotations: List<MAnnotation>,
+	val name: MModuleName,
 	val packages: List<MPackage>
-) : MAnnotatable {
+) : MAnnotatable, Meta {
 
-	override fun toString() = typeToString(
-		"annotations" to annotations,
-		"packages" to packages
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

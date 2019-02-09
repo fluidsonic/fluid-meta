@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-
 @Suppress("EqualsOrHashCode")
 data class MTypeParameter(
 	override val annotations: List<MAnnotation>,
@@ -15,14 +14,8 @@ data class MTypeParameter(
 		name.hashCode()
 
 
-	override fun toString() = typeToString(
-		"name" to name,
-		"annotations" to annotations,
-		"id" to id,
-		"isReified" to isReified,
-		"upperBounds" to upperBounds,
-		"variance" to variance
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

@@ -12,11 +12,7 @@ enum class MInheritanceRestriction {
 
 
 	override fun toString() =
-		when (this) {
-			ABSTRACT -> "abstract"
-			FINAL -> "final"
-			OPEN -> "open"
-		}
+		MetaCodeWriter.write(this)
 
 
 	companion object {

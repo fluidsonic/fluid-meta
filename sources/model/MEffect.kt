@@ -1,29 +1,26 @@
 package com.github.fluidsonic.fluid.meta
 
-import java.util.Objects
+
+sealed class MEffect {
+
+	data class CallsInPlace(
+		val invocationKind: InvocationKind,
+		val parameterIndex: MValueParameterIndex
+	) : MEffect() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
 
 
-@Suppress("EqualsOrHashCode")
-data class MEffect(
-	val conclusionOfConditionalEffect: MEffectExpression?,
-	val constructorArguments: List<MEffectExpression>,
-	val invocationKind: InvocationKind?,
-	val type: Type
-) {
+	data class Returns(
+		val condition: MEffectExpression?,
+		val returnValue: ReturnValue?
+	) : MEffect() {
 
-	override fun hashCode() =
-		Objects.hash(
-			invocationKind,
-			type
-		)
-
-
-	override fun toString() = typeToString(
-		"conclusionOfConditionalEffect" to conclusionOfConditionalEffect,
-		"constructorArguments" to constructorArguments,
-		"invocationKind" to invocationKind,
-		"type" to type
-	)
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
 
 
 	companion object;
@@ -33,20 +30,26 @@ data class MEffect(
 
 		AT_LEAST_ONCE,
 		AT_MOST_ONCE,
-		EXACTLY_ONCE;
+		EXACTLY_ONCE,
+		UNKNOWN;
 
 
-		companion object;
+		override fun toString() =
+			MetaCodeWriter.write(this)
+
+
+		companion object
 	}
 
 
-	enum class Type {
+	enum class ReturnValue {
 
-		CALLS,
-		RETURNS_CONSTANT,
-		RETURNS_NOT_NULL;
+		FALSE,
+		NOT_NULL,
+		NULL,
+		TRUE;
 
 
-		companion object;
+		companion object
 	}
 }

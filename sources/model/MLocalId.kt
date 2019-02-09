@@ -9,7 +9,7 @@ sealed class MLocalId {
 		valueParameters: List<MValueParameter>
 	) : MLocalId() {
 
-		private val valueParameterIds = valueParameters.map { it.localId }
+		private val valueParameterIds = valueParameters.map { it.type.localId }
 		private val hashCode = Objects.hash(*valueParameterIds.toTypedArray())
 
 
@@ -34,7 +34,7 @@ sealed class MLocalId {
 
 		private val name = name.toString()
 		private val receiverParameterId = receiverParameterType?.localId
-		private val valueParameterIds = valueParameters.map { it.localId }
+		private val valueParameterIds = valueParameters.map { it.type.localId }
 
 		private val hashCode =
 			Objects.hash(*(
@@ -143,15 +143,7 @@ sealed class MLocalId {
 private val MTypeReference.localId
 	get() = when (this) {
 		is MTypeReference.Class -> name.toString()
+		is MTypeReference.Function -> toString()
 		is MTypeReference.TypeAlias -> name.toString()
 		is MTypeReference.TypeParameter -> "<$id>"
-	}
-
-
-private val MValueParameter.localId
-	get() = buildString {
-		if (isVariadic)
-			append("vararg ")
-
-		append(type.localId)
 	}

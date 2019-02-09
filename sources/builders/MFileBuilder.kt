@@ -7,7 +7,10 @@ import kotlinx.metadata.KmPackageVisitor
 import kotlinx.metadata.jvm.JvmPackageExtensionVisitor
 
 
-internal class MFileFacadeBuilder : KmPackageVisitor() {
+internal class MFileBuilder(
+	val facadeClassName: MQualifiedTypeName,
+	val kotlinPackageName: MPackageName?
+) : KmPackageVisitor() {
 
 	private var functions: MutableList<MFunctionBuilder>? = null
 	private var localDelegatedProperties: MutableList<MPropertyBuilder>? = null
@@ -15,12 +18,24 @@ internal class MFileFacadeBuilder : KmPackageVisitor() {
 	private var typeAliases: MutableList<MTypeAliasBuilder>? = null
 
 
-	fun build() = MFileFacade(
-		functions = functions.mapOrEmpty { it.build() },
-		localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
-		properties = properties.mapOrEmpty { it.build() },
-		typeAliases = typeAliases.mapOrEmpty { it.build() }
-	)
+	fun build(): MFile {
+		var facadeClassName = facadeClassName
+		var jvmPackageName: MPackageName? = null
+
+		if (kotlinPackageName != null) {
+			jvmPackageName = facadeClassName.packageName
+			facadeClassName = facadeClassName.withPackage(kotlinPackageName)
+		}
+
+		return MFile(
+			facadeClassName = facadeClassName,
+			functions = functions.mapOrEmpty { it.build() },
+			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
+			jvmPackageName = jvmPackageName,
+			properties = properties.mapOrEmpty { it.build() },
+			typeAliases = typeAliases.mapOrEmpty { it.build() }
+		)
+	}
 
 
 	override fun visitExtensions(type: KmExtensionType) =

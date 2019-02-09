@@ -10,17 +10,17 @@ internal class MValueParameterBuilder(
 	private val name: MVariableName
 ) : KmValueParameterVisitor() {
 
-	private var isVariadic = false
 	private var type: MTypeReferenceBuilder? = null
+	private var varargElementType: MTypeReferenceBuilder? = null
 
 
 	fun build() = MValueParameter(
 		declaresDefaultValue = Flag.ValueParameter.DECLARES_DEFAULT_VALUE(flags),
 		isCrossinline = Flag.ValueParameter.IS_CROSSINLINE(flags),
 		isNoinline = Flag.ValueParameter.IS_NOINLINE(flags),
-		isVariadic = isVariadic,
 		name = name,
-		type = type?.build() ?: throw MetaException("Value parameter '$name' has no type")
+		type = type?.build() ?: throw MetaException("Value parameter '$name' has no type"),
+		varargElementType = varargElementType?.build()
 	)
 
 
@@ -32,7 +32,6 @@ internal class MValueParameterBuilder(
 	override fun visitVarargElementType(flags: Flags) =
 		MTypeReferenceBuilder(flags = flags)
 			.also {
-				isVariadic = true
-				type = it
+				varargElementType = it
 			}
 }

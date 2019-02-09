@@ -1,9 +1,9 @@
 package com.github.fluidsonic.fluid.meta
 
 
-inline class MFunctionName(private val raw: String) {
+inline class MFunctionName(val kotlin: String) {
 
-	override fun toString() = raw
+	override fun toString() = kotlin
 
 
 	companion object

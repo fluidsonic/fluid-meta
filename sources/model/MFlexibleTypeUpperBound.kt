@@ -6,10 +6,8 @@ data class MFlexibleTypeUpperBound(
 	val typeFlexibilityId: MTypeFlexibilityId?
 ) {
 
-	override fun toString() = typeToString(
-		"type" to type,
-		"typeFlexibilityId" to typeFlexibilityId
-	)
+	override fun toString() =
+		(typeFlexibilityId?.kotlin ?: "<unnamed>") + ": " + type
 
 
 	companion object

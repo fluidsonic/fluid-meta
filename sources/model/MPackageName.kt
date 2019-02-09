@@ -27,6 +27,24 @@ inline class MPackageName private constructor(val kotlinInternal: String) {
 }
 
 
+// TODO how to handle java/lang?
+private val defaultImports = setOf(
+	"kotlin",
+	"kotlin/annotations",
+	"kotlin/collections",
+	"kotlin/comparions",
+	"kotlin/io",
+	"kotlin/jvm",
+	"kotlin/ranges",
+	"kotlin/sequences",
+	"kotlin/text"
+)
+
+
+val MPackageName.isDefaultImport
+	get() = defaultImports.contains(kotlinInternal)
+
+
 fun MPackageName.isEmpty() =
 	kotlinInternal.isEmpty()
 

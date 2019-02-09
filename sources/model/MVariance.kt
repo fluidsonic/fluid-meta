@@ -11,11 +11,7 @@ enum class MVariance {
 
 
 	override fun toString() =
-		when (this) {
-			INVARIANT -> "invariant"
-			IN -> "in"
-			OUT -> "out"
-		}
+		MetaCodeWriter.write(this)
 
 
 	companion object

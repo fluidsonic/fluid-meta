@@ -1,9 +1,9 @@
 package com.github.fluidsonic.fluid.meta
 
 
-interface MCompanionable {
+interface MCompanionable : MTypeContainer {
 
-	val companion: MQualifiedTypeName?
+	val companionName: MTypeName?
 
 
 	companion object

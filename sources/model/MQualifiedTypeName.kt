@@ -21,12 +21,16 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 
 	companion object {
 
+		fun from(javaClass: Class<*>) =
+			from(javaClass.kotlin)
+
+
+		// TODO we have to do a whole lot of conversions here between JVM-land and Kotlin-land
 		fun from(kotlinClass: KClass<*>) = when (kotlinClass) {
 			Any::class ->
 				MQualifiedTypeName("kotlin/Any")
 
 			else -> {
-				// FIXME we have to handle primitives, arrays, etc.
 				val qualifiedJavaName = kotlinClass.java.name
 				val packageName = qualifiedJavaName.substringBeforeLast('.', missingDelimiterValue = "").replace('.', '/')
 				val typeName = qualifiedJavaName.substringAfterLast('.')
@@ -107,3 +111,7 @@ fun MQualifiedTypeName.withoutPackage() =
 		else
 			kotlinInternal.substringAfterLast('/')
 	)
+
+
+fun MQualifiedTypeName.withPackage(packageName: MPackageName) =
+	MQualifiedTypeName(packageName = packageName, typeName = withoutPackage())

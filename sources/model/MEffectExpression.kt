@@ -1,36 +1,67 @@
 package com.github.fluidsonic.fluid.meta
 
-import java.util.Objects
+sealed class MEffectExpression {
+
+	abstract val andArguments: List<MEffectExpression>
+	abstract val orArguments: List<MEffectExpression>
 
 
-@Suppress("EqualsOrHashCode")
-data class MEffectExpression(
-	val andArguments: List<MEffectExpression>,
-	val constantValue: Any?,
-	val instanceType: MTypeReference?,
-	val isNegated: Boolean,
-	val isNullCheckPredicate: Boolean,
-	val orArguments: List<MEffectExpression>,
-	val parameterIndex: MValueParameterIndex?
-) {
+	data class Constant(
+		override val andArguments: List<MEffectExpression>,
+		override val orArguments: List<MEffectExpression>,
+		val value: Boolean
+	) : MEffectExpression() {
 
-	override fun hashCode() =
-		Objects.hash(
-			constantValue,
-			instanceType,
-			parameterIndex
-		)
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
 
 
-	override fun toString() = typeToString(
-		"andArguments" to andArguments,
-		"constantValue" to constantValue,
-		"instanceType" to instanceType,
-		"isNegated" to isNegated,
-		"isNullCheckPredicate" to isNullCheckPredicate,
-		"orArguments" to orArguments,
-		"parameterIndex" to parameterIndex
-	)
+	data class Empty(
+		override val andArguments: List<MEffectExpression>,
+		override val orArguments: List<MEffectExpression>
+	) : MEffectExpression() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+
+	data class IsInstance(
+		override val andArguments: List<MEffectExpression>,
+		val instanceType: MTypeReference,
+		val isNegated: Boolean,
+		override val orArguments: List<MEffectExpression>,
+		val parameterIndex: MValueParameterIndex
+	) : MEffectExpression() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+
+	data class IsNull(
+		override val andArguments: List<MEffectExpression>,
+		val isNegated: Boolean,
+		override val orArguments: List<MEffectExpression>,
+		val parameterIndex: MValueParameterIndex
+	) : MEffectExpression() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+
+	data class IsTrue(
+		override val andArguments: List<MEffectExpression>,
+		val isNegated: Boolean,
+		override val orArguments: List<MEffectExpression>,
+		val parameterIndex: MValueParameterIndex
+	) : MEffectExpression() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
 
 
 	companion object

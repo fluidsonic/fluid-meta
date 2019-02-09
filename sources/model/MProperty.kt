@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-
 @Suppress("EqualsOrHashCode")
 data class MProperty(
 	val getter: MPropertyAccessor.Getter,
@@ -9,6 +8,7 @@ data class MProperty(
 	val isDelegated: Boolean,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
+	override val isInline: Boolean,
 	val isLateinit: Boolean,
 	val isVar: Boolean,
 	val jvmFieldSignature: MJvmMemberSignature.Field?,
@@ -26,6 +26,7 @@ data class MProperty(
 	MGeneralizable,
 	MIdentifyable,
 	MInheritanceRestrictable,
+	MInlineable,
 	MReceiverDeclarable,
 	MVersionRestrictable,
 	MVisibilityRestrictable {
@@ -42,26 +43,8 @@ data class MProperty(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"name" to name,
-		"getter" to getter,
-		"inheritanceRestriction" to inheritanceRestriction,
-		"isConst" to isConst,
-		"isDelegated" to isDelegated,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"isLateinit" to isLateinit,
-		"isVar" to isVar,
-		"jvmFieldSignature" to jvmFieldSignature,
-		"jvmSyntheticMethodForAnnotationsSignature" to jvmSyntheticMethodForAnnotationsSignature,
-		"name" to name,
-		"receiverParameterType" to receiverParameterType,
-		"setter" to setter,
-		"source" to source,
-		"typeParameters" to typeParameters,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

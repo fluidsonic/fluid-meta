@@ -13,7 +13,7 @@ import kotlinx.metadata.jvm.JvmClassExtensionVisitor
 internal class MClassBuilder : KmClassVisitor() {
 
 	private var anonymousObjectOriginName: MQualifiedTypeName? = null
-	private var companion: MQualifiedTypeName? = null
+	private var companionName: MTypeName? = null
 	private var constructors: MutableList<MConstructorBuilder>? = null
 	private var enumEntryNames: MutableList<MEnumEntryName>? = null
 	private var flags: Flags = 0
@@ -25,7 +25,7 @@ internal class MClassBuilder : KmClassVisitor() {
 	private var supertypes: MutableList<MTypeReferenceBuilder>? = null
 	private var typeAliases: MutableList<MTypeAliasBuilder>? = null
 	private var typeParameters: MutableList<MTypeParameterBuilder>? = null
-	private var types: MutableList<MQualifiedTypeName>? = null
+	private var types: MutableList<MTypeName>? = null
 	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
@@ -45,7 +45,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	private fun buildAnnotationClass() =
 		MAnnotationClass(
-			companion = companion,
+			companionName = companionName,
 			constructor = constructors?.singleOrNull()?.build()
 				?: throw MetaException("an annotation class must have exactly one constructor"),
 			isExpect = Flag.Class.IS_EXPECT(flags),
@@ -59,19 +59,20 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	private fun buildClass() =
 		MClass(
-			companion = companion,
+			anonymousObjectOriginName = anonymousObjectOriginName,
+			companionName = companionName,
 			constructors = constructors.mapOrEmpty { it.build() },
 			functions = functions.mapOrEmpty { it.build() },
 			inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
 			isExpect = Flag.Class.IS_EXPECT(flags),
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
 			isInline = Flag.Class.IS_INLINE(flags),
-			isInner = Flag.Class.IS_INNER(flags),
 			name = name ?: throw MetaException("class has no name"),
 			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
 			properties = properties.mapOrEmpty { it.build() },
 			specialization = when {
 				Flag.Class.IS_DATA(flags) -> MClass.Specialization.Data
+				Flag.Class.IS_INNER(flags) -> MClass.Specialization.Inner
 				Flag.IS_SEALED(flags) -> MClass.Specialization.Sealed(
 					subclassTypes = sealedSubclasses.toListOrEmpty()
 				)
@@ -88,7 +89,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	private fun buildEnumClass() =
 		MEnumClass(
-			companion = companion,
+			companionName = companionName,
 			constructors = constructors.mapOrEmpty { it.build() },
 			entryNames = enumEntryNames.toListOrEmpty(),
 			functions = functions.mapOrEmpty { it.build() },
@@ -118,7 +119,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 	private fun buildInterface() =
 		MInterface(
-			companion = companion,
+			companionName = companionName,
 			functions = functions.mapOrEmpty { it.build() },
 			isExpect = Flag.Class.IS_EXPECT(flags),
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
@@ -144,7 +145,6 @@ internal class MClassBuilder : KmClassVisitor() {
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
 			name = name ?: throw MetaException("object has no name"),
 			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
-			originName = anonymousObjectOriginName,
 			properties = properties.mapOrEmpty { it.build() },
 			supertypes = supertypes.mapOrEmpty { it.build() },
 			typeAliases = typeAliases.mapOrEmpty { it.build() },
@@ -161,7 +161,7 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitCompanionObject(name: ClassName) {
-		companion = MQualifiedTypeName.fromKotlinInternal(name)
+		companionName = MTypeName.fromKotlinInternal(name)
 	}
 
 
@@ -204,8 +204,8 @@ internal class MClassBuilder : KmClassVisitor() {
 
 
 	override fun visitNestedClass(name: ClassName) {
-		types?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
-			?: { types = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
+		types?.apply { add(MTypeName.fromKotlinInternal(name)) }
+			?: { types = mutableListOf(MTypeName.fromKotlinInternal(name)) }()
 	}
 
 

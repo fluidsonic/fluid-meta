@@ -1,9 +1,9 @@
 package com.github.fluidsonic.fluid.meta
 
 
-inline class MTypeParameterId(private val raw: Int) {
+inline class MTypeParameterId(val value: Int) {
 
-	override fun toString() = raw.toString()
+	override fun toString() = value.toString()
 
 
 	companion object

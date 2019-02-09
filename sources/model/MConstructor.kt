@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-
 @Suppress("EqualsOrHashCode")
 data class MConstructor(
 	val isPrimary: Boolean,
@@ -22,13 +21,8 @@ data class MConstructor(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"isPrimary" to isPrimary,
-		"jvmSignature" to jvmSignature,
-		"valueParameters" to valueParameters,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

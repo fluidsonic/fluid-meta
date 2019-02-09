@@ -8,39 +8,111 @@ sealed class MAnnotationArgument<out Value : Any> {
 
 	abstract val value: Value
 
-	data class AnnotationValue(override val value: MAnnotation) : MAnnotationArgument<MAnnotation>()
-	data class ArrayValue(override val value: List<MAnnotationArgument<*>>) : MAnnotationArgument<List<MAnnotationArgument<*>>>()
-	data class BooleanValue(override val value: Boolean) : MAnnotationArgument<Boolean>()
-	data class ByteValue(override val value: Byte) : MAnnotationArgument<Byte>()
-	data class CharValue(override val value: Char) : MAnnotationArgument<Char>()
-	data class DoubleValue(override val value: Double) : MAnnotationArgument<Double>()
-	data class FloatValue(override val value: Float) : MAnnotationArgument<Float>()
-	data class IntValue(override val value: Int) : MAnnotationArgument<Int>()
-	data class KClassValue(override val value: MQualifiedTypeName) : MAnnotationArgument<MQualifiedTypeName>()
-	data class LongValue(override val value: Long) : MAnnotationArgument<Long>()
-	data class ShortValue(override val value: Short) : MAnnotationArgument<Short>()
-	data class StringValue(override val value: String) : MAnnotationArgument<String>()
 
-	// TODO remove manual toString()s once fixed: https://youtrack.jetbrains.com/issue/KT-29655
+	data class AnnotationValue(override val value: MAnnotation) : MAnnotationArgument<MAnnotation>() {
 
-	data class UByteValue(override val value: UByte) : MAnnotationArgument<UByte>() {
-		override fun toString() = value.toString()
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
-	data class UIntValue(override val value: UInt) : MAnnotationArgument<UInt>() {
-		override fun toString() = value.toString()
+	data class ArrayValue(override val value: List<MAnnotationArgument<*>>) : MAnnotationArgument<List<MAnnotationArgument<*>>>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
-	data class ULongValue(override val value: ULong) : MAnnotationArgument<ULong>() {
-		override fun toString() = value.toString()
+	data class BooleanValue(override val value: Boolean) : MAnnotationArgument<Boolean>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
-	data class UShortValue(override val value: UShort) : MAnnotationArgument<UShort>() {
-		override fun toString() = value.toString()
+	data class ByteValue(override val value: Byte) : MAnnotationArgument<Byte>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
-	data class EnumValue(val className: MQualifiedTypeName, val entryName: String) : MAnnotationArgument<String>() {
+	data class CharValue(override val value: Char) : MAnnotationArgument<Char>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class DoubleValue(override val value: Double) : MAnnotationArgument<Double>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class EnumValue(val className: MQualifiedTypeName, val entryName: MEnumEntryName) : MAnnotationArgument<String>() {
+
 		override val value = "$className.$entryName"
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class FloatValue(override val value: Float) : MAnnotationArgument<Float>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class IntValue(override val value: Int) : MAnnotationArgument<Int>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class KClassValue(override val value: MQualifiedTypeName) : MAnnotationArgument<MQualifiedTypeName>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class LongValue(override val value: Long) : MAnnotationArgument<Long>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class ShortValue(override val value: Short) : MAnnotationArgument<Short>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class StringValue(override val value: String) : MAnnotationArgument<String>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	// TODO use property generic types once fixed: https://youtrack.jetbrains.com/issue/KT-29655
+
+	data class UByteValue(override val value: Byte) : MAnnotationArgument<Byte>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class UIntValue(override val value: Int) : MAnnotationArgument<Int>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class ULongValue(override val value: Long) : MAnnotationArgument<Long>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
+	}
+
+	data class UShortValue(override val value: Short) : MAnnotationArgument<Short>() {
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
 
@@ -57,16 +129,16 @@ internal fun MAnnotationArgument(argument: KmAnnotationArgument<*>): MAnnotation
 		is KmAnnotationArgument.ByteValue -> ByteValue(value)
 		is KmAnnotationArgument.CharValue -> CharValue(value)
 		is KmAnnotationArgument.DoubleValue -> DoubleValue(value)
-		is KmAnnotationArgument.EnumValue -> EnumValue(MQualifiedTypeName.fromKotlinInternal(enumClassName), enumEntryName)
+		is KmAnnotationArgument.EnumValue -> EnumValue(MQualifiedTypeName.fromKotlinInternal(enumClassName), MEnumEntryName(enumEntryName))
 		is KmAnnotationArgument.FloatValue -> FloatValue(value)
 		is KmAnnotationArgument.IntValue -> IntValue(value)
 		is KmAnnotationArgument.KClassValue -> KClassValue(MQualifiedTypeName.fromKotlinInternal(value))
 		is KmAnnotationArgument.LongValue -> LongValue(value)
 		is KmAnnotationArgument.ShortValue -> ShortValue(value)
 		is KmAnnotationArgument.StringValue -> StringValue(value)
-		is KmAnnotationArgument.UByteValue -> UByteValue(value.toUByte())
-		is KmAnnotationArgument.UIntValue -> UIntValue(value.toUInt())
-		is KmAnnotationArgument.ULongValue -> ULongValue(value.toULong())
-		is KmAnnotationArgument.UShortValue -> UShortValue(value.toUShort())
+		is KmAnnotationArgument.UByteValue -> UByteValue(value)
+		is KmAnnotationArgument.UIntValue -> UIntValue(value)
+		is KmAnnotationArgument.ULongValue -> ULongValue(value)
+		is KmAnnotationArgument.UShortValue -> UShortValue(value)
 	}
 }

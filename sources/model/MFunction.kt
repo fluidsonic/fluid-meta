@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-
 @Suppress("EqualsOrHashCode")
 data class MFunction(
 	val contract: MContract?,
@@ -47,27 +46,8 @@ data class MFunction(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"contract" to contract,
-		"inheritanceRestriction" to inheritanceRestriction,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"isInfix" to isInfix,
-		"isInline" to isInline,
-		"isOperator" to isOperator,
-		"isSuspend" to isSuspend,
-		"isTailrec" to isTailrec,
-		"jvmSignature" to jvmSignature,
-		"lambdaClassOriginName" to lambdaClassOriginName,
-		"name" to name,
-		"receiverParameterType" to receiverParameterType,
-		"returnType" to returnType,
-		"source" to source,
-		"typeParameters" to typeParameters,
-		"valueParameters" to valueParameters,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

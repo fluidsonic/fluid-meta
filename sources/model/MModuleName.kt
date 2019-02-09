@@ -1,7 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 
-inline class MTypeParameterName(val kotlin: String) {
+inline class MModuleName(val kotlin: String) {
 
 	override fun toString() = kotlin
 

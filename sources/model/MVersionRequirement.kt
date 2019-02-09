@@ -1,6 +1,5 @@
 package com.github.fluidsonic.fluid.meta
 
-
 data class MVersionRequirement(
 	val errorCode: Int?,
 	val kind: Kind,
@@ -9,13 +8,8 @@ data class MVersionRequirement(
 	val version: MVersion
 ) {
 
-	override fun toString() = typeToString(
-		"errorCode" to errorCode,
-		"kind" to kind,
-		"level" to level,
-		"message" to message,
-		"version" to version
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object;
@@ -23,16 +17,16 @@ data class MVersionRequirement(
 
 	enum class Kind {
 
-		API_VERSION,
-		COMPILER_VERSION,
-		LANGUAGE_VERSION;
+		API,
+		COMPILER,
+		LANGUAGE;
 
 
 		override fun toString() =
 			when (this) {
-				API_VERSION -> "api version"
-				COMPILER_VERSION -> "compiler version"
-				LANGUAGE_VERSION -> "language version"
+				API -> "api"
+				COMPILER -> "compiler"
+				LANGUAGE -> "language"
 			}
 
 

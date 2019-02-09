@@ -5,7 +5,9 @@ import kotlinx.metadata.KmAnnotation
 import kotlinx.metadata.jvm.KmModuleVisitor
 
 
-internal class MModuleBuilder : KmModuleVisitor() {
+internal class MModuleBuilder(
+	private val name: MModuleName
+) : KmModuleVisitor() {
 
 	private var annotations: MutableList<MAnnotation>? = null
 	private var packages: MutableList<MPackage>? = null
@@ -13,6 +15,7 @@ internal class MModuleBuilder : KmModuleVisitor() {
 
 	fun build() = MModule(
 		annotations = annotations.toListOrEmpty(),
+		name = name,
 		packages = packages.toListOrEmpty()
 	)
 
@@ -26,7 +29,7 @@ internal class MModuleBuilder : KmModuleVisitor() {
 
 	override fun visitPackageParts(fqName: ClassName, fileFacades: List<String>, multiFileClassParts: Map<String, String>) {
 		MPackage(
-			fileFacadeTypes = fileFacades.map { MQualifiedTypeName.fromKotlinInternal(it) },
+			fileTypes = fileFacades.map { MQualifiedTypeName.fromKotlinInternal(it) },
 			multiFileClassParts = multiFileClassParts.entries
 				.associate { MQualifiedTypeName.fromKotlinInternal(it.key) to MQualifiedTypeName.fromKotlinInternal(it.value) },
 			name = MPackageName.fromKotlinInternal(fqName)

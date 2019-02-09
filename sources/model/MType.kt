@@ -1,20 +1,25 @@
 package com.github.fluidsonic.fluid.meta
 
+sealed class MType : Meta
 
-sealed class MType
+
+sealed class MNamedType : MType() {
+
+	abstract val name: MQualifiedTypeName
+}
 
 
 @Suppress("EqualsOrHashCode")
 data class MAnnotationClass(
-	override val companion: MQualifiedTypeName?,
+	override val companionName: MTypeName?,
 	val constructor: MConstructor,
 	override val isExpect: Boolean,
-	val name: MQualifiedTypeName,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
-	override val types: List<MQualifiedTypeName>,
+	override val types: List<MTypeName>,
 	override val versionRequirements: List<MVersionRequirement>,
 	override val visibility: MVisibility
-) : MType(),
+) : MNamedType(),
 	MCompanionable,
 	MConstructable,
 	MExpectable,
@@ -36,16 +41,8 @@ data class MAnnotationClass(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"companion" to companion,
-		"constructor" to constructor,
-		"isExpect" to isExpect,
-		"name" to name,
-		"properties" to properties,
-		"types" to types,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -54,25 +51,25 @@ data class MAnnotationClass(
 
 @Suppress("EqualsOrHashCode")
 data class MClass(
-	override val companion: MQualifiedTypeName?,
+	val anonymousObjectOriginName: MQualifiedTypeName?,
+	override val companionName: MTypeName?,
 	override val constructors: List<MConstructor>,
 	override val functions: List<MFunction>,
 	override val inheritanceRestriction: MInheritanceRestriction,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
 	override val isInline: Boolean,
-	val isInner: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
-	val name: MQualifiedTypeName,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
 	val specialization: Specialization?,
 	override val supertypes: List<MTypeReference>,
 	override val typeAliases: List<MTypeAlias>,
 	override val typeParameters: List<MTypeParameter>,
-	override val types: List<MQualifiedTypeName>,
+	override val types: List<MTypeName>,
 	override val versionRequirements: List<MVersionRequirement>,
 	override val visibility: MVisibility
-) : MType(),
+) : MNamedType(),
 	MCompanionable,
 	MConstructable,
 	MExpectable,
@@ -97,26 +94,8 @@ data class MClass(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"companion" to companion,
-		"constructors" to constructors,
-		"functions" to functions,
-		"inheritanceRestriction" to inheritanceRestriction,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"isInline" to isInline,
-		"isInner" to isInner,
-		"localDelegatedProperties" to localDelegatedProperties,
-		"name" to name,
-		"properties" to properties,
-		"specialization" to specialization,
-		"supertypes" to supertypes,
-		"typeAliases" to typeAliases,
-		"typeParameters" to typeParameters,
-		"types" to types,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object;
@@ -131,13 +110,18 @@ data class MClass(
 		}
 
 
+		object Inner : Specialization() {
+
+			override fun toString() = "inner"
+		}
+
+
 		data class Sealed(
 			val subclassTypes: List<MQualifiedTypeName>
 		) : Specialization() {
 
-			override fun toString() = typeToString(
-				"subclassTypes" to subclassTypes
-			)
+			override fun toString() =
+				subclassTypes.joinToString(prefix = "sealed [\n", separator = ",\n", postfix = "\n]")
 		}
 
 
@@ -148,21 +132,21 @@ data class MClass(
 
 @Suppress("EqualsOrHashCode")
 data class MEnumClass(
-	override val companion: MQualifiedTypeName?,
+	override val companionName: MTypeName?,
 	override val constructors: List<MConstructor>,
 	val entryNames: List<MEnumEntryName>,
 	override val functions: List<MFunction>,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
-	val name: MQualifiedTypeName,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
 	override val supertypes: List<MTypeReference>,
 	override val typeAliases: List<MTypeAlias>,
-	override val types: List<MQualifiedTypeName>,
+	override val types: List<MTypeName>,
 	override val versionRequirements: List<MVersionRequirement>,
 	override val visibility: MVisibility
-) : MType(),
+) : MNamedType(),
 	MCompanionable,
 	MConstructable,
 	MExpectable,
@@ -184,22 +168,8 @@ data class MEnumClass(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"companion" to companion,
-		"constructors" to constructors,
-		"enumEntryNames" to entryNames,
-		"functions" to functions,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"localDelegatedProperties" to localDelegatedProperties,
-		"name" to name,
-		"nestedClasses" to types,
-		"properties" to properties,
-		"supertypes" to supertypes,
-		"typeAliases" to typeAliases,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -209,11 +179,11 @@ data class MEnumClass(
 @Suppress("EqualsOrHashCode")
 data class MEnumEntryClass(
 	override val functions: List<MFunction>,
-	val name: MQualifiedTypeName,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
 	val supertype: MTypeReference,
 	override val versionRequirements: List<MVersionRequirement>
-) : MType(),
+) : MNamedType(),
 	MFunctionContainer,
 	MPropertyContainer,
 	MSupertypable,
@@ -228,21 +198,18 @@ data class MEnumEntryClass(
 		get() = listOf(supertype)
 
 
-	override fun toString() = typeToString(
-		"functions" to functions,
-		"name" to name,
-		"properties" to properties,
-		"supertype" to supertype,
-		"versionRequirements" to versionRequirements
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
 }
 
 
-data class MFileFacade(
+data class MFile(
+	val facadeClassName: MQualifiedTypeName,
 	override val functions: List<MFunction>,
+	val jvmPackageName: MPackageName?,
 	override val localDelegatedProperties: List<MProperty>,
 	override val properties: List<MProperty>,
 	override val typeAliases: List<MTypeAlias>
@@ -252,12 +219,8 @@ data class MFileFacade(
 	MPropertyContainer,
 	MTypeAliasContainer {
 
-	override fun toString() = typeToString(
-		"functions" to functions,
-		"localDelegatedProperties" to localDelegatedProperties,
-		"properties" to properties,
-		"typeAliases" to typeAliases
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -266,20 +229,20 @@ data class MFileFacade(
 
 @Suppress("EqualsOrHashCode")
 data class MInterface(
-	override val companion: MQualifiedTypeName?,
+	override val companionName: MTypeName?,
 	override val functions: List<MFunction>,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
-	val name: MQualifiedTypeName,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
 	override val supertypes: List<MTypeReference>,
 	override val typeAliases: List<MTypeAlias>,
 	override val typeParameters: List<MTypeParameter>,
-	override val types: List<MQualifiedTypeName>,
+	override val types: List<MTypeName>,
 	override val versionRequirements: List<MVersionRequirement>,
 	override val visibility: MVisibility
-) : MType(),
+) : MNamedType(),
 	MCompanionable,
 	MExpectable,
 	MExternalizable,
@@ -301,21 +264,8 @@ data class MInterface(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"companion" to companion,
-		"functions" to functions,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"localDelegatedProperties" to localDelegatedProperties,
-		"name" to name,
-		"properties" to properties,
-		"supertypes" to supertypes,
-		"typeAliases" to typeAliases,
-		"typeParameters" to typeParameters,
-		"types" to types,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -332,22 +282,21 @@ data class MLambda(
 		get() = listOf(function)
 
 
-	override fun toString() = typeToString(
-		"function" to function
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
 }
 
 
-data class MMultiFileClassFacade(
+data class MMultiFileClass(
+	val className: MQualifiedTypeName,
 	val partClassNames: List<MQualifiedTypeName>
 ) : MType() {
 
-	override fun toString() = typeToString(
-		"partClassNames" to partClassNames
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -355,14 +304,12 @@ data class MMultiFileClassFacade(
 
 
 data class MMultiFileClassPart(
-	val facadeClassName: MQualifiedTypeName,
-	val fileFacade: MFileFacade
+	val className: MQualifiedTypeName,
+	val file: MFile
 ) : MType() {
 
-	override fun toString() = typeToString(
-		"facadeClassName" to facadeClassName,
-		"fileFacade" to fileFacade
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object
@@ -377,15 +324,14 @@ data class MObject(
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
-	val name: MQualifiedTypeName,
-	val originName: MQualifiedTypeName?,
+	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
 	override val supertypes: List<MTypeReference>,
 	override val typeAliases: List<MTypeAlias>,
-	override val types: List<MQualifiedTypeName>,
+	override val types: List<MTypeName>,
 	override val versionRequirements: List<MVersionRequirement>,
 	override val visibility: MVisibility
-) : MType(),
+) : MNamedType(),
 	MConstructable,
 	MExpectable,
 	MExternalizable,
@@ -411,22 +357,8 @@ data class MObject(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"constructor" to constructor,
-		"functions" to functions,
-		"isCompanion" to isCompanion,
-		"isExpect" to isExpect,
-		"isExternal" to isExternal,
-		"localDelegatedProperties" to localDelegatedProperties,
-		"name" to name,
-		"originName" to originName,
-		"properties" to properties,
-		"supertypes" to supertypes,
-		"typeAliases" to typeAliases,
-		"types" to types,
-		"versionRequirements" to versionRequirements,
-		"visibility" to visibility
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	@Deprecated(level = DeprecationLevel.HIDDEN, message = "Objects only have a single constructor")
@@ -440,5 +372,6 @@ data class MObject(
 
 object MUnknown : MType() {
 
-	override fun toString() = typeToString()
+	override fun toString() =
+		MetaCodeWriter.write(this)
 }

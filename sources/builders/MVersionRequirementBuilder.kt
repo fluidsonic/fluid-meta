@@ -27,9 +27,9 @@ internal class MVersionRequirementBuilder : KmVersionRequirementVisitor() {
 	override fun visit(kind: KmVersionRequirementVersionKind, level: KmVersionRequirementLevel, errorCode: Int?, message: String?) {
 		this.errorCode = errorCode
 		this.kind = when (kind) {
-			KmVersionRequirementVersionKind.API_VERSION -> Kind.API_VERSION
-			KmVersionRequirementVersionKind.COMPILER_VERSION -> Kind.COMPILER_VERSION
-			KmVersionRequirementVersionKind.LANGUAGE_VERSION -> Kind.LANGUAGE_VERSION
+			KmVersionRequirementVersionKind.API_VERSION -> Kind.API
+			KmVersionRequirementVersionKind.COMPILER_VERSION -> Kind.COMPILER
+			KmVersionRequirementVersionKind.LANGUAGE_VERSION -> Kind.LANGUAGE
 		}
 		this.level = when (level) {
 			KmVersionRequirementLevel.ERROR -> Level.ERROR

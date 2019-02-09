@@ -27,36 +27,79 @@ internal class MTypeReferenceBuilder(
 
 
 	fun build(): MTypeReference {
+		val abbreviatedType = abbreviatedType?.build()
+		val arguments = arguments.mapOrEmpty { it.build() }
+		val annotations = annotations.toListOrEmpty()
 		val className = className
+		val flexibleTypeUpperBound = flexibleTypeUpperBound?.build()
+		val isNullable = Flag.Type.IS_NULLABLE(flags)
 		val typeAliasName = typeAliasName
 		val typeParameterId = typeParameterId
 
 		return when {
+			className != null && kotlinFunctionTypeNameRegex.matches(className.kotlinInternal) -> {
+				val parameterArguments = arguments.toMutableList()
+
+				val isExtension = annotations.any { it.className == kotlinExtensionFunctionAnnotationTypeName }
+				if (isExtension)
+					check(parameterArguments.size >= 2) { "extension function type must have at least two arguments" }
+				else
+					check(parameterArguments.size >= 1) { "function type must have at least one argument" }
+
+				val receiverArgument = isExtension.thenTake { parameterArguments.removeAt(0) }
+
+				val isSuspend = Flag.Type.IS_SUSPEND(flags)
+				val returnArgument = if (isSuspend) {
+					check(parameterArguments.size >= 2) { "suspend fun type must have at least two additional arguments for continuation and state" }
+					parameterArguments.removeLast()
+
+					val continuation = parameterArguments.removeLast()
+					check(continuation is MTypeArgument.Type &&
+						continuation.type is MTypeReference.Class &&
+						continuation.type.name.withoutPackage() == kotlinContinuationTypeName &&
+						continuation.type.arguments.size == 1
+					) { "suspend fun type must have a $kotlinContinuationTypeName as penultimate argument" }
+
+					continuation.type.arguments.first()
+				}
+				else
+					parameterArguments.removeLast()
+
+				MTypeReference.Function(
+					annotations = annotations.filterNot { it.className == kotlinExtensionFunctionAnnotationTypeName },
+					flexibleTypeUpperBound = flexibleTypeUpperBound,
+					isNullable = isNullable,
+					isSuspend = isSuspend,
+					parameterArguments = parameterArguments,
+					receiverArgument = receiverArgument,
+					returnArgument = returnArgument
+				)
+			}
+
 			className != null -> MTypeReference.Class(
-				abbreviatedType = abbreviatedType?.build(),
+				abbreviatedType = abbreviatedType,
 				annotations = annotations.toListOrEmpty(),
-				arguments = arguments.mapOrEmpty { it.build() },
-				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
-				isNullable = Flag.Type.IS_NULLABLE(flags),
-				isSuspend = Flag.Type.IS_SUSPEND(flags),
+				arguments = arguments,
+				flexibleTypeUpperBound = flexibleTypeUpperBound,
+				isNullable = isNullable,
 				isRaw = isRaw,
 				name = className,
 				outerType = outerType?.build()
 			)
 			typeAliasName != null -> MTypeReference.TypeAlias(
-				abbreviatedType = abbreviatedType?.build(),
+				abbreviatedType = abbreviatedType,
 				annotations = annotations.toListOrEmpty(),
-				arguments = arguments.mapOrEmpty { it.build() },
-				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
-				isNullable = Flag.Type.IS_NULLABLE(flags),
+				arguments = arguments,
+				flexibleTypeUpperBound = flexibleTypeUpperBound,
+				isNullable = isNullable,
 				isRaw = isRaw,
 				name = typeAliasName
 			)
 			typeParameterId != null -> MTypeReference.TypeParameter(
 				annotations = annotations.toListOrEmpty(),
-				arguments = arguments.mapOrEmpty { it.build() },
-				flexibleTypeUpperBound = flexibleTypeUpperBound?.build(),
-				isNullable = Flag.Type.IS_NULLABLE(flags),
+				arguments = arguments,
+				flexibleTypeUpperBound = flexibleTypeUpperBound,
+				isNullable = isNullable,
 				id = typeParameterId,
 				isRaw = isRaw
 			)
@@ -128,6 +171,14 @@ internal class MTypeReferenceBuilder(
 
 	override fun visitTypeParameter(id: Int) {
 		typeParameterId = MTypeParameterId(id)
+	}
+
+
+	companion object {
+
+		private val kotlinContinuationTypeName = MTypeName.fromKotlinInternal("Continuation")
+		private val kotlinExtensionFunctionAnnotationTypeName = MQualifiedTypeName.fromKotlinInternal("kotlin/ExtensionFunctionType")
+		private val kotlinFunctionTypeNameRegex = Regex("^kotlin/Function\\d+$")
 	}
 
 

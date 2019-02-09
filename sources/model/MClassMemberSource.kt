@@ -13,12 +13,7 @@ enum class MClassMemberSource {
 
 
 	override fun toString() =
-		when (this) {
-			DECLARATION -> "declaration"
-			DELEGATION -> "delegation"
-			FAKE_OVERRIDE -> "fake override"
-			SYNTHESIZED -> "synthesized"
-		}
+		MetaCodeWriter.write(this)
 
 
 	companion object {

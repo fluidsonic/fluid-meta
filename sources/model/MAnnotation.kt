@@ -20,10 +20,8 @@ data class MAnnotation(
 		className.hashCode()
 
 
-	override fun toString() = typeToString(
-		"className" to className,
-		"arguments" to arguments
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

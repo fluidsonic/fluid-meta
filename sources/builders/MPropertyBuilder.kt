@@ -29,41 +29,57 @@ internal class MPropertyBuilder(
 	private var versionRequirements: MutableList<MVersionRequirementBuilder>? = null
 
 
-	fun build() = MProperty(
-		getter = Flag.Property.HAS_GETTER(flags).thenTake {
+	fun build(): MProperty {
+		val returnType = returnType?.build() ?: throw MetaException("property '$name' has a getter without type")
+		val getter = Flag.Property.HAS_GETTER(flags).thenTake {
 			MPropertyAccessor.Getter(
 				isDefault = !Flag.PropertyAccessor.IS_NOT_DEFAULT(getterFlags),
 				isExternal = Flag.PropertyAccessor.IS_EXTERNAL(getterFlags),
 				isInline = Flag.PropertyAccessor.IS_INLINE(getterFlags),
 				jvmSignature = jvmGetterSignature,
-				returnType = returnType?.build() ?: throw MetaException("property '$name' has a getter without return type")
+				returnType = returnType,
+				visibility = MVisibility.forFlags(getterFlags)
 			)
-		} ?: throw MetaException("property '$name' has no getter"),
-		inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
-		isConst = Flag.Property.IS_CONST(flags),
-		isDelegated = Flag.Property.IS_DELEGATED(flags),
-		isExpect = Flag.Property.IS_EXPECT(flags),
-		isExternal = Flag.Property.IS_EXTERNAL(flags),
-		isLateinit = Flag.Property.IS_LATEINIT(flags),
-		isVar = Flag.Property.IS_VAR(flags),
-		jvmFieldSignature = jvmFieldSignature,
-		jvmSyntheticMethodForAnnotationsSignature = jvmSyntheticMethodForAnnotationsSignature,
-		name = name,
-		receiverParameterType = receiverParameter?.build(),
-		setter = Flag.Property.HAS_SETTER(flags).thenTake {
+		} ?: throw MetaException("property '$name' has no getter")
+		val setter = Flag.Property.HAS_SETTER(flags).thenTake {
 			MPropertyAccessor.Setter(
-				isDefault = !Flag.PropertyAccessor.IS_NOT_DEFAULT(getterFlags),
-				isExternal = Flag.PropertyAccessor.IS_EXTERNAL(getterFlags),
-				isInline = Flag.PropertyAccessor.IS_INLINE(getterFlags),
-				jvmSignature = jvmGetterSignature,
-				parameter = setterParameter?.build() ?: throw MetaException("property '$name' has a setter without parameter type")
+				isDefault = !Flag.PropertyAccessor.IS_NOT_DEFAULT(setterFlags),
+				isExternal = Flag.PropertyAccessor.IS_EXTERNAL(setterFlags),
+				isInline = Flag.PropertyAccessor.IS_INLINE(setterFlags),
+				jvmSignature = jvmSetterSignature,
+				parameter = setterParameter?.build() ?: MValueParameter(
+					declaresDefaultValue = false,
+					isCrossinline = false,
+					isNoinline = returnType is MTypeReference.Function,
+					name = MVariableName("<set-?>"),
+					type = returnType,
+					varargElementType = null
+				),
+				visibility = MVisibility.forFlags(setterFlags)
 			)
-		},
-		source = MClassMemberSource.forFlags(flags),
-		typeParameters = typeParameters.mapOrEmpty { it.build() },
-		versionRequirements = versionRequirements.mapOrEmpty { it.build() },
-		visibility = MVisibility.forFlags(flags)
-	)
+		}
+
+		return MProperty(
+			getter = getter,
+			inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
+			isConst = Flag.Property.IS_CONST(flags),
+			isDelegated = Flag.Property.IS_DELEGATED(flags),
+			isExpect = Flag.Property.IS_EXPECT(flags),
+			isExternal = Flag.Property.IS_EXTERNAL(flags),
+			isInline = getter.isInline && (setter == null || setter.isInline),
+			isLateinit = Flag.Property.IS_LATEINIT(flags),
+			isVar = Flag.Property.IS_VAR(flags),
+			jvmFieldSignature = jvmFieldSignature,
+			jvmSyntheticMethodForAnnotationsSignature = jvmSyntheticMethodForAnnotationsSignature,
+			name = name,
+			receiverParameterType = receiverParameter?.build(),
+			setter = setter,
+			source = MClassMemberSource.forFlags(flags),
+			typeParameters = typeParameters.mapOrEmpty { it.build() },
+			versionRequirements = versionRequirements.mapOrEmpty { it.build() },
+			visibility = MVisibility.forFlags(flags)
+		)
+	}
 
 
 	override fun visitExtensions(type: KmExtensionType) =

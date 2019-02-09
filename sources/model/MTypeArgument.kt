@@ -1,11 +1,11 @@
 package com.github.fluidsonic.fluid.meta
 
-
 sealed class MTypeArgument {
 
 	object StarProjection : MTypeArgument() {
 
-		override fun toString() = "*"
+		override fun toString() =
+			MetaCodeWriter.write(this)
 	}
 
 
@@ -14,10 +14,9 @@ sealed class MTypeArgument {
 		val variance: MVariance
 	) : MTypeArgument() {
 
-		override fun toString() = typeToString(
-			"type" to type,
-			"variance" to variance
-		)
+
+		override fun toString() =
+			MetaCodeWriter.write(this)
 
 
 		companion object
@@ -25,4 +24,12 @@ sealed class MTypeArgument {
 
 
 	companion object
+}
+
+
+internal fun MTypeArgument?.equalsExceptForNullability(other: MTypeArgument?): Boolean {
+	if (this === other) return true
+	if (this !is MTypeArgument.Type || other !is MTypeArgument.Type) return false
+
+	return type.equalsExceptForNullability(other.type)
 }

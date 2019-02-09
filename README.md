@@ -5,7 +5,8 @@ fluid-meta
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.fluidsonic/fluid-meta-jvm.svg)](https://search.maven.org/search?q=g:com.github.fluidsonic%20a:fluid-meta*)
 [![#fluid-meta Slack Channel](https://img.shields.io/badge/slack-%23fluid--meta-543951.svg)](https://kotlinlang.slack.com/messages/CFW515D1A)
 
-Converts Kotlin metadata into a usable data model
+Converts Kotlin metadata into a usable data model.
+Includes pretty printing for easy inspection, see the output for [Kotlin's Standard Library](https://github.com/fluidsonic/fluid-meta/blob/master/kotlin-stdlib.kt) for example :)
 
 
 
@@ -34,15 +35,14 @@ nullability, internal visibility, data class, inline and default parameters.
 package hello.world
 
 internal data class Hello(
-	val world: String = "cool!",
-	val foo: Int
+	private val world: String = "cool!",
+	val foo: Int?
 ) {
 
 	constructor() : this(foo = 3)
 
 	inline fun hey() = println("hey")
 }
-
 ```
 
 All you need to do is to use `Meta.of(…)` to inspect the respective `KClass` (or `Element` when processing annotations):
@@ -57,453 +57,52 @@ fun main() {
 }
 ```
 
-And you'll get this:
+And you'll get well-structured metadata objects like `MClass` which print output like the following when using `.toString()`:
 
-```text
-MClass(
-	name: hello.world.Hello
-	anonymousObjectOriginName: null
-	companion: null
-	constructors: [
-		MConstructor(
-			isPrimary: false
-			jvmSignature: <init>()V
-			modality: open
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MConstructor(
-			isPrimary: true
-			jvmSignature: <init>(Ljava/lang/String;I)V
-			modality: final
-			valueParameters: [
-				MValueParameter(
-					name: world
-					declaresDefaultValue: true
-					isCrossinline: false
-					isNoinline: false
-					isVariadic: false
-					type: MClassReference(
-						name: kotlin.String
-						abbreviatedType: null
-						annotations: []
-						arguments: []
-						flexibilityTypeUpperBound: null
-						isNullable: false
-						isRaw: false
-						isSuspend: false
-						outerType: null
-					)
-				)
-				MValueParameter(
-					name: foo
-					declaresDefaultValue: false
-					isCrossinline: false
-					isNoinline: false
-					isVariadic: false
-					type: MClassReference(
-						name: kotlin.Int
-						abbreviatedType: null
-						annotations: []
-						arguments: []
-						flexibilityTypeUpperBound: null
-						isNullable: false
-						isRaw: false
-						isSuspend: false
-						outerType: null
-					)
-				)
-			]
-			visibility: public
-			versionRequirement: null
-		)
-	]
-	enumEntryNames: []
-	functions: [
-		MFunction(
-			name: component1
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: true
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: component1()Ljava/lang/String;
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.String
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: component2
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: true
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: component2()I
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.Int
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: copy
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: false
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: copy(Ljava/lang/String;I)Lhello/world/Hello;
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: hello.world.Hello
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: [
-				MValueParameter(
-					name: world
-					declaresDefaultValue: true
-					isCrossinline: false
-					isNoinline: false
-					isVariadic: false
-					type: MClassReference(
-						name: kotlin.String
-						abbreviatedType: null
-						annotations: []
-						arguments: []
-						flexibilityTypeUpperBound: null
-						isNullable: false
-						isRaw: false
-						isSuspend: false
-						outerType: null
-					)
-				)
-				MValueParameter(
-					name: foo
-					declaresDefaultValue: true
-					isCrossinline: false
-					isNoinline: false
-					isVariadic: false
-					type: MClassReference(
-						name: kotlin.Int
-						abbreviatedType: null
-						annotations: []
-						arguments: []
-						flexibilityTypeUpperBound: null
-						isNullable: false
-						isRaw: false
-						isSuspend: false
-						outerType: null
-					)
-				)
-			]
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: equals
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: true
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: equals(Ljava/lang/Object;)Z
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: open
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.Boolean
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: [
-				MValueParameter(
-					name: other
-					declaresDefaultValue: false
-					isCrossinline: false
-					isNoinline: false
-					isVariadic: false
-					type: MClassReference(
-						name: kotlin.Any
-						abbreviatedType: null
-						annotations: []
-						arguments: []
-						flexibilityTypeUpperBound: null
-						isNullable: true
-						isRaw: false
-						isSuspend: false
-						outerType: null
-					)
-				)
-			]
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: hashCode
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: false
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: hashCode()I
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: open
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.Int
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: hey
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: true
-			isOperator: false
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: hey()V
-			kind: declaration
-			lambdaClassOriginName: null
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.Unit
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MFunction(
-			name: toString
-			contract: null
-			isExpect: false
-			isExternal: false
-			isInfix: false
-			isInline: false
-			isOperator: false
-			isSuspend: false
-			isTailrec: false
-			jvmSignature: toString()Ljava/lang/String;
-			kind: synthesized
-			lambdaClassOriginName: null
-			modality: open
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.String
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			typeParameters: []
-			valueParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-	]
-	isExpect: false
-	isExternal: false
-	isInline: false
-	isInner: false
-	kind: data class
-	localDelegatedProperties: []
-	modality: final
-	nestedClasses: []
-	properties: [
-		MProperty(
-			name: foo
-			getterIsExternal: false
-			getterIsInline: false
-			getterIsNotDefault: false
-			hasConstant: false
-			hasGetter: true
-			hasSetter: false
-			isConst: false
-			isDelegated: false
-			isExpect: false
-			isExternal: false
-			isLateinit: false
-			isVar: false
-			jvmFieldSignature: foo:I
-			jvmGetterSignature: getFoo()I
-			jvmSetterSignature: null
-			jvmSyntheticMethodForAnnotationsSignature: null
-			kind: declaration
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.Int
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			setterIsExternal: false
-			setterIsInline: false
-			setterIsNotDefault: false
-			setterParameter: null
-			typeParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-		MProperty(
-			name: world
-			getterIsExternal: false
-			getterIsInline: false
-			getterIsNotDefault: false
-			hasConstant: false
-			hasGetter: true
-			hasSetter: false
-			isConst: false
-			isDelegated: false
-			isExpect: false
-			isExternal: false
-			isLateinit: false
-			isVar: false
-			jvmFieldSignature: world:Ljava/lang/String;
-			jvmGetterSignature: getWorld()Ljava/lang/String;
-			jvmSetterSignature: null
-			jvmSyntheticMethodForAnnotationsSignature: null
-			kind: declaration
-			modality: final
-			receiverParameter: null
-			returnType: MClassReference(
-				name: kotlin.String
-				abbreviatedType: null
-				annotations: []
-				arguments: []
-				flexibilityTypeUpperBound: null
-				isNullable: false
-				isRaw: false
-				isSuspend: false
-				outerType: null
-			)
-			setterIsExternal: false
-			setterIsInline: false
-			setterIsNotDefault: false
-			setterParameter: null
-			typeParameters: []
-			visibility: public
-			versionRequirement: null
-		)
-	]
-	sealedSubclasses: []
-	supertypes: [
-		MClassReference(
-			name: kotlin.Any
-			abbreviatedType: null
-			annotations: []
-			arguments: []
-			flexibilityTypeUpperBound: null
-			isNullable: false
-			isRaw: false
-			isSuspend: false
-			outerType: null
-		)
-	]
-	typeAliases: []
-	typeParameters: []
-	visibility: internal
-	versionRequirement: null
-)
+```kotlin
+internal data class hello.world.Hello {
+
+	// *** PROPERTIES ***
+
+	// JVM field = foo:Ljava/lang/Integer;
+	val foo: Int?
+
+	// JVM field = world:Ljava/lang/String;
+	private val world: String
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Integer;)V
+	/* primary */ constructor(world: String /* = default */, foo: Int?)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = component1()Ljava/lang/String;
+	private /* synthesized */ operator fun component1(): String
+
+	// JVM method = component2()Ljava/lang/Integer;
+	/* synthesized */ operator fun component2(): Int?
+
+	// JVM method = copy(Ljava/lang/String;Ljava/lang/Integer;)Lhello/world/Hello;
+	/* synthesized */ fun copy(world: String /* = default */, foo: Int? /* = default */): hello.world.Hello
+
+	// JVM method = equals(Ljava/lang/Object;)Z
+	/* synthesized */ open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	/* synthesized */ open fun hashCode(): Int
+
+	// JVM method = hey()V
+	inline fun hey()
+
+	// JVM method = toString()Ljava/lang/String;
+	/* synthesized */ open fun toString(): String
+}
 ```
 
 

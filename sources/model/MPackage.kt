@@ -1,12 +1,11 @@
 package com.github.fluidsonic.fluid.meta
 
-
 @Suppress("EqualsOrHashCode")
 data class MPackage(
-	override val fileFacadeTypes: List<MQualifiedTypeName>,
+	override val fileTypes: List<MQualifiedTypeName>,
 	val multiFileClassParts: Map<MQualifiedTypeName, MQualifiedTypeName>,
 	val name: MPackageName
-) : MFileFacadeTypeContainer, MIdentifyable {
+) : MFileTypeContainer, MIdentifyable {
 
 	override val localId by lazy { MLocalId.Package(name = name) }
 
@@ -15,11 +14,8 @@ data class MPackage(
 		localId.hashCode()
 
 
-	override fun toString() = typeToString(
-		"name" to if (name.isRoot) "<root>" else name,
-		"fileFacadeTypes" to fileFacadeTypes,
-		"multiFileClassParts" to multiFileClassParts
-	)
+	override fun toString() =
+		MetaCodeWriter.write(this)
 
 
 	companion object

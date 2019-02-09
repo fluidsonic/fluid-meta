@@ -15,14 +15,7 @@ enum class MVisibility {
 
 
 	override fun toString() =
-		when (this) {
-			INTERNAL -> "internal"
-			LOCAL -> "local"
-			PRIVATE -> "private"
-			PRIVATE_TO_THIS -> "private(this)"
-			PROTECTED -> "protected"
-			PUBLIC -> "public"
-		}
+		MetaCodeWriter.write(this)
 
 
 	companion object {

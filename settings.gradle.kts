@@ -6,3 +6,7 @@ pluginManagement {
 }
 
 rootProject.name = "fluid-meta-jvm"
+
+include("examples")
+
+project(":examples").name = "fluid-meta-examples"

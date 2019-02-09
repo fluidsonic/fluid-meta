@@ -1,9 +1,9 @@
 package com.github.fluidsonic.fluid.meta
 
 
-inline class MValueParameterIndex(private val raw: Int) {
+inline class MValueParameterIndex(val value: Int) {
 
-	override fun toString() = raw.toString()
+	override fun toString() = value.toString()
 
 
 	companion object
