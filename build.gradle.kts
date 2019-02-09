@@ -6,7 +6,7 @@ plugins {
 
 fluidLibrary {
 	name = "fluid-meta"
-	version = "0.9.2"
+	version = "0.9.3"
 }
 
 fluidLibraryVariant {

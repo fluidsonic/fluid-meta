@@ -19,7 +19,7 @@ in the group `com.github.fluidsonic`.
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("com.github.fluidsonic:fluid-meta:0.9.2")
+    implementation("com.github.fluidsonic:fluid-meta:0.9.3")
 }
 ```
 
