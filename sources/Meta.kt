@@ -132,11 +132,11 @@ interface Meta {
 
 
 		fun of(javaClass: Class<*>) =
-			javaClass.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.from(javaClass)) }
+			javaClass.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.of(javaClass)) }
 
 
 		fun of(element: Element) =
-			element.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.from(element)) }
+			element.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.of(element)) }
 
 
 		fun of(kotlinClass: KClass<*>) =

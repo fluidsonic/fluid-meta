@@ -1,5 +1,8 @@
 package com.github.fluidsonic.fluid.meta
 
+import javax.lang.model.element.Element
+import kotlin.reflect.KClass
+
 
 @Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")
 inline class MPackageName private constructor(val kotlinInternal: String) {
@@ -23,6 +26,19 @@ inline class MPackageName private constructor(val kotlinInternal: String) {
 
 		fun fromKotlinInternal(kotlinInternal: String) =
 			MPackageName(kotlinInternal = kotlinInternal)
+
+
+		fun of(javaClass: Class<*>) =
+			fromJvmInternal(javaClass.`package`.name)
+
+
+		// TODO we have to do a whole lot of conversions here between JVM-land and Kotlin-land
+		fun of(kotlinClass: KClass<*>) =
+			of(kotlinClass.java)
+
+
+		fun of(element: Element) =
+			fromJvmInternal(element.`package`.qualifiedName.toString())
 	}
 }
 
@@ -32,7 +48,7 @@ private val defaultImports = setOf(
 	"kotlin",
 	"kotlin/annotations",
 	"kotlin/collections",
-	"kotlin/comparions",
+	"kotlin/comparisons",
 	"kotlin/io",
 	"kotlin/jvm",
 	"kotlin/ranges",

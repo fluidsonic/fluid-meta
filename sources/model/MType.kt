@@ -4,7 +4,9 @@ package com.github.fluidsonic.fluid.meta
 sealed class MType : Meta
 
 
-sealed class MNamedType : MType() {
+sealed class MNamedType : MType(),
+	MPropertyContainer,
+	MVersionRestrictable {
 
 	abstract val name: MQualifiedTypeName
 }

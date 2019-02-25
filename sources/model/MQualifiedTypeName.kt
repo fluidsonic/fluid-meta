@@ -21,17 +21,28 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 
 	companion object {
 
-		fun from(javaClass: Class<*>) =
-			from(javaClass.kotlin)
+		fun fromKotlin(packageName: String, typeName: String) =
+			MQualifiedTypeName(
+				packageName = MPackageName.fromKotlin(packageName),
+				typeName = MTypeName.fromKotlin(typeName)
+			)
+
+
+		fun fromJvmInternal(jvmInternal: String) =
+			MQualifiedTypeName(kotlinInternal = jvmInternal.replace('$', '.'))
+
+
+		fun fromKotlinInternal(kotlinInternal: String) =
+			MQualifiedTypeName(kotlinInternal = kotlinInternal)
 
 
 		// TODO we have to do a whole lot of conversions here between JVM-land and Kotlin-land
-		fun from(kotlinClass: KClass<*>) = when (kotlinClass) {
-			Any::class ->
+		fun of(javaClass: Class<*>) = when (javaClass) {
+			Any::class.java ->
 				MQualifiedTypeName("kotlin/Any")
 
 			else -> {
-				val qualifiedJavaName = kotlinClass.java.name
+				val qualifiedJavaName = javaClass.name
 				val packageName = qualifiedJavaName.substringBeforeLast('.', missingDelimiterValue = "").replace('.', '/')
 				val typeName = qualifiedJavaName.substringAfterLast('.')
 
@@ -40,7 +51,11 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 		}
 
 
-		fun from(element: Element): MQualifiedTypeName {
+		fun of(kotlinClass: KClass<*>) =
+			of(kotlinClass.java)
+
+
+		fun of(element: Element): MQualifiedTypeName {
 			var packageName = ""
 			val components = mutableListOf<String>()
 			components += element.simpleName.toString()
@@ -60,21 +75,6 @@ inline class MQualifiedTypeName private constructor(val kotlinInternal: String) 
 
 			return fromJvmInternal("$packageName/$typeName")
 		}
-
-
-		fun fromKotlin(packageName: String, typeName: String) =
-			MQualifiedTypeName(
-				packageName = MPackageName.fromKotlin(packageName),
-				typeName = MTypeName.fromKotlin(typeName)
-			)
-
-
-		fun fromJvmInternal(jvmInternal: String) =
-			MQualifiedTypeName(kotlinInternal = jvmInternal.replace('$', '.'))
-
-
-		fun fromKotlinInternal(kotlinInternal: String) =
-			MQualifiedTypeName(kotlinInternal = kotlinInternal)
 	}
 }
 
