@@ -3,7 +3,7 @@ fluid-meta
 
 [![Kotlin 1.3.21](https://img.shields.io/badge/Kotlin-1.3.21-blue.svg)](http://kotlinlang.org)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.fluidsonic/fluid-meta-jvm.svg)](https://search.maven.org/search?q=g:com.github.fluidsonic%20a:fluid-meta*)
-[![#fluid-meta Slack Channel](https://img.shields.io/badge/slack-%23fluid--meta-543951.svg)](https://kotlinlang.slack.com/messages/CFW515D1A)
+[![#fluid-libraries Slack Channel](https://img.shields.io/badge/slack-%23fluid--libraries-543951.svg)](https://kotlinlang.slack.com/messages/C7UDFSVT2/)
 
 Converts Kotlin metadata into a usable data model.
 Includes pretty printing for easy inspection, see the output for [Kotlin's Standard Library](https://github.com/fluidsonic/fluid-meta/blob/master/kotlin-stdlib.kt) for example :)
@@ -13,13 +13,13 @@ Includes pretty printing for easy inspection, see the output for [Kotlin's Stand
 Installation
 ------------
 
-This library is [available in Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.fluidsonic%22%20a%3A%22fluid-meta%22) as `fluid-meta`
+This library is [available in Maven Central](https://search.maven.org/search?q=g:com.github.fluidsonic%20a:fluid-meta*) as `fluid-meta-jvm`
 in the group `com.github.fluidsonic`.
 
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("com.github.fluidsonic:fluid-meta:0.9.4")
+    implementation("com.github.fluidsonic:fluid-meta-jvm:0.9.4")
 }
 ```
 
