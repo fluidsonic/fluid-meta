@@ -9,10 +9,11 @@ import kotlin.reflect.KClass
 inline class MQualifiedTypeName private constructor(val kotlinInternal: String) {
 
 	constructor(packageName: MPackageName, typeName: MTypeName) : this(
-		if (typeName.kotlinInternal.startsWith('.'))
-			".${packageName.kotlinInternal}/${typeName.kotlinInternal.substring(startIndex = 1)}"
-		else
-			"${packageName.kotlinInternal}/${typeName.kotlinInternal}"
+		when {
+			packageName.isRoot -> typeName.kotlinInternal
+			typeName.kotlinInternal.startsWith('.') -> ".${packageName.kotlinInternal}/${typeName.kotlinInternal.substring(startIndex = 1)}"
+			else -> "${packageName.kotlinInternal}/${typeName.kotlinInternal}"
+		}
 	)
 
 
