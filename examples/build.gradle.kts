@@ -1,11 +1,8 @@
 import com.github.fluidsonic.fluid.library.*
 
-plugins {
-	id("com.github.fluidsonic.fluid-library")
-}
-
-fluidLibraryVariant {
+fluidJvmLibraryVariant {
 	publishing = false
+	jdk = JDK.v1_8
 }
 
 dependencies {
