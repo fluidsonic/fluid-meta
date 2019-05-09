@@ -1,7 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
-import javax.lang.model.element.Element
-import kotlin.reflect.KClass
+import javax.lang.model.element.*
+import kotlin.reflect.*
 
 
 @Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")

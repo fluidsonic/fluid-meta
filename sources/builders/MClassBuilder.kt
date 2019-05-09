@@ -1,13 +1,8 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
-import kotlinx.metadata.ClassName
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
-import kotlinx.metadata.KmClassVisitor
-import kotlinx.metadata.KmExtensionType
-import kotlinx.metadata.KmVariance
-import kotlinx.metadata.jvm.JvmClassExtensionVisitor
+import kotlinx.metadata.*
+import kotlinx.metadata.jvm.*
 
 
 internal class MClassBuilder : KmClassVisitor() {

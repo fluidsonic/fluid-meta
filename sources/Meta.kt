@@ -1,15 +1,11 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.InconsistentKotlinMetadataException
-import kotlinx.metadata.jvm.KotlinClassHeader
-import kotlinx.metadata.jvm.KotlinClassMetadata
-import kotlinx.metadata.jvm.KotlinModuleMetadata
-import java.io.File
-import java.io.PrintWriter
-import java.io.Writer
-import java.util.jar.JarFile
-import javax.lang.model.element.Element
-import kotlin.reflect.KClass
+import kotlinx.metadata.*
+import kotlinx.metadata.jvm.*
+import java.io.*
+import java.util.jar.*
+import javax.lang.model.element.*
+import kotlin.reflect.*
 
 
 // FIXME fix API

@@ -1,7 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.meta.MAnnotationArgument.*
-import kotlinx.metadata.KmAnnotationArgument
+import kotlinx.metadata.*
 
 
 sealed class MAnnotationArgument<out Value : Any> {

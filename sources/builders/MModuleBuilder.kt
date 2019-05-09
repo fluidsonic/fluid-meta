@@ -1,8 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.ClassName
-import kotlinx.metadata.KmAnnotation
-import kotlinx.metadata.jvm.KmModuleVisitor
+import kotlinx.metadata.*
+import kotlinx.metadata.jvm.*
 
 
 internal class MModuleBuilder(

@@ -1,14 +1,8 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
-import kotlinx.metadata.KmExtensionType
-import kotlinx.metadata.KmPropertyVisitor
-import kotlinx.metadata.KmVariance
-import kotlinx.metadata.jvm.JvmFieldSignature
-import kotlinx.metadata.jvm.JvmMethodSignature
-import kotlinx.metadata.jvm.JvmPropertyExtensionVisitor
+import kotlinx.metadata.*
+import kotlinx.metadata.jvm.*
 
 
 internal class MPropertyBuilder(

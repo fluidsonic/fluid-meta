@@ -1,7 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
-import javax.lang.model.element.Element
-import javax.lang.model.element.PackageElement
+import javax.lang.model.element.*
 
 
 internal val Element.`package`: PackageElement

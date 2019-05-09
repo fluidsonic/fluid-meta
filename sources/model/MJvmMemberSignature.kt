@@ -1,8 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.jvm.JvmFieldSignature
-import kotlinx.metadata.jvm.JvmMemberSignature
-import kotlinx.metadata.jvm.JvmMethodSignature
+import kotlinx.metadata.jvm.*
 
 
 sealed class MJvmMemberSignature {

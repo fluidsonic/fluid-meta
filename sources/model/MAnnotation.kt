@@ -1,6 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.KmAnnotation
+import kotlinx.metadata.*
 
 
 @Suppress("EqualsOrHashCode")

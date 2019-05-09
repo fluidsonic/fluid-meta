@@ -1,9 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.meta.MVersionRequirement.*
-import kotlinx.metadata.KmVersionRequirementLevel
-import kotlinx.metadata.KmVersionRequirementVersionKind
-import kotlinx.metadata.KmVersionRequirementVisitor
+import kotlinx.metadata.*
 
 
 internal class MVersionRequirementBuilder : KmVersionRequirementVisitor() {

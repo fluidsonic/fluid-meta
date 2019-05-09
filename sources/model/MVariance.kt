@@ -1,6 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
-import kotlinx.metadata.KmVariance
+import kotlinx.metadata.*
 
 
 enum class MVariance {

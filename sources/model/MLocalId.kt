@@ -1,6 +1,6 @@
 package com.github.fluidsonic.fluid.meta
 
-import java.util.Objects
+import java.util.*
 
 
 sealed class MLocalId {

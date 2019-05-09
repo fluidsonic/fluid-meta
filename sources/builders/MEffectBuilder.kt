@@ -1,9 +1,7 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.meta.MEffect.*
-import kotlinx.metadata.KmEffectInvocationKind
-import kotlinx.metadata.KmEffectType
-import kotlinx.metadata.KmEffectVisitor
+import kotlinx.metadata.*
 
 
 internal class MEffectBuilder(

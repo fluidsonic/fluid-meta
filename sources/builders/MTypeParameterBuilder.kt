@@ -1,12 +1,8 @@
 package com.github.fluidsonic.fluid.meta
 
 import com.github.fluidsonic.fluid.stdlib.*
-import kotlinx.metadata.Flag
-import kotlinx.metadata.Flags
-import kotlinx.metadata.KmAnnotation
-import kotlinx.metadata.KmExtensionType
-import kotlinx.metadata.KmTypeParameterVisitor
-import kotlinx.metadata.jvm.JvmTypeParameterExtensionVisitor
+import kotlinx.metadata.*
+import kotlinx.metadata.jvm.*
 
 
 internal class MTypeParameterBuilder(
