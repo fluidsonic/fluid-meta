@@ -1,7 +1,7 @@
 import com.github.fluidsonic.fluid.library.*
 
 plugins {
-	id("com.github.fluidsonic.fluid-library") version "0.9.24"
+	id("com.github.fluidsonic.fluid-library") version "0.9.25"
 }
 
 fluidJvmLibrary {
@@ -15,7 +15,11 @@ fluidJvmLibraryVariant {
 }
 
 dependencies {
-	api(fluid("stdlib", "0.9.25"))
+	api(fluid("stdlib", "0.9.25")) {
+		attributes {
+			attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
+		}
+	}
 
 	implementation(kotlinx("metadata-jvm", "0.1.0"))
 }
