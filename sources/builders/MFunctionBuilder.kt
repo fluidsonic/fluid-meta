@@ -52,8 +52,8 @@ internal class MFunctionBuilder(
 		(type == JvmFunctionExtensionVisitor.TYPE).thenTake {
 			object : JvmFunctionExtensionVisitor() {
 
-				override fun visit(desc: JvmMethodSignature?) {
-					jvmSignature = desc?.let(::MJvmMemberSignature)
+				override fun visit(signature: JvmMethodSignature?) {
+					jvmSignature = signature?.let(::MJvmMemberSignature)
 				}
 
 

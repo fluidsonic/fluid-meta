@@ -1,7 +1,7 @@
 import com.github.fluidsonic.fluid.library.*
 
 plugins {
-	id("com.github.fluidsonic.fluid-library") version "0.9.10"
+	id("com.github.fluidsonic.fluid-library") version "0.9.24"
 }
 
 fluidJvmLibrary {
@@ -11,11 +11,11 @@ fluidJvmLibrary {
 
 fluidJvmLibraryVariant {
 	description = "Converts Kotlin metadata into a usable data model"
-	jdk = JDK.v1_8
+	jdk = JvmTarget.jdk8
 }
 
 dependencies {
-	api(fluid("stdlib-jvm", "0.9.4"))
+	api(fluid("stdlib", "0.9.25"))
 
-	implementation(kotlinx("metadata-jvm", "0.0.5.1"))
+	implementation(kotlinx("metadata-jvm", "0.1.0"))
 }

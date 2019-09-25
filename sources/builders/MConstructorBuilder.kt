@@ -27,8 +27,8 @@ internal class MConstructorBuilder(
 		(type == JvmConstructorExtensionVisitor.TYPE).thenTake {
 			object : JvmConstructorExtensionVisitor() {
 
-				override fun visit(desc: JvmMethodSignature?) {
-					jvmSignature = desc?.let(::MJvmMemberSignature)
+				override fun visit(signature: JvmMethodSignature?) {
+					jvmSignature = signature?.let(::MJvmMemberSignature)
 				}
 			}
 		}

@@ -80,15 +80,15 @@ internal class MPropertyBuilder(
 		(type == JvmPropertyExtensionVisitor.TYPE).thenTake {
 			object : JvmPropertyExtensionVisitor() {
 
-				override fun visit(fieldDesc: JvmFieldSignature?, getterDesc: JvmMethodSignature?, setterDesc: JvmMethodSignature?) {
-					jvmFieldSignature = fieldDesc?.let(::MJvmMemberSignature)
-					jvmGetterSignature = getterDesc?.let(::MJvmMemberSignature)
-					jvmSetterSignature = setterDesc?.let(::MJvmMemberSignature)
+				override fun visit(fieldSignature: JvmFieldSignature?, getterSignature: JvmMethodSignature?, setterSignature: JvmMethodSignature?) {
+					jvmFieldSignature = fieldSignature?.let(::MJvmMemberSignature)
+					jvmGetterSignature = getterSignature?.let(::MJvmMemberSignature)
+					jvmSetterSignature = setterSignature?.let(::MJvmMemberSignature)
 				}
 
 
-				override fun visitSyntheticMethodForAnnotations(desc: JvmMethodSignature?) {
-					jvmSyntheticMethodForAnnotationsSignature = desc?.let(::MJvmMemberSignature)
+				override fun visitSyntheticMethodForAnnotations(signature: JvmMethodSignature?) {
+					jvmSyntheticMethodForAnnotationsSignature = signature?.let(::MJvmMemberSignature)
 				}
 			}
 		}
