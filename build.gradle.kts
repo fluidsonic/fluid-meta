@@ -19,6 +19,7 @@ dependencies {
 	api(fluid("stdlib", "0.9.25")) {
 		attributes {
 			attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
+			attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
 			attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
 		}
 	}
