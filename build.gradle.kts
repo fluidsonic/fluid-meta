@@ -1,4 +1,5 @@
 import com.github.fluidsonic.fluid.library.*
+import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
 	id("com.github.fluidsonic.fluid-library") version "0.9.25"
@@ -17,6 +18,7 @@ fluidJvmLibraryVariant {
 dependencies {
 	api(fluid("stdlib", "0.9.25")) {
 		attributes {
+			attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
 			attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
 		}
 	}
