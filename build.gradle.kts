@@ -7,7 +7,7 @@ plugins {
 
 fluidJvmLibrary {
 	name = "fluid-meta"
-	version = "0.9.10"
+	version = "0.9.11"
 }
 
 fluidJvmLibraryVariant {
