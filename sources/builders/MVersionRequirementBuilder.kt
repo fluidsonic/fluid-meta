@@ -1,6 +1,6 @@
-package com.github.fluidsonic.fluid.meta
+package io.fluidsonic.meta
 
-import com.github.fluidsonic.fluid.meta.MVersionRequirement.*
+import io.fluidsonic.meta.MVersionRequirement.*
 import kotlinx.metadata.*
 
 

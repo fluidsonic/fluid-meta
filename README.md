@@ -1,8 +1,9 @@
 fluid-meta
 ==========
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.3.50-blue.svg)](http://kotlinlang.org)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.fluidsonic/fluid-meta-jvm.svg)](https://search.maven.org/search?q=g:com.github.fluidsonic%20a:fluid-meta*)
+[![Maven Central](https://img.shields.io/maven-central/v/io.fluidsonic.meta/fluid-meta?label=Maven%20Central)](https://search.maven.org/artifact/io.fluidsonic.meta/fluid-meta)
+[![JCenter](https://img.shields.io/bintray/v/fluidsonic/kotlin/meta?label=JCenter)](https://bintray.com/fluidsonic/kotlin/meta)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.3.50-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.3.50)
 [![#fluid-libraries Slack Channel](https://img.shields.io/badge/slack-%23fluid--libraries-543951.svg)](https://kotlinlang.slack.com/messages/C7UDFSVT2/)
 
 Converts Kotlin metadata into a usable data model.
@@ -13,13 +14,10 @@ Includes pretty printing for easy inspection, see the output for [Kotlin's Stand
 Installation
 ------------
 
-This library is [available in Maven Central](https://search.maven.org/search?q=g:com.github.fluidsonic%20a:fluid-meta*) as `fluid-meta-jvm`
-in the group `com.github.fluidsonic`.
-
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("com.github.fluidsonic:fluid-meta-jvm:0.9.11")
+    implementation("io.fluidsonic.meta:fluid-meta:0.9.12")
 }
 ```
 
@@ -50,7 +48,7 @@ All you need to do is to use `Meta.of(…)` to inspect the respective `KClass` (
 ```kotlin
 package hello.world
 
-import com.github.fluidsonic.fluid.meta.*
+import io.fluidsonic.meta.*
 
 fun main() {
 	println(Meta.of(Hello::class))

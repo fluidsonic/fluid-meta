@@ -1,4 +1,4 @@
-import com.github.fluidsonic.fluid.meta.*
+import io.fluidsonic.meta.*
 import java.io.*
 
 

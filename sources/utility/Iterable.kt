@@ -1,4 +1,4 @@
-package com.github.fluidsonic.fluid.meta
+package io.fluidsonic.meta
 
 
 internal inline fun <T, R> Iterable<T>?.mapOrEmpty(transform: (T) -> R) =

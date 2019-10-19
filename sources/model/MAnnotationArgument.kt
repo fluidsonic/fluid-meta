@@ -1,6 +1,6 @@
-package com.github.fluidsonic.fluid.meta
+package io.fluidsonic.meta
 
-import com.github.fluidsonic.fluid.meta.MAnnotationArgument.*
+import io.fluidsonic.meta.MAnnotationArgument.*
 import kotlinx.metadata.*
 
 

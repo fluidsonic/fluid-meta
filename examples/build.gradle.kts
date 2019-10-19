@@ -1,8 +1,7 @@
-import com.github.fluidsonic.fluid.library.*
+import io.fluidsonic.gradle.*
 
-fluidJvmLibraryVariant {
+fluidJvmLibraryVariant(JvmTarget.jdk8) {
 	publishing = false
-	jdk = JvmTarget.jdk8
 }
 
 dependencies {

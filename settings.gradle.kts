@@ -1,14 +1,12 @@
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
-		maven("https://dl.bintray.com/fluidsonic/maven")
+		maven("https://dl.bintray.com/fluidsonic/kotlin")
 	}
 }
 
-rootProject.name = "fluid-meta-jvm"
+rootProject.name = "fluid-meta"
 
 include("examples")
-
-project(":examples").name = "fluid-meta-examples"
 
 enableFeaturePreview("GRADLE_METADATA")

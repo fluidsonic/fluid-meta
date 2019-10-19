@@ -1,4 +1,4 @@
-package com.github.fluidsonic.fluid.meta
+package io.fluidsonic.meta
 
 
 interface MAnnotatable {

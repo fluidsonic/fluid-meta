@@ -1,25 +1,21 @@
-import com.github.fluidsonic.fluid.library.*
+import io.fluidsonic.gradle.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
-	id("com.github.fluidsonic.fluid-library") version "0.9.25"
+	id("io.fluidsonic.gradle") version "1.0.0"
 }
 
-fluidJvmLibrary {
-	name = "fluid-meta"
-	version = "0.9.11"
-}
+fluidJvmLibrary(name = "meta", version = "0.9.12")
 
-fluidJvmLibraryVariant {
-	description = "Converts Kotlin metadata into a usable data model"
-	jdk = JvmTarget.jdk8
+fluidJvmLibraryVariant(JvmTarget.jdk8) {
+	description = "Converts Kotlin metadata into an easily usable data model"
 }
 
 dependencies {
-	api(fluid("stdlib", "0.9.25")) {
+	api(fluid("stdlib", "0.9.28")) {
 		attributes {
 			attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
-			attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+			attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
 			attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
 		}
 	}

@@ -1,4 +1,4 @@
-package com.github.fluidsonic.fluid.meta
+package io.fluidsonic.meta
 
 
 inline class MValueParameterIndex(val value: Int) {
