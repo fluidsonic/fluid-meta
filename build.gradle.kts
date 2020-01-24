@@ -2,10 +2,10 @@ import io.fluidsonic.gradle.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
-	id("io.fluidsonic.gradle") version "1.0.6"
+	id("io.fluidsonic.gradle") version "1.0.7"
 }
 
-fluidJvmLibrary(name = "meta", version = "0.9.14")
+fluidJvmLibrary(name = "meta", version = "0.9.15")
 
 fluidJvmLibraryVariant(JvmTarget.jdk8) {
 	description = "Converts Kotlin metadata into an easily usable data model"
