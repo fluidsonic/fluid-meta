@@ -8,5 +8,3 @@ pluginManagement {
 rootProject.name = "fluid-meta"
 
 include("examples")
-
-enableFeaturePreview("GRADLE_METADATA")

@@ -2,7 +2,7 @@ import io.fluidsonic.gradle.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
-	id("io.fluidsonic.gradle") version "1.0.0"
+	id("io.fluidsonic.gradle") version "1.0.6"
 }
 
 fluidJvmLibrary(name = "meta", version = "0.9.12")
@@ -12,7 +12,7 @@ fluidJvmLibraryVariant(JvmTarget.jdk8) {
 }
 
 dependencies {
-	api(fluid("stdlib", "0.9.28")) {
+	api(fluid("stdlib-jdk8", "0.9.29")) {
 		attributes {
 			attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
 			attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
