@@ -12,7 +12,7 @@ fluidJvmLibraryVariant(JvmTarget.jdk8) {
 }
 
 dependencies {
-	api(fluid("stdlib-jdk8", "0.9.29")) {
+	api(fluid("stdlib", "0.9.29")) {
 		attributes {
 			attribute(KotlinPlatformType.attribute, KotlinPlatformType.jvm)
 			attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, Usage.JAVA_RUNTIME))
