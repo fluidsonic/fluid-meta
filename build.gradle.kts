@@ -5,7 +5,7 @@ plugins {
 	id("io.fluidsonic.gradle") version "1.0.6"
 }
 
-fluidJvmLibrary(name = "meta", version = "0.9.12")
+fluidJvmLibrary(name = "meta", version = "0.9.13")
 
 fluidJvmLibraryVariant(JvmTarget.jdk8) {
 	description = "Converts Kotlin metadata into an easily usable data model"
