@@ -3,7 +3,7 @@ fluid-meta
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.fluidsonic.meta/fluid-meta?label=Maven%20Central)](https://search.maven.org/artifact/io.fluidsonic.meta/fluid-meta)
 [![JCenter](https://img.shields.io/bintray/v/fluidsonic/kotlin/meta?label=JCenter)](https://bintray.com/fluidsonic/kotlin/meta)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.3.61-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.3.61)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.3.70-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.3.70)
 [![#fluid-libraries Slack Channel](https://img.shields.io/badge/slack-%23fluid--libraries-543951.svg)](https://kotlinlang.slack.com/messages/C7UDFSVT2/)
 
 Converts Kotlin metadata into a usable data model.
@@ -17,7 +17,7 @@ Installation
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("io.fluidsonic.meta:fluid-meta:0.9.15")
+    implementation("io.fluidsonic.meta:fluid-meta:0.9.16")
 }
 ```
 
