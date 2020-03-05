@@ -241,7 +241,7 @@ interface Meta {
 
 
 		fun printAllElementsFromSameSourceAs(javaClass: Class<*>, destination: Writer) {
-			Meta.everythingFromSameSourceAs(javaClass)
+			everythingFromSameSourceAs(javaClass)
 				.sortedBy { meta ->
 					when (meta) {
 						is MModule -> 0

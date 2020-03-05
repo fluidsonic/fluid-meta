@@ -30,7 +30,7 @@ inline class MTypeName private constructor(val kotlinInternal: String) {
 				MTypeName("Any")
 
 			else ->
-				MTypeName.fromJvmInternal(javaClass.name.substringAfterLast('.'))
+				fromJvmInternal(javaClass.name.substringAfterLast('.'))
 		}
 
 
@@ -51,7 +51,7 @@ inline class MTypeName private constructor(val kotlinInternal: String) {
 
 			val typeName = components.joinToString(separator = "$")
 
-			return MTypeName.fromJvmInternal(typeName)
+			return fromJvmInternal(typeName)
 		}
 	}
 }

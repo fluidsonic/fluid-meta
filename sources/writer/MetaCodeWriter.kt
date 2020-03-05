@@ -566,7 +566,7 @@ internal class MetaCodeWriter private constructor() {
 	private fun writeMultiFileClassParts(values: Map<MQualifiedTypeName, MQualifiedTypeName>) {
 		values.entries
 			.groupBy({ it.value }) { it.key }
-			.forEach { className, partClassNames ->
+			.forEach { (className, partClassNames) ->
 				write("\n/* multipart */ class ")
 				writeQualifiedTypeName(className)
 				write(" ")

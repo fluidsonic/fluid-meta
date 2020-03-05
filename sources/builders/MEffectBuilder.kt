@@ -14,17 +14,17 @@ internal class MEffectBuilder(
 
 
 	fun build() = when (type) {
-		KmEffectType.CALLS -> MEffect.CallsInPlace(
+		KmEffectType.CALLS -> CallsInPlace(
 			invocationKind = when (invocationKind) {
-				KmEffectInvocationKind.AT_LEAST_ONCE -> MEffect.InvocationKind.AT_LEAST_ONCE
-				KmEffectInvocationKind.AT_MOST_ONCE -> MEffect.InvocationKind.AT_MOST_ONCE
-				KmEffectInvocationKind.EXACTLY_ONCE -> MEffect.InvocationKind.EXACTLY_ONCE
-				null -> MEffect.InvocationKind.UNKNOWN
+				KmEffectInvocationKind.AT_LEAST_ONCE -> InvocationKind.AT_LEAST_ONCE
+				KmEffectInvocationKind.AT_MOST_ONCE -> InvocationKind.AT_MOST_ONCE
+				KmEffectInvocationKind.EXACTLY_ONCE -> InvocationKind.EXACTLY_ONCE
+				null -> InvocationKind.UNKNOWN
 			},
 			parameterIndex = constructorArgumentBuilder?.parameterIndex ?: error("callsInPlace() effect is missing a parameter index")
 		)
 
-		KmEffectType.RETURNS_CONSTANT -> MEffect.Returns(
+		KmEffectType.RETURNS_CONSTANT -> Returns(
 			condition = conditionBuilder?.build(),
 			returnValue = constructorArgumentBuilder?.let { builder ->
 				when (val returnValue = builder.constantValue) {
@@ -36,7 +36,7 @@ internal class MEffectBuilder(
 			}
 		)
 
-		KmEffectType.RETURNS_NOT_NULL -> MEffect.Returns(
+		KmEffectType.RETURNS_NOT_NULL -> Returns(
 			condition = conditionBuilder?.build(),
 			returnValue = ReturnValue.NOT_NULL
 		)

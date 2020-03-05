@@ -1,5 +1,7 @@
 package io.fluidsonic.meta
 
+import kotlinx.metadata.*
+
 
 @Suppress("EqualsOrHashCode")
 data class MProperty(
@@ -13,6 +15,7 @@ data class MProperty(
 	val isLateinit: Boolean,
 	val isVar: Boolean,
 	val jvmFieldSignature: MJvmMemberSignature.Field?,
+	val jvmFlags: Flags,
 	val jvmSyntheticMethodForAnnotationsSignature: MJvmMemberSignature.Method?,
 	val name: MVariableName,
 	override val receiverParameterType: MTypeReference?,

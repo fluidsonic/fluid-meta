@@ -13,6 +13,7 @@ internal class MPropertyBuilder(
 ) : KmPropertyVisitor() {
 
 	private var jvmFieldSignature: MJvmMemberSignature.Field? = null
+	private var jvmFlags: Flags = 0
 	private var jvmGetterSignature: MJvmMemberSignature.Method? = null
 	private var jvmSetterSignature: MJvmMemberSignature.Method? = null
 	private var jvmSyntheticMethodForAnnotationsSignature: MJvmMemberSignature.Method? = null
@@ -64,6 +65,7 @@ internal class MPropertyBuilder(
 			isLateinit = Flag.Property.IS_LATEINIT(flags),
 			isVar = Flag.Property.IS_VAR(flags),
 			jvmFieldSignature = jvmFieldSignature,
+			jvmFlags = jvmFlags,
 			jvmSyntheticMethodForAnnotationsSignature = jvmSyntheticMethodForAnnotationsSignature,
 			name = name,
 			receiverParameterType = receiverParameter?.build(),
@@ -80,15 +82,16 @@ internal class MPropertyBuilder(
 		(type == JvmPropertyExtensionVisitor.TYPE).thenTake {
 			object : JvmPropertyExtensionVisitor() {
 
-				override fun visit(fieldSignature: JvmFieldSignature?, getterSignature: JvmMethodSignature?, setterSignature: JvmMethodSignature?) {
-					jvmFieldSignature = fieldSignature?.let(::MJvmMemberSignature)
-					jvmGetterSignature = getterSignature?.let(::MJvmMemberSignature)
-					jvmSetterSignature = setterSignature?.let(::MJvmMemberSignature)
+				override fun visit(jvmFlags: Flags, fieldSignature: JvmFieldSignature?, getterSignature: JvmMethodSignature?, setterSignature: JvmMethodSignature?) {
+					this@MPropertyBuilder.jvmFieldSignature = fieldSignature?.let(::MJvmMemberSignature)
+					this@MPropertyBuilder.jvmFlags = jvmFlags
+					this@MPropertyBuilder.jvmGetterSignature = getterSignature?.let(::MJvmMemberSignature)
+					this@MPropertyBuilder.jvmSetterSignature = setterSignature?.let(::MJvmMemberSignature)
 				}
 
 
 				override fun visitSyntheticMethodForAnnotations(signature: JvmMethodSignature?) {
-					jvmSyntheticMethodForAnnotationsSignature = signature?.let(::MJvmMemberSignature)
+					this@MPropertyBuilder.jvmSyntheticMethodForAnnotationsSignature = signature?.let(::MJvmMemberSignature)
 				}
 			}
 		}
