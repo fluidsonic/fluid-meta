@@ -1,9 +1,17 @@
 import io.fluidsonic.gradle.*
 
-fluidJvmLibraryVariant(JvmTarget.jdk8) {
-	publishing = false
-}
+fluidLibraryModule(description = "examples") {
+	withoutPublishing()
 
-dependencies {
-	implementation(rootProject)
+	language {
+		withoutExplicitApi()
+	}
+
+	targets {
+		jvm {
+			dependencies {
+				implementation(rootProject)
+			}
+		}
+	}
 }
