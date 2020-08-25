@@ -1,6 +1,5 @@
 package io.fluidsonic.meta
 
-import io.fluidsonic.stdlib.*
 import kotlinx.metadata.*
 import kotlinx.metadata.jvm.*
 
@@ -45,9 +44,9 @@ internal class MTypeReferenceBuilder(
 				val isSuspend = Flag.Type.IS_SUSPEND(flags)
 				val returnArgument = if (isSuspend) {
 					check(parameterArguments.size >= 2) { "suspend fun type must have at least two additional arguments for continuation and state" }
-					parameterArguments.removeLast()
+					parameterArguments.removeAt(parameterArguments.size - 1)
 
-					val continuation = parameterArguments.removeLast()
+					val continuation = parameterArguments.removeAt(parameterArguments.size - 1)
 					check(continuation is MTypeArgument.Type &&
 						continuation.type is MTypeReference.Class &&
 						continuation.type.name.withoutPackage() == kotlinContinuationTypeName &&
@@ -57,7 +56,7 @@ internal class MTypeReferenceBuilder(
 					continuation.type.arguments.first()
 				}
 				else
-					parameterArguments.removeLast()
+					parameterArguments.removeAt(parameterArguments.size - 1)
 
 				MTypeReference.Function(
 					annotations = annotations.filterNot { it.className == kotlinExtensionFunctionAnnotationTypeName },

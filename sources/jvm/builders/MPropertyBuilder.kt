@@ -1,6 +1,5 @@
 package io.fluidsonic.meta
 
-import io.fluidsonic.stdlib.*
 import kotlinx.metadata.*
 import kotlinx.metadata.jvm.*
 

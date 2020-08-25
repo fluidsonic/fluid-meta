@@ -1,7 +1,7 @@
 import io.fluidsonic.gradle.*
 
 plugins {
-	id("io.fluidsonic.gradle") version "1.1.2"
+	id("io.fluidsonic.gradle") version "1.1.8"
 }
 
 fluidLibrary(name = "meta", version = "0.10.1")
@@ -12,8 +12,6 @@ fluidLibraryModule(description = "Converts Kotlin metadata into an easily usable
 	targets {
 		jvm {
 			dependencies {
-				api(fluid("stdlib", "0.10.0"))
-
 				implementation(kotlinx("metadata-jvm", "0.1.0"))
 			}
 		}
