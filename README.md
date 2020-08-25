@@ -17,7 +17,7 @@ Installation
 `build.gradle.kts`:
 ```kotlin
 dependencies {
-    implementation("io.fluidsonic.meta:fluid-meta:0.10.1")
+    implementation("io.fluidsonic.meta:fluid-meta:0.10.2")
 }
 ```
 
