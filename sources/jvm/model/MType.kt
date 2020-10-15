@@ -236,6 +236,7 @@ public data class MInterface(
 	override val functions: List<MFunction>,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
+	val isFunctional: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
 	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,

@@ -3,7 +3,7 @@ package io.fluidsonic.meta
 
 @Suppress("EqualsOrHashCode")
 public data class MConstructor(
-	val isPrimary: Boolean,
+	val isSecondary: Boolean,
 	override val jvmSignature: MJvmMemberSignature.Method?,
 	override val valueParameters: List<MValueParameter>,
 	override val visibility: MVisibility,

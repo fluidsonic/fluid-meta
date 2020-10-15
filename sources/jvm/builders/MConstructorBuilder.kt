@@ -14,7 +14,7 @@ internal class MConstructorBuilder(
 
 
 	fun build() = MConstructor(
-		isPrimary = Flag.Constructor.IS_PRIMARY(flags),
+		isSecondary = Flag.Constructor.IS_SECONDARY(flags),
 		jvmSignature = jvmSignature,
 		valueParameters = valueParameters.mapOrEmpty { it.build() },
 		versionRequirements = versionRequirements.mapOrEmpty { it.build() },

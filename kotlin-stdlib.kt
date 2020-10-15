@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------------------------------
-// Example output for all elements for Kotlin's Standard Library 1.4.0
+// Example output for all elements for Kotlin's Standard Library 1.4.10
 // ------------------------------------------------------------------------------------------------------
 
 module `kotlin-stdlib` {
@@ -248,7 +248,7 @@ class kotlin.DeepRecursiveFunction<T, R> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(Lkotlin/jvm/functions/Function3;)V
-	/* primary */ constructor(block: suspend DeepRecursiveScope<T, R>.(T) -> R)
+	constructor(block: suspend DeepRecursiveScope<T, R>.(T) -> R)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -258,7 +258,7 @@ abstract sealed class kotlin.DeepRecursiveScope<T, R> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -324,7 +324,7 @@ private class kotlin.DeepRecursiveScopeImpl<T, R> : DeepRecursiveScope<T, R>, ko
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;)V
-	/* primary */ constructor(block: suspend DeepRecursiveScope<T, R>.(T) -> R, value: T)
+	constructor(block: suspend DeepRecursiveScope<T, R>.(T) -> R, value: T)
 
 
 	// *** FUNCTIONS ***
@@ -362,7 +362,7 @@ internal class kotlin.InitializedLazyImpl<out T> : Lazy<out T>, Serializable /* 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Object;)V
-	/* primary */ constructor(value: out T)
+	constructor(value: out T)
 
 
 	// *** FUNCTIONS ***
@@ -381,16 +381,16 @@ internal class kotlin.KotlinNothingValueException : RuntimeException /* = java.l
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-	constructor(message: String?, cause: Throwable?)
+	/* secondary */ constructor(message: String?, cause: Throwable?)
 
 	// JVM method = <init>(Ljava/lang/Throwable;)V
-	constructor(cause: Throwable?)
+	/* secondary */ constructor(cause: Throwable?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -400,10 +400,10 @@ open class kotlin.KotlinNullPointerException : NullPointerException /* = java.la
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -433,10 +433,10 @@ class kotlin.KotlinVersion : Comparable<KotlinVersion> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(II)V
-	constructor(major: Int, minor: Int)
+	/* secondary */ constructor(major: Int, minor: Int)
 
 	// JVM method = <init>(III)V
-	/* primary */ constructor(major: Int, minor: Int, patch: Int)
+	constructor(major: Int, minor: Int, patch: Int)
 
 
 	// *** FUNCTIONS ***
@@ -470,16 +470,16 @@ open class kotlin.NoWhenBranchMatchedException : RuntimeException /* = java.lang
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-	constructor(message: String?, cause: Throwable?)
+	/* secondary */ constructor(message: String?, cause: Throwable?)
 
 	// JVM method = <init>(Ljava/lang/Throwable;)V
-	constructor(cause: Throwable?)
+	/* secondary */ constructor(cause: Throwable?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -489,7 +489,7 @@ class kotlin.NotImplementedError : Error /* = java.lang.Error */ {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(message: String /* = default */)
+	constructor(message: String /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -508,7 +508,7 @@ data class kotlin.Pair<out A, out B> : Serializable /* = java.io.Serializable */
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-	/* primary */ constructor(first: out A, second: out B)
+	constructor(first: out A, second: out B)
 
 
 	// *** FUNCTIONS ***
@@ -545,7 +545,7 @@ internal class kotlin.Result.Failure : Serializable /* = java.io.Serializable */
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Throwable;)V
-	/* primary */ constructor(exception: Throwable)
+	constructor(exception: Throwable)
 
 
 	// *** FUNCTIONS ***
@@ -590,7 +590,7 @@ inline class kotlin.Result<out T> : Serializable /* = java.io.Serializable */ {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-	internal /* primary */ constructor(value: Any?)
+	internal constructor(value: Any?)
 
 
 	// *** FUNCTIONS ***
@@ -639,7 +639,7 @@ private class kotlin.SafePublicationLazyImpl<out T> : Lazy<out T>, Serializable 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/jvm/functions/Function0;)V
-	/* primary */ constructor(initializer: () -> out T)
+	constructor(initializer: () -> out T)
 
 
 	// *** FUNCTIONS ***
@@ -677,7 +677,7 @@ private class kotlin.SynchronizedLazyImpl<out T> : Lazy<out T>, Serializable /* 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;)V
-	/* primary */ constructor(initializer: () -> out T, lock: Any? /* = default */)
+	constructor(initializer: () -> out T, lock: Any? /* = default */)
 
 
 	// *** FUNCTIONS ***
@@ -711,7 +711,7 @@ data class kotlin.Triple<out A, out B, out C> : Serializable /* = java.io.Serial
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-	/* primary */ constructor(first: out A, second: out B, third: out C)
+	constructor(first: out A, second: out B, third: out C)
 
 
 	// *** FUNCTIONS ***
@@ -745,10 +745,10 @@ open class kotlin.TypeCastException : ClassCastException /* = java.lang.ClassCas
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -772,7 +772,7 @@ inline class kotlin.UByte : Comparable<UByte> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(B)B
-	internal /* primary */ constructor(data: Byte)
+	internal constructor(data: Byte)
 
 
 	// *** FUNCTIONS ***
@@ -968,7 +968,7 @@ private class kotlin.UByteArray.Iterator : UByteIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([B)V
-	/* primary */ constructor(array: ByteArray)
+	constructor(array: ByteArray)
 
 
 	// *** FUNCTIONS ***
@@ -1007,11 +1007,11 @@ inline class kotlin.UByteArray : Collection<UByte> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(I)[B
-	constructor(size: Int)
+	/* secondary */ constructor(size: Int)
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl([B)[B
-	internal /* primary */ constructor(storage: ByteArray)
+	internal constructor(storage: ByteArray)
 
 
 	// *** FUNCTIONS ***
@@ -1070,7 +1070,7 @@ inline class kotlin.UInt : Comparable<UInt> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(I)I
-	internal /* primary */ constructor(data: Int)
+	internal constructor(data: Int)
 
 
 	// *** FUNCTIONS ***
@@ -1276,7 +1276,7 @@ private class kotlin.UIntArray.Iterator : UIntIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([I)V
-	/* primary */ constructor(array: IntArray)
+	constructor(array: IntArray)
 
 
 	// *** FUNCTIONS ***
@@ -1315,11 +1315,11 @@ inline class kotlin.UIntArray : Collection<UInt> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(I)[I
-	constructor(size: Int)
+	/* secondary */ constructor(size: Int)
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl([I)[I
-	internal /* primary */ constructor(storage: IntArray)
+	internal constructor(storage: IntArray)
 
 
 	// *** FUNCTIONS ***
@@ -1378,7 +1378,7 @@ inline class kotlin.ULong : Comparable<ULong> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(J)J
-	internal /* primary */ constructor(data: Long)
+	internal constructor(data: Long)
 
 
 	// *** FUNCTIONS ***
@@ -1584,7 +1584,7 @@ private class kotlin.ULongArray.Iterator : ULongIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([J)V
-	/* primary */ constructor(array: LongArray)
+	constructor(array: LongArray)
 
 
 	// *** FUNCTIONS ***
@@ -1623,11 +1623,11 @@ inline class kotlin.ULongArray : Collection<ULong> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(I)[J
-	constructor(size: Int)
+	/* secondary */ constructor(size: Int)
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl([J)[J
-	internal /* primary */ constructor(storage: LongArray)
+	internal constructor(storage: LongArray)
 
 
 	// *** FUNCTIONS ***
@@ -1686,7 +1686,7 @@ inline class kotlin.UShort : Comparable<UShort> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(S)S
-	internal /* primary */ constructor(data: Short)
+	internal constructor(data: Short)
 
 
 	// *** FUNCTIONS ***
@@ -1882,7 +1882,7 @@ private class kotlin.UShortArray.Iterator : UShortIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([S)V
-	/* primary */ constructor(array: ShortArray)
+	constructor(array: ShortArray)
 
 
 	// *** FUNCTIONS ***
@@ -1921,11 +1921,11 @@ inline class kotlin.UShortArray : Collection<UShort> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(I)[S
-	constructor(size: Int)
+	/* secondary */ constructor(size: Int)
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl([S)[S
-	internal /* primary */ constructor(storage: ShortArray)
+	internal constructor(storage: ShortArray)
 
 
 	// *** FUNCTIONS ***
@@ -1970,16 +1970,16 @@ class kotlin.UninitializedPropertyAccessException : RuntimeException /* = java.l
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-	constructor(message: String?, cause: Throwable?)
+	/* secondary */ constructor(message: String?, cause: Throwable?)
 
 	// JVM method = <init>(Ljava/lang/Throwable;)V
-	constructor(cause: Throwable?)
+	/* secondary */ constructor(cause: Throwable?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -2002,7 +2002,7 @@ internal class kotlin.UnsafeLazyImpl<out T> : Lazy<out T>, Serializable /* = jav
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/jvm/functions/Function0;)V
-	/* primary */ constructor(initializer: () -> out T)
+	constructor(initializer: () -> out T)
 
 
 	// *** FUNCTIONS ***
@@ -2029,7 +2029,7 @@ abstract class kotlin.collections.AbstractCollection<out E> : Collection<out E> 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2072,7 +2072,7 @@ abstract class kotlin.collections.AbstractIterator<T> : Iterator<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2109,7 +2109,7 @@ private open inner class kotlin.collections.AbstractList.IteratorImpl : Iterator
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/AbstractList;)V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2128,7 +2128,7 @@ private open inner class kotlin.collections.AbstractList.ListIteratorImpl : Abst
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/AbstractList;I)V
-	/* primary */ constructor(index: Int)
+	constructor(index: Int)
 
 
 	// *** FUNCTIONS ***
@@ -2169,7 +2169,7 @@ private class kotlin.collections.AbstractList.SubList<out E> : AbstractList<out 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/AbstractList;II)V
-	/* primary */ constructor(list: AbstractList<out E>, fromIndex: Int, toIndex: Int)
+	constructor(list: AbstractList<out E>, fromIndex: Int, toIndex: Int)
 
 
 	// *** FUNCTIONS ***
@@ -2198,7 +2198,7 @@ abstract class kotlin.collections.AbstractList<out E> : AbstractCollection<out E
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2330,7 +2330,7 @@ abstract class kotlin.collections.AbstractMap<K, out V> : Map<K, out V> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2376,7 +2376,7 @@ abstract class kotlin.collections.AbstractMutableCollection<E> : MutableCollecti
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2392,7 +2392,7 @@ abstract class kotlin.collections.AbstractMutableList<E> : MutableList<E>, java.
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2414,7 +2414,7 @@ abstract class kotlin.collections.AbstractMutableMap<K, V> : MutableMap<K, V>, j
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2430,7 +2430,7 @@ abstract class kotlin.collections.AbstractMutableSet<E> : MutableSet<E>, java.ut
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2451,7 +2451,7 @@ abstract class kotlin.collections.AbstractSet<out E> : AbstractCollection<out E>
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	protected /* primary */ constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -2483,7 +2483,7 @@ private class kotlin.collections.ArrayAsCollection<T> : Collection<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([Ljava/lang/Object;Z)V
-	/* primary */ constructor(values: Array<out T>, isVarargs: Boolean)
+	constructor(values: Array<out T>, isVarargs: Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -2529,13 +2529,13 @@ class kotlin.collections.ArrayDeque<E> : AbstractMutableList<E> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	constructor(initialCapacity: Int)
+	/* secondary */ constructor(initialCapacity: Int)
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/util/Collection;)V
-	constructor(elements: Collection<E>)
+	/* secondary */ constructor(elements: Collection<E>)
 
 
 	// *** FUNCTIONS ***
@@ -3099,7 +3099,7 @@ abstract class kotlin.collections.BooleanIterator : Iterator<Boolean> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3118,7 +3118,7 @@ abstract class kotlin.collections.ByteIterator : Iterator<Byte> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3137,7 +3137,7 @@ abstract class kotlin.collections.CharIterator : Iterator<Char> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3203,7 +3203,7 @@ abstract class kotlin.collections.DoubleIterator : Iterator<Double> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3222,7 +3222,7 @@ abstract class kotlin.collections.FloatIterator : Iterator<Float> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3250,7 +3250,7 @@ data class kotlin.collections.IndexedValue<out T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(ILjava/lang/Object;)V
-	/* primary */ constructor(index: Int, value: out T)
+	constructor(index: Int, value: out T)
 
 
 	// *** FUNCTIONS ***
@@ -3287,7 +3287,7 @@ internal class kotlin.collections.IndexingIterable<out T> : Iterable<IndexedValu
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/jvm/functions/Function0;)V
-	/* primary */ constructor(iteratorFactory: () -> Iterator<out T>)
+	constructor(iteratorFactory: () -> Iterator<out T>)
 
 
 	// *** FUNCTIONS ***
@@ -3312,7 +3312,7 @@ internal class kotlin.collections.IndexingIterator<out T> : Iterator<IndexedValu
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Iterator;)V
-	/* primary */ constructor(iterator: Iterator<out T>)
+	constructor(iterator: Iterator<out T>)
 
 
 	// *** FUNCTIONS ***
@@ -3331,7 +3331,7 @@ abstract class kotlin.collections.IntIterator : Iterator<Int> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3350,7 +3350,7 @@ abstract class kotlin.collections.LongIterator : Iterator<Long> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3394,7 +3394,7 @@ private class kotlin.collections.MapWithDefaultImpl<K, out V> : MapWithDefault<K
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(map: Map<K, out V>, default: (@ParameterName(name = "key") K) -> out V)
+	constructor(map: Map<K, out V>, default: (@ParameterName(name = "key") K) -> out V)
 
 
 	// *** FUNCTIONS ***
@@ -3447,7 +3447,7 @@ internal class kotlin.collections.MovingSubList<out E> : AbstractList<out E>, Ra
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/List;)V
-	/* primary */ constructor(list: List<out E>)
+	constructor(list: List<out E>)
 
 
 	// *** FUNCTIONS ***
@@ -3491,7 +3491,7 @@ private class kotlin.collections.MutableMapWithDefaultImpl<K, V> : MutableMapWit
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(map: MutableMap<K, V>, default: (@ParameterName(name = "key") K) -> V)
+	constructor(map: MutableMap<K, V>, default: (@ParameterName(name = "key") K) -> V)
 
 
 	// *** FUNCTIONS ***
@@ -3550,7 +3550,7 @@ private class kotlin.collections.ReversedList<T> : AbstractMutableList<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/List;)V
-	/* primary */ constructor(delegate: MutableList<T>)
+	constructor(delegate: MutableList<T>)
 
 
 	// *** FUNCTIONS ***
@@ -3588,7 +3588,7 @@ private open class kotlin.collections.ReversedListReadOnly<out T> : AbstractList
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/List;)V
-	/* primary */ constructor(delegate: List<out T>)
+	constructor(delegate: List<out T>)
 
 
 	// *** FUNCTIONS ***
@@ -3639,10 +3639,10 @@ private class kotlin.collections.RingBuffer<T> : AbstractList<T>, RandomAccess /
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	constructor(capacity: Int)
+	/* secondary */ constructor(capacity: Int)
 
 	// JVM method = <init>([Ljava/lang/Object;I)V
-	/* primary */ constructor(buffer: Array<Any?>, filledSize: Int)
+	constructor(buffer: Array<Any?>, filledSize: Int)
 
 
 	// *** FUNCTIONS ***
@@ -3682,7 +3682,7 @@ abstract class kotlin.collections.ShortIterator : Iterator<Short> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3713,7 +3713,7 @@ abstract class kotlin.collections.UByteIterator : Iterator<UByte> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3737,7 +3737,7 @@ abstract class kotlin.collections.UIntIterator : Iterator<UInt> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3761,7 +3761,7 @@ abstract class kotlin.collections.ULongIterator : Iterator<ULong> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3785,7 +3785,7 @@ abstract class kotlin.collections.UShortIterator : Iterator<UShort> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -3820,7 +3820,7 @@ private class kotlin.collections.builders.ListBuilder.Itr<E> : MutableListIterat
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/ListBuilder;I)V
-	constructor(list: kotlin.collections.builders.ListBuilder<E>, index: Int)
+	/* secondary */ constructor(list: kotlin.collections.builders.ListBuilder<E>, index: Int)
 
 
 	// *** FUNCTIONS ***
@@ -3893,13 +3893,13 @@ internal class kotlin.collections.builders.ListBuilder<E> :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(I)V
-	constructor(initialCapacity: Int)
+	/* secondary */ constructor(initialCapacity: Int)
 
 	// JVM method = <init>([Ljava/lang/Object;IIZLkotlin/collections/builders/ListBuilder;Lkotlin/collections/builders/ListBuilder;)V
-	private /* primary */ constructor(array: Array<E>, offset: Int, length: Int, isReadOnly: Boolean, backing: kotlin.collections.builders.ListBuilder<E>?, root: kotlin.collections.builders.ListBuilder<E>?)
+	private constructor(array: Array<E>, offset: Int, length: Int, isReadOnly: Boolean, backing: kotlin.collections.builders.ListBuilder<E>?, root: kotlin.collections.builders.ListBuilder<E>?)
 
 
 	// *** FUNCTIONS ***
@@ -4008,7 +4008,7 @@ internal class kotlin.collections.builders.MapBuilder.EntriesItr<K, V> : kotlin.
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	/* primary */ constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
+	constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4047,7 +4047,7 @@ internal class kotlin.collections.builders.MapBuilder.EntryRef<K, V> : MutableMa
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;I)V
-	/* primary */ constructor(map: kotlin.collections.builders.MapBuilder<K, V>, index: Int)
+	constructor(map: kotlin.collections.builders.MapBuilder<K, V>, index: Int)
 
 
 	// *** FUNCTIONS ***
@@ -4084,7 +4084,7 @@ internal open class kotlin.collections.builders.MapBuilder.Itr<K, V> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	/* primary */ constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
+	constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4106,7 +4106,7 @@ internal class kotlin.collections.builders.MapBuilder.KeysItr<K, V> : kotlin.col
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	/* primary */ constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
+	constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4122,7 +4122,7 @@ internal class kotlin.collections.builders.MapBuilder.ValuesItr<K, V> : kotlin.c
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	/* primary */ constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
+	constructor(map: kotlin.collections.builders.MapBuilder<K, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4208,13 +4208,13 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(I)V
-	constructor(initialCapacity: Int)
+	/* secondary */ constructor(initialCapacity: Int)
 
 	// JVM method = <init>([Ljava/lang/Object;[Ljava/lang/Object;[I[III)V
-	private /* primary */ constructor(keysArray: Array<K>, valuesArray: Array<V>?, presenceArray: IntArray, hashArray: IntArray, maxProbeDistance: Int, length: Int)
+	private constructor(keysArray: Array<K>, valuesArray: Array<V>?, presenceArray: IntArray, hashArray: IntArray, maxProbeDistance: Int, length: Int)
 
 
 	// *** FUNCTIONS ***
@@ -4345,7 +4345,7 @@ internal class kotlin.collections.builders.MapBuilderEntries<K, V> : MutableSet<
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	internal /* primary */ constructor(backing: kotlin.collections.builders.MapBuilder<K, V>)
+	internal constructor(backing: kotlin.collections.builders.MapBuilder<K, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4398,7 +4398,7 @@ internal class kotlin.collections.builders.MapBuilderKeys<E> : MutableSet<E>, Ab
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	internal /* primary */ constructor(backing: kotlin.collections.builders.MapBuilder<E, *>)
+	internal constructor(backing: kotlin.collections.builders.MapBuilder<E, *>)
 
 
 	// *** FUNCTIONS ***
@@ -4448,7 +4448,7 @@ internal class kotlin.collections.builders.MapBuilderValues<V> : MutableCollecti
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	internal /* primary */ constructor(backing: kotlin.collections.builders.MapBuilder<*, V>)
+	internal constructor(backing: kotlin.collections.builders.MapBuilder<*, V>)
 
 
 	// *** FUNCTIONS ***
@@ -4498,13 +4498,13 @@ internal class kotlin.collections.builders.SetBuilder<E> : MutableSet<E>, Abstra
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(I)V
-	constructor(initialCapacity: Int)
+	/* secondary */ constructor(initialCapacity: Int)
 
 	// JVM method = <init>(Lkotlin/collections/builders/MapBuilder;)V
-	internal /* primary */ constructor(backing: kotlin.collections.builders.MapBuilder<E, *>)
+	internal constructor(backing: kotlin.collections.builders.MapBuilder<E, *>)
 
 
 	// *** FUNCTIONS ***
@@ -4693,7 +4693,7 @@ private class kotlin.comparisons.ReversedComparator<T> : Comparator<T> /* = java
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Comparator;)V
-	/* primary */ constructor(comparator: Comparator<T> /* = java.util.Comparator<T> */)
+	constructor(comparator: Comparator<T> /* = java.util.Comparator<T> */)
 
 
 	// *** FUNCTIONS ***
@@ -4738,7 +4738,7 @@ abstract class kotlin.coroutines.AbstractCoroutineContextElement : kotlin.corout
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/CoroutineContext$Key;)V
-	/* primary */ constructor(key: kotlin.coroutines.CoroutineContext.Key<*>)
+	constructor(key: kotlin.coroutines.CoroutineContext.Key<*>)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -4757,7 +4757,7 @@ abstract class kotlin.coroutines.AbstractCoroutineContextKey<B : kotlin.coroutin
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/CoroutineContext$Key;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(baseKey: kotlin.coroutines.CoroutineContext.Key<B : kotlin.coroutines.CoroutineContext.Element>, safeCast: (@ParameterName(name = "element") kotlin.coroutines.CoroutineContext.Element) -> E : B : kotlin.coroutines.CoroutineContext.Element?)
+	constructor(baseKey: kotlin.coroutines.CoroutineContext.Key<B : kotlin.coroutines.CoroutineContext.Element>, safeCast: (@ParameterName(name = "element") kotlin.coroutines.CoroutineContext.Element) -> E : B : kotlin.coroutines.CoroutineContext.Element?)
 
 
 	// *** FUNCTIONS ***
@@ -4787,7 +4787,7 @@ private class kotlin.coroutines.CombinedContext.Serialized : Serializable /* = j
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([Lkotlin/coroutines/CoroutineContext;)V
-	/* primary */ constructor(elements: Array<kotlin.coroutines.CoroutineContext>)
+	constructor(elements: Array<kotlin.coroutines.CoroutineContext>)
 
 
 	// *** FUNCTIONS ***
@@ -4817,7 +4817,7 @@ internal class kotlin.coroutines.CombinedContext : kotlin.coroutines.CoroutineCo
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)V
-	/* primary */ constructor(left: kotlin.coroutines.CoroutineContext, element: kotlin.coroutines.CoroutineContext.Element)
+	constructor(left: kotlin.coroutines.CoroutineContext, element: kotlin.coroutines.CoroutineContext.Element)
 
 
 	// *** FUNCTIONS ***
@@ -4900,10 +4900,10 @@ internal class kotlin.coroutines.SafeContinuation<in T> : kotlin.coroutines.Cont
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;)V
-	internal constructor(delegate: kotlin.coroutines.Continuation<in T>)
+	internal /* secondary */ constructor(delegate: kotlin.coroutines.Continuation<in T>)
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;Ljava/lang/Object;)V
-	internal /* primary */ constructor(delegate: kotlin.coroutines.Continuation<in T>, initialResult: Any?)
+	internal constructor(delegate: kotlin.coroutines.Continuation<in T>, initialResult: Any?)
 
 
 	// *** FUNCTIONS ***
@@ -5048,7 +5048,7 @@ internal abstract class kotlin.coroutines.jvm.internal.BaseContinuationImpl :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;)V
-	/* primary */ constructor(completion: kotlin.coroutines.Continuation<Any?>?)
+	constructor(completion: kotlin.coroutines.Continuation<Any?>?)
 
 
 	// *** FUNCTIONS ***
@@ -5097,10 +5097,10 @@ internal abstract class kotlin.coroutines.jvm.internal.ContinuationImpl : kotlin
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;)V
-	constructor(completion: kotlin.coroutines.Continuation<Any?>?)
+	/* secondary */ constructor(completion: kotlin.coroutines.Continuation<Any?>?)
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;Lkotlin/coroutines/CoroutineContext;)V
-	/* primary */ constructor(completion: kotlin.coroutines.Continuation<Any?>?, _context: kotlin.coroutines.CoroutineContext?)
+	constructor(completion: kotlin.coroutines.Continuation<Any?>?, _context: kotlin.coroutines.CoroutineContext?)
 
 
 	// *** FUNCTIONS ***
@@ -5131,7 +5131,7 @@ private class kotlin.coroutines.jvm.internal.ModuleNameRetriever.Cache {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V
-	/* primary */ constructor(getModuleMethod: java.lang.reflect.Method?, getDescriptorMethod: java.lang.reflect.Method?, nameMethod: java.lang.reflect.Method?)
+	constructor(getModuleMethod: java.lang.reflect.Method?, getDescriptorMethod: java.lang.reflect.Method?, nameMethod: java.lang.reflect.Method?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5148,7 +5148,7 @@ internal abstract class kotlin.coroutines.jvm.internal.RestrictedContinuationImp
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/coroutines/Continuation;)V
-	/* primary */ constructor(completion: kotlin.coroutines.Continuation<Any?>?)
+	constructor(completion: kotlin.coroutines.Continuation<Any?>?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5167,10 +5167,10 @@ internal abstract class kotlin.coroutines.jvm.internal.RestrictedSuspendLambda :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	constructor(arity: Int)
+	/* secondary */ constructor(arity: Int)
 
 	// JVM method = <init>(ILkotlin/coroutines/Continuation;)V
-	/* primary */ constructor(arity: Int, completion: kotlin.coroutines.Continuation<Any?>?)
+	constructor(arity: Int, completion: kotlin.coroutines.Continuation<Any?>?)
 
 
 	// *** FUNCTIONS ***
@@ -5198,7 +5198,7 @@ private class kotlin.coroutines.jvm.internal.RunSuspend : kotlin.coroutines.Cont
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -5227,10 +5227,10 @@ internal abstract class kotlin.coroutines.jvm.internal.SuspendLambda :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	constructor(arity: Int)
+	/* secondary */ constructor(arity: Int)
 
 	// JVM method = <init>(ILkotlin/coroutines/Continuation;)V
-	/* primary */ constructor(arity: Int, completion: kotlin.coroutines.Continuation<Any?>?)
+	constructor(arity: Int, completion: kotlin.coroutines.Continuation<Any?>?)
 
 
 	// *** FUNCTIONS ***
@@ -5251,7 +5251,7 @@ internal open class kotlin.internal.PlatformImplementations {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -5276,7 +5276,7 @@ class kotlin.io.AccessDeniedException : FileSystemException {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
-	/* primary */ constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
+	constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5321,7 +5321,7 @@ private class kotlin.io.ExposingBufferByteArrayOutputStream : java.io.ByteArrayO
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5331,7 +5331,7 @@ class kotlin.io.FileAlreadyExistsException : FileSystemException {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
-	/* primary */ constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
+	constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5362,7 +5362,7 @@ internal data class kotlin.io.FilePathComponents {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Ljava/util/List;)V
-	internal /* primary */ constructor(root: java.io.File, segments: List<java.io.File>)
+	internal constructor(root: java.io.File, segments: List<java.io.File>)
 
 
 	// *** FUNCTIONS ***
@@ -5408,7 +5408,7 @@ open class kotlin.io.FileSystemException : java.io.IOException {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
-	/* primary */ constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
+	constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5418,7 +5418,7 @@ private abstract class kotlin.io.FileTreeWalk.DirectoryState : FileTreeWalk.Walk
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;)V
-	/* primary */ constructor(rootDir: java.io.File)
+	constructor(rootDir: java.io.File)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5443,7 +5443,7 @@ private inner class kotlin.io.FileTreeWalk.FileTreeWalkIterator.BottomUpDirector
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V
-	/* primary */ constructor(rootDir: java.io.File)
+	constructor(rootDir: java.io.File)
 
 
 	// *** FUNCTIONS ***
@@ -5465,7 +5465,7 @@ private inner class kotlin.io.FileTreeWalk.FileTreeWalkIterator.SingleFileState 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V
-	/* primary */ constructor(rootFile: java.io.File)
+	constructor(rootFile: java.io.File)
 
 
 	// *** FUNCTIONS ***
@@ -5493,7 +5493,7 @@ private inner class kotlin.io.FileTreeWalk.FileTreeWalkIterator.TopDownDirectory
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V
-	/* primary */ constructor(rootDir: java.io.File)
+	constructor(rootDir: java.io.File)
 
 
 	// *** FUNCTIONS ***
@@ -5522,7 +5522,7 @@ private inner class kotlin.io.FileTreeWalk.FileTreeWalkIterator : AbstractIterat
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/io/FileTreeWalk;)V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -5550,7 +5550,7 @@ private abstract class kotlin.io.FileTreeWalk.WalkState {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;)V
-	/* primary */ constructor(root: java.io.File)
+	constructor(root: java.io.File)
 
 
 	// *** FUNCTIONS ***
@@ -5594,10 +5594,10 @@ class kotlin.io.FileTreeWalk : Sequence<java.io.File> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;)V
-	internal constructor(start: java.io.File, direction: FileWalkDirection /* = default */)
+	internal /* secondary */ constructor(start: java.io.File, direction: FileWalkDirection /* = default */)
 
 	// JVM method = <init>(Ljava/io/File;Lkotlin/io/FileWalkDirection;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;I)V
-	private /* primary */ constructor(start: java.io.File, direction: FileWalkDirection /* = default */, onEnter: ((java.io.File) -> Boolean)?, onLeave: ((java.io.File) -> Unit)?, onFail: ((@ParameterName(name = "f") java.io.File, @ParameterName(name = "e") java.io.IOException) -> Unit)?, maxDepth: Int /* = default */)
+	private constructor(start: java.io.File, direction: FileWalkDirection /* = default */, onEnter: ((java.io.File) -> Boolean)?, onLeave: ((java.io.File) -> Unit)?, onFail: ((@ParameterName(name = "f") java.io.File, @ParameterName(name = "e") java.io.IOException) -> Unit)?, maxDepth: Int /* = default */)
 
 
 	// *** FUNCTIONS ***
@@ -5653,7 +5653,7 @@ private class kotlin.io.LinesSequence : Sequence<String> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/BufferedReader;)V
-	/* primary */ constructor(reader: java.io.BufferedReader)
+	constructor(reader: java.io.BufferedReader)
 
 
 	// *** FUNCTIONS ***
@@ -5669,7 +5669,7 @@ class kotlin.io.NoSuchFileException : FileSystemException {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;Ljava/io/File;Ljava/lang/String;)V
-	/* primary */ constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
+	constructor(file: java.io.File, other: java.io.File? /* = default */, reason: String? /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5679,7 +5679,7 @@ private class kotlin.io.TerminateException : FileSystemException {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/io/File;)V
-	/* primary */ constructor(file: java.io.File)
+	constructor(file: java.io.File)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5689,16 +5689,16 @@ open class kotlin.jvm.KotlinReflectionNotSupportedError : java.lang.Error {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(message: String?)
+	/* secondary */ constructor(message: String?)
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-	constructor(message: String?, cause: Throwable?)
+	/* secondary */ constructor(message: String?, cause: Throwable?)
 
 	// JVM method = <init>(Ljava/lang/Throwable;)V
-	constructor(cause: Throwable?)
+	/* secondary */ constructor(cause: Throwable?)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5717,7 +5717,7 @@ private class kotlin.jvm.internal.ArrayBooleanIterator : BooleanIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([Z)V
-	/* primary */ constructor(array: BooleanArray)
+	constructor(array: BooleanArray)
 
 
 	// *** FUNCTIONS ***
@@ -5745,7 +5745,7 @@ private class kotlin.jvm.internal.ArrayByteIterator : ByteIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([B)V
-	/* primary */ constructor(array: ByteArray)
+	constructor(array: ByteArray)
 
 
 	// *** FUNCTIONS ***
@@ -5773,7 +5773,7 @@ private class kotlin.jvm.internal.ArrayCharIterator : CharIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([C)V
-	/* primary */ constructor(array: CharArray)
+	constructor(array: CharArray)
 
 
 	// *** FUNCTIONS ***
@@ -5801,7 +5801,7 @@ private class kotlin.jvm.internal.ArrayDoubleIterator : DoubleIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([D)V
-	/* primary */ constructor(array: DoubleArray)
+	constructor(array: DoubleArray)
 
 
 	// *** FUNCTIONS ***
@@ -5829,7 +5829,7 @@ private class kotlin.jvm.internal.ArrayFloatIterator : FloatIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([F)V
-	/* primary */ constructor(array: FloatArray)
+	constructor(array: FloatArray)
 
 
 	// *** FUNCTIONS ***
@@ -5857,7 +5857,7 @@ private class kotlin.jvm.internal.ArrayIntIterator : IntIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([I)V
-	/* primary */ constructor(array: IntArray)
+	constructor(array: IntArray)
 
 
 	// *** FUNCTIONS ***
@@ -5885,7 +5885,7 @@ private class kotlin.jvm.internal.ArrayIterator<T> : Iterator<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([Ljava/lang/Object;)V
-	/* primary */ constructor(array: Array<T>)
+	constructor(array: Array<T>)
 
 
 	// *** FUNCTIONS ***
@@ -5913,7 +5913,7 @@ private class kotlin.jvm.internal.ArrayLongIterator : LongIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([J)V
-	/* primary */ constructor(array: LongArray)
+	constructor(array: LongArray)
 
 
 	// *** FUNCTIONS ***
@@ -5941,7 +5941,7 @@ private class kotlin.jvm.internal.ArrayShortIterator : ShortIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>([S)V
-	/* primary */ constructor(array: ShortArray)
+	constructor(array: ShortArray)
 
 
 	// *** FUNCTIONS ***
@@ -5966,7 +5966,7 @@ class kotlin.jvm.internal.BooleanSpreadBuilder : kotlin.jvm.internal.PrimitiveSp
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -5994,7 +5994,7 @@ class kotlin.jvm.internal.ByteSpreadBuilder : kotlin.jvm.internal.PrimitiveSprea
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6022,7 +6022,7 @@ class kotlin.jvm.internal.CharSpreadBuilder : kotlin.jvm.internal.PrimitiveSprea
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6143,7 +6143,7 @@ class kotlin.jvm.internal.ClassReference : kotlin.reflect.KClass<Any>, kotlin.jv
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Class;)V
-	/* primary */ constructor(jClass: java.lang.Class<*>)
+	constructor(jClass: java.lang.Class<*>)
 
 
 	// *** FUNCTIONS ***
@@ -6177,7 +6177,7 @@ class kotlin.jvm.internal.DoubleSpreadBuilder : kotlin.jvm.internal.PrimitiveSpr
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6205,7 +6205,7 @@ class kotlin.jvm.internal.FloatSpreadBuilder : kotlin.jvm.internal.PrimitiveSpre
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6233,7 +6233,7 @@ class kotlin.jvm.internal.IntSpreadBuilder : kotlin.jvm.internal.PrimitiveSpread
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6261,7 +6261,7 @@ abstract class kotlin.jvm.internal.Lambda<out R> : kotlin.jvm.internal.FunctionB
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(arity: Int)
+	constructor(arity: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6277,7 +6277,7 @@ open class kotlin.jvm.internal.LocalVariableReference : kotlin.jvm.internal.Prop
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -6302,7 +6302,7 @@ class kotlin.jvm.internal.LongSpreadBuilder : kotlin.jvm.internal.PrimitiveSprea
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6324,7 +6324,7 @@ open class kotlin.jvm.internal.MutableLocalVariableReference : kotlin.jvm.intern
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -6359,7 +6359,7 @@ class kotlin.jvm.internal.PackageReference : kotlin.jvm.internal.ClassBasedDecla
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Class;Ljava/lang/String;)V
-	/* primary */ constructor(jClass: java.lang.Class<*>, moduleName: String)
+	constructor(jClass: java.lang.Class<*>, moduleName: String)
 
 
 	// *** FUNCTIONS ***
@@ -6394,7 +6394,7 @@ abstract class kotlin.jvm.internal.PrimitiveSpreadBuilder<T : Any> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6425,7 +6425,7 @@ class kotlin.jvm.internal.ShortSpreadBuilder : kotlin.jvm.internal.PrimitiveSpre
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I)V
-	/* primary */ constructor(size: Int)
+	constructor(size: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6475,7 +6475,7 @@ class kotlin.jvm.internal.TypeParameterReference : kotlin.reflect.KTypeParameter
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Object;Ljava/lang/String;Lkotlin/reflect/KVariance;Z)V
-	/* primary */ constructor(container: Any?, name: String, variance: kotlin.reflect.KVariance, isReified: Boolean)
+	constructor(container: Any?, name: String, variance: kotlin.reflect.KVariance, isReified: Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -6520,7 +6520,7 @@ class kotlin.jvm.internal.TypeReference : kotlin.reflect.KType {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/reflect/KClassifier;Ljava/util/List;Z)V
-	/* primary */ constructor(classifier: kotlin.reflect.KClassifier, arguments: List<kotlin.reflect.KTypeProjection>, isMarkedNullable: Boolean)
+	constructor(classifier: kotlin.reflect.KClassifier, arguments: List<kotlin.reflect.KTypeProjection>, isMarkedNullable: Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -6574,7 +6574,7 @@ private class kotlin.properties.NotNullVar<T : Any> : kotlin.properties.ReadWrit
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -6599,7 +6599,7 @@ abstract class kotlin.properties.ObservableProperty<V> : kotlin.properties.ReadW
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Object;)V
-	/* primary */ constructor(initialValue: V)
+	constructor(initialValue: V)
 
 
 	// *** FUNCTIONS ***
@@ -6629,7 +6629,7 @@ internal abstract class kotlin.random.AbstractPlatformRandom : kotlin.random.Ran
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -6686,7 +6686,7 @@ internal class kotlin.random.FallbackThreadLocalRandom : kotlin.random.AbstractP
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -6705,7 +6705,7 @@ private class kotlin.random.KotlinRandom : java.util.Random {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/random/Random;)V
-	/* primary */ constructor(impl: kotlin.random.Random)
+	constructor(impl: kotlin.random.Random)
 
 
 	// *** FUNCTIONS ***
@@ -6751,7 +6751,7 @@ private class kotlin.random.PlatformRandom : kotlin.random.AbstractPlatformRando
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Random;)V
-	/* primary */ constructor(impl: java.util.Random)
+	constructor(impl: java.util.Random)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -6766,7 +6766,7 @@ abstract class kotlin.random.Random {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -6845,10 +6845,10 @@ internal class kotlin.random.XorWowRandom : kotlin.random.Random {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(II)V
-	internal constructor(seed1: Int, seed2: Int)
+	internal /* secondary */ constructor(seed1: Int, seed2: Int)
 
 	// JVM method = <init>(IIIIII)V
-	internal /* primary */ constructor(x: Int, y: Int, z: Int, w: Int, v: Int, addend: Int)
+	internal constructor(x: Int, y: Int, z: Int, w: Int, v: Int, addend: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6884,7 +6884,7 @@ open class kotlin.ranges.CharProgression : Iterable<Char> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(CCI)V
-	internal /* primary */ constructor(start: Char, endInclusive: Char, step: Int)
+	internal constructor(start: Char, endInclusive: Char, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6927,7 +6927,7 @@ internal class kotlin.ranges.CharProgressionIterator : CharIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(CCI)V
-	/* primary */ constructor(first: Char, last: Char, step: Int)
+	constructor(first: Char, last: Char, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -6962,7 +6962,7 @@ class kotlin.ranges.CharRange : CharProgression, ClosedRange<Char> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(CC)V
-	/* primary */ constructor(start: Char, endInclusive: Char)
+	constructor(start: Char, endInclusive: Char)
 
 
 	// *** FUNCTIONS ***
@@ -7007,7 +7007,7 @@ private class kotlin.ranges.ClosedDoubleRange : ClosedFloatingPointRange<Double>
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(DD)V
-	/* primary */ constructor(start: Double, endInclusive: Double)
+	constructor(start: Double, endInclusive: Double)
 
 
 	// *** FUNCTIONS ***
@@ -7055,7 +7055,7 @@ private class kotlin.ranges.ClosedFloatRange : ClosedFloatingPointRange<Float> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(FF)V
-	/* primary */ constructor(start: Float, endInclusive: Float)
+	constructor(start: Float, endInclusive: Float)
 
 
 	// *** FUNCTIONS ***
@@ -7095,7 +7095,7 @@ private open class kotlin.ranges.ComparableRange<T : Comparable<T>> : ClosedRang
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
-	/* primary */ constructor(start: T : Comparable<T>, endInclusive: T : Comparable<T>)
+	constructor(start: T : Comparable<T>, endInclusive: T : Comparable<T>)
 
 
 	// *** FUNCTIONS ***
@@ -7134,7 +7134,7 @@ open class kotlin.ranges.IntProgression : Iterable<Int> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(III)V
-	internal /* primary */ constructor(start: Int, endInclusive: Int, step: Int)
+	internal constructor(start: Int, endInclusive: Int, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -7177,7 +7177,7 @@ internal class kotlin.ranges.IntProgressionIterator : IntIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(III)V
-	/* primary */ constructor(first: Int, last: Int, step: Int)
+	constructor(first: Int, last: Int, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -7212,7 +7212,7 @@ class kotlin.ranges.IntRange : IntProgression, ClosedRange<Int> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(II)V
-	/* primary */ constructor(start: Int, endInclusive: Int)
+	constructor(start: Int, endInclusive: Int)
 
 
 	// *** FUNCTIONS ***
@@ -7257,7 +7257,7 @@ open class kotlin.ranges.LongProgression : Iterable<Long> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(JJJ)V
-	internal /* primary */ constructor(start: Long, endInclusive: Long, step: Long)
+	internal constructor(start: Long, endInclusive: Long, step: Long)
 
 
 	// *** FUNCTIONS ***
@@ -7300,7 +7300,7 @@ internal class kotlin.ranges.LongProgressionIterator : LongIterator {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(JJJ)V
-	/* primary */ constructor(first: Long, last: Long, step: Long)
+	constructor(first: Long, last: Long, step: Long)
 
 
 	// *** FUNCTIONS ***
@@ -7335,7 +7335,7 @@ class kotlin.ranges.LongRange : LongProgression, ClosedRange<Long> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(JJ)V
-	/* primary */ constructor(start: Long, endInclusive: Long)
+	constructor(start: Long, endInclusive: Long)
 
 
 	// *** FUNCTIONS ***
@@ -7386,7 +7386,7 @@ open class kotlin.ranges.UIntProgression : Iterable<UInt> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	internal /* primary */ constructor(start: UInt, endInclusive: UInt, step: Int)
+	internal constructor(start: UInt, endInclusive: UInt, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -7436,7 +7436,7 @@ private class kotlin.ranges.UIntProgressionIterator : UIntIterator {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(first: UInt, last: UInt, step: Int)
+	constructor(first: UInt, last: UInt, step: Int)
 
 
 	// *** FUNCTIONS ***
@@ -7479,7 +7479,7 @@ class kotlin.ranges.UIntRange : UIntProgression, ClosedRange<UInt> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(start: UInt, endInclusive: UInt)
+	constructor(start: UInt, endInclusive: UInt)
 
 
 	// *** FUNCTIONS ***
@@ -7531,7 +7531,7 @@ open class kotlin.ranges.ULongProgression : Iterable<ULong> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	internal /* primary */ constructor(start: ULong, endInclusive: ULong, step: Long)
+	internal constructor(start: ULong, endInclusive: ULong, step: Long)
 
 
 	// *** FUNCTIONS ***
@@ -7581,7 +7581,7 @@ private class kotlin.ranges.ULongProgressionIterator : ULongIterator {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(first: ULong, last: ULong, step: Long)
+	constructor(first: ULong, last: ULong, step: Long)
 
 
 	// *** FUNCTIONS ***
@@ -7624,7 +7624,7 @@ class kotlin.ranges.ULongRange : ULongProgression, ClosedRange<ULong> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(start: ULong, endInclusive: ULong)
+	constructor(start: ULong, endInclusive: ULong)
 
 
 	// *** FUNCTIONS ***
@@ -7659,7 +7659,7 @@ private class kotlin.reflect.GenericArrayTypeImpl : java.lang.reflect.GenericArr
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/reflect/Type;)V
-	/* primary */ constructor(elementType: java.lang.reflect.Type)
+	constructor(elementType: java.lang.reflect.Type)
 
 
 	// *** FUNCTIONS ***
@@ -7701,7 +7701,7 @@ data class kotlin.reflect.KTypeProjection {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/reflect/KVariance;Lkotlin/reflect/KType;)V
-	/* primary */ constructor(variance: kotlin.reflect.KVariance?, type: kotlin.reflect.KType?)
+	constructor(variance: kotlin.reflect.KVariance?, type: kotlin.reflect.KType?)
 
 
 	// *** FUNCTIONS ***
@@ -7744,7 +7744,7 @@ private class kotlin.reflect.ParameterizedTypeImpl : java.lang.reflect.Parameter
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/Class;Ljava/lang/reflect/Type;Ljava/util/List;)V
-	/* primary */ constructor(rawType: java.lang.Class<*>, ownerType: java.lang.reflect.Type?, typeArguments: List<java.lang.reflect.Type>)
+	constructor(rawType: java.lang.Class<*>, ownerType: java.lang.reflect.Type?, typeArguments: List<java.lang.reflect.Type>)
 
 
 	// *** FUNCTIONS ***
@@ -7784,7 +7784,7 @@ private class kotlin.reflect.TypeVariableImpl : java.lang.reflect.TypeVariable<j
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/reflect/KTypeParameter;)V
-	/* primary */ constructor(typeParameter: kotlin.reflect.KTypeParameter)
+	constructor(typeParameter: kotlin.reflect.KTypeParameter)
 
 
 	// *** FUNCTIONS ***
@@ -7844,7 +7844,7 @@ private class kotlin.reflect.WildcardTypeImpl : java.lang.reflect.WildcardType, 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V
-	/* primary */ constructor(upperBound: java.lang.reflect.Type?, lowerBound: java.lang.reflect.Type?)
+	constructor(upperBound: java.lang.reflect.Type?, lowerBound: java.lang.reflect.Type?)
 
 
 	// *** FUNCTIONS ***
@@ -7881,7 +7881,7 @@ internal class kotlin.sequences.ConstrainedOnceSequence<T> : Sequence<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;)V
-	/* primary */ constructor(sequence: Sequence<T>)
+	constructor(sequence: Sequence<T>)
 
 
 	// *** FUNCTIONS ***
@@ -7909,7 +7909,7 @@ private class kotlin.sequences.DistinctIterator<T, K> : AbstractIterator<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/Iterator;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(source: Iterator<T>, keySelector: (T) -> K)
+	constructor(source: Iterator<T>, keySelector: (T) -> K)
 
 
 	// *** FUNCTIONS ***
@@ -7934,7 +7934,7 @@ internal class kotlin.sequences.DistinctSequence<T, K> : Sequence<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(source: Sequence<T>, keySelector: (T) -> K)
+	constructor(source: Sequence<T>, keySelector: (T) -> K)
 
 
 	// *** FUNCTIONS ***
@@ -7984,7 +7984,7 @@ internal class kotlin.sequences.DropSequence<T> : Sequence<T>, DropTakeSequence<
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;I)V
-	/* primary */ constructor(sequence: Sequence<T>, count: Int)
+	constructor(sequence: Sequence<T>, count: Int)
 
 
 	// *** FUNCTIONS ***
@@ -8043,7 +8043,7 @@ internal class kotlin.sequences.DropWhileSequence<T> : Sequence<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(sequence: Sequence<T>, predicate: (T) -> Boolean)
+	constructor(sequence: Sequence<T>, predicate: (T) -> Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -8099,7 +8099,7 @@ internal class kotlin.sequences.FilteringSequence<T> : Sequence<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;ZLkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(sequence: Sequence<T>, sendWhen: Boolean /* = default */, predicate: (T) -> Boolean)
+	constructor(sequence: Sequence<T>, sendWhen: Boolean /* = default */, predicate: (T) -> Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -8152,7 +8152,7 @@ internal class kotlin.sequences.FlatteningSequence<T, R, E> : Sequence<E> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(sequence: Sequence<T>, transformer: (T) -> R, iterator: (R) -> Iterator<E>)
+	constructor(sequence: Sequence<T>, transformer: (T) -> R, iterator: (R) -> Iterator<E>)
 
 
 	// *** FUNCTIONS ***
@@ -8202,7 +8202,7 @@ private class kotlin.sequences.GeneratorSequence<T : Any> : Sequence<T : Any> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(getInitialValue: () -> T : Any?, getNextValue: (T : Any) -> T : Any?)
+	constructor(getInitialValue: () -> T : Any?, getNextValue: (T : Any) -> T : Any?)
 
 
 	// *** FUNCTIONS ***
@@ -8246,7 +8246,7 @@ internal class kotlin.sequences.IndexingSequence<T> : Sequence<IndexedValue<T>> 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;)V
-	/* primary */ constructor(sequence: Sequence<T>)
+	constructor(sequence: Sequence<T>)
 
 
 	// *** FUNCTIONS ***
@@ -8296,7 +8296,7 @@ internal class kotlin.sequences.MergingSequence<T1, T2, V> : Sequence<V> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;)V
-	/* primary */ constructor(sequence1: Sequence<T1>, sequence2: Sequence<T2>, transform: (T1, T2) -> V)
+	constructor(sequence1: Sequence<T1>, sequence2: Sequence<T2>, transform: (T1, T2) -> V)
 
 
 	// *** FUNCTIONS ***
@@ -8334,7 +8334,7 @@ private class kotlin.sequences.SequenceBuilderIterator<T> :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -8371,7 +8371,7 @@ abstract class kotlin.sequences.SequenceScope<in T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	internal /* primary */ constructor()
+	internal constructor()
 
 
 	// *** FUNCTIONS ***
@@ -8568,7 +8568,7 @@ internal class kotlin.sequences.SubSequence<T> : Sequence<T>, DropTakeSequence<T
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;II)V
-	/* primary */ constructor(sequence: Sequence<T>, startIndex: Int, endIndex: Int)
+	constructor(sequence: Sequence<T>, startIndex: Int, endIndex: Int)
 
 
 	// *** FUNCTIONS ***
@@ -8621,7 +8621,7 @@ internal class kotlin.sequences.TakeSequence<T> : Sequence<T>, DropTakeSequence<
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;I)V
-	/* primary */ constructor(sequence: Sequence<T>, count: Int)
+	constructor(sequence: Sequence<T>, count: Int)
 
 
 	// *** FUNCTIONS ***
@@ -8680,7 +8680,7 @@ internal class kotlin.sequences.TakeWhileSequence<T> : Sequence<T> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(sequence: Sequence<T>, predicate: (T) -> Boolean)
+	constructor(sequence: Sequence<T>, predicate: (T) -> Boolean)
 
 
 	// *** FUNCTIONS ***
@@ -8727,7 +8727,7 @@ internal class kotlin.sequences.TransformingIndexedSequence<T, R> : Sequence<R> 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;)V
-	/* primary */ constructor(sequence: Sequence<T>, transformer: (Int, T) -> R)
+	constructor(sequence: Sequence<T>, transformer: (Int, T) -> R)
 
 
 	// *** FUNCTIONS ***
@@ -8771,7 +8771,7 @@ internal class kotlin.sequences.TransformingSequence<T, R> : Sequence<R> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
-	/* primary */ constructor(sequence: Sequence<T>, transformer: (T) -> R)
+	constructor(sequence: Sequence<T>, transformer: (T) -> R)
 
 
 	// *** FUNCTIONS ***
@@ -8839,7 +8839,7 @@ private class kotlin.text.DelimitedRangesSequence : Sequence<IntRange> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/CharSequence;IILkotlin/jvm/functions/Function2;)V
-	/* primary */ constructor(input: CharSequence, startIndex: Int, limit: Int, getNextMatch: CharSequence.(@ParameterName(name = "currentIndex") Int) -> Pair<Int, Int>?)
+	constructor(input: CharSequence, startIndex: Int, limit: Int, getNextMatch: CharSequence.(@ParameterName(name = "currentIndex") Int) -> Pair<Int, Int>?)
 
 
 	// *** FUNCTIONS ***
@@ -8864,7 +8864,7 @@ data class kotlin.text.MatchGroup {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Lkotlin/ranges/IntRange;)V
-	/* primary */ constructor(value: String, range: IntRange)
+	constructor(value: String, range: IntRange)
 
 
 	// *** FUNCTIONS ***
@@ -8901,7 +8901,7 @@ class kotlin.text.MatchResult.Destructured {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/text/MatchResult;)V
-	internal /* primary */ constructor(match: MatchResult)
+	internal constructor(match: MatchResult)
 
 
 	// *** FUNCTIONS ***
@@ -9021,7 +9021,7 @@ private class kotlin.text.MatcherMatchResult : MatchResult {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/regex/Matcher;Ljava/lang/CharSequence;)V
-	/* primary */ constructor(matcher: java.util.regex.Matcher, input: CharSequence)
+	constructor(matcher: java.util.regex.Matcher, input: CharSequence)
 
 
 	// *** FUNCTIONS ***
@@ -9051,7 +9051,7 @@ private class kotlin.text.Regex.Serialized : Serializable /* = java.io.Serializa
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	/* primary */ constructor(pattern: String, flags: Int)
+	constructor(pattern: String, flags: Int)
 
 
 	// *** FUNCTIONS ***
@@ -9090,16 +9090,16 @@ class kotlin.text.Regex : Serializable /* = java.io.Serializable */ {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	constructor(pattern: String)
+	/* secondary */ constructor(pattern: String)
 
 	// JVM method = <init>(Ljava/lang/String;Lkotlin/text/RegexOption;)V
-	constructor(pattern: String, option: RegexOption)
+	/* secondary */ constructor(pattern: String, option: RegexOption)
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/util/Set;)V
-	constructor(pattern: String, options: Set<RegexOption>)
+	/* secondary */ constructor(pattern: String, options: Set<RegexOption>)
 
 	// JVM method = <init>(Ljava/util/regex/Pattern;)V
-	internal /* primary */ constructor(nativePattern: java.util.regex.Pattern)
+	internal constructor(nativePattern: java.util.regex.Pattern)
 
 
 	// *** FUNCTIONS ***
@@ -9217,7 +9217,7 @@ private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(DLkotlin/time/AbstractDoubleTimeSource;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(startedAt: Double, timeSource: kotlin.time.AbstractDoubleTimeSource, offset: kotlin.time.Duration)
+	constructor(startedAt: Double, timeSource: kotlin.time.AbstractDoubleTimeSource, offset: kotlin.time.Duration)
 
 
 	// *** FUNCTIONS ***
@@ -9250,7 +9250,7 @@ abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/concurrent/TimeUnit;)V
-	/* primary */ constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
+	constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
 
 
 	// *** FUNCTIONS ***
@@ -9284,7 +9284,7 @@ private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.Time
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(JLkotlin/time/AbstractLongTimeSource;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(startedAt: Long, timeSource: kotlin.time.AbstractLongTimeSource, offset: kotlin.time.Duration)
+	constructor(startedAt: Long, timeSource: kotlin.time.AbstractLongTimeSource, offset: kotlin.time.Duration)
 
 
 	// *** FUNCTIONS ***
@@ -9317,7 +9317,7 @@ abstract class kotlin.time.AbstractLongTimeSource : kotlin.time.TimeSource {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/util/concurrent/TimeUnit;)V
-	/* primary */ constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
+	constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
 
 
 	// *** FUNCTIONS ***
@@ -9348,7 +9348,7 @@ private class kotlin.time.AdjustedTimeMark : kotlin.time.TimeMark {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(Lkotlin/time/TimeMark;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(mark: kotlin.time.TimeMark, adjustment: kotlin.time.Duration)
+	constructor(mark: kotlin.time.TimeMark, adjustment: kotlin.time.Duration)
 
 
 	// *** FUNCTIONS ***
@@ -9437,7 +9437,7 @@ inline class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = constructor-impl(D)D
-	internal /* primary */ constructor(value: Double)
+	internal constructor(value: Double)
 
 
 	// *** FUNCTIONS ***
@@ -9574,7 +9574,7 @@ class kotlin.time.TestTimeSource : kotlin.time.AbstractLongTimeSource {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9598,7 +9598,7 @@ abstract class kotlin.time.TimeMark {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9642,7 +9642,7 @@ data class kotlin.time.TimedValue<T> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = <init>(Ljava/lang/Object;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	/* primary */ constructor(value: T, duration: kotlin.time.Duration)
+	constructor(value: T, duration: kotlin.time.Duration)
 
 
 	// *** FUNCTIONS ***
@@ -9685,7 +9685,7 @@ companion object kotlin.KotlinVersion.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9695,7 +9695,7 @@ companion object kotlin.Result.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9722,7 +9722,7 @@ companion object kotlin.SafePublicationLazyImpl.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9751,7 +9751,7 @@ companion object kotlin.UByte.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9780,7 +9780,7 @@ companion object kotlin.UInt.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9809,7 +9809,7 @@ companion object kotlin.ULong.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9819,7 +9819,7 @@ internal object kotlin.UNINITIALIZED_VALUE {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9848,7 +9848,7 @@ companion object kotlin.UShort.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9858,7 +9858,7 @@ object kotlin.Unit {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9881,7 +9881,7 @@ internal object kotlin._Assertions {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9891,7 +9891,7 @@ internal companion object kotlin.collections.AbstractList.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9922,7 +9922,7 @@ internal companion object kotlin.collections.AbstractMap.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9944,7 +9944,7 @@ internal companion object kotlin.collections.AbstractSet.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9975,7 +9975,7 @@ internal companion object kotlin.collections.ArrayDeque.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -9991,7 +9991,7 @@ internal object kotlin.collections.EmptyIterator : ListIterator<Nothing> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10035,7 +10035,7 @@ internal object kotlin.collections.EmptyList :
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10112,7 +10112,7 @@ private object kotlin.collections.EmptyMap : Map<Any?, Nothing>, Serializable /*
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10159,7 +10159,7 @@ internal object kotlin.collections.EmptySet : Set<Nothing>, Serializable /* = ja
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10211,7 +10211,7 @@ private companion object kotlin.collections.builders.MapBuilder.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10230,7 +10230,7 @@ private object kotlin.comparisons.NaturalOrderComparator : Comparator<Comparable
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10249,7 +10249,7 @@ private object kotlin.comparisons.ReverseOrderComparator : Comparator<Comparable
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10274,7 +10274,7 @@ companion object kotlin.coroutines.CombinedContext.Serialized.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10284,7 +10284,7 @@ companion object kotlin.coroutines.ContinuationInterceptor.Key : kotlin.coroutin
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10300,7 +10300,7 @@ object kotlin.coroutines.EmptyCoroutineContext : kotlin.coroutines.CoroutineCont
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10341,7 +10341,7 @@ private companion object kotlin.coroutines.SafeContinuation.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10358,7 +10358,7 @@ internal object kotlin.coroutines.jvm.internal.CompletedContinuation : kotlin.co
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10392,7 +10392,7 @@ private object kotlin.coroutines.jvm.internal.ModuleNameRetriever {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10420,7 +10420,7 @@ private object kotlin.internal.PlatformImplementations.ReflectThrowable {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10457,7 +10457,7 @@ internal object kotlin.io.LineReader {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10491,7 +10491,7 @@ internal object kotlin.jvm.internal.BooleanCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10518,7 +10518,7 @@ internal object kotlin.jvm.internal.ByteCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10565,7 +10565,7 @@ internal object kotlin.jvm.internal.CharCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10593,7 +10593,7 @@ companion object kotlin.jvm.internal.ClassReference.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10646,7 +10646,7 @@ internal object kotlin.jvm.internal.DoubleCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10674,7 +10674,7 @@ internal object kotlin.jvm.internal.EnumCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10715,7 +10715,7 @@ internal object kotlin.jvm.internal.FloatCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10760,7 +10760,7 @@ internal object kotlin.jvm.internal.IntCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10787,7 +10787,7 @@ internal object kotlin.jvm.internal.LongCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10814,7 +10814,7 @@ internal object kotlin.jvm.internal.ShortCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10824,7 +10824,7 @@ internal object kotlin.jvm.internal.StringCompanionObject {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10834,7 +10834,7 @@ companion object kotlin.jvm.internal.TypeParameterReference.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10871,7 +10871,7 @@ private object kotlin.math.Constants {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10881,7 +10881,7 @@ object kotlin.properties.Delegates {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10911,7 +10911,7 @@ companion object kotlin.random.Random.Default : kotlin.random.Random {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10969,7 +10969,7 @@ companion object kotlin.ranges.CharProgression.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -10991,7 +10991,7 @@ companion object kotlin.ranges.CharRange.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11001,7 +11001,7 @@ companion object kotlin.ranges.IntProgression.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11023,7 +11023,7 @@ companion object kotlin.ranges.IntRange.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11033,7 +11033,7 @@ companion object kotlin.ranges.LongProgression.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11055,7 +11055,7 @@ companion object kotlin.ranges.LongRange.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11065,7 +11065,7 @@ companion object kotlin.ranges.UIntProgression.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11088,7 +11088,7 @@ companion object kotlin.ranges.UIntRange.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11098,7 +11098,7 @@ companion object kotlin.ranges.ULongProgression.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11121,7 +11121,7 @@ companion object kotlin.ranges.ULongRange.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11142,7 +11142,7 @@ companion object kotlin.reflect.KTypeProjection.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11170,7 +11170,7 @@ companion object kotlin.reflect.WildcardTypeImpl.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11180,7 +11180,7 @@ private object kotlin.sequences.EmptySequence : Sequence<Nothing>, DropTakeSeque
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11210,7 +11210,7 @@ companion object kotlin.text.CharCategory.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11234,7 +11234,7 @@ companion object kotlin.text.CharDirectionality.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11292,7 +11292,7 @@ object kotlin.text.Charsets {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11302,7 +11302,7 @@ companion object kotlin.text.Regex.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11333,7 +11333,7 @@ companion object kotlin.text.Regex.Serialized.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11349,7 +11349,7 @@ private object kotlin.text.ScreenFloatValueRegEx {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11365,7 +11365,7 @@ private object kotlin.text.SystemProperties {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11495,7 +11495,7 @@ object kotlin.text.Typography {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11518,7 +11518,7 @@ companion object kotlin.time.Duration.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11534,7 +11534,7 @@ internal object kotlin.time.MonotonicTimeSource : kotlin.time.AbstractLongTimeSo
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -11553,7 +11553,7 @@ companion object kotlin.time.TimeSource.Companion {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11563,7 +11563,7 @@ object kotlin.time.TimeSource.Monotonic : kotlin.time.TimeSource {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private /* primary */ constructor()
+	private constructor()
 
 
 	// *** FUNCTIONS ***
@@ -12104,7 +12104,7 @@ interface kotlin.jvm.internal.markers.KMutableSet : kotlin.jvm.internal.markers.
 
 // ------------------------------------------------------------------------------------------------------
 
-interface kotlin.properties.PropertyDelegateProvider<in T, out D> {
+fun interface kotlin.properties.PropertyDelegateProvider<in T, out D> {
 
 	// *** FUNCTIONS ***
 
@@ -12114,7 +12114,7 @@ interface kotlin.properties.PropertyDelegateProvider<in T, out D> {
 
 // ------------------------------------------------------------------------------------------------------
 
-interface kotlin.properties.ReadOnlyProperty<in T, out V> {
+fun interface kotlin.properties.ReadOnlyProperty<in T, out V> {
 
 	// *** FUNCTIONS ***
 
@@ -12708,7 +12708,7 @@ enum class kotlin.DeprecationLevel {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12723,7 +12723,7 @@ enum class kotlin.Experimental.Level {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12739,7 +12739,7 @@ enum class kotlin.LazyThreadSafetyMode {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12754,7 +12754,7 @@ enum class kotlin.RequiresOptIn.Level {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12770,7 +12770,7 @@ enum class kotlin.annotation.AnnotationRetention {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12798,7 +12798,7 @@ enum class kotlin.annotation.AnnotationTarget {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12815,7 +12815,7 @@ private enum class kotlin.collections.State {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12832,7 +12832,7 @@ enum class kotlin.contracts.InvocationKind {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12848,7 +12848,7 @@ internal enum class kotlin.coroutines.intrinsics.CoroutineSingletons {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12864,7 +12864,7 @@ internal enum class kotlin.internal.RequireKotlinVersionKind {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12879,7 +12879,7 @@ enum class kotlin.io.FileWalkDirection {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12894,7 +12894,7 @@ enum class kotlin.io.OnErrorAction {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12910,7 +12910,7 @@ enum class kotlin.reflect.KParameter.Kind {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12926,7 +12926,7 @@ enum class kotlin.reflect.KVariance {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12943,7 +12943,7 @@ enum class kotlin.reflect.KVisibility {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;I)V
-	private /* primary */ constructor()
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13000,7 +13000,7 @@ enum class kotlin.text.CharCategory {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;IILjava/lang/String;)V
-	private /* primary */ constructor(value: Int, code: String)
+	private constructor(value: Int, code: String)
 
 
 	// *** FUNCTIONS ***
@@ -13050,7 +13050,7 @@ enum class kotlin.text.CharDirectionality {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;II)V
-	private /* primary */ constructor(value: Int)
+	private constructor(value: Int)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13079,7 +13079,7 @@ enum class kotlin.text.RegexOption : FlagEnum {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;III)V
-	private /* primary */ constructor(value: Int, mask: Int /* = default */)
+	private constructor(value: Int, mask: Int /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13089,7 +13089,7 @@ annotation class kotlin.BuilderInference {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13108,7 +13108,7 @@ annotation class kotlin.Deprecated {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Lkotlin/ReplaceWith;Lkotlin/DeprecationLevel;)V
-	/* primary */ constructor(message: String, replaceWith: ReplaceWith /* = default */, level: DeprecationLevel /* = default */)
+	constructor(message: String, replaceWith: ReplaceWith /* = default */, level: DeprecationLevel /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13127,7 +13127,7 @@ annotation class kotlin.DeprecatedSinceKotlin {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	/* primary */ constructor(warningSince: String /* = default */, errorSince: String /* = default */, hiddenSince: String /* = default */)
+	constructor(warningSince: String /* = default */, errorSince: String /* = default */, hiddenSince: String /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13137,7 +13137,7 @@ annotation class kotlin.DslMarker {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13158,7 +13158,7 @@ annotation class kotlin.Experimental {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Experimental$Level;)V
-	/* primary */ constructor(level: Experimental.Level /* = default */)
+	constructor(level: Experimental.Level /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13169,7 +13169,7 @@ annotation class kotlin.ExperimentalMultiplatform {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13179,7 +13179,7 @@ annotation class kotlin.ExperimentalStdlibApi {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13190,7 +13190,7 @@ annotation class kotlin.ExperimentalUnsignedTypes {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13200,7 +13200,7 @@ annotation class kotlin.ExtensionFunctionType {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13229,7 +13229,7 @@ annotation class kotlin.Metadata {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(I[I[ILkotlin/Array;Lkotlin/Array;Ljava/lang/String;Ljava/lang/String;I)V
-	/* primary */ constructor(kind: Int /* = default */, metadataVersion: IntArray /* = default */, bytecodeVersion: IntArray /* = default */, data1: Array<String> /* = default */, data2: Array<String> /* = default */, extraString: String /* = default */, packageName: String /* = default */, extraInt: Int /* = default */)
+	constructor(kind: Int /* = default */, metadataVersion: IntArray /* = default */, bytecodeVersion: IntArray /* = default */, data1: Array<String> /* = default */, data2: Array<String> /* = default */, extraString: String /* = default */, packageName: String /* = default */, extraInt: Int /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13245,7 +13245,7 @@ annotation class kotlin.OptIn {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
+	constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13256,7 +13256,7 @@ annotation class kotlin.OptionalExpectation {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13266,7 +13266,7 @@ annotation class kotlin.OverloadResolutionByLambdaReturnType {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13281,7 +13281,7 @@ annotation class kotlin.ParameterName {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(name: String)
+	constructor(name: String)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13291,7 +13291,7 @@ annotation class kotlin.PublishedApi {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13308,7 +13308,7 @@ annotation class kotlin.ReplaceWith {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Lkotlin/Array;)V
-	/* primary */ constructor(expression: String, vararg imports: String /* Array<out String> */)
+	constructor(expression: String, vararg imports: String /* Array<out String> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13331,7 +13331,7 @@ annotation class kotlin.RequiresOptIn {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Lkotlin/RequiresOptIn$Level;)V
-	/* primary */ constructor(message: String /* = default */, level: RequiresOptIn.Level /* = default */)
+	constructor(message: String /* = default */, level: RequiresOptIn.Level /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13346,7 +13346,7 @@ annotation class kotlin.SinceKotlin {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(version: String)
+	constructor(version: String)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13361,7 +13361,7 @@ annotation class kotlin.Suppress {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg names: String /* Array<out String> */)
+	constructor(vararg names: String /* Array<out String> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13371,7 +13371,7 @@ annotation class kotlin.UnsafeVariance {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13387,7 +13387,7 @@ annotation class kotlin.UseExperimental {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
+	constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13402,7 +13402,7 @@ internal annotation class kotlin.WasExperimental {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
+	constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13412,7 +13412,7 @@ annotation class kotlin.annotation.MustBeDocumented {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13422,7 +13422,7 @@ annotation class kotlin.annotation.Repeatable {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13437,7 +13437,7 @@ annotation class kotlin.annotation.Retention {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/annotation/AnnotationRetention;)V
-	/* primary */ constructor(value: kotlin.annotation.AnnotationRetention /* = default */)
+	constructor(value: kotlin.annotation.AnnotationRetention /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13452,7 +13452,7 @@ annotation class kotlin.annotation.Target {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg allowedTargets: kotlin.annotation.AnnotationTarget /* Array<out kotlin.annotation.AnnotationTarget> */)
+	constructor(vararg allowedTargets: kotlin.annotation.AnnotationTarget /* Array<out kotlin.annotation.AnnotationTarget> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13462,7 +13462,7 @@ annotation class kotlin.contracts.ExperimentalContracts {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13472,7 +13472,7 @@ annotation class kotlin.coroutines.RestrictsSuspension {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13501,7 +13501,7 @@ internal annotation class kotlin.coroutines.jvm.internal.DebugMetadata {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(ILjava/lang/String;[ILkotlin/Array;Lkotlin/Array;[ILjava/lang/String;Ljava/lang/String;)V
-	/* primary */ constructor(version: Int /* = default */, sourceFile: String /* = default */, lineNumbers: IntArray /* = default */, localNames: Array<String> /* = default */, spilled: Array<String> /* = default */, indexToLabel: IntArray /* = default */, methodName: String /* = default */, className: String /* = default */)
+	constructor(version: Int /* = default */, sourceFile: String /* = default */, lineNumbers: IntArray /* = default */, localNames: Array<String> /* = default */, spilled: Array<String> /* = default */, indexToLabel: IntArray /* = default */, methodName: String /* = default */, className: String /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13511,7 +13511,7 @@ annotation class kotlin.experimental.ExperimentalTypeInference {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13521,7 +13521,7 @@ internal annotation class kotlin.internal.AccessibleLateinitPropertyLiteral {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13531,7 +13531,7 @@ internal annotation class kotlin.internal.ContractsDsl {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13541,7 +13541,7 @@ internal annotation class kotlin.internal.DynamicExtension {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13551,7 +13551,7 @@ internal annotation class kotlin.internal.Exact {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13561,7 +13561,7 @@ internal annotation class kotlin.internal.HidesMembers {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13571,7 +13571,7 @@ internal annotation class kotlin.internal.InlineOnly {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13581,7 +13581,7 @@ internal annotation class kotlin.internal.LowPriorityInOverloadResolution {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13591,7 +13591,7 @@ internal annotation class kotlin.internal.NoInfer {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13601,7 +13601,7 @@ internal annotation class kotlin.internal.OnlyInputTypes {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13611,7 +13611,7 @@ internal annotation class kotlin.internal.PlatformDependent {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13621,7 +13621,7 @@ internal annotation class kotlin.internal.PureReifiable {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13644,7 +13644,7 @@ internal annotation class kotlin.internal.RequireKotlin {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/String;Lkotlin/DeprecationLevel;Lkotlin/internal/RequireKotlinVersionKind;I)V
-	/* primary */ constructor(version: String, message: String /* = default */, level: DeprecationLevel /* = default */, versionKind: kotlin.internal.RequireKotlinVersionKind /* = default */, errorCode: Int /* = default */)
+	constructor(version: String, message: String /* = default */, level: DeprecationLevel /* = default */, versionKind: kotlin.internal.RequireKotlinVersionKind /* = default */, errorCode: Int /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13654,7 +13654,7 @@ annotation class kotlin.js.ExperimentalJsExport {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13665,7 +13665,7 @@ annotation class kotlin.jvm.JvmDefault {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13676,7 +13676,7 @@ annotation class kotlin.jvm.JvmDefaultWithoutCompatibility {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13686,7 +13686,7 @@ annotation class kotlin.jvm.JvmField {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13696,7 +13696,7 @@ annotation class kotlin.jvm.JvmMultifileClass {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13711,7 +13711,7 @@ annotation class kotlin.jvm.JvmName {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(name: String)
+	constructor(name: String)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13721,7 +13721,7 @@ annotation class kotlin.jvm.JvmOverloads {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13736,7 +13736,7 @@ internal annotation class kotlin.jvm.JvmPackageName {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(name: String)
+	constructor(name: String)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13746,7 +13746,7 @@ annotation class kotlin.jvm.JvmStatic {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13761,7 +13761,7 @@ annotation class kotlin.jvm.JvmSuppressWildcards {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Z)V
-	/* primary */ constructor(suppress: Boolean /* = default */)
+	constructor(suppress: Boolean /* = default */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13771,7 +13771,7 @@ annotation class kotlin.jvm.JvmSynthetic {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13781,7 +13781,7 @@ annotation class kotlin.jvm.JvmWildcard {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13796,7 +13796,7 @@ annotation class kotlin.jvm.PurelyImplements {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Ljava/lang/String;)V
-	/* primary */ constructor(value: String)
+	constructor(value: String)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13806,7 +13806,7 @@ annotation class kotlin.jvm.Strictfp {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13816,7 +13816,7 @@ annotation class kotlin.jvm.Synchronized {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13831,7 +13831,7 @@ annotation class kotlin.jvm.Throws {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/Array;)V
-	/* primary */ constructor(vararg exceptionClasses: kotlin.reflect.KClass<out Throwable> /* Array<out kotlin.reflect.KClass<out Throwable>> */)
+	constructor(vararg exceptionClasses: kotlin.reflect.KClass<out Throwable> /* Array<out kotlin.reflect.KClass<out Throwable>> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13841,7 +13841,7 @@ annotation class kotlin.jvm.Transient {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13851,7 +13851,7 @@ annotation class kotlin.jvm.Volatile {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13861,7 +13861,7 @@ annotation class kotlin.time.ExperimentalTime {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	/* primary */ constructor()
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------

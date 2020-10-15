@@ -117,6 +117,7 @@ internal class MClassBuilder : KmClassVisitor() {
 			functions = functions.mapOrEmpty { it.build() },
 			isExpect = Flag.Class.IS_EXPECT(flags),
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
+			isFunctional = Flag.Class.IS_FUN(flags),
 			name = name ?: throw MetaException("class has no name"),
 			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
 			properties = properties.mapOrEmpty { it.build() },

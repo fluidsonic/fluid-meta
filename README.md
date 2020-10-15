@@ -3,11 +3,11 @@ fluid-meta
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.fluidsonic.meta/fluid-meta?label=Maven%20Central)](https://search.maven.org/artifact/io.fluidsonic.meta/fluid-meta)
 [![JCenter](https://img.shields.io/bintray/v/fluidsonic/kotlin/meta?label=JCenter)](https://bintray.com/fluidsonic/kotlin/meta)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.4.0-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.4.0)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.4.10-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.4.10)
 [![#fluid-libraries Slack Channel](https://img.shields.io/badge/slack-%23fluid--libraries-543951.svg)](https://kotlinlang.slack.com/messages/C7UDFSVT2/)
 
-Converts Kotlin metadata into a usable data model.
-Includes pretty printing for easy inspection, see the output for [Kotlin's Standard Library](https://github.com/fluidsonic/fluid-meta/blob/master/kotlin-stdlib.kt) for example :)
+Converts Kotlin metadata into a usable data model. Includes pretty printing for easy inspection, see the output
+for [Kotlin's Standard Library](https://github.com/fluidsonic/fluid-meta/blob/master/kotlin-stdlib.kt) for example :)
 
 
 
@@ -15,13 +15,12 @@ Installation
 ------------
 
 `build.gradle.kts`:
+
 ```kotlin
 dependencies {
-    implementation("io.fluidsonic.meta:fluid-meta:0.10.2")
+	implementation("io.fluidsonic.meta:fluid-meta:0.10.2")
 }
 ```
-
-
 
 Example
 -------
@@ -72,10 +71,10 @@ internal data class hello.world.Hello {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	constructor()
+	/* secondary */ constructor()
 
 	// JVM method = <init>(Ljava/lang/String;Ljava/lang/Integer;)V
-	/* primary */ constructor(world: String /* = default */, foo: Int?)
+	constructor(world: String /* = default */, foo: Int?)
 
 
 	// *** FUNCTIONS ***
@@ -102,8 +101,6 @@ internal data class hello.world.Hello {
 	/* synthesized */ open fun toString(): String
 }
 ```
-
-
 
 License
 -------

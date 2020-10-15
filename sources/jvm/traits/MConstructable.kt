@@ -11,8 +11,8 @@ public interface MConstructable {
 
 
 public val MConstructable.primaryConstructor: MConstructor?
-	get() = constructors.firstOrNull { it.isPrimary }
+	get() = constructors.firstOrNull { !it.isSecondary }
 
 
 public val MConstructable.secondaryConstructors: List<MConstructor>
-	get() = constructors.filterNot { it.isPrimary }
+	get() = constructors.filter { it.isSecondary }

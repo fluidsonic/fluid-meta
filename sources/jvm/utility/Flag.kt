@@ -26,13 +26,14 @@ private val allFlags = mapOf(
 		Flag.Class.IS_ENUM_ENTRY to "IS_ENUM_ENTRY",
 		Flag.Class.IS_EXPECT to "IS_EXPECT",
 		Flag.Class.IS_EXTERNAL to "IS_EXTERNAL",
+		Flag.Class.IS_FUN to "IS_FUN",
 		Flag.Class.IS_INLINE to "IS_INLINE",
 		Flag.Class.IS_INNER to "IS_INNER",
 		Flag.Class.IS_INTERFACE to "IS_INTERFACE",
 		Flag.Class.IS_OBJECT to "IS_OBJECT"
 	),
 	Flag.Constructor to mapOf(
-		Flag.Constructor.IS_PRIMARY to "IS_PRIMARY"
+		Flag.Constructor.IS_SECONDARY to "IS_SECONDARY"
 	),
 	Flag.EffectExpression to mapOf(
 		Flag.EffectExpression.IS_NEGATED to "IS_NEGATED",

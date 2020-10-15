@@ -181,7 +181,7 @@ internal class MetaCodeWriter private constructor() {
 		writeVersionRequirements(value.versionRequirements)
 		writeJvmMemberSignature(value.jvmSignature, usage = "method")
 		writeVisibilityKeyword(value.visibility)
-		writePrimary(value.isPrimary)
+		writeSecondary(value.isSecondary)
 		write("constructor")
 		writeValueParameters(value.valueParameters, resolvedTypeParameters = resolvedTypeParameters)
 		write("\n")
@@ -631,8 +631,8 @@ internal class MetaCodeWriter private constructor() {
 	}
 
 
-	private fun writePrimary(value: Boolean) {
-		if (value) write("/* primary */ ")
+	private fun writeSecondary(value: Boolean) {
+		if (value) write("/* secondary */ ")
 	}
 
 
@@ -767,7 +767,10 @@ internal class MetaCodeWriter private constructor() {
 			is MEnumClass -> "enum class"
 			is MEnumEntryClass -> "/* enum entry */ class"
 			is MFile -> "/* file-level declarations */"
-			is MInterface -> "interface"
+			is MInterface -> when (value.isFunctional) {
+				true -> "fun interface"
+				false -> "interface"
+			}
 			is MLambda -> {
 				write("/* lambda */\n\n")
 				writeFunction(value.function, resolvedTypeParameters = emptyList())
