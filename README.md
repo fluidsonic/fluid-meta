@@ -18,7 +18,7 @@ Installation
 
 ```kotlin
 dependencies {
-	implementation("io.fluidsonic.meta:fluid-meta:0.10.2")
+	implementation("io.fluidsonic.meta:fluid-meta:0.11.0")
 }
 ```
 
