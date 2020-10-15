@@ -13,6 +13,10 @@ public data class MConstructor(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
+	public val isPrimary: Boolean
+		get() = !isSecondary
+
+
 	override val localId: MLocalId.Constructor by lazy {
 		MLocalId.Constructor(valueParameters = valueParameters)
 	}
