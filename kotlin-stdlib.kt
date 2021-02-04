@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------------------------------
-// Example output for all elements for Kotlin's Standard Library 1.4.10
+// Example output for all elements for Kotlin's Standard Library 1.4.30
 // ------------------------------------------------------------------------------------------------------
 
 module `kotlin-stdlib` {
@@ -595,7 +595,7 @@ inline class kotlin.Result<out T> : Serializable /* = java.io.Serializable */ {
 
 	// *** FUNCTIONS ***
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
 	// JVM method = exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
@@ -604,7 +604,7 @@ inline class kotlin.Result<out T> : Serializable /* = java.io.Serializable */ {
 	// JVM method = getOrNull-impl(Ljava/lang/Object;)Ljava/lang/Object;
 	inline fun getOrNull(): out T?
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(Ljava/lang/Object;)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = toString-impl(Ljava/lang/Object;)Ljava/lang/String;
@@ -818,10 +818,10 @@ inline class kotlin.UByte : Comparable<UByte> {
 	// JVM method = div-xj2QHRw(BS)I
 	inline operator fun div(other: UShort): UInt
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(BLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(B)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1024,7 +1024,7 @@ inline class kotlin.UByteArray : Collection<UByte> {
 	// JVM method = containsAll-impl([BLjava/util/Collection;)Z
 	open fun containsAll(elements: Collection<UByte>): Boolean
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl([BLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1032,7 +1032,7 @@ inline class kotlin.UByteArray : Collection<UByte> {
 	// JVM method = get-w2LRezQ([BI)B
 	operator fun get(index: Int): UByte
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl([B)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = isEmpty-impl([B)Z
@@ -1045,7 +1045,7 @@ inline class kotlin.UByteArray : Collection<UByte> {
 	// JVM method = set-VurrAj0([BIB)V
 	operator fun set(index: Int, value: UByte)
 
-	// JVM method = toString()Ljava/lang/String;
+	// JVM method = toString-impl([B)Ljava/lang/String;
 	/* synthesized */ open fun toString(): String
 }
 
@@ -1116,10 +1116,10 @@ inline class kotlin.UInt : Comparable<UInt> {
 	// JVM method = div-xj2QHRw(IS)I
 	inline operator fun div(other: UShort): UInt
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(ILjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(I)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1332,7 +1332,7 @@ inline class kotlin.UIntArray : Collection<UInt> {
 	// JVM method = containsAll-impl([ILjava/util/Collection;)Z
 	open fun containsAll(elements: Collection<UInt>): Boolean
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl([ILjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1340,7 +1340,7 @@ inline class kotlin.UIntArray : Collection<UInt> {
 	// JVM method = get-pVg5ArA([II)I
 	operator fun get(index: Int): UInt
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl([I)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = isEmpty-impl([I)Z
@@ -1353,7 +1353,7 @@ inline class kotlin.UIntArray : Collection<UInt> {
 	// JVM method = set-VXSXFK8([III)V
 	operator fun set(index: Int, value: UInt)
 
-	// JVM method = toString()Ljava/lang/String;
+	// JVM method = toString-impl([I)Ljava/lang/String;
 	/* synthesized */ open fun toString(): String
 }
 
@@ -1424,10 +1424,10 @@ inline class kotlin.ULong : Comparable<ULong> {
 	// JVM method = div-xj2QHRw(JS)J
 	inline operator fun div(other: UShort): ULong
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(JLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(J)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1640,7 +1640,7 @@ inline class kotlin.ULongArray : Collection<ULong> {
 	// JVM method = containsAll-impl([JLjava/util/Collection;)Z
 	open fun containsAll(elements: Collection<ULong>): Boolean
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl([JLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1648,7 +1648,7 @@ inline class kotlin.ULongArray : Collection<ULong> {
 	// JVM method = get-s-VKNKU([JI)J
 	operator fun get(index: Int): ULong
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl([J)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = isEmpty-impl([J)Z
@@ -1661,7 +1661,7 @@ inline class kotlin.ULongArray : Collection<ULong> {
 	// JVM method = set-k8EXiF4([JIJ)V
 	operator fun set(index: Int, value: ULong)
 
-	// JVM method = toString()Ljava/lang/String;
+	// JVM method = toString-impl([J)Ljava/lang/String;
 	/* synthesized */ open fun toString(): String
 }
 
@@ -1732,10 +1732,10 @@ inline class kotlin.UShort : Comparable<UShort> {
 	// JVM method = div-xj2QHRw(SS)I
 	inline operator fun div(other: UShort): UInt
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(SLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(S)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1938,7 +1938,7 @@ inline class kotlin.UShortArray : Collection<UShort> {
 	// JVM method = containsAll-impl([SLjava/util/Collection;)Z
 	open fun containsAll(elements: Collection<UShort>): Boolean
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl([SLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
@@ -1946,7 +1946,7 @@ inline class kotlin.UShortArray : Collection<UShort> {
 	// JVM method = get-Mh2AYeg([SI)S
 	operator fun get(index: Int): UShort
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl([S)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = isEmpty-impl([S)Z
@@ -1959,7 +1959,7 @@ inline class kotlin.UShortArray : Collection<UShort> {
 	// JVM method = set-01HTLdE([SIS)V
 	operator fun set(index: Int, value: UShort)
 
-	// JVM method = toString()Ljava/lang/String;
+	// JVM method = toString-impl([S)Ljava/lang/String;
 	/* synthesized */ open fun toString(): String
 }
 
@@ -3803,6 +3803,25 @@ abstract class kotlin.collections.UShortIterator : Iterator<UShort> {
 
 // ------------------------------------------------------------------------------------------------------
 
+internal abstract class kotlin.collections.builders.AbstractMapBuilderEntrySet<E : Map.Entry<K, V>, K, V> : AbstractMutableSet<E : Map.Entry<K, V>> {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = contains(Ljava/util/Map$Entry;)Z
+	operator fun contains(element: E : Map.Entry<K, V>): Boolean
+
+	// JVM method = containsEntry(Ljava/util/Map$Entry;)Z
+	abstract fun containsEntry(element: Map.Entry<K, V>): Boolean
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private class kotlin.collections.builders.ListBuilder.Itr<E> : MutableListIterator<E> {
 
 	// *** PROPERTIES ***
@@ -4330,7 +4349,7 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V> {
 
 // ------------------------------------------------------------------------------------------------------
 
-internal class kotlin.collections.builders.MapBuilderEntries<K, V> : MutableSet<MutableMap.MutableEntry<K, V>>, AbstractMutableSet<MutableMap.MutableEntry<K, V>> {
+internal class kotlin.collections.builders.MapBuilderEntries<K, V> : kotlin.collections.builders.AbstractMapBuilderEntrySet<MutableMap.MutableEntry<K, V>, K, V> {
 
 	// *** PROPERTIES ***
 
@@ -4359,11 +4378,11 @@ internal class kotlin.collections.builders.MapBuilderEntries<K, V> : MutableSet<
 	// JVM method = clear()V
 	open fun clear()
 
-	// JVM method = contains(Ljava/util/Map$Entry;)Z
-	open operator fun contains(element: MutableMap.MutableEntry<K, V>): Boolean
-
 	// JVM method = containsAll(Ljava/util/Collection;)Z
 	open fun containsAll(elements: Collection<MutableMap.MutableEntry<K, V>>): Boolean
+
+	// JVM method = containsEntry(Ljava/util/Map$Entry;)Z
+	open fun containsEntry(element: Map.Entry<K, V>): Boolean
 
 	// JVM method = isEmpty()Z
 	open fun isEmpty(): Boolean
@@ -9460,10 +9479,10 @@ inline class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 	// JVM method = div-LRDsOJo(DD)D
 	operator fun div(other: kotlin.time.Duration): Double
 
-	// JVM method = equals(Ljava/lang/Object;)Z
+	// JVM method = equals-impl(DLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode()I
+	// JVM method = hashCode-impl(D)I
 	/* synthesized */ open fun hashCode(): Int
 
 	// JVM method = isFinite-impl(D)Z
@@ -9686,6 +9705,22 @@ companion object kotlin.KotlinVersion.Companion {
 
 	// JVM method = <init>()V
 	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.KotlinVersionCurrentValue {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = get()Lkotlin/KotlinVersion;
+	fun get(): KotlinVersion
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13691,6 +13726,16 @@ annotation class kotlin.jvm.JvmField {
 
 // ------------------------------------------------------------------------------------------------------
 
+annotation class kotlin.jvm.JvmInline {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.jvm.JvmMultifileClass {
 
 	// *** CONSTRUCTORS ***
@@ -13737,6 +13782,16 @@ internal annotation class kotlin.jvm.JvmPackageName {
 
 	// JVM method = <init>(Ljava/lang/String;)V
 	constructor(name: String)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.jvm.JvmRecord {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -14546,6 +14601,39 @@ fun (p1: MatchResult): MatchResult?
 
 // JVM method = emptyArray()[Ljava/lang/Object;
 inline fun <@kotlin.internal.PureReifiable reified T> emptyArray(): Array<@kotlin.internal.PureReifiable reified T>
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.CharCodeJVMKt
+
+
+// *** FUNCTIONS ***
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = Char-xj2QHRw(S)C
+inline fun Char(code: UShort): Char
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.CharCodeKt
+
+
+// *** PROPERTIES ***
+
+// JVM annotation-holding method = getCode$annotations(C)V
+inline val Char.code: Int
+	// JVM method = getCode(C)I
+	get() = /* non-default */
+
+
+// *** FUNCTIONS ***
+
+// JVM method = Char(I)C
+inline fun Char(code: Int): Char
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -15520,7 +15608,6 @@ fun kotlin.coroutines.CoroutineContext.Element.minusPolymorphicKey(key: kotlin.c
 
 // *** TYPE ALIASES ***
 
-@ExperimentalStdlibApi
 @SinceKotlin(version = "1.4")
 typealias CancellationException = java.util.concurrent.CancellationException
 
@@ -32144,6 +32231,24 @@ inline fun Char.isUpperCase(): Boolean
 // JVM method = isWhitespace(C)Z
 fun Char.isWhitespace(): Boolean
 
+// JVM method = lowercase(C)Ljava/lang/String;
+inline fun Char.lowercase(): String
+
+// JVM method = lowercase(CLjava/util/Locale;)Ljava/lang/String;
+fun Char.lowercase(locale: java.util.Locale): String
+
+// JVM method = lowercaseChar(C)C
+inline fun Char.lowercaseChar(): Char
+
+// JVM method = titlecase(C)Ljava/lang/String;
+fun Char.titlecase(): String
+
+// JVM method = titlecase(CLjava/util/Locale;)Ljava/lang/String;
+fun Char.titlecase(locale: java.util.Locale): String
+
+// JVM method = titlecaseChar(C)C
+inline fun Char.titlecaseChar(): Char
+
 // JVM method = toLowerCase(C)C
 inline fun Char.toLowerCase(): Char
 
@@ -32152,6 +32257,15 @@ inline fun Char.toTitleCase(): Char
 
 // JVM method = toUpperCase(C)C
 inline fun Char.toUpperCase(): Char
+
+// JVM method = uppercase(C)Ljava/lang/String;
+inline fun Char.uppercase(): String
+
+// JVM method = uppercase(CLjava/util/Locale;)Ljava/lang/String;
+fun Char.uppercase(locale: java.util.Locale): String
+
+// JVM method = uppercaseChar(C)C
+inline fun Char.uppercaseChar(): Char
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -32162,6 +32276,24 @@ inline fun Char.toUpperCase(): Char
 
 
 // *** FUNCTIONS ***
+
+// JVM method = digitToChar(I)C
+fun Int.digitToChar(): Char
+
+// JVM method = digitToChar(II)C
+fun Int.digitToChar(radix: Int): Char
+
+// JVM method = digitToInt(C)I
+fun Char.digitToInt(): Int
+
+// JVM method = digitToInt(CI)I
+fun Char.digitToInt(radix: Int): Int
+
+// JVM method = digitToIntOrNull(C)Ljava/lang/Integer;
+fun Char.digitToIntOrNull(): Int?
+
+// JVM method = digitToIntOrNull(CI)Ljava/lang/Integer;
+fun Char.digitToIntOrNull(radix: Int): Int?
 
 // JVM method = equals(CCZ)Z
 fun Char.equals(other: Char, ignoreCase: Boolean /* = default */): Boolean
@@ -32690,6 +32822,12 @@ inline fun String.intern(): String
 // JVM method = isBlank(Ljava/lang/CharSequence;)Z
 fun CharSequence.isBlank(): Boolean
 
+// JVM method = lowercase(Ljava/lang/String;)Ljava/lang/String;
+inline fun String.lowercase(): String
+
+// JVM method = lowercase(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
+inline fun String.lowercase(locale: java.util.Locale): String
+
 // JVM method = nativeIndexOf(Ljava/lang/String;CI)I
 internal inline fun String.nativeIndexOf(ch: Char, fromIndex: Int): Int
 
@@ -32767,6 +32905,12 @@ inline fun String.toUpperCase(): String
 
 // JVM method = toUpperCase(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
 inline fun String.toUpperCase(locale: java.util.Locale): String
+
+// JVM method = uppercase(Ljava/lang/String;)Ljava/lang/String;
+inline fun String.uppercase(): String
+
+// JVM method = uppercase(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
+inline fun String.uppercase(locale: java.util.Locale): String
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -32989,6 +33133,14 @@ fun String.replaceBeforeLast(delimiter: String, replacement: String, missingDeli
 
 // JVM method = replaceFirst(Ljava/lang/CharSequence;Lkotlin/text/Regex;Ljava/lang/String;)Ljava/lang/String;
 inline fun CharSequence.replaceFirst(regex: Regex, replacement: String): String
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = replaceFirstCharWithChar(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+inline fun String.replaceFirstChar(transform: (Char) -> Char): String
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = replaceFirstCharWithCharSequence(Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+inline fun String.replaceFirstChar(transform: (Char) -> CharSequence): String
 
 // JVM method = replaceRange(Ljava/lang/CharSequence;IILjava/lang/CharSequence;)Ljava/lang/CharSequence;
 fun CharSequence.replaceRange(startIndex: Int, endIndex: Int, replacement: CharSequence): CharSequence

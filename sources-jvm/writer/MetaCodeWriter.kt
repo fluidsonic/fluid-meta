@@ -877,10 +877,12 @@ internal class MetaCodeWriter private constructor() {
 
 				if (value is MTypeContainer && value.types.isNotEmpty()) {
 					write("\n\n// *** NESTED TYPES ***\n\n")
-					if (value is MCompanionable) value.companionName?.let(this::writeCompanionDeclaration)
+
+					if (value is MCompanionable) value.companionName?.let { writeCompanionDeclaration(it) } // https://youtrack.jetbrains.com/issue/KT-44722
+
 					value.types
 						.filterNot { value is MCompanionable && it == value.companionName }
-						.forEach(this::writeClassDeclaration)
+						.forEach { writeClassDeclaration(it) } // https://youtrack.jetbrains.com/issue/KT-44722
 				}
 
 				if (value is MPropertyContainer && value.properties.isNotEmpty()) {
@@ -1177,7 +1179,7 @@ internal class MetaCodeWriter private constructor() {
 
 
 	private fun writeVersionRequirements(values: Collection<MVersionRequirement>?) {
-		values?.forEach(this::writeVersionRequirement)
+		values?.forEach(::writeVersionRequirement)
 	}
 
 
