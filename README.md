@@ -2,7 +2,6 @@ fluid-meta
 ==========
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.fluidsonic.meta/fluid-meta?label=Maven%20Central)](https://search.maven.org/artifact/io.fluidsonic.meta/fluid-meta)
-[![JCenter](https://img.shields.io/bintray/v/fluidsonic/kotlin/meta?label=JCenter)](https://bintray.com/fluidsonic/kotlin/meta)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.4.30-blue.svg)](https://github.com/JetBrains/kotlin/releases/v1.4.30)
 [![#fluid-libraries Slack Channel](https://img.shields.io/badge/slack-%23fluid--libraries-543951.svg)](https://kotlinlang.slack.com/messages/C7UDFSVT2/)
 
@@ -18,7 +17,7 @@ Installation
 
 ```kotlin
 dependencies {
-	implementation("io.fluidsonic.meta:fluid-meta:0.11.0")
+	implementation("io.fluidsonic.meta:fluid-meta:0.11.1")
 }
 ```
 
