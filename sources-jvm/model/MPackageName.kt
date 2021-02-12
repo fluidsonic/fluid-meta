@@ -4,8 +4,7 @@ import javax.lang.model.element.*
 import kotlin.reflect.*
 
 
-@Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")
-public inline class MPackageName private constructor(public val kotlinInternal: String) {
+public inline class MPackageName @PublishedApi internal constructor(public val kotlinInternal: String) {
 
 	override fun toString(): String = kotlin
 
