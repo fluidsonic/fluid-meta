@@ -276,16 +276,13 @@ public interface Meta {
 @Suppress("FunctionName")
 private fun KotlinClassMetadata(metadata: Metadata) =
 	withExceptionWrapping {
-		KotlinClassMetadata.read(KotlinClassHeader(
-			kind = metadata.kind,
+		KotlinClassMetadata.read(KotlinClassHeader(kind = metadata.kind,
 			metadataVersion = metadata.metadataVersion,
-			bytecodeVersion = metadata.bytecodeVersion,
 			data1 = metadata.data1,
 			data2 = metadata.data2,
-			extraInt = metadata.extraInt,
 			extraString = metadata.extraString,
-			packageName = metadata.packageName
-		))
+			packageName = metadata.packageName,
+			extraInt = metadata.extraInt))
 	}
 
 

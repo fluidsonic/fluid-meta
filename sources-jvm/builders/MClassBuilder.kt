@@ -60,7 +60,7 @@ internal class MClassBuilder : KmClassVisitor() {
 			inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
 			isExpect = Flag.Class.IS_EXPECT(flags),
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
-			isInline = Flag.Class.IS_INLINE(flags),
+			isInline = Flag.Class.IS_VALUE(flags),
 			name = name ?: throw MetaException("class has no name"),
 			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
 			properties = properties.mapOrEmpty { it.build() },
