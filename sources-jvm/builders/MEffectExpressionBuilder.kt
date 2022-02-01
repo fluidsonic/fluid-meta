@@ -80,7 +80,9 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 	override fun visitAndArgument() =
 		MEffectExpressionBuilder().also {
-			andArgumentBuilders?.apply { add(it) } ?: { andArgumentBuilders = mutableListOf(it) }()
+			andArgumentBuilders?.apply { add(it) } ?: run {
+				andArgumentBuilders = mutableListOf(it)
+			}
 		}
 
 
@@ -96,6 +98,8 @@ internal class MEffectExpressionBuilder : KmEffectExpressionVisitor() {
 
 	override fun visitOrArgument() =
 		MEffectExpressionBuilder().also {
-			orArgumentBuilders?.apply { add(it) } ?: { orArgumentBuilders = mutableListOf(it) }()
+			orArgumentBuilders?.apply { add(it) } ?: run {
+				orArgumentBuilders = mutableListOf(it)
+			}
 		}
 }

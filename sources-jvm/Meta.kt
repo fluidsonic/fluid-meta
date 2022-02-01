@@ -279,12 +279,11 @@ private fun KotlinClassMetadata(metadata: Metadata) =
 		KotlinClassMetadata.read(KotlinClassHeader(
 			kind = metadata.kind,
 			metadataVersion = metadata.metadataVersion,
-			bytecodeVersion = metadata.bytecodeVersion,
 			data1 = metadata.data1,
 			data2 = metadata.data2,
 			extraInt = metadata.extraInt,
 			extraString = metadata.extraString,
-			packageName = metadata.packageName
+			packageName = metadata.packageName,
 		))
 	}
 

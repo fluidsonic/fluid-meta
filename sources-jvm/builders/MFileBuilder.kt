@@ -42,7 +42,9 @@ internal class MFileBuilder(
 				override fun visitLocalDelegatedProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 					MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 						.also {
-							localDelegatedProperties?.apply { add(it) } ?: { localDelegatedProperties = mutableListOf(it) }()
+							localDelegatedProperties?.apply { add(it) } ?: run {
+								localDelegatedProperties = mutableListOf(it)
+							}
 						}
 			}
 		}
@@ -51,20 +53,26 @@ internal class MFileBuilder(
 	override fun visitFunction(flags: Flags, name: String) =
 		MFunctionBuilder(flags = flags, name = MFunctionName(name))
 			.also {
-				functions?.apply { add(it) } ?: { functions = mutableListOf(it) }()
+				functions?.apply { add(it) } ?: run {
+					functions = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 		MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 			.also {
-				properties?.apply { add(it) } ?: { properties = mutableListOf(it) }()
+				properties?.apply { add(it) } ?: run {
+					properties = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitTypeAlias(flags: Flags, name: String) =
 		MTypeAliasBuilder(flags = flags, name = MQualifiedTypeName.fromKotlinInternal(name))
 			.also {
-				typeAliases?.apply { add(it) } ?: { typeAliases = mutableListOf(it) }()
+				typeAliases?.apply { add(it) } ?: run {
+					typeAliases = mutableListOf(it)
+				}
 			}
 }

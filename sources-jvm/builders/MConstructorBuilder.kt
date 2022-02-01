@@ -36,13 +36,17 @@ internal class MConstructorBuilder(
 	override fun visitValueParameter(flags: Flags, name: String) =
 		MValueParameterBuilder(flags = flags, name = MVariableName(name))
 			.also {
-				valueParameters?.apply { add(it) } ?: { valueParameters = mutableListOf(it) }()
+				valueParameters?.apply { add(it) } ?: run {
+					valueParameters = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
 			.also {
-				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+				versionRequirements?.apply { add(it) } ?: run {
+					versionRequirements = mutableListOf(it)
+				}
 			}
 }

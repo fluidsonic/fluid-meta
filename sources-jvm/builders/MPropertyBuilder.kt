@@ -114,13 +114,17 @@ internal class MPropertyBuilder(
 	override fun visitTypeParameter(flags: Flags, name: String, id: Int, variance: KmVariance) =
 		MTypeParameterBuilder(flags = flags, id = MTypeParameterId(id), name = MTypeParameterName(name), variance = MVariance(variance))
 			.also {
-				typeParameters?.apply { add(it) } ?: { typeParameters = mutableListOf(it) }()
+				typeParameters?.apply { add(it) } ?: run {
+					typeParameters = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
 			.also {
-				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+				versionRequirements?.apply { add(it) } ?: run {
+					versionRequirements = mutableListOf(it)
+				}
 			}
 }

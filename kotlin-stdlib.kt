@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------------------------------
-// Example output for all elements for Kotlin's Standard Library 1.4.30
+// Example output for all elements for Kotlin's Standard Library 1.6.10
 // ------------------------------------------------------------------------------------------------------
 
 module `kotlin-stdlib` {
@@ -21,6 +21,7 @@ module `kotlin-stdlib` {
 
 			/* part */ class NumbersKt__BigDecimalsKt
 			/* part */ class NumbersKt__BigIntegersKt
+			/* part */ class NumbersKt__FloorDivModKt
 			/* part */ class NumbersKt__NumbersJVMKt
 			/* part */ class NumbersKt__NumbersKt
 		}
@@ -258,7 +259,7 @@ abstract sealed class kotlin.DeepRecursiveScope<T, R> {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
-	private constructor()
+	protected constructor()
 
 
 	// *** FUNCTIONS ***
@@ -563,7 +564,7 @@ internal class kotlin.Result.Failure : Serializable /* = java.io.Serializable */
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.Result<out T> : Serializable /* = java.io.Serializable */ {
+value class kotlin.Result<out T> : Serializable /* = java.io.Serializable */ {
 
 	// *** NESTED TYPES ***
 
@@ -754,7 +755,7 @@ open class kotlin.TypeCastException : ClassCastException /* = java.lang.ClassCas
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UByte : Comparable<UByte> {
+value class kotlin.UByte : Comparable<UByte> {
 
 	// *** NESTED TYPES ***
 
@@ -821,6 +822,22 @@ inline class kotlin.UByte : Comparable<UByte> {
 	// JVM method = equals-impl(BLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-7apg3OU(BB)I
+	inline fun floorDiv(other: UByte): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-WZ4Q5Ns(BI)I
+	inline fun floorDiv(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-VKZWuLQ(BJ)J
+	inline fun floorDiv(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-xj2QHRw(BS)I
+	inline fun floorDiv(other: UShort): UInt
+
 	// JVM method = hashCode-impl(B)I
 	/* synthesized */ open fun hashCode(): Int
 
@@ -849,6 +866,22 @@ inline class kotlin.UByte : Comparable<UByte> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minus-xj2QHRw(BS)I
 	inline operator fun minus(other: UShort): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-7apg3OU(BB)B
+	inline fun mod(other: UByte): UByte
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-WZ4Q5Ns(BI)I
+	inline fun mod(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-VKZWuLQ(BJ)J
+	inline fun mod(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-xj2QHRw(BS)S
+	inline fun mod(other: UShort): UShort
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = or-7apg3OU(BB)B
@@ -985,7 +1018,7 @@ private class kotlin.UByteArray.Iterator : UByteIterator {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UByteArray : Collection<UByte> {
+value class kotlin.UByteArray : Collection<UByte> {
 
 	// *** NESTED TYPES ***
 
@@ -1038,8 +1071,9 @@ inline class kotlin.UByteArray : Collection<UByte> {
 	// JVM method = isEmpty-impl([B)Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator-impl([B)Lkotlin/collections/UByteIterator;
-	open operator fun iterator(): UByteIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator-impl([B)Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<UByte>
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = set-VurrAj0([BIB)V
@@ -1052,7 +1086,7 @@ inline class kotlin.UByteArray : Collection<UByte> {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UInt : Comparable<UInt> {
+value class kotlin.UInt : Comparable<UInt> {
 
 	// *** NESTED TYPES ***
 
@@ -1119,6 +1153,22 @@ inline class kotlin.UInt : Comparable<UInt> {
 	// JVM method = equals-impl(ILjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-7apg3OU(IB)I
+	inline fun floorDiv(other: UByte): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-WZ4Q5Ns(II)I
+	inline fun floorDiv(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-VKZWuLQ(IJ)J
+	inline fun floorDiv(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-xj2QHRw(IS)I
+	inline fun floorDiv(other: UShort): UInt
+
 	// JVM method = hashCode-impl(I)I
 	/* synthesized */ open fun hashCode(): Int
 
@@ -1147,6 +1197,22 @@ inline class kotlin.UInt : Comparable<UInt> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minus-xj2QHRw(IS)I
 	inline operator fun minus(other: UShort): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-7apg3OU(IB)B
+	inline fun mod(other: UByte): UByte
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-WZ4Q5Ns(II)I
+	inline fun mod(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-VKZWuLQ(IJ)J
+	inline fun mod(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-xj2QHRw(IS)S
+	inline fun mod(other: UShort): UShort
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = or-WZ4Q5Ns(II)I
@@ -1293,7 +1359,7 @@ private class kotlin.UIntArray.Iterator : UIntIterator {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UIntArray : Collection<UInt> {
+value class kotlin.UIntArray : Collection<UInt> {
 
 	// *** NESTED TYPES ***
 
@@ -1346,8 +1412,9 @@ inline class kotlin.UIntArray : Collection<UInt> {
 	// JVM method = isEmpty-impl([I)Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator-impl([I)Lkotlin/collections/UIntIterator;
-	open operator fun iterator(): UIntIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator-impl([I)Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<UInt>
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = set-VXSXFK8([III)V
@@ -1360,7 +1427,7 @@ inline class kotlin.UIntArray : Collection<UInt> {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.ULong : Comparable<ULong> {
+value class kotlin.ULong : Comparable<ULong> {
 
 	// *** NESTED TYPES ***
 
@@ -1427,6 +1494,22 @@ inline class kotlin.ULong : Comparable<ULong> {
 	// JVM method = equals-impl(JLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-7apg3OU(JB)J
+	inline fun floorDiv(other: UByte): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-WZ4Q5Ns(JI)J
+	inline fun floorDiv(other: UInt): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-VKZWuLQ(JJ)J
+	inline fun floorDiv(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-xj2QHRw(JS)J
+	inline fun floorDiv(other: UShort): ULong
+
 	// JVM method = hashCode-impl(J)I
 	/* synthesized */ open fun hashCode(): Int
 
@@ -1455,6 +1538,22 @@ inline class kotlin.ULong : Comparable<ULong> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minus-xj2QHRw(JS)J
 	inline operator fun minus(other: UShort): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-7apg3OU(JB)B
+	inline fun mod(other: UByte): UByte
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-WZ4Q5Ns(JI)I
+	inline fun mod(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-VKZWuLQ(JJ)J
+	inline fun mod(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-xj2QHRw(JS)S
+	inline fun mod(other: UShort): UShort
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = or-VKZWuLQ(JJ)J
@@ -1601,7 +1700,7 @@ private class kotlin.ULongArray.Iterator : ULongIterator {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.ULongArray : Collection<ULong> {
+value class kotlin.ULongArray : Collection<ULong> {
 
 	// *** NESTED TYPES ***
 
@@ -1654,8 +1753,9 @@ inline class kotlin.ULongArray : Collection<ULong> {
 	// JVM method = isEmpty-impl([J)Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator-impl([J)Lkotlin/collections/ULongIterator;
-	open operator fun iterator(): ULongIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator-impl([J)Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<ULong>
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = set-k8EXiF4([JIJ)V
@@ -1668,7 +1768,7 @@ inline class kotlin.ULongArray : Collection<ULong> {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UShort : Comparable<UShort> {
+value class kotlin.UShort : Comparable<UShort> {
 
 	// *** NESTED TYPES ***
 
@@ -1735,6 +1835,22 @@ inline class kotlin.UShort : Comparable<UShort> {
 	// JVM method = equals-impl(SLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-7apg3OU(SB)I
+	inline fun floorDiv(other: UByte): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-WZ4Q5Ns(SI)I
+	inline fun floorDiv(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-VKZWuLQ(SJ)J
+	inline fun floorDiv(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = floorDiv-xj2QHRw(SS)I
+	inline fun floorDiv(other: UShort): UInt
+
 	// JVM method = hashCode-impl(S)I
 	/* synthesized */ open fun hashCode(): Int
 
@@ -1763,6 +1879,22 @@ inline class kotlin.UShort : Comparable<UShort> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minus-xj2QHRw(SS)I
 	inline operator fun minus(other: UShort): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-7apg3OU(SB)B
+	inline fun mod(other: UByte): UByte
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-WZ4Q5Ns(SI)I
+	inline fun mod(other: UInt): UInt
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-VKZWuLQ(SJ)J
+	inline fun mod(other: ULong): ULong
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = mod-xj2QHRw(SS)S
+	inline fun mod(other: UShort): UShort
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = or-xj2QHRw(SS)S
@@ -1899,7 +2031,7 @@ private class kotlin.UShortArray.Iterator : UShortIterator {
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.UShortArray : Collection<UShort> {
+value class kotlin.UShortArray : Collection<UShort> {
 
 	// *** NESTED TYPES ***
 
@@ -1952,8 +2084,9 @@ inline class kotlin.UShortArray : Collection<UShort> {
 	// JVM method = isEmpty-impl([S)Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator-impl([S)Lkotlin/collections/UShortIterator;
-	open operator fun iterator(): UShortIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator-impl([S)Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<UShort>
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = set-01HTLdE([SIS)V
@@ -2647,6 +2780,18 @@ class kotlin.collections.ArrayDeque<E> : AbstractMutableList<E> {
 
 	// JVM method = set(ILjava/lang/Object;)Ljava/lang/Object;
 	open operator fun set(index: Int, element: E): E
+
+	// JVM method = testToArray$kotlin_stdlib()[Ljava/lang/Object;
+	internal fun testToArray(): Array<Any?>
+
+	// JVM method = testToArray$kotlin_stdlib([Ljava/lang/Object;)[Ljava/lang/Object;
+	internal fun <T> testToArray(array: Array<T>): Array<T>
+
+	// JVM method = toArray()[Ljava/lang/Object;
+	open fun toArray(): Array<Any?>
+
+	// JVM method = toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+	open fun <T> toArray(array: Array<T>): Array<T>
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -3877,7 +4022,8 @@ private class kotlin.collections.builders.ListBuilder.Itr<E> : MutableListIterat
 internal class kotlin.collections.builders.ListBuilder<E> :
 	MutableList<E>,
 	RandomAccess /* = java.util.RandomAccess */,
-	AbstractMutableList<E> {
+	AbstractMutableList<E>,
+	Serializable /* = java.io.Serializable */ {
 
 	// *** NESTED TYPES ***
 
@@ -3891,6 +4037,10 @@ internal class kotlin.collections.builders.ListBuilder<E> :
 
 	// JVM field = backing:Lkotlin/collections/builders/ListBuilder;
 	private val backing: kotlin.collections.builders.ListBuilder<E>?
+
+	private val isEffectivelyReadOnly: Boolean
+		// JVM method = isEffectivelyReadOnly()Z
+		get() = /* non-default */
 
 	// JVM field = isReadOnly:Z
 	private var isReadOnly: Boolean
@@ -4016,8 +4166,17 @@ internal class kotlin.collections.builders.ListBuilder<E> :
 	// JVM method = subList(II)Ljava/util/List;
 	open fun subList(fromIndex: Int, toIndex: Int): MutableList<E>
 
+	// JVM method = toArray()[Ljava/lang/Object;
+	open fun toArray(): Array<Any?>
+
+	// JVM method = toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+	open fun <T> toArray(destination: Array<T>): Array<T>
+
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
+
+	// JVM method = writeReplace()Ljava/lang/Object;
+	private fun writeReplace(): Any
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -4152,7 +4311,7 @@ internal class kotlin.collections.builders.MapBuilder.ValuesItr<K, V> : kotlin.c
 
 // ------------------------------------------------------------------------------------------------------
 
-internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V> {
+internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V>, Serializable /* = java.io.Serializable */ {
 
 	// *** NESTED TYPES ***
 
@@ -4188,7 +4347,8 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V> {
 		get() = /* non-default */
 
 	// JVM field = isReadOnly:Z
-	private var isReadOnly: Boolean
+	internal var isReadOnly: Boolean
+		private set(`<set-?>`: Boolean) { /* non-default */ }
 
 	open val keys: MutableSet<K>
 		// JVM method = getKeys()Ljava/util/Set;
@@ -4345,6 +4505,9 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V> {
 
 	// JVM method = valuesIterator$kotlin_stdlib()Lkotlin/collections/builders/MapBuilder$ValuesItr;
 	internal fun valuesIterator(): kotlin.collections.builders.MapBuilder.ValuesItr<K, V>
+
+	// JVM method = writeReplace()Ljava/lang/Object;
+	private fun writeReplace(): Any
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -4502,7 +4665,85 @@ internal class kotlin.collections.builders.MapBuilderValues<V> : MutableCollecti
 
 // ------------------------------------------------------------------------------------------------------
 
-internal class kotlin.collections.builders.SetBuilder<E> : MutableSet<E>, AbstractMutableSet<E> {
+internal class kotlin.collections.builders.SerializedCollection : java.io.Externalizable {
+
+	// *** NESTED TYPES ***
+
+	companion object
+
+
+	// *** PROPERTIES ***
+
+	// JVM field = collection:Ljava/util/Collection;
+	private var collection: Collection<*>
+
+	// JVM field = tag:I
+	private val tag: Int
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	/* secondary */ constructor()
+
+	// JVM method = <init>(Ljava/util/Collection;I)V
+	constructor(collection: Collection<*>, tag: Int)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = readExternal(Ljava/io/ObjectInput;)V
+	open fun readExternal(input: java.io.ObjectInput)
+
+	// JVM method = readResolve()Ljava/lang/Object;
+	private fun readResolve(): Any
+
+	// JVM method = writeExternal(Ljava/io/ObjectOutput;)V
+	open fun writeExternal(output: java.io.ObjectOutput)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.collections.builders.SerializedMap : java.io.Externalizable {
+
+	// *** NESTED TYPES ***
+
+	companion object
+
+
+	// *** PROPERTIES ***
+
+	// JVM field = map:Ljava/util/Map;
+	private var map: Map<*, *>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	/* secondary */ constructor()
+
+	// JVM method = <init>(Ljava/util/Map;)V
+	constructor(map: Map<*, *>)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = readExternal(Ljava/io/ObjectInput;)V
+	open fun readExternal(input: java.io.ObjectInput)
+
+	// JVM method = readResolve()Ljava/lang/Object;
+	private fun readResolve(): Any
+
+	// JVM method = writeExternal(Ljava/io/ObjectOutput;)V
+	open fun writeExternal(output: java.io.ObjectOutput)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal class kotlin.collections.builders.SetBuilder<E> :
+	MutableSet<E>,
+	AbstractMutableSet<E>,
+	Serializable /* = java.io.Serializable */ {
 
 	// *** PROPERTIES ***
 
@@ -4557,6 +4798,9 @@ internal class kotlin.collections.builders.SetBuilder<E> : MutableSet<E>, Abstra
 
 	// JVM method = retainAll(Ljava/util/Collection;)Z
 	open fun retainAll(elements: Collection<E>): Boolean
+
+	// JVM method = writeReplace()Ljava/lang/Object;
+	private fun writeReplace(): Any
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -5693,6 +5937,16 @@ class kotlin.io.NoSuchFileException : FileSystemException {
 
 // ------------------------------------------------------------------------------------------------------
 
+internal class kotlin.io.ReadAfterEOFException : RuntimeException /* = java.lang.RuntimeException */ {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/String;)V
+	constructor(message: String?)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private class kotlin.io.TerminateException : FileSystemException {
 
 	// *** CONSTRUCTORS ***
@@ -6115,6 +6369,11 @@ class kotlin.jvm.internal.ClassReference : kotlin.reflect.KClass<Any>, kotlin.jv
 		// JVM method = isSealed()Z
 		get() = /* non-default */
 
+	// JVM annotation-holding method = isValue$annotations()V
+	open val isValue: Boolean
+		// JVM method = isValue()Z
+		get() = /* non-default */
+
 	// JVM field = jClass:Ljava/lang/Class;
 	open val jClass: java.lang.Class<*>
 
@@ -6516,6 +6775,11 @@ class kotlin.jvm.internal.TypeParameterReference : kotlin.reflect.KTypeParameter
 
 class kotlin.jvm.internal.TypeReference : kotlin.reflect.KType {
 
+	// *** NESTED TYPES ***
+
+	companion object
+
+
 	// *** PROPERTIES ***
 
 	open val annotations: List<Annotation>
@@ -6528,8 +6792,17 @@ class kotlin.jvm.internal.TypeReference : kotlin.reflect.KType {
 	// JVM field = classifier:Lkotlin/reflect/KClassifier;
 	open val classifier: kotlin.reflect.KClassifier
 
-	// JVM field = isMarkedNullable:Z
+	// JVM field = flags:I
+	// JVM annotation-holding method = getFlags$kotlin_stdlib$annotations()V
+	internal val flags: Int
+
 	open val isMarkedNullable: Boolean
+		// JVM method = isMarkedNullable()Z
+		get() = /* non-default */
+
+	// JVM field = platformTypeUpperBound:Lkotlin/reflect/KType;
+	// JVM annotation-holding method = getPlatformTypeUpperBound$kotlin_stdlib$annotations()V
+	internal val platformTypeUpperBound: kotlin.reflect.KType?
 
 	private val java.lang.Class<*>.arrayClassName: String
 		// JVM method = getArrayClassName(Ljava/lang/Class;)Ljava/lang/String;
@@ -6539,13 +6812,16 @@ class kotlin.jvm.internal.TypeReference : kotlin.reflect.KType {
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>(Lkotlin/reflect/KClassifier;Ljava/util/List;Z)V
-	constructor(classifier: kotlin.reflect.KClassifier, arguments: List<kotlin.reflect.KTypeProjection>, isMarkedNullable: Boolean)
+	/* secondary */ constructor(classifier: kotlin.reflect.KClassifier, arguments: List<kotlin.reflect.KTypeProjection>, isMarkedNullable: Boolean)
+
+	// JVM method = <init>(Lkotlin/reflect/KClassifier;Ljava/util/List;Lkotlin/reflect/KType;I)V
+	constructor(classifier: kotlin.reflect.KClassifier, arguments: List<kotlin.reflect.KTypeProjection>, platformTypeUpperBound: kotlin.reflect.KType?, flags: Int)
 
 
 	// *** FUNCTIONS ***
 
-	// JVM method = asString()Ljava/lang/String;
-	private fun asString(): String
+	// JVM method = asString(Z)Ljava/lang/String;
+	private fun asString(convertPrimitiveToWrapper: Boolean): String
 
 	// JVM method = equals(Ljava/lang/Object;)Z
 	open operator fun equals(other: Any?): Boolean
@@ -6712,6 +6988,11 @@ internal class kotlin.random.FallbackThreadLocalRandom : kotlin.random.AbstractP
 
 private class kotlin.random.KotlinRandom : java.util.Random {
 
+	// *** NESTED TYPES ***
+
+	companion object
+
+
 	// *** PROPERTIES ***
 
 	// JVM field = impl:Lkotlin/random/Random;
@@ -6759,7 +7040,12 @@ private class kotlin.random.KotlinRandom : java.util.Random {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.random.PlatformRandom : kotlin.random.AbstractPlatformRandom {
+private class kotlin.random.PlatformRandom : kotlin.random.AbstractPlatformRandom, Serializable /* = java.io.Serializable */ {
+
+	// *** NESTED TYPES ***
+
+	companion object
+
 
 	// *** PROPERTIES ***
 
@@ -6838,7 +7124,12 @@ abstract class kotlin.random.Random {
 
 // ------------------------------------------------------------------------------------------------------
 
-internal class kotlin.random.XorWowRandom : kotlin.random.Random {
+internal class kotlin.random.XorWowRandom : kotlin.random.Random, Serializable /* = java.io.Serializable */ {
+
+	// *** NESTED TYPES ***
+
+	companion object
+
 
 	// *** PROPERTIES ***
 
@@ -7419,8 +7710,9 @@ open class kotlin.ranges.UIntProgression : Iterable<UInt> {
 	// JVM method = isEmpty()Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator()Lkotlin/collections/UIntIterator;
-	open operator fun iterator(): UIntIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator()Ljava/util/Iterator;
+	operator fun iterator(): Iterator<UInt>
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
@@ -7564,8 +7856,9 @@ open class kotlin.ranges.ULongProgression : Iterable<ULong> {
 	// JVM method = isEmpty()Z
 	open fun isEmpty(): Boolean
 
-	// JVM method = iterator()Lkotlin/collections/ULongIterator;
-	open operator fun iterator(): ULongIterator
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = iterator()Ljava/util/Iterator;
+	operator fun iterator(): Iterator<ULong>
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
@@ -9132,11 +9425,17 @@ class kotlin.text.Regex : Serializable /* = java.io.Serializable */ {
 	// JVM method = findAll(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
 	fun findAll(input: CharSequence, startIndex: Int /* = default */): Sequence<MatchResult>
 
+	// JVM method = matchAt(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
+	fun matchAt(input: CharSequence, index: Int): MatchResult?
+
 	// JVM method = matchEntire(Ljava/lang/CharSequence;)Lkotlin/text/MatchResult;
 	fun matchEntire(input: CharSequence): MatchResult?
 
 	// JVM method = matches(Ljava/lang/CharSequence;)Z
 	infix fun matches(input: CharSequence): Boolean
+
+	// JVM method = matchesAt(Ljava/lang/CharSequence;I)Z
+	fun matchesAt(input: CharSequence, index: Int): Boolean
 
 	// JVM method = replace(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
 	fun replace(input: CharSequence, transform: (MatchResult) -> CharSequence): String
@@ -9149,6 +9448,9 @@ class kotlin.text.Regex : Serializable /* = java.io.Serializable */ {
 
 	// JVM method = split(Ljava/lang/CharSequence;I)Ljava/util/List;
 	fun split(input: CharSequence, limit: Int /* = default */): List<String>
+
+	// JVM method = splitToSequence(Ljava/lang/CharSequence;I)Lkotlin/sequences/Sequence;
+	fun splitToSequence(input: CharSequence, limit: Int /* = default */): Sequence<String>
 
 	// JVM method = toPattern()Ljava/util/regex/Pattern;
 	fun toPattern(): java.util.regex.Pattern
@@ -9222,7 +9524,7 @@ private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = offset:D
+	// JVM field = offset:J
 	private val offset: kotlin.time.Duration
 
 	// JVM field = startedAt:D
@@ -9235,7 +9537,7 @@ private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.
 	// *** CONSTRUCTORS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = <init>(DLkotlin/time/AbstractDoubleTimeSource;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	// JVM method = <init>(DLkotlin/time/AbstractDoubleTimeSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	constructor(startedAt: Double, timeSource: kotlin.time.AbstractDoubleTimeSource, offset: kotlin.time.Duration)
 
 
@@ -9243,11 +9545,11 @@ private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = elapsedNow-UwyO8pc()D
+	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(D)Lkotlin/time/TimeMark;
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
 	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
 }
 
@@ -9262,14 +9564,14 @@ abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource {
 
 	// *** PROPERTIES ***
 
-	// JVM field = unit:Ljava/util/concurrent/TimeUnit;
-	protected val unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */
+	// JVM field = unit:Lkotlin/time/DurationUnit;
+	protected val unit: kotlin.time.DurationUnit
 
 
 	// *** CONSTRUCTORS ***
 
-	// JVM method = <init>(Ljava/util/concurrent/TimeUnit;)V
-	constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
+	// JVM method = <init>(Lkotlin/time/DurationUnit;)V
+	constructor(unit: kotlin.time.DurationUnit)
 
 
 	// *** FUNCTIONS ***
@@ -9289,7 +9591,7 @@ private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.Time
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = offset:D
+	// JVM field = offset:J
 	private val offset: kotlin.time.Duration
 
 	// JVM field = startedAt:J
@@ -9302,7 +9604,7 @@ private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.Time
 	// *** CONSTRUCTORS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = <init>(JLkotlin/time/AbstractLongTimeSource;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	// JVM method = <init>(JLkotlin/time/AbstractLongTimeSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	constructor(startedAt: Long, timeSource: kotlin.time.AbstractLongTimeSource, offset: kotlin.time.Duration)
 
 
@@ -9310,11 +9612,11 @@ private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.Time
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = elapsedNow-UwyO8pc()D
+	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(D)Lkotlin/time/TimeMark;
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
 	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
 }
 
@@ -9329,14 +9631,14 @@ abstract class kotlin.time.AbstractLongTimeSource : kotlin.time.TimeSource {
 
 	// *** PROPERTIES ***
 
-	// JVM field = unit:Ljava/util/concurrent/TimeUnit;
-	protected val unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */
+	// JVM field = unit:Lkotlin/time/DurationUnit;
+	protected val unit: kotlin.time.DurationUnit
 
 
 	// *** CONSTRUCTORS ***
 
-	// JVM method = <init>(Ljava/util/concurrent/TimeUnit;)V
-	constructor(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */)
+	// JVM method = <init>(Lkotlin/time/DurationUnit;)V
+	constructor(unit: kotlin.time.DurationUnit)
 
 
 	// *** FUNCTIONS ***
@@ -9356,7 +9658,7 @@ private class kotlin.time.AdjustedTimeMark : kotlin.time.TimeMark {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = adjustment:D
+	// JVM field = adjustment:J
 	val adjustment: kotlin.time.Duration
 
 	// JVM field = mark:Lkotlin/time/TimeMark;
@@ -9366,7 +9668,7 @@ private class kotlin.time.AdjustedTimeMark : kotlin.time.TimeMark {
 	// *** CONSTRUCTORS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = <init>(Lkotlin/time/TimeMark;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	// JVM method = <init>(Lkotlin/time/TimeMark;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	constructor(mark: kotlin.time.TimeMark, adjustment: kotlin.time.Duration)
 
 
@@ -9374,18 +9676,18 @@ private class kotlin.time.AdjustedTimeMark : kotlin.time.TimeMark {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = elapsedNow-UwyO8pc()D
+	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(D)Lkotlin/time/TimeMark;
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
 	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
 }
 
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-inline class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
+value class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 
 	// *** NESTED TYPES ***
 
@@ -9397,187 +9699,245 @@ inline class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
 	val absoluteValue: kotlin.time.Duration
-		// JVM method = getAbsoluteValue-UwyO8pc(D)D
+		// JVM method = getAbsoluteValue-UwyO8pc(J)J
 		get() = /* non-default */
 
 	// JVM annotation-holding method = getHoursComponent$annotations()V
 	internal val hoursComponent: Int
-		// JVM method = getHoursComponent-impl(D)I
+		// JVM method = getHoursComponent-impl(J)I
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInDays$annotations()V
 	val inDays: Double
-		// JVM method = getInDays-impl(D)D
+		// JVM method = getInDays-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInHours$annotations()V
 	val inHours: Double
-		// JVM method = getInHours-impl(D)D
+		// JVM method = getInHours-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInMicroseconds$annotations()V
 	val inMicroseconds: Double
-		// JVM method = getInMicroseconds-impl(D)D
+		// JVM method = getInMicroseconds-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInMilliseconds$annotations()V
 	val inMilliseconds: Double
-		// JVM method = getInMilliseconds-impl(D)D
+		// JVM method = getInMilliseconds-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInMinutes$annotations()V
 	val inMinutes: Double
-		// JVM method = getInMinutes-impl(D)D
+		// JVM method = getInMinutes-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInNanoseconds$annotations()V
 	val inNanoseconds: Double
-		// JVM method = getInNanoseconds-impl(D)D
+		// JVM method = getInNanoseconds-impl(J)D
 		get() = /* non-default */
 
+	// JVM annotation-holding method = getInSeconds$annotations()V
 	val inSeconds: Double
-		// JVM method = getInSeconds-impl(D)D
+		// JVM method = getInSeconds-impl(J)D
+		get() = /* non-default */
+
+	val inWholeDays: Long
+		// JVM method = getInWholeDays-impl(J)J
+		get() = /* non-default */
+
+	val inWholeHours: Long
+		// JVM method = getInWholeHours-impl(J)J
+		get() = /* non-default */
+
+	val inWholeMicroseconds: Long
+		// JVM method = getInWholeMicroseconds-impl(J)J
+		get() = /* non-default */
+
+	val inWholeMilliseconds: Long
+		// JVM method = getInWholeMilliseconds-impl(J)J
+		get() = /* non-default */
+
+	val inWholeMinutes: Long
+		// JVM method = getInWholeMinutes-impl(J)J
+		get() = /* non-default */
+
+	val inWholeNanoseconds: Long
+		// JVM method = getInWholeNanoseconds-impl(J)J
+		get() = /* non-default */
+
+	val inWholeSeconds: Long
+		// JVM method = getInWholeSeconds-impl(J)J
 		get() = /* non-default */
 
 	// JVM annotation-holding method = getMinutesComponent$annotations()V
 	internal val minutesComponent: Int
-		// JVM method = getMinutesComponent-impl(D)I
+		// JVM method = getMinutesComponent-impl(J)I
 		get() = /* non-default */
 
 	// JVM annotation-holding method = getNanosecondsComponent$annotations()V
 	internal val nanosecondsComponent: Int
-		// JVM method = getNanosecondsComponent-impl(D)I
+		// JVM method = getNanosecondsComponent-impl(J)I
 		get() = /* non-default */
+
+	// JVM field = rawValue:J
+	private val rawValue: Long
 
 	// JVM annotation-holding method = getSecondsComponent$annotations()V
 	internal val secondsComponent: Int
-		// JVM method = getSecondsComponent-impl(D)I
+		// JVM method = getSecondsComponent-impl(J)I
 		get() = /* non-default */
 
-	// JVM field = value:D
-	internal val value: Double
+	private val storageUnit: kotlin.time.DurationUnit
+		// JVM method = getStorageUnit-impl(J)Lkotlin/time/DurationUnit;
+		get() = /* non-default */
+
+	private inline val unitDiscriminator: Int
+		// JVM method = getUnitDiscriminator-impl(J)I
+		get() = /* non-default */
+
+	private val value: Long
+		// JVM method = getValue-impl(J)J
+		get() = /* non-default */
 
 
 	// *** CONSTRUCTORS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = constructor-impl(D)D
-	internal constructor(value: Double)
+	// JVM method = constructor-impl(J)J
+	internal constructor(rawValue: Long)
 
 
 	// *** FUNCTIONS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = compareTo-LRDsOJo(DD)I
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = addValuesMixedRanges-UwyO8pc(JJJ)J
+	private fun addValuesMixedRanges(thisMillis: Long, otherNanos: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = compareTo-LRDsOJo(JJ)I
 	open operator fun compareTo(other: kotlin.time.Duration): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = div-UwyO8pc(DD)D
+	// JVM method = div-UwyO8pc(JD)J
 	operator fun div(scale: Double): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = div-UwyO8pc(DI)D
+	// JVM method = div-UwyO8pc(JI)J
 	operator fun div(scale: Int): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = div-LRDsOJo(DD)D
+	// JVM method = div-LRDsOJo(JJ)D
 	operator fun div(other: kotlin.time.Duration): Double
 
-	// JVM method = equals-impl(DLjava/lang/Object;)Z
+	// JVM method = equals-impl(JLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hashCode-impl(D)I
+	// JVM method = hashCode-impl(J)I
 	/* synthesized */ open fun hashCode(): Int
 
-	// JVM method = isFinite-impl(D)Z
+	// JVM method = isFinite-impl(J)Z
 	fun isFinite(): Boolean
 
-	// JVM method = isInfinite-impl(D)Z
+	// JVM method = isInMillis-impl(J)Z
+	private fun isInMillis(): Boolean
+
+	// JVM method = isInNanos-impl(J)Z
+	private fun isInNanos(): Boolean
+
+	// JVM method = isInfinite-impl(J)Z
 	fun isInfinite(): Boolean
 
-	// JVM method = isNegative-impl(D)Z
+	// JVM method = isNegative-impl(J)Z
 	fun isNegative(): Boolean
 
-	// JVM method = isPositive-impl(D)Z
+	// JVM method = isPositive-impl(J)Z
 	fun isPositive(): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = minus-LRDsOJo(DD)D
+	// JVM method = minus-LRDsOJo(JJ)J
 	operator fun minus(other: kotlin.time.Duration): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(DD)D
+	// JVM method = plus-LRDsOJo(JJ)J
 	operator fun plus(other: kotlin.time.Duration): kotlin.time.Duration
-
-	// JVM method = precision-impl(DD)I
-	private fun precision(value: Double): Int
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = times-UwyO8pc(DD)D
+	// JVM method = times-UwyO8pc(JD)J
 	operator fun times(scale: Double): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = times-UwyO8pc(DI)D
+	// JVM method = times-UwyO8pc(JI)J
 	operator fun times(scale: Int): kotlin.time.Duration
 
 	// requires compiler version >= 1.3.50, otherwise diagnostic error
-	// JVM method = toComponents-impl(DLkotlin/jvm/functions/Function5;)Ljava/lang/Object;
-	inline fun <T> toComponents(action: (@ParameterName(name = "days") Int, @ParameterName(name = "hours") Int, @ParameterName(name = "minutes") Int, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
+	// JVM method = toComponents-impl(JLkotlin/jvm/functions/Function5;)Ljava/lang/Object;
+	inline fun <T> toComponents(action: (@ParameterName(name = "days") Long, @ParameterName(name = "hours") Int, @ParameterName(name = "minutes") Int, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
 		contract {
 			callsInPlace(action, InvocationKind.EXACTLY_ONCE)
 		}
 	}
 
 	// requires compiler version >= 1.3.50, otherwise diagnostic error
-	// JVM method = toComponents-impl(DLkotlin/jvm/functions/Function4;)Ljava/lang/Object;
-	inline fun <T> toComponents(action: (@ParameterName(name = "hours") Int, @ParameterName(name = "minutes") Int, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
+	// JVM method = toComponents-impl(JLkotlin/jvm/functions/Function4;)Ljava/lang/Object;
+	inline fun <T> toComponents(action: (@ParameterName(name = "hours") Long, @ParameterName(name = "minutes") Int, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
 		contract {
 			callsInPlace(action, InvocationKind.EXACTLY_ONCE)
 		}
 	}
 
 	// requires compiler version >= 1.3.50, otherwise diagnostic error
-	// JVM method = toComponents-impl(DLkotlin/jvm/functions/Function3;)Ljava/lang/Object;
-	inline fun <T> toComponents(action: (@ParameterName(name = "minutes") Int, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
+	// JVM method = toComponents-impl(JLkotlin/jvm/functions/Function3;)Ljava/lang/Object;
+	inline fun <T> toComponents(action: (@ParameterName(name = "minutes") Long, @ParameterName(name = "seconds") Int, @ParameterName(name = "nanoseconds") Int) -> T): T {
 		contract {
 			callsInPlace(action, InvocationKind.EXACTLY_ONCE)
 		}
 	}
 
 	// requires compiler version >= 1.3.50, otherwise diagnostic error
-	// JVM method = toComponents-impl(DLkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	// JVM method = toComponents-impl(JLkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	inline fun <T> toComponents(action: (@ParameterName(name = "seconds") Long, @ParameterName(name = "nanoseconds") Int) -> T): T {
 		contract {
 			callsInPlace(action, InvocationKind.EXACTLY_ONCE)
 		}
 	}
 
-	// JVM method = toDouble-impl(DLjava/util/concurrent/TimeUnit;)D
-	fun toDouble(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): Double
+	// JVM method = toDouble-impl(JLkotlin/time/DurationUnit;)D
+	fun toDouble(unit: kotlin.time.DurationUnit): Double
 
-	// JVM method = toInt-impl(DLjava/util/concurrent/TimeUnit;)I
-	fun toInt(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): Int
+	// JVM method = toInt-impl(JLkotlin/time/DurationUnit;)I
+	fun toInt(unit: kotlin.time.DurationUnit): Int
 
-	// JVM method = toIsoString-impl(D)Ljava/lang/String;
+	// JVM method = toIsoString-impl(J)Ljava/lang/String;
 	fun toIsoString(): String
 
-	// JVM method = toLong-impl(DLjava/util/concurrent/TimeUnit;)J
-	fun toLong(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): Long
+	// JVM method = toLong-impl(JLkotlin/time/DurationUnit;)J
+	fun toLong(unit: kotlin.time.DurationUnit): Long
 
-	// JVM method = toLongMilliseconds-impl(D)J
+	// JVM method = toLongMilliseconds-impl(J)J
 	fun toLongMilliseconds(): Long
 
-	// JVM method = toLongNanoseconds-impl(D)J
+	// JVM method = toLongNanoseconds-impl(J)J
 	fun toLongNanoseconds(): Long
 
-	// JVM method = toString-impl(D)Ljava/lang/String;
+	// JVM method = toString-impl(J)Ljava/lang/String;
 	open fun toString(): String
 
-	// JVM method = toString-impl(DLjava/util/concurrent/TimeUnit;I)Ljava/lang/String;
-	fun toString(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */, decimals: Int /* = default */): String
+	// JVM method = toString-impl(JLkotlin/time/DurationUnit;I)Ljava/lang/String;
+	fun toString(unit: kotlin.time.DurationUnit, decimals: Int /* = default */): String
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = unaryMinus-UwyO8pc(D)D
+	// JVM method = unaryMinus-UwyO8pc(J)J
 	operator fun unaryMinus(): kotlin.time.Duration
+
+	// JVM method = appendFractional-impl(JLjava/lang/StringBuilder;IIILjava/lang/String;Z)V
+	private fun StringBuilder /* = java.lang.StringBuilder */.appendFractional(whole: Int, fractional: Int, fractionalSize: Int, unit: String, isoZeroes: Boolean)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9599,11 +9959,11 @@ class kotlin.time.TestTimeSource : kotlin.time.AbstractLongTimeSource {
 	// *** FUNCTIONS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = overflow-LRDsOJo(D)V
+	// JVM method = overflow-LRDsOJo(J)V
 	private fun overflow(duration: kotlin.time.Duration)
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plusAssign-LRDsOJo(D)V
+	// JVM method = plusAssign-LRDsOJo(J)V
 	operator fun plusAssign(duration: kotlin.time.Duration)
 
 	// JVM method = read()J
@@ -9624,7 +9984,7 @@ abstract class kotlin.time.TimeMark {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = elapsedNow-UwyO8pc()D
+	// JVM method = elapsedNow-UwyO8pc()J
 	abstract fun elapsedNow(): kotlin.time.Duration
 
 	// JVM method = hasNotPassedNow()Z
@@ -9634,11 +9994,11 @@ abstract class kotlin.time.TimeMark {
 	fun hasPassedNow(): Boolean
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = minus-LRDsOJo(D)Lkotlin/time/TimeMark;
+	// JVM method = minus-LRDsOJo(J)Lkotlin/time/TimeMark;
 	open operator fun minus(duration: kotlin.time.Duration): kotlin.time.TimeMark
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(D)Lkotlin/time/TimeMark;
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
 	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
 }
 
@@ -9650,7 +10010,7 @@ data class kotlin.time.TimedValue<T> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = duration:D
+	// JVM field = duration:J
 	val duration: kotlin.time.Duration
 
 	// JVM field = value:Ljava/lang/Object;
@@ -9660,7 +10020,7 @@ data class kotlin.time.TimedValue<T> {
 	// *** CONSTRUCTORS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = <init>(Ljava/lang/Object;DLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	// JVM method = <init>(Ljava/lang/Object;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	constructor(value: T, duration: kotlin.time.Duration)
 
 
@@ -9671,11 +10031,11 @@ data class kotlin.time.TimedValue<T> {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = component2-UwyO8pc()D
+	// JVM method = component2-UwyO8pc()J
 	/* synthesized */ operator fun component2(): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = copy-RFiDyg4(Ljava/lang/Object;D)Lkotlin/time/TimedValue;
+	// JVM method = copy-RFiDyg4(Ljava/lang/Object;J)Lkotlin/time/TimedValue;
 	/* synthesized */ fun copy(value: T /* = default */, duration: kotlin.time.Duration /* = default */): kotlin.time.TimedValue<T>
 
 	// JVM method = equals(Ljava/lang/Object;)Z
@@ -10021,6 +10381,22 @@ internal companion object kotlin.collections.ArrayDeque.Companion {
 
 // ------------------------------------------------------------------------------------------------------
 
+internal object kotlin.collections.CollectionSystemProperties {
+
+	// *** PROPERTIES ***
+
+	// JVM field = brittleContainsOptimizationEnabled:Z
+	internal val brittleContainsOptimizationEnabled: Boolean
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 internal object kotlin.collections.EmptyIterator : ListIterator<Nothing> {
 
 	// *** CONSTRUCTORS ***
@@ -10260,6 +10636,44 @@ private companion object kotlin.collections.builders.MapBuilder.Companion {
 
 // ------------------------------------------------------------------------------------------------------
 
+companion object kotlin.collections.builders.SerializedCollection.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+	// JVM field = tagList:I
+	const val tagList: Int
+
+	// JVM field = tagSet:I
+	const val tagSet: Int
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+companion object kotlin.collections.builders.SerializedMap.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private object kotlin.comparisons.NaturalOrderComparator : Comparator<Comparable<Any>> /* = java.util.Comparator<Comparable<Any>> */ {
 
 	// *** CONSTRUCTORS ***
@@ -10418,7 +10832,7 @@ private object kotlin.coroutines.jvm.internal.ModuleNameRetriever {
 	// *** PROPERTIES ***
 
 	// JVM field = cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
-	var cache: kotlin.coroutines.jvm.internal.ModuleNameRetriever.Cache?
+	private var cache: kotlin.coroutines.jvm.internal.ModuleNameRetriever.Cache?
 
 	// JVM field = notOnJava9:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 	private val notOnJava9: kotlin.coroutines.jvm.internal.ModuleNameRetriever.Cache
@@ -10880,6 +11294,28 @@ companion object kotlin.jvm.internal.TypeParameterReference.Companion {
 
 // ------------------------------------------------------------------------------------------------------
 
+internal companion object kotlin.jvm.internal.TypeReference.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = IS_MARKED_NULLABLE:I
+	internal const val IS_MARKED_NULLABLE: Int
+
+	// JVM field = IS_MUTABLE_COLLECTION_TYPE:I
+	internal const val IS_MUTABLE_COLLECTION_TYPE: Int
+
+	// JVM field = IS_NOTHING_TYPE:I
+	internal const val IS_NOTHING_TYPE: Int
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private object kotlin.math.Constants {
 
 	// *** PROPERTIES ***
@@ -10935,7 +11371,66 @@ object kotlin.properties.Delegates {
 
 // ------------------------------------------------------------------------------------------------------
 
-companion object kotlin.random.Random.Default : kotlin.random.Random {
+private companion object kotlin.random.KotlinRandom.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private companion object kotlin.random.PlatformRandom.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.random.Random.Default.Serialized : Serializable /* = java.io.Serializable */ {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = readResolve()Ljava/lang/Object;
+	private fun readResolve(): Any
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+companion object kotlin.random.Random.Default : kotlin.random.Random, Serializable /* = java.io.Serializable */ {
+
+	// *** NESTED TYPES ***
+
+	class Serialized
+
 
 	// *** PROPERTIES ***
 
@@ -10995,6 +11490,25 @@ companion object kotlin.random.Random.Default : kotlin.random.Random {
 
 	// JVM method = nextLong(JJ)J
 	open fun nextLong(from: Long, until: Long): Long
+
+	// JVM method = writeReplace()Ljava/lang/Object;
+	private fun writeReplace(): Any
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private companion object kotlin.random.XorWowRandom.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -11234,14 +11748,6 @@ private object kotlin.sequences.EmptySequence : Sequence<Nothing>, DropTakeSeque
 
 companion object kotlin.text.CharCategory.Companion {
 
-	// *** PROPERTIES ***
-
-	// JVM field = categoryMap$delegate:Lkotlin/Lazy;
-	private val categoryMap: Map<Int, CharCategory> by <delegate>
-		// JVM method = getCategoryMap()Ljava/util/Map;
-		get() = /* non-default */
-
-
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
@@ -11457,7 +11963,12 @@ object kotlin.text.Typography {
 	// JVM field = leftDoubleQuote:C
 	const val leftDoubleQuote: Char
 
+	// JVM field = leftGuillemet:C
+	// JVM annotation-holding method = getLeftGuillemet$annotations()V
+	const val leftGuillemet: Char
+
 	// JVM field = leftGuillemete:C
+	// JVM annotation-holding method = getLeftGuillemete$annotations()V
 	const val leftGuillemete: Char
 
 	// JVM field = leftSingleQuote:C
@@ -11511,7 +12022,12 @@ object kotlin.text.Typography {
 	// JVM field = rightDoubleQuote:C
 	const val rightDoubleQuote: Char
 
+	// JVM field = rightGuillemet:C
+	// JVM annotation-holding method = getRightGuillemet$annotations()V
+	const val rightGuillemet: Char
+
 	// JVM field = rightGuillemete:C
+	// JVM annotation-holding method = getRightGuillemete$annotations()V
 	const val rightGuillemete: Char
 
 	// JVM field = rightSingleQuote:C
@@ -11541,13 +12057,165 @@ companion object kotlin.time.Duration.Companion {
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = INFINITE:D
+	// JVM field = INFINITE:J
 	val INFINITE: kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM field = ZERO:D
+	// JVM field = NEG_INFINITE:J
+	internal val NEG_INFINITE: kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM field = ZERO:J
 	val ZERO: kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getDays-UwyO8pc$annotations(D)V
+	inline val Double.days: kotlin.time.Duration
+		// JVM method = getDays-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getDays-UwyO8pc$annotations(I)V
+	inline val Int.days: kotlin.time.Duration
+		// JVM method = getDays-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getDays-UwyO8pc$annotations(J)V
+	inline val Long.days: kotlin.time.Duration
+		// JVM method = getDays-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getHours-UwyO8pc$annotations(D)V
+	inline val Double.hours: kotlin.time.Duration
+		// JVM method = getHours-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getHours-UwyO8pc$annotations(I)V
+	inline val Int.hours: kotlin.time.Duration
+		// JVM method = getHours-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getHours-UwyO8pc$annotations(J)V
+	inline val Long.hours: kotlin.time.Duration
+		// JVM method = getHours-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMicroseconds-UwyO8pc$annotations(D)V
+	inline val Double.microseconds: kotlin.time.Duration
+		// JVM method = getMicroseconds-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMicroseconds-UwyO8pc$annotations(I)V
+	inline val Int.microseconds: kotlin.time.Duration
+		// JVM method = getMicroseconds-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMicroseconds-UwyO8pc$annotations(J)V
+	inline val Long.microseconds: kotlin.time.Duration
+		// JVM method = getMicroseconds-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMilliseconds-UwyO8pc$annotations(D)V
+	inline val Double.milliseconds: kotlin.time.Duration
+		// JVM method = getMilliseconds-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMilliseconds-UwyO8pc$annotations(I)V
+	inline val Int.milliseconds: kotlin.time.Duration
+		// JVM method = getMilliseconds-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMilliseconds-UwyO8pc$annotations(J)V
+	inline val Long.milliseconds: kotlin.time.Duration
+		// JVM method = getMilliseconds-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMinutes-UwyO8pc$annotations(D)V
+	inline val Double.minutes: kotlin.time.Duration
+		// JVM method = getMinutes-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMinutes-UwyO8pc$annotations(I)V
+	inline val Int.minutes: kotlin.time.Duration
+		// JVM method = getMinutes-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getMinutes-UwyO8pc$annotations(J)V
+	inline val Long.minutes: kotlin.time.Duration
+		// JVM method = getMinutes-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getNanoseconds-UwyO8pc$annotations(D)V
+	inline val Double.nanoseconds: kotlin.time.Duration
+		// JVM method = getNanoseconds-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getNanoseconds-UwyO8pc$annotations(I)V
+	inline val Int.nanoseconds: kotlin.time.Duration
+		// JVM method = getNanoseconds-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getNanoseconds-UwyO8pc$annotations(J)V
+	inline val Long.nanoseconds: kotlin.time.Duration
+		// JVM method = getNanoseconds-UwyO8pc(J)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getSeconds-UwyO8pc$annotations(D)V
+	inline val Double.seconds: kotlin.time.Duration
+		// JVM method = getSeconds-UwyO8pc(D)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getSeconds-UwyO8pc$annotations(I)V
+	inline val Int.seconds: kotlin.time.Duration
+		// JVM method = getSeconds-UwyO8pc(I)J
+		get() = /* non-default */
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getSeconds-UwyO8pc$annotations(J)V
+	inline val Long.seconds: kotlin.time.Duration
+		// JVM method = getSeconds-UwyO8pc(J)J
+		get() = /* non-default */
 
 
 	// *** CONSTRUCTORS ***
@@ -11558,8 +12226,133 @@ companion object kotlin.time.Duration.Companion {
 
 	// *** FUNCTIONS ***
 
-	// JVM method = convert(DLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/TimeUnit;)D
-	fun convert(value: Double, sourceUnit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */, targetUnit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): Double
+	// JVM method = convert(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
+	fun convert(value: Double, sourceUnit: kotlin.time.DurationUnit, targetUnit: kotlin.time.DurationUnit): Double
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = days-UwyO8pc(D)J
+	fun days(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = days-UwyO8pc(I)J
+	fun days(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = days-UwyO8pc(J)J
+	fun days(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = hours-UwyO8pc(D)J
+	fun hours(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = hours-UwyO8pc(I)J
+	fun hours(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = hours-UwyO8pc(J)J
+	fun hours(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = microseconds-UwyO8pc(D)J
+	fun microseconds(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = microseconds-UwyO8pc(I)J
+	fun microseconds(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = microseconds-UwyO8pc(J)J
+	fun microseconds(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = milliseconds-UwyO8pc(D)J
+	fun milliseconds(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = milliseconds-UwyO8pc(I)J
+	fun milliseconds(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = milliseconds-UwyO8pc(J)J
+	fun milliseconds(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = minutes-UwyO8pc(D)J
+	fun minutes(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = minutes-UwyO8pc(I)J
+	fun minutes(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = minutes-UwyO8pc(J)J
+	fun minutes(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = nanoseconds-UwyO8pc(D)J
+	fun nanoseconds(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = nanoseconds-UwyO8pc(I)J
+	fun nanoseconds(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = nanoseconds-UwyO8pc(J)J
+	fun nanoseconds(value: Long): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = parse-UwyO8pc(Ljava/lang/String;)J
+	fun parse(value: String): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = parseIsoString-UwyO8pc(Ljava/lang/String;)J
+	fun parseIsoString(value: String): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = parseIsoStringOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
+	fun parseIsoStringOrNull(value: String): kotlin.time.Duration?
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = parseOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
+	fun parseOrNull(value: String): kotlin.time.Duration?
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = seconds-UwyO8pc(D)J
+	fun seconds(value: Double): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = seconds-UwyO8pc(I)J
+	fun seconds(value: Int): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM method = seconds-UwyO8pc(J)J
+	fun seconds(value: Long): kotlin.time.Duration
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12289,6 +13082,9 @@ interface kotlin.reflect.KClass<T : Any> :
 
 	// JVM annotation-holding method = isSealed$annotations()V
 	abstract val isSealed: Boolean
+
+	// JVM annotation-holding method = isValue$annotations()V
+	abstract val isValue: Boolean
 
 	abstract val members: Collection<kotlin.reflect.KCallable<*>>
 
@@ -13119,6 +13915,32 @@ enum class kotlin.text.RegexOption : FlagEnum {
 
 // ------------------------------------------------------------------------------------------------------
 
+enum class kotlin.time.DurationUnit {
+
+	// *** ENUM ENTRIES ***
+	NANOSECONDS,
+	MICROSECONDS,
+	MILLISECONDS,
+	SECONDS,
+	MINUTES,
+	HOURS,
+	DAYS;
+
+
+	// *** PROPERTIES ***
+
+	// JVM field = timeUnit:Ljava/util/concurrent/TimeUnit;
+	internal val timeUnit: java.util.concurrent.TimeUnit
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/String;ILjava/util/concurrent/TimeUnit;)V
+	private constructor(timeUnit: java.util.concurrent.TimeUnit)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.BuilderInference {
 
 	// *** CONSTRUCTORS ***
@@ -13244,12 +14066,14 @@ annotation class kotlin.Metadata {
 
 	// *** PROPERTIES ***
 
+	// JVM annotation-holding method = bv$annotations()V
 	val bytecodeVersion: IntArray
 
 	val data1: Array<String>
 
 	val data2: Array<String>
 
+	// JVM annotation-holding method = xi$annotations()V
 	val extraInt: Int
 
 	val extraString: String
@@ -13258,6 +14082,7 @@ annotation class kotlin.Metadata {
 
 	val metadataVersion: IntArray
 
+	// JVM annotation-holding method = pn$annotations()V
 	val packageName: String
 
 
@@ -14000,7 +14825,7 @@ annotation class kotlin.time.ExperimentalTime {
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)I
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Integer;
 /* local */ fun <T, K : Comparable<K>> (it: T): Int
 
 // ------------------------------------------------------------------------------------------------------
@@ -14021,7 +14846,7 @@ annotation class kotlin.time.ExperimentalTime {
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T> SequenceScope<List<T>>.()
 
 // ------------------------------------------------------------------------------------------------------
@@ -14210,21 +15035,7 @@ annotation class kotlin.time.ExperimentalTime {
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/reflect/Type;)Ljava/lang/String;
-fun (p1: java.lang.reflect.Type): String
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Ljava/lang/Class;)Ljava/lang/Class;
-fun (p1: java.lang.Class<*>): java.lang.Class<*>!
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T, C, R> SequenceScope<R>.()
 
 // ------------------------------------------------------------------------------------------------------
@@ -14266,21 +15077,21 @@ fun (p1: java.lang.Class<*>): java.lang.Class<*>!
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T> SequenceScope<T>.()
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T> SequenceScope<T>.()
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <R> (it: Any?): Boolean
 
 // ------------------------------------------------------------------------------------------------------
@@ -14301,7 +15112,7 @@ fun (p1: java.lang.Class<*>): java.lang.Class<*>!
 
 /* lambda */
 
-// JVM method = invoke(Lkotlin/collections/IndexedValue;)Z
+// JVM method = invoke(Lkotlin/collections/IndexedValue;)Ljava/lang/Boolean;
 /* local */ fun <T> (it: IndexedValue<T>): Boolean
 
 // ------------------------------------------------------------------------------------------------------
@@ -14315,70 +15126,42 @@ fun (p1: java.lang.Class<*>): java.lang.Class<*>!
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <reified R> (it: Any?): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <T : Any> (it: T : Any?): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Iterable;)Ljava/util/Iterator;
-fun <T, R> (p1: Iterable<R>): Iterator<R>
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Lkotlin/sequences/Sequence;)Ljava/util/Iterator;
-fun <T, R> (p1: Sequence<R>): Iterator<R>
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Ljava/lang/Iterable;)Ljava/util/Iterator;
-fun <T, R> (p1: Iterable<R>): Iterator<R>
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Lkotlin/sequences/Sequence;)Ljava/util/Iterator;
-fun <T, R> (p1: Sequence<R>): Iterator<R>
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <T> (it: T): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <T> (it: T): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <T> (it: T): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;)Z
+// JVM method = invoke(Ljava/lang/Object;)Ljava/lang/Boolean;
 /* local */ fun <T> (it: T): Boolean
 
 // ------------------------------------------------------------------------------------------------------
@@ -14406,28 +15189,28 @@ fun <T, R> (p1: Sequence<R>): Iterator<R>
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T, R> SequenceScope<R>.()
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T, R> SequenceScope<R>.()
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <S, T : S> SequenceScope<S>.()
 
 // ------------------------------------------------------------------------------------------------------
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <S, T : S> SequenceScope<S>.()
 
 // ------------------------------------------------------------------------------------------------------
@@ -14448,15 +15231,8 @@ fun <T, R> (p1: Sequence<R>): Iterator<R>
 
 /* lambda */
 
-// JVM method = invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
 /* local */ suspend fun <T, R> SequenceScope<R>.()
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = invoke()Ljava/util/Map;
-/* local */ fun (): Map<Int, CharCategory>
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -14483,15 +15259,8 @@ fun <T, R> (p1: Sequence<R>): Iterator<R>
 
 /* lambda */
 
-// JVM method = invoke(Lkotlin/text/MatchResult;)Lkotlin/text/MatchResult;
-fun (p1: MatchResult): MatchResult?
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
 // lambda class origin: RegexKt$fromInt$1$1
-// JVM method = invoke(Ljava/lang/Enum;)Z
+// JVM method = invoke(Ljava/lang/Enum;)Ljava/lang/Boolean;
 /* local */ fun <reified T> (it: reified T!): Boolean where
 	T : FlagEnum,
 	T : Enum<reified T>
@@ -14500,8 +15269,14 @@ fun (p1: MatchResult): MatchResult?
 
 /* lambda */
 
-// lambda class origin: RegexKt$fromInt$1$1
-// JVM method = invoke(Ljava/lang/Enum;)Z
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
+/* local */ suspend fun SequenceScope<String>.()
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Ljava/lang/Enum;)Ljava/lang/Boolean;
 /* local */ fun <reified T> (it: reified T!): Boolean where
 	T : FlagEnum,
 	T : Enum<reified T>
@@ -14639,6 +15414,18 @@ inline fun Char(code: Int): Char
 
 /* file-level declarations */
 
+/* facade */ class kotlin.CompareToKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = compareTo(Ljava/lang/Comparable;Ljava/lang/Object;)I
+inline infix fun <T> Comparable<T>.compareTo(other: T): Int
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
 /* facade */ class kotlin.DeepRecursiveKt
 
 
@@ -14652,6 +15439,7 @@ private typealias DeepRecursiveFunctionBlock = suspend DeepRecursiveScope<*, *>.
 
 // requires language version >= 1.3, otherwise diagnostic error
 // JVM field = UNDEFINED_RESULT:Ljava/lang/Object;
+// JVM annotation-holding method = getUNDEFINED_RESULT$annotations()V
 private val UNDEFINED_RESULT: Result<Any>
 
 
@@ -15263,6 +16051,30 @@ internal fun ulongToString(v: Long): String
 
 // JVM method = ulongToString(JI)Ljava/lang/String;
 internal fun ulongToString(v: Long, base: Int): String
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.collections.BrittleContainsOptimizationKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = convertToSetForSetOperation([Ljava/lang/Object;)Ljava/util/Collection;
+internal fun <T> Array<T>.convertToSetForSetOperation(): Collection<T>
+
+// JVM method = convertToSetForSetOperation(Ljava/lang/Iterable;)Ljava/util/Collection;
+internal fun <T> Iterable<T>.convertToSetForSetOperation(): Collection<T>
+
+// JVM method = convertToSetForSetOperation(Lkotlin/sequences/Sequence;)Ljava/util/Collection;
+internal fun <T> Sequence<T>.convertToSetForSetOperation(): Collection<T>
+
+// JVM method = convertToSetForSetOperationWith(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Collection;
+internal fun <T> Iterable<T>.convertToSetForSetOperationWith(source: Iterable<T>): Collection<T>
+
+// JVM method = safeToConvertToSet(Ljava/util/Collection;)Z
+private fun <T> Collection<T>.safeToConvertToSet(): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -15967,6 +16779,12 @@ inline fun println(message: Short)
 // JVM method = readLine()Ljava/lang/String;
 fun readLine(): String?
 
+// JVM method = readln()Ljava/lang/String;
+fun readln(): String
+
+// JVM method = readlnOrNull()Ljava/lang/String;
+fun readlnOrNull(): String?
+
 // ------------------------------------------------------------------------------------------------------
 
 /* file-level declarations */
@@ -16603,185 +17421,28 @@ fun String.toUShortOrNull(radix: Int): UShort?
 
 /* file-level declarations */
 
-/* facade */ class kotlin.time.DurationKt
-
-
-// *** PROPERTIES ***
-
-// JVM annotation-holding method = getStorageUnit$annotations()V
-private inline val storageUnit: java.util.concurrent.TimeUnit
-	// JVM method = getStorageUnit()Ljava/util/concurrent/TimeUnit;
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getDays$annotations(D)V
-val Double.days: kotlin.time.Duration
-	// JVM method = getDays(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getDays$annotations(I)V
-val Int.days: kotlin.time.Duration
-	// JVM method = getDays(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getDays$annotations(J)V
-val Long.days: kotlin.time.Duration
-	// JVM method = getDays(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getHours$annotations(D)V
-val Double.hours: kotlin.time.Duration
-	// JVM method = getHours(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getHours$annotations(I)V
-val Int.hours: kotlin.time.Duration
-	// JVM method = getHours(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getHours$annotations(J)V
-val Long.hours: kotlin.time.Duration
-	// JVM method = getHours(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMicroseconds$annotations(D)V
-val Double.microseconds: kotlin.time.Duration
-	// JVM method = getMicroseconds(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMicroseconds$annotations(I)V
-val Int.microseconds: kotlin.time.Duration
-	// JVM method = getMicroseconds(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMicroseconds$annotations(J)V
-val Long.microseconds: kotlin.time.Duration
-	// JVM method = getMicroseconds(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMilliseconds$annotations(D)V
-val Double.milliseconds: kotlin.time.Duration
-	// JVM method = getMilliseconds(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMilliseconds$annotations(I)V
-val Int.milliseconds: kotlin.time.Duration
-	// JVM method = getMilliseconds(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMilliseconds$annotations(J)V
-val Long.milliseconds: kotlin.time.Duration
-	// JVM method = getMilliseconds(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMinutes$annotations(D)V
-val Double.minutes: kotlin.time.Duration
-	// JVM method = getMinutes(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMinutes$annotations(I)V
-val Int.minutes: kotlin.time.Duration
-	// JVM method = getMinutes(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getMinutes$annotations(J)V
-val Long.minutes: kotlin.time.Duration
-	// JVM method = getMinutes(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getNanoseconds$annotations(D)V
-val Double.nanoseconds: kotlin.time.Duration
-	// JVM method = getNanoseconds(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getNanoseconds$annotations(I)V
-val Int.nanoseconds: kotlin.time.Duration
-	// JVM method = getNanoseconds(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getNanoseconds$annotations(J)V
-val Long.nanoseconds: kotlin.time.Duration
-	// JVM method = getNanoseconds(J)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getSeconds$annotations(D)V
-val Double.seconds: kotlin.time.Duration
-	// JVM method = getSeconds(D)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getSeconds$annotations(I)V
-val Int.seconds: kotlin.time.Duration
-	// JVM method = getSeconds(I)D
-	get() = /* non-default */
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM annotation-holding method = getSeconds$annotations(J)V
-val Long.seconds: kotlin.time.Duration
-	// JVM method = getSeconds(J)D
-	get() = /* non-default */
+/* facade */ class kotlin.text._OneToManyTitlecaseMappingsKt
 
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = times-kIfJnKk(DD)D
-inline operator fun Double.times(duration: kotlin.time.Duration): kotlin.time.Duration
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = times-mvk6XK0(ID)D
-inline operator fun Int.times(duration: kotlin.time.Duration): kotlin.time.Duration
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = toDuration(DLjava/util/concurrent/TimeUnit;)D
-fun Double.toDuration(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): kotlin.time.Duration
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = toDuration(ILjava/util/concurrent/TimeUnit;)D
-fun Int.toDuration(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): kotlin.time.Duration
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = toDuration(JLjava/util/concurrent/TimeUnit;)D
-fun Long.toDuration(unit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): kotlin.time.Duration
+// JVM method = titlecaseImpl(C)Ljava/lang/String;
+internal fun Char.titlecaseImpl(): String
 
 // ------------------------------------------------------------------------------------------------------
 
 /* file-level declarations */
 
-/* facade */ class kotlin.time.FormatToDecimalsKt
+/* facade */ class kotlin.time.DurationJvmKt
 
 
 // *** PROPERTIES ***
 
+// JVM field = durationAssertionsEnabled:Z
+internal val durationAssertionsEnabled: Boolean
+
 // JVM field = precisionFormats:[Ljava/lang/ThreadLocal;
 private val precisionFormats: Array<java.lang.ThreadLocal<java.text.DecimalFormat>>
-
-// JVM field = rootNegativeExpFormatSymbols:Ljava/text/DecimalFormatSymbols;
-private val rootNegativeExpFormatSymbols: java.text.DecimalFormatSymbols
-
-// JVM field = rootPositiveExpFormatSymbols:Ljava/text/DecimalFormatSymbols;
-private val rootPositiveExpFormatSymbols: java.text.DecimalFormatSymbols
-
-// JVM field = scientificFormat:Ljava/lang/ThreadLocal;
-private val scientificFormat: java.lang.ThreadLocal<java.text.DecimalFormat>
 
 
 // *** FUNCTIONS ***
@@ -16789,14 +17450,220 @@ private val scientificFormat: java.lang.ThreadLocal<java.text.DecimalFormat>
 // JVM method = createFormatForDecimals(I)Ljava/text/DecimalFormat;
 private fun createFormatForDecimals(decimals: Int): java.text.DecimalFormat
 
-// JVM method = formatScientific(D)Ljava/lang/String;
-internal fun formatScientific(value: Double): String
-
 // JVM method = formatToExactDecimals(DI)Ljava/lang/String;
 internal fun formatToExactDecimals(value: Double, decimals: Int): String
 
 // JVM method = formatUpToDecimals(DI)Ljava/lang/String;
 internal fun formatUpToDecimals(value: Double, decimals: Int): String
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.time.DurationKt
+
+
+// *** PROPERTIES ***
+
+// JVM field = MAX_MILLIS:J
+internal const val MAX_MILLIS: Long
+
+// JVM field = MAX_NANOS:J
+internal const val MAX_NANOS: Long
+
+// JVM field = MAX_NANOS_IN_MILLIS:J
+private const val MAX_NANOS_IN_MILLIS: Long
+
+// JVM field = NANOS_IN_MILLIS:I
+internal const val NANOS_IN_MILLIS: Int
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getDays$annotations(D)V
+val Double.days: kotlin.time.Duration
+	// JVM method = getDays(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getDays$annotations(I)V
+val Int.days: kotlin.time.Duration
+	// JVM method = getDays(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getDays$annotations(J)V
+val Long.days: kotlin.time.Duration
+	// JVM method = getDays(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getHours$annotations(D)V
+val Double.hours: kotlin.time.Duration
+	// JVM method = getHours(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getHours$annotations(I)V
+val Int.hours: kotlin.time.Duration
+	// JVM method = getHours(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getHours$annotations(J)V
+val Long.hours: kotlin.time.Duration
+	// JVM method = getHours(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMicroseconds$annotations(D)V
+val Double.microseconds: kotlin.time.Duration
+	// JVM method = getMicroseconds(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMicroseconds$annotations(I)V
+val Int.microseconds: kotlin.time.Duration
+	// JVM method = getMicroseconds(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMicroseconds$annotations(J)V
+val Long.microseconds: kotlin.time.Duration
+	// JVM method = getMicroseconds(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMilliseconds$annotations(D)V
+val Double.milliseconds: kotlin.time.Duration
+	// JVM method = getMilliseconds(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMilliseconds$annotations(I)V
+val Int.milliseconds: kotlin.time.Duration
+	// JVM method = getMilliseconds(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMilliseconds$annotations(J)V
+val Long.milliseconds: kotlin.time.Duration
+	// JVM method = getMilliseconds(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMinutes$annotations(D)V
+val Double.minutes: kotlin.time.Duration
+	// JVM method = getMinutes(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMinutes$annotations(I)V
+val Int.minutes: kotlin.time.Duration
+	// JVM method = getMinutes(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getMinutes$annotations(J)V
+val Long.minutes: kotlin.time.Duration
+	// JVM method = getMinutes(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getNanoseconds$annotations(D)V
+val Double.nanoseconds: kotlin.time.Duration
+	// JVM method = getNanoseconds(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getNanoseconds$annotations(I)V
+val Int.nanoseconds: kotlin.time.Duration
+	// JVM method = getNanoseconds(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getNanoseconds$annotations(J)V
+val Long.nanoseconds: kotlin.time.Duration
+	// JVM method = getNanoseconds(J)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getSeconds$annotations(D)V
+val Double.seconds: kotlin.time.Duration
+	// JVM method = getSeconds(D)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getSeconds$annotations(I)V
+val Int.seconds: kotlin.time.Duration
+	// JVM method = getSeconds(I)J
+	get() = /* non-default */
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM annotation-holding method = getSeconds$annotations(J)V
+val Long.seconds: kotlin.time.Duration
+	// JVM method = getSeconds(J)J
+	get() = /* non-default */
+
+
+// *** FUNCTIONS ***
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = durationOf(JI)J
+private fun durationOf(normalValue: Long, unitDiscriminator: Int): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = durationOfMillis(J)J
+private fun durationOfMillis(normalMillis: Long): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = durationOfMillisNormalized(J)J
+private fun durationOfMillisNormalized(millis: Long): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = durationOfNanos(J)J
+private fun durationOfNanos(normalNanos: Long): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = durationOfNanosNormalized(J)J
+private fun durationOfNanosNormalized(nanos: Long): kotlin.time.Duration
+
+// JVM method = millisToNanos(J)J
+private fun millisToNanos(millis: Long): Long
+
+// JVM method = nanosToMillis(J)J
+private fun nanosToMillis(nanos: Long): Long
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = parseDuration(Ljava/lang/String;Z)J
+private fun parseDuration(value: String, strictIso: Boolean): kotlin.time.Duration
+
+// JVM method = parseOverLongIsoComponent(Ljava/lang/String;)J
+private fun parseOverLongIsoComponent(value: String): Long
+
+// JVM method = skipWhile(Ljava/lang/String;ILkotlin/jvm/functions/Function1;)I
+private inline fun String.skipWhile(startIndex: Int, predicate: (Char) -> Boolean): Int
+
+// JVM method = substringWhile(Ljava/lang/String;ILkotlin/jvm/functions/Function1;)Ljava/lang/String;
+private inline fun String.substringWhile(startIndex: Int, predicate: (Char) -> Boolean): String
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = times-kIfJnKk(DJ)J
+inline operator fun Double.times(duration: kotlin.time.Duration): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = times-mvk6XK0(IJ)J
+inline operator fun Int.times(duration: kotlin.time.Duration): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = toDuration(DLkotlin/time/DurationUnit;)J
+fun Double.toDuration(unit: kotlin.time.DurationUnit): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = toDuration(ILkotlin/time/DurationUnit;)J
+fun Int.toDuration(unit: kotlin.time.DurationUnit): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = toDuration(JLkotlin/time/DurationUnit;)J
+fun Long.toDuration(unit: kotlin.time.DurationUnit): kotlin.time.Duration
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -16809,7 +17676,7 @@ internal fun formatUpToDecimals(value: Double, decimals: Int): String
 
 // requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = measureTime(Lkotlin/jvm/functions/Function0;)D
+// JVM method = measureTime(Lkotlin/jvm/functions/Function0;)J
 inline fun measureTime(block: () -> Unit): kotlin.time.Duration {
 	contract {
 		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
@@ -16826,7 +17693,7 @@ inline fun <T> measureTimedValue(block: () -> T): kotlin.time.TimedValue<T> {
 
 // requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = measureTime(Lkotlin/time/TimeSource;Lkotlin/jvm/functions/Function0;)D
+// JVM method = measureTime(Lkotlin/time/TimeSource;Lkotlin/jvm/functions/Function0;)J
 inline fun kotlin.time.TimeSource.measureTime(block: () -> Unit): kotlin.time.Duration {
 	contract {
 		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
@@ -16848,98 +17715,14 @@ inline fun <T> kotlin.time.TimeSource.measureTimedValue(block: () -> T): kotlin.
 /* facade */ class kotlin.time.TimeSourceKt
 
 
-// *** TYPE ALIASES ***
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use TimeSource interface instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.TimeSource" ],
-		expression = "TimeSource"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias Clock = kotlin.time.TimeSource
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use TimeMark class instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.TimeMark" ],
-		expression = "TimeMark"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias ClockMark = kotlin.time.TimeMark
-
-
 // *** FUNCTIONS ***
 
 // JVM method = compareTo(Lkotlin/time/TimeMark;Lkotlin/time/TimeMark;)I
 inline operator fun kotlin.time.TimeMark.compareTo(other: kotlin.time.TimeMark): Int
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minus(Lkotlin/time/TimeMark;Lkotlin/time/TimeMark;)D
+// JVM method = minus(Lkotlin/time/TimeMark;Lkotlin/time/TimeMark;)J
 inline operator fun kotlin.time.TimeMark.minus(other: kotlin.time.TimeMark): kotlin.time.Duration
-
-// ------------------------------------------------------------------------------------------------------
-
-/* file-level declarations */
-
-/* facade */ class kotlin.time.TimeSourcesKt
-
-
-// *** TYPE ALIASES ***
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use AbstractDoubleTimeSource instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.AbstractDoubleTimeSource" ],
-		expression = "AbstractDoubleTimeSource"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias AbstractDoubleClock = kotlin.time.AbstractDoubleTimeSource
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use AbstractLongTimeSource instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.AbstractLongTimeSource" ],
-		expression = "AbstractLongTimeSource"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias AbstractLongClock = kotlin.time.AbstractLongTimeSource
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use TimeSource.Monotonic instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.TimeSource" ],
-		expression = "TimeSource.Monotonic"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias MonoClock = kotlin.time.TimeSource.Monotonic
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-@Deprecated(
-	message = "Use TestTimeSource instead.",
-	replaceWith = ReplaceWith(
-		imports = [ "kotlin.time.TestTimeSource" ],
-		expression = "TestTimeSource"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias TestClock = kotlin.time.TestTimeSource
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -16966,6 +17749,7 @@ typealias TestClock = kotlin.time.TestTimeSource
 
 /* part */ class NumbersKt__BigDecimalsKt
 /* part */ class NumbersKt__BigIntegersKt
+/* part */ class NumbersKt__FloorDivModKt
 /* part */ class NumbersKt__NumbersJVMKt
 /* part */ class NumbersKt__NumbersKt
 
@@ -17377,6 +18161,124 @@ inline operator fun java.math.BigInteger.unaryMinus(): java.math.BigInteger
 
 // JVM method = xor(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 inline infix fun java.math.BigInteger.xor(other: java.math.BigInteger): java.math.BigInteger
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.NumbersKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = floorDiv(BB)I
+inline fun Byte.floorDiv(other: Byte): Int
+
+// JVM method = floorDiv(BI)I
+inline fun Byte.floorDiv(other: Int): Int
+
+// JVM method = floorDiv(BJ)J
+inline fun Byte.floorDiv(other: Long): Long
+
+// JVM method = floorDiv(BS)I
+inline fun Byte.floorDiv(other: Short): Int
+
+// JVM method = floorDiv(IB)I
+inline fun Int.floorDiv(other: Byte): Int
+
+// JVM method = floorDiv(II)I
+inline fun Int.floorDiv(other: Int): Int
+
+// JVM method = floorDiv(IJ)J
+inline fun Int.floorDiv(other: Long): Long
+
+// JVM method = floorDiv(IS)I
+inline fun Int.floorDiv(other: Short): Int
+
+// JVM method = floorDiv(JB)J
+inline fun Long.floorDiv(other: Byte): Long
+
+// JVM method = floorDiv(JI)J
+inline fun Long.floorDiv(other: Int): Long
+
+// JVM method = floorDiv(JJ)J
+inline fun Long.floorDiv(other: Long): Long
+
+// JVM method = floorDiv(JS)J
+inline fun Long.floorDiv(other: Short): Long
+
+// JVM method = floorDiv(SB)I
+inline fun Short.floorDiv(other: Byte): Int
+
+// JVM method = floorDiv(SI)I
+inline fun Short.floorDiv(other: Int): Int
+
+// JVM method = floorDiv(SJ)J
+inline fun Short.floorDiv(other: Long): Long
+
+// JVM method = floorDiv(SS)I
+inline fun Short.floorDiv(other: Short): Int
+
+// JVM method = mod(BB)B
+inline fun Byte.mod(other: Byte): Byte
+
+// JVM method = mod(BI)I
+inline fun Byte.mod(other: Int): Int
+
+// JVM method = mod(BJ)J
+inline fun Byte.mod(other: Long): Long
+
+// JVM method = mod(BS)S
+inline fun Byte.mod(other: Short): Short
+
+// JVM method = mod(DD)D
+inline fun Double.mod(other: Double): Double
+
+// JVM method = mod(DF)D
+inline fun Double.mod(other: Float): Double
+
+// JVM method = mod(FD)D
+inline fun Float.mod(other: Double): Double
+
+// JVM method = mod(FF)F
+inline fun Float.mod(other: Float): Float
+
+// JVM method = mod(IB)B
+inline fun Int.mod(other: Byte): Byte
+
+// JVM method = mod(II)I
+inline fun Int.mod(other: Int): Int
+
+// JVM method = mod(IJ)J
+inline fun Int.mod(other: Long): Long
+
+// JVM method = mod(IS)S
+inline fun Int.mod(other: Short): Short
+
+// JVM method = mod(JB)B
+inline fun Long.mod(other: Byte): Byte
+
+// JVM method = mod(JI)I
+inline fun Long.mod(other: Int): Int
+
+// JVM method = mod(JJ)J
+inline fun Long.mod(other: Long): Long
+
+// JVM method = mod(JS)S
+inline fun Long.mod(other: Short): Short
+
+// JVM method = mod(SB)B
+inline fun Short.mod(other: Byte): Byte
+
+// JVM method = mod(SI)I
+inline fun Short.mod(other: Int): Int
+
+// JVM method = mod(SJ)J
+inline fun Short.mod(other: Long): Long
+
+// JVM method = mod(SS)S
+inline fun Short.mod(other: Short): Short
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -19890,6 +20792,14 @@ fun ShortArray.first(): Short
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = first([SLkotlin/jvm/functions/Function1;)S
 inline fun ShortArray.first(predicate: (Short) -> Boolean): Short
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOf([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Array<out T>.firstNotNullOf(transform: (T) -> R : Any?): R : Any
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOfOrNull([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Array<out T>.firstNotNullOfOrNull(transform: (T) -> R : Any?): R : Any?
 
 // JVM method = firstOrNull([Ljava/lang/Object;)Ljava/lang/Object;
 fun <T> Array<out T>.firstOrNull(): T?
@@ -22930,78 +23840,6 @@ inline fun <R> LongArray.scanIndexed(initial: R, operation: (@ParameterName(name
 // JVM method = scanIndexed([SLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> ShortArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, Short) -> R): List<R>
 
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun <S, T : S> Array<out T : S>.scanReduce(operation: (@ParameterName(name = "acc") S, T : S) -> S): List<S>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([ZLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun BooleanArray.scanReduce(operation: (@ParameterName(name = "acc") Boolean, Boolean) -> Boolean): List<Boolean>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun ByteArray.scanReduce(operation: (@ParameterName(name = "acc") Byte, Byte) -> Byte): List<Byte>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([CLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun CharArray.scanReduce(operation: (@ParameterName(name = "acc") Char, Char) -> Char): List<Char>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([DLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun DoubleArray.scanReduce(operation: (@ParameterName(name = "acc") Double, Double) -> Double): List<Double>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([FLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun FloatArray.scanReduce(operation: (@ParameterName(name = "acc") Float, Float) -> Float): List<Float>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun IntArray.scanReduce(operation: (@ParameterName(name = "acc") Int, Int) -> Int): List<Int>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun LongArray.scanReduce(operation: (@ParameterName(name = "acc") Long, Long) -> Long): List<Long>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun ShortArray.scanReduce(operation: (@ParameterName(name = "acc") Short, Short) -> Short): List<Short>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun <S, T : S> Array<out T : S>.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") S, T : S) -> S): List<S>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([ZLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun BooleanArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Boolean, Boolean) -> Boolean): List<Boolean>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([BLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun ByteArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Byte, Byte) -> Byte): List<Byte>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([CLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun CharArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Char, Char) -> Char): List<Char>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([DLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun DoubleArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Double, Double) -> Double): List<Double>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([FLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun FloatArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Float, Float) -> Float): List<Float>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([ILkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun IntArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Int, Int) -> Int): List<Int>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([JLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun LongArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Long, Long) -> Long): List<Long>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed([SLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun ShortArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Short, Short) -> Short): List<Short>
-
 // JVM method = shuffle([Ljava/lang/Object;)V
 fun <T> Array<T>.shuffle()
 
@@ -24435,6 +25273,9 @@ inline fun <R, V> ShortArray.zip(other: Iterable<R>, transform: (@ParameterName(
 
 // *** FUNCTIONS ***
 
+// JVM method = brittleContainsOptimizationEnabled()Z
+internal inline fun brittleContainsOptimizationEnabled(): Boolean
+
 // JVM method = build(Ljava/util/List;)Ljava/util/List;
 internal fun <E> build(builder: MutableList<E>): List<E>
 
@@ -24627,17 +25468,8 @@ internal fun <T> Iterable<T>.collectionSizeOrDefault(default: Int): Int
 // JVM method = collectionSizeOrNull(Ljava/lang/Iterable;)Ljava/lang/Integer;
 internal fun <T> Iterable<T>.collectionSizeOrNull(): Int?
 
-// JVM method = convertToSetForSetOperation(Ljava/lang/Iterable;)Ljava/util/Collection;
-internal fun <T> Iterable<T>.convertToSetForSetOperation(): Collection<T>
-
-// JVM method = convertToSetForSetOperationWith(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Collection;
-internal fun <T> Iterable<T>.convertToSetForSetOperationWith(source: Iterable<T>): Collection<T>
-
 // JVM method = flatten(Ljava/lang/Iterable;)Ljava/util/List;
 fun <T> Iterable<Iterable<T>>.flatten(): List<T>
-
-// JVM method = safeToConvertToSet$CollectionsKt__IterablesKt(Ljava/util/Collection;)Z
-private fun <T> Collection<T>.safeToConvertToSet(): Boolean
 
 // JVM method = unzip(Ljava/lang/Iterable;)Lkotlin/Pair;
 fun <T, R> Iterable<Pair<T, R>>.unzip(): Pair<List<T>, List<R>>
@@ -25076,6 +25908,14 @@ inline fun <T> Iterable<T>.first(predicate: (T) -> Boolean): T
 
 // JVM method = first(Ljava/util/List;)Ljava/lang/Object;
 fun <T> List<T>.first(): T
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOf(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Iterable<T>.firstNotNullOf(transform: (T) -> R : Any?): R : Any
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOfOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Iterable<T>.firstNotNullOfOrNull(transform: (T) -> R : Any?): R : Any?
 
 // JVM method = firstOrNull(Ljava/lang/Iterable;)Ljava/lang/Object;
 fun <T> Iterable<T>.firstOrNull(): T?
@@ -25535,14 +26375,6 @@ inline fun <T, R> Iterable<T>.scan(initial: R, operation: (@ParameterName(name =
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = scanIndexed(Ljava/lang/Iterable;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <T, R> Iterable<T>.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, T) -> R): List<R>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun <S, T : S> Iterable<T : S>.scanReduce(operation: (@ParameterName(name = "acc") S, T : S) -> S): List<S>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun <S, T : S> Iterable<T : S>.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") S, T : S) -> S): List<S>
 
 // JVM method = shuffle(Ljava/util/List;Lkotlin/random/Random;)V
 fun <T> MutableList<T>.shuffle(random: kotlin.random.Random)
@@ -26175,6 +27007,14 @@ inline fun <K, V> Map<out K, V>.count(): Int
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = count(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)I
 inline fun <K, V> Map<out K, V>.count(predicate: (Map.Entry<K, V>) -> Boolean): Int
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOf(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOf(transform: (Map.Entry<K, V>) -> R : Any?): R : Any
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOfOrNull(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOfOrNull(transform: (Map.Entry<K, V>) -> R : Any?): R : Any?
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = flatMap(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
@@ -29011,46 +29851,6 @@ inline fun <R> ULongArray.scanIndexed(initial: R, operation: (@ParameterName(nam
 inline fun <R> UShortArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UShort) -> R): List<R>
 
 // requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce-ELGow60([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun UByteArray.scanReduce(operation: (@ParameterName(name = "acc") UByte, UByte) -> UByte): List<UByte>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce-WyvcNBI([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun UIntArray.scanReduce(operation: (@ParameterName(name = "acc") UInt, UInt) -> UInt): List<UInt>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce-s8dVfGU([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun ULongArray.scanReduce(operation: (@ParameterName(name = "acc") ULong, ULong) -> ULong): List<ULong>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce-xzaTVY8([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun UShortArray.scanReduce(operation: (@ParameterName(name = "acc") UShort, UShort) -> UShort): List<UShort>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed-EOyYB1Y([BLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun UByteArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UByte, UByte) -> UByte): List<UByte>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed-D40WMg8([ILkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun UIntArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UInt, UInt) -> UInt): List<UInt>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed-z1zDJgo([JLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun ULongArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") ULong, ULong) -> ULong): List<ULong>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed-aLgx1Fo([SLkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun UShortArray.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UShort, UShort) -> UShort): List<UShort>
-
-// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = shuffle-GBYM_sE([B)V
 fun UByteArray.shuffle()
 
@@ -31661,6 +32461,14 @@ fun <T> Sequence<T>.first(): T
 // JVM method = first(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T> Sequence<T>.first(predicate: (T) -> Boolean): T
 
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOf(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Sequence<T>.firstNotNullOf(transform: (T) -> R : Any?): R : Any
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOfOrNull(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Any> Sequence<T>.firstNotNullOfOrNull(transform: (T) -> R : Any?): R : Any?
+
 // JVM method = firstOrNull(Lkotlin/sequences/Sequence;)Ljava/lang/Object;
 fun <T> Sequence<T>.firstOrNull(): T?
 
@@ -32006,12 +32814,6 @@ fun <T, R> Sequence<T>.scan(initial: R, operation: (@ParameterName(name = "acc")
 // JVM method = scanIndexed(Lkotlin/sequences/Sequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Lkotlin/sequences/Sequence;
 fun <T, R> Sequence<T>.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, T) -> R): Sequence<R>
 
-// JVM method = scanReduce(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function2;)Lkotlin/sequences/Sequence;
-fun <S, T : S> Sequence<T : S>.scanReduce(operation: (@ParameterName(name = "acc") S, T : S) -> S): Sequence<S>
-
-// JVM method = scanReduceIndexed(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function3;)Lkotlin/sequences/Sequence;
-fun <S, T : S> Sequence<T : S>.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") S, T : S) -> S): Sequence<S>
-
 // JVM method = single(Lkotlin/sequences/Sequence;)Ljava/lang/Object;
 fun <T> Sequence<T>.single(): T
 
@@ -32240,9 +33042,6 @@ fun Char.lowercase(locale: java.util.Locale): String
 // JVM method = lowercaseChar(C)C
 inline fun Char.lowercaseChar(): Char
 
-// JVM method = titlecase(C)Ljava/lang/String;
-fun Char.titlecase(): String
-
 // JVM method = titlecase(CLjava/util/Locale;)Ljava/lang/String;
 fun Char.titlecase(locale: java.util.Locale): String
 
@@ -32303,6 +33102,9 @@ fun Char.isSurrogate(): Boolean
 
 // JVM method = plus(CLjava/lang/String;)Ljava/lang/String;
 inline operator fun Char.plus(other: String): String
+
+// JVM method = titlecase(C)Ljava/lang/String;
+fun Char.titlecase(): String
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -32768,6 +33570,12 @@ fun CharArray.concatToString(): String
 // JVM method = concatToString([CII)Ljava/lang/String;
 fun CharArray.concatToString(startIndex: Int /* = default */, endIndex: Int /* = default */): String
 
+// JVM method = contentEquals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+infix fun CharSequence?.contentEquals(other: CharSequence?): Boolean
+
+// JVM method = contentEquals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+fun CharSequence?.contentEquals(other: CharSequence?, ignoreCase: Boolean): Boolean
+
 // JVM method = contentEquals(Ljava/lang/String;Ljava/lang/StringBuffer;)Z
 inline fun String.contentEquals(stringBuilder: java.lang.StringBuffer): Boolean
 
@@ -32933,6 +33741,9 @@ val CharSequence.lastIndex: Int
 
 // *** FUNCTIONS ***
 
+// JVM method = requireNonNegativeLimit(I)V
+internal fun requireNonNegativeLimit(limit: Int)
+
 // JVM method = commonPrefixWith(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;
 fun CharSequence.commonPrefixWith(other: CharSequence, ignoreCase: Boolean /* = default */): String
 
@@ -32947,6 +33758,12 @@ operator fun CharSequence.contains(other: CharSequence, ignoreCase: Boolean /* =
 
 // JVM method = contains(Ljava/lang/CharSequence;Lkotlin/text/Regex;)Z
 inline operator fun CharSequence.contains(regex: Regex): Boolean
+
+// JVM method = contentEqualsIgnoreCaseImpl(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+internal fun CharSequence?.contentEqualsIgnoreCaseImpl(other: CharSequence?): Boolean
+
+// JVM method = contentEqualsImpl(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+internal fun CharSequence?.contentEqualsImpl(other: CharSequence?): Boolean
 
 // JVM method = endsWith(Ljava/lang/CharSequence;CZ)Z
 fun CharSequence.endsWith(char: Char, ignoreCase: Boolean /* = default */): Boolean
@@ -33172,6 +33989,9 @@ fun CharSequence.splitToSequence(vararg delimiters: String /* Array<out String> 
 // JVM method = splitToSequence(Ljava/lang/CharSequence;[CZI)Lkotlin/sequences/Sequence;
 fun CharSequence.splitToSequence(vararg delimiters: Char /* CharArray */, ignoreCase: Boolean /* = default */, limit: Int /* = default */): Sequence<String>
 
+// JVM method = splitToSequence(Ljava/lang/CharSequence;Lkotlin/text/Regex;I)Lkotlin/sequences/Sequence;
+inline fun CharSequence.splitToSequence(regex: Regex, limit: Int /* = default */): Sequence<String>
+
 // JVM method = startsWith(Ljava/lang/CharSequence;CZ)Z
 fun CharSequence.startsWith(char: Char, ignoreCase: Boolean /* = default */): Boolean
 
@@ -33219,6 +34039,12 @@ fun String.substringBeforeLast(delimiter: Char, missingDelimiterValue: String /*
 
 // JVM method = substringBeforeLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 fun String.substringBeforeLast(delimiter: String, missingDelimiterValue: String /* = default */): String
+
+// JVM method = toBooleanStrict(Ljava/lang/String;)Z
+fun String.toBooleanStrict(): Boolean
+
+// JVM method = toBooleanStrictOrNull(Ljava/lang/String;)Ljava/lang/Boolean;
+fun String.toBooleanStrictOrNull(): Boolean?
 
 // JVM method = trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 fun CharSequence.trim(): CharSequence
@@ -33467,6 +34293,14 @@ fun CharSequence.first(): Char
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = first(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
 inline fun CharSequence.first(predicate: (Char) -> Boolean): Char
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOf(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <R : Any> CharSequence.firstNotNullOf(transform: (Char) -> R : Any?): R : Any
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = firstNotNullOfOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <R : Any> CharSequence.firstNotNullOfOrNull(transform: (Char) -> R : Any?): R : Any?
 
 // JVM method = firstOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
 fun CharSequence.firstOrNull(): Char?
@@ -33797,14 +34631,6 @@ inline fun <R> CharSequence.scan(initial: R, operation: (@ParameterName(name = "
 // JVM method = scanIndexed(Ljava/lang/CharSequence;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> CharSequence.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, Char) -> R): List<R>
 
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduce(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
-inline fun CharSequence.scanReduce(operation: (@ParameterName(name = "acc") Char, Char) -> Char): List<Char>
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = scanReduceIndexed(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
-inline fun CharSequence.scanReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") Char, Char) -> Char): List<Char>
-
 // JVM method = single(Ljava/lang/CharSequence;)C
 fun CharSequence.single(): Char
 
@@ -33941,17 +34767,22 @@ inline fun <R> CharSequence.zipWithNext(transform: (@ParameterName(name = "a") C
 /* facade */ class kotlin.time.DurationUnitKt
 
 
-// *** TYPE ALIASES ***
-
-@SinceKotlin(version = "1.3")
-@kotlin.time.ExperimentalTime
-typealias DurationUnit = java.util.concurrent.TimeUnit
-
-
 // *** FUNCTIONS ***
 
-// JVM method = convertDurationUnit(DLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/TimeUnit;)D
-internal fun convertDurationUnit(value: Double, sourceUnit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */, targetUnit: kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */): Double
+// JVM method = convertDurationUnit(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
+internal fun convertDurationUnit(value: Double, sourceUnit: kotlin.time.DurationUnit, targetUnit: kotlin.time.DurationUnit): Double
+
+// JVM method = convertDurationUnit(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J
+internal fun convertDurationUnit(value: Long, sourceUnit: kotlin.time.DurationUnit, targetUnit: kotlin.time.DurationUnit): Long
+
+// JVM method = convertDurationUnitOverflow(JLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)J
+internal fun convertDurationUnitOverflow(value: Long, sourceUnit: kotlin.time.DurationUnit, targetUnit: kotlin.time.DurationUnit): Long
+
+// JVM method = toDurationUnit(Ljava/util/concurrent/TimeUnit;)Lkotlin/time/DurationUnit;
+fun java.util.concurrent.TimeUnit.toDurationUnit(): kotlin.time.DurationUnit
+
+// JVM method = toTimeUnit(Lkotlin/time/DurationUnit;)Ljava/util/concurrent/TimeUnit;
+fun kotlin.time.DurationUnit.toTimeUnit(): java.util.concurrent.TimeUnit
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -33963,8 +34794,14 @@ internal fun convertDurationUnit(value: Double, sourceUnit: kotlin.time.Duration
 
 // *** FUNCTIONS ***
 
-// JVM method = shortName(Ljava/util/concurrent/TimeUnit;)Ljava/lang/String;
-internal fun kotlin.time.DurationUnit /* = java.util.concurrent.TimeUnit */.shortName(): String
+// JVM method = durationUnitByIsoChar(CZ)Lkotlin/time/DurationUnit;
+internal fun durationUnitByIsoChar(isoChar: Char, isTimeComponent: Boolean): kotlin.time.DurationUnit
+
+// JVM method = durationUnitByShortName(Ljava/lang/String;)Lkotlin/time/DurationUnit;
+internal fun durationUnitByShortName(shortName: String): kotlin.time.DurationUnit
+
+// JVM method = shortName(Lkotlin/time/DurationUnit;)Ljava/lang/String;
+internal fun kotlin.time.DurationUnit.shortName(): String
 
 // ------------------------------------------------------------------------------------------------------
 

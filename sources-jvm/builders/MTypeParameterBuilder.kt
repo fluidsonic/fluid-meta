@@ -31,7 +31,9 @@ internal class MTypeParameterBuilder(
 
 				override fun visitAnnotation(annotation: KmAnnotation) {
 					MAnnotation(annotation).let {
-						annotations?.apply { add(it) } ?: { annotations = mutableListOf(it) }()
+						annotations?.apply { add(it) } ?: run {
+							annotations = mutableListOf(it)
+						}
 					}
 				}
 			}
@@ -41,6 +43,8 @@ internal class MTypeParameterBuilder(
 	override fun visitUpperBound(flags: Flags) =
 		MTypeReferenceBuilder(flags = flags)
 			.also {
-				upperBounds?.apply { add(it) } ?: { upperBounds = mutableListOf(it) }()
+				upperBounds?.apply { add(it) } ?: run {
+					upperBounds = mutableListOf(it)
+				}
 			}
 }

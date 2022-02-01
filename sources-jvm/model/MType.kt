@@ -61,7 +61,7 @@ public data class MClass(
 	override val inheritanceRestriction: MInheritanceRestriction,
 	override val isExpect: Boolean,
 	override val isExternal: Boolean,
-	override val isInline: Boolean,
+	val isValue: Boolean,
 	override val localDelegatedProperties: List<MProperty>,
 	override val name: MQualifiedTypeName,
 	override val properties: List<MProperty>,
@@ -81,7 +81,6 @@ public data class MClass(
 	MGeneralizable,
 	MIdentifyable,
 	MInheritanceRestrictable,
-	MInlineable,
 	MLocalDelegatedPropertyContainer,
 	MPropertyContainer,
 	MSupertypable,
@@ -131,6 +130,11 @@ public data class MClass(
 		public companion object
 	}
 }
+
+
+@Deprecated(level = DeprecationLevel.ERROR, message = "Use 'isValue'.", replaceWith = ReplaceWith("this.isValue"))
+public val MClass.isInline: Boolean
+	get() = isValue
 
 
 @Suppress("EqualsOrHashCode")

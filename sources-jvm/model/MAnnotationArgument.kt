@@ -89,27 +89,25 @@ public sealed class MAnnotationArgument<out Value : Any> {
 			MetaCodeWriter.write(this)
 	}
 
-	// TODO use property generic types once fixed: https://youtrack.jetbrains.com/issue/KT-29655
-
-	public data class UByteValue(override val value: Byte) : MAnnotationArgument<Byte>() {
+	public data class UByteValue(override val value: UByte) : MAnnotationArgument<UByte>() {
 
 		override fun toString(): String =
 			MetaCodeWriter.write(this)
 	}
 
-	public data class UIntValue(override val value: Int) : MAnnotationArgument<Int>() {
+	public data class UIntValue(override val value: UInt) : MAnnotationArgument<UInt>() {
 
 		override fun toString(): String =
 			MetaCodeWriter.write(this)
 	}
 
-	public data class ULongValue(override val value: Long) : MAnnotationArgument<Long>() {
+	public data class ULongValue(override val value: ULong) : MAnnotationArgument<ULong>() {
 
 		override fun toString(): String =
 			MetaCodeWriter.write(this)
 	}
 
-	public data class UShortValue(override val value: Short) : MAnnotationArgument<Short>() {
+	public data class UShortValue(override val value: UShort) : MAnnotationArgument<UShort>() {
 
 		override fun toString(): String =
 			MetaCodeWriter.write(this)
@@ -121,10 +119,10 @@ public sealed class MAnnotationArgument<out Value : Any> {
 
 
 @Suppress("FunctionName")
-internal fun MAnnotationArgument(argument: KmAnnotationArgument<*>): MAnnotationArgument<*> = argument.run {
+internal fun MAnnotationArgument(argument: KmAnnotationArgument): MAnnotationArgument<*> = argument.run {
 	when (this) {
-		is KmAnnotationArgument.AnnotationValue -> AnnotationValue(MAnnotation(value))
-		is KmAnnotationArgument.ArrayValue -> ArrayValue(value.map { MAnnotationArgument(it) })
+		is KmAnnotationArgument.AnnotationValue -> AnnotationValue(MAnnotation(annotation))
+		is KmAnnotationArgument.ArrayValue -> ArrayValue(elements.map { MAnnotationArgument(it) })
 		is KmAnnotationArgument.BooleanValue -> BooleanValue(value)
 		is KmAnnotationArgument.ByteValue -> ByteValue(value)
 		is KmAnnotationArgument.CharValue -> CharValue(value)
@@ -132,7 +130,7 @@ internal fun MAnnotationArgument(argument: KmAnnotationArgument<*>): MAnnotation
 		is KmAnnotationArgument.EnumValue -> EnumValue(MQualifiedTypeName.fromKotlinInternal(enumClassName), MEnumEntryName(enumEntryName))
 		is KmAnnotationArgument.FloatValue -> FloatValue(value)
 		is KmAnnotationArgument.IntValue -> IntValue(value)
-		is KmAnnotationArgument.KClassValue -> KClassValue(MQualifiedTypeName.fromKotlinInternal(value))
+		is KmAnnotationArgument.KClassValue -> KClassValue(MQualifiedTypeName.fromKotlinInternal(className)) // FIXME Support `arrayDimensionCount`.
 		is KmAnnotationArgument.LongValue -> LongValue(value)
 		is KmAnnotationArgument.ShortValue -> ShortValue(value)
 		is KmAnnotationArgument.StringValue -> StringValue(value)

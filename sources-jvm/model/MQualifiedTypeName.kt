@@ -4,7 +4,8 @@ import javax.lang.model.element.*
 import kotlin.reflect.*
 
 
-public inline class MQualifiedTypeName @PublishedApi internal constructor(public val kotlinInternal: String) {
+@JvmInline
+public value class MQualifiedTypeName @PublishedApi internal constructor(public val kotlinInternal: String) {
 
 	public constructor(packageName: MPackageName, typeName: MTypeName) : this(
 		when {

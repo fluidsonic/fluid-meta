@@ -21,7 +21,9 @@ internal class MModuleBuilder(
 
 	override fun visitAnnotation(annotation: KmAnnotation) {
 		MAnnotation(annotation).let {
-			annotations?.apply { add(it) } ?: { annotations = mutableListOf(it) }()
+			annotations?.apply { add(it) } ?: run {
+				annotations = mutableListOf(it)
+			}
 		}
 	}
 
@@ -33,7 +35,9 @@ internal class MModuleBuilder(
 				.associate { MQualifiedTypeName.fromKotlinInternal(it.key) to MQualifiedTypeName.fromKotlinInternal(it.value) },
 			name = MPackageName.fromKotlinInternal(fqName)
 		).let {
-			packages?.apply { add(it) } ?: { packages = mutableListOf(it) }()
+			packages?.apply { add(it) } ?: run {
+				packages = mutableListOf(it)
+			}
 		}
 	}
 }

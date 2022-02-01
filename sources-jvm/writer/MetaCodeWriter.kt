@@ -26,7 +26,6 @@ internal class MetaCodeWriter private constructor() {
 		when (meta) {
 			is MModule -> writeModule(meta)
 			is MType -> writeType(meta)
-			is MUnknown -> write("/* unknown meta element */")
 			else -> write("/* unknown meta element ${meta::class.java} */")
 		}
 	}
@@ -116,10 +115,10 @@ internal class MetaCodeWriter private constructor() {
 			is MAnnotationArgument.LongValue -> writeLiteral(value.value)
 			is MAnnotationArgument.ShortValue -> writeLiteral(value.value)
 			is MAnnotationArgument.StringValue -> writeLiteral(value.value)
-			is MAnnotationArgument.UByteValue -> writeLiteral(value.value.toUByte()) // TODO doesn't work properly yet
-			is MAnnotationArgument.UIntValue -> writeLiteral(value.value.toUInt()) // TODO doesn't work properly yet
-			is MAnnotationArgument.ULongValue -> writeLiteral(value.value.toULong()) // TODO doesn't work properly yet
-			is MAnnotationArgument.UShortValue -> writeLiteral(value.value.toUShort()) // TODO doesn't work properly yet
+			is MAnnotationArgument.UByteValue -> writeLiteral(value.value)
+			is MAnnotationArgument.UIntValue -> writeLiteral(value.value)
+			is MAnnotationArgument.ULongValue -> writeLiteral(value.value)
+			is MAnnotationArgument.UShortValue -> writeLiteral(value.value)
 		}
 	}
 
@@ -442,7 +441,7 @@ internal class MetaCodeWriter private constructor() {
 		write("'")
 
 		if (value.isISOControl())
-			write(String.format("\\u%04X", value.toInt()))
+			write(String.format("\\u%04X", value.code))
 		else
 			when (value) {
 				'\b' -> write("\\b")
@@ -758,11 +757,16 @@ internal class MetaCodeWriter private constructor() {
 
 		write(when (value) {
 			is MAnnotationClass -> "annotation class"
-			is MClass -> when (value.specialization) {
-				MClass.Specialization.Data -> "data class"
-				MClass.Specialization.Inner -> "inner class"
-				is MClass.Specialization.Sealed -> "sealed class"
-				null -> "class"
+			is MClass -> {
+				when (value.specialization) {
+					MClass.Specialization.Data -> "data class"
+					MClass.Specialization.Inner -> "inner class"
+					is MClass.Specialization.Sealed -> "sealed class"
+					null -> when (value.isValue) {
+						true -> "value class"
+						false -> "class"
+					}
+				}
 			}
 			is MEnumClass -> "enum class"
 			is MEnumEntryClass -> "/* enum entry */ class"

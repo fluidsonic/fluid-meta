@@ -109,8 +109,9 @@ internal class MTypeReferenceBuilder(
 	override fun visitArgument(flags: Flags, variance: KmVariance) =
 		MTypeReferenceBuilder(flags = flags)
 			.also {
-				arguments?.apply { add(TypeArgument.Type(it, variance = MVariance(variance))) }
-					?: { arguments = mutableListOf(TypeArgument.Type(it, variance = MVariance(variance))) }()
+				arguments?.apply { add(TypeArgument.Type(it, variance = MVariance(variance))) } ?: run {
+					arguments = mutableListOf(TypeArgument.Type(it, variance = MVariance(variance)))
+				}
 			}
 
 
@@ -130,8 +131,9 @@ internal class MTypeReferenceBuilder(
 
 				override fun visitAnnotation(annotation: KmAnnotation) {
 					MAnnotation(annotation).let {
-						annotations?.apply { add(it) }
-							?: { annotations = mutableListOf(it) }()
+						annotations?.apply { add(it) } ?: run {
+							annotations = mutableListOf(it)
+						}
 					}
 				}
 			}
@@ -152,8 +154,9 @@ internal class MTypeReferenceBuilder(
 
 
 	override fun visitStarProjection() {
-		arguments?.apply { add(TypeArgument.StarProjection) }
-			?: { arguments = mutableListOf(TypeArgument.StarProjection) }()
+		arguments?.apply { add(TypeArgument.StarProjection) } ?: run {
+			arguments = mutableListOf(TypeArgument.StarProjection)
+		}
 	}
 
 

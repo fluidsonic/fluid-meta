@@ -19,6 +19,8 @@ internal class MContractBuilder : KmContractVisitor() {
 			invocationKind = invocationKind
 		)
 			.also {
-				effects?.apply { add(it) } ?: { effects = mutableListOf(it) }()
+				effects?.apply { add(it) } ?: run {
+					effects = mutableListOf(it)
+				}
 			}
 }

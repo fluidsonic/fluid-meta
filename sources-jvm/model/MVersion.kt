@@ -19,13 +19,13 @@ public data class MVersion(
 	override operator fun compareTo(other: MVersion): Int =
 		when {
 			other.major > major -> 1
-			other.major > major -> -1
+			other.major < major -> -1
 			else -> when {
 				other.minor > minor -> 1
-				other.minor > minor -> -1
+				other.minor < minor -> -1
 				else -> when {
 					other.patch > patch -> 1
-					other.patch > patch -> -1
+					other.patch < patch -> -1
 					else -> 0
 				}
 			}

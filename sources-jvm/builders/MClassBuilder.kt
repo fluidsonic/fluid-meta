@@ -60,7 +60,7 @@ internal class MClassBuilder : KmClassVisitor() {
 			inheritanceRestriction = MInheritanceRestriction.forFlags(flags),
 			isExpect = Flag.Class.IS_EXPECT(flags),
 			isExternal = Flag.Class.IS_EXTERNAL(flags),
-			isInline = Flag.Class.IS_INLINE(flags),
+			isValue = Flag.Class.IS_VALUE(flags),
 			name = name ?: throw MetaException("class has no name"),
 			localDelegatedProperties = localDelegatedProperties.mapOrEmpty { it.build() },
 			properties = properties.mapOrEmpty { it.build() },
@@ -163,13 +163,16 @@ internal class MClassBuilder : KmClassVisitor() {
 	override fun visitConstructor(flags: Flags) =
 		MConstructorBuilder(flags = flags)
 			.also {
-				constructors?.apply { add(it) } ?: { constructors = mutableListOf(it) }()
+				constructors?.apply { add(it) } ?: run {
+					constructors = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitEnumEntry(name: String) {
-		enumEntryNames?.apply { add(MEnumEntryName(name)) }
-			?: { enumEntryNames = mutableListOf(MEnumEntryName(name)) }()
+		enumEntryNames?.apply { add(MEnumEntryName(name)) } ?: run {
+			enumEntryNames = mutableListOf(MEnumEntryName(name))
+		}
 	}
 
 
@@ -185,7 +188,9 @@ internal class MClassBuilder : KmClassVisitor() {
 				override fun visitLocalDelegatedProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 					MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 						.also {
-							localDelegatedProperties?.apply { add(it) } ?: { localDelegatedProperties = mutableListOf(it) }()
+							localDelegatedProperties?.apply { add(it) } ?: run {
+								localDelegatedProperties = mutableListOf(it)
+							}
 						}
 			}
 		}
@@ -194,53 +199,67 @@ internal class MClassBuilder : KmClassVisitor() {
 	override fun visitFunction(flags: Flags, name: String) =
 		MFunctionBuilder(flags = flags, name = MFunctionName(name))
 			.also {
-				functions?.apply { add(it) } ?: { functions = mutableListOf(it) }()
+				functions?.apply { add(it) } ?: run {
+					functions = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitNestedClass(name: ClassName) {
-		types?.apply { add(MTypeName.fromKotlinInternal(name)) }
-			?: { types = mutableListOf(MTypeName.fromKotlinInternal(name)) }()
+		types?.apply { add(MTypeName.fromKotlinInternal(name)) } ?: run {
+			types = mutableListOf(MTypeName.fromKotlinInternal(name))
+		}
 	}
 
 
 	override fun visitProperty(flags: Flags, name: String, getterFlags: Flags, setterFlags: Flags) =
 		MPropertyBuilder(flags = flags, getterFlags = getterFlags, name = MVariableName(name), setterFlags = setterFlags)
 			.also {
-				properties?.apply { add(it) } ?: { properties = mutableListOf(it) }()
+				properties?.apply { add(it) } ?: run {
+					properties = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitSealedSubclass(name: ClassName) {
-		sealedSubclasses?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) }
-			?: { sealedSubclasses = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name)) }()
+		sealedSubclasses?.apply { add(MQualifiedTypeName.fromKotlinInternal(name)) } ?: run {
+			sealedSubclasses = mutableListOf(MQualifiedTypeName.fromKotlinInternal(name))
+		}
 	}
 
 
 	override fun visitSupertype(flags: Flags) =
 		MTypeReferenceBuilder(flags = flags)
 			.also {
-				supertypes?.apply { add(it) } ?: { supertypes = mutableListOf(it) }()
+				supertypes?.apply { add(it) } ?: run {
+					supertypes = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitTypeAlias(flags: Flags, name: String) =
 		MTypeAliasBuilder(flags = flags, name = MQualifiedTypeName.fromKotlinInternal(name))
 			.also {
-				typeAliases?.apply { add(it) } ?: { typeAliases = mutableListOf(it) }()
+				typeAliases?.apply { add(it) } ?: run {
+					typeAliases = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitTypeParameter(flags: Flags, name: String, id: Int, variance: KmVariance) =
 		MTypeParameterBuilder(flags = flags, id = MTypeParameterId(id), name = MTypeParameterName(name), variance = MVariance(variance))
 			.also {
-				typeParameters?.apply { add(it) } ?: { typeParameters = mutableListOf(it) }()
+				typeParameters?.apply { add(it) } ?: run {
+					typeParameters = mutableListOf(it)
+				}
 			}
 
 
 	override fun visitVersionRequirement() =
 		MVersionRequirementBuilder()
 			.also {
-				versionRequirements?.apply { add(it) } ?: { versionRequirements = mutableListOf(it) }()
+				versionRequirements?.apply { add(it) } ?: run {
+					versionRequirements = mutableListOf(it)
+				}
 			}
 }

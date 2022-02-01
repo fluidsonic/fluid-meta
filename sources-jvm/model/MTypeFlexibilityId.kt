@@ -1,7 +1,8 @@
 package io.fluidsonic.meta
 
 
-public inline class MTypeFlexibilityId(public val kotlin: String) {
+@JvmInline
+public value class MTypeFlexibilityId(public val kotlin: String) {
 
 	override fun toString(): String = kotlin
 
