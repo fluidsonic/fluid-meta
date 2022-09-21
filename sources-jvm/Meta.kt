@@ -149,11 +149,13 @@ public interface Meta {
 					metadata,
 					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade")
 				)
+
 				is KotlinClassMetadata.SyntheticClass -> of(metadata)
 				is KotlinClassMetadata.MultiFileClassFacade -> of(
 					metadata,
 					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade")
 				)
+
 				is KotlinClassMetadata.MultiFileClassPart -> of(metadata)
 				is KotlinClassMetadata.Unknown -> MUnknown
 			}
@@ -273,7 +275,6 @@ public interface Meta {
 }
 
 
-@Suppress("FunctionName")
 private fun KotlinClassMetadata(metadata: Metadata) =
 	withExceptionWrapping {
 		KotlinClassMetadata.read(KotlinClassHeader(

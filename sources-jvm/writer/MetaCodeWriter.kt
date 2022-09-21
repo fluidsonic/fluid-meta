@@ -67,7 +67,7 @@ internal class MetaCodeWriter private constructor() {
 
 
 	private fun writeAnnotations(values: Collection<MAnnotation>?, inline: Boolean = false) {
-		if (values == null || values.isEmpty()) return
+		if (values.isNullOrEmpty()) return
 
 		values.forEachIndexed { index, annotation ->
 			if (index > 0) write(if (inline) " " else "\n")
@@ -97,6 +97,7 @@ internal class MetaCodeWriter private constructor() {
 					write(if (isMultiline) "\n]" else " ]")
 				}
 			}
+
 			is MAnnotationArgument.BooleanValue -> writeLiteral(value.value)
 			is MAnnotationArgument.ByteValue -> writeLiteral(value.value)
 			is MAnnotationArgument.CharValue -> writeLiteral(value.value)
@@ -106,12 +107,14 @@ internal class MetaCodeWriter private constructor() {
 				write(".")
 				writeEnumEntryName(value.entryName)
 			}
+
 			is MAnnotationArgument.FloatValue -> writeLiteral(value.value)
 			is MAnnotationArgument.IntValue -> writeLiteral(value.value)
 			is MAnnotationArgument.KClassValue -> {
 				writeQualifiedTypeName(value.value)
 				write("::class")
 			}
+
 			is MAnnotationArgument.LongValue -> writeLiteral(value.value)
 			is MAnnotationArgument.ShortValue -> writeLiteral(value.value)
 			is MAnnotationArgument.StringValue -> writeLiteral(value.value)
@@ -472,6 +475,7 @@ internal class MetaCodeWriter private constructor() {
 				write(value.toString())
 				write("f")
 			}
+
 			value.isInfinite() -> write(if (value > 0) "Float.POSITIVE_INFINITY" else "Float.NEGATIVE_INFINITY")
 			else -> write("Float.NaN")
 		}
@@ -768,6 +772,7 @@ internal class MetaCodeWriter private constructor() {
 					}
 				}
 			}
+
 			is MEnumClass -> "enum class"
 			is MEnumEntryClass -> "/* enum entry */ class"
 			is MFile -> "/* file-level declarations */"
@@ -775,16 +780,19 @@ internal class MetaCodeWriter private constructor() {
 				true -> "fun interface"
 				false -> "interface"
 			}
+
 			is MLambda -> {
 				write("/* lambda */\n\n")
 				writeFunction(value.function, resolvedTypeParameters = emptyList())
 				return
 			}
+
 			is MMultiFileClass -> "/* multi-file class */"
 			is MMultiFileClassPart -> "/* multi-file part */"
 			is MObject ->
 				if (value.isCompanion) "companion object"
 				else "object"
+
 			is MUnknown -> "/* unknown type */"
 		})
 
@@ -960,7 +968,7 @@ internal class MetaCodeWriter private constructor() {
 
 
 	private fun writeTypeArguments(values: Collection<MTypeArgument>?, resolvedTypeParameters: Collection<MTypeParameter>) {
-		if (values == null || values.isEmpty()) return
+		if (values.isNullOrEmpty()) return
 
 		write("<")
 		values.forEachIndexed { index, argument ->
@@ -1013,7 +1021,7 @@ internal class MetaCodeWriter private constructor() {
 
 
 	private fun writeTypeParameters(values: Collection<MTypeParameter>?, resolvedTypeParameters: Collection<MTypeParameter>) {
-		if (values == null || values.isEmpty()) return
+		if (values.isNullOrEmpty()) return
 
 		write("<")
 		values.forEachIndexed { index, parameter ->

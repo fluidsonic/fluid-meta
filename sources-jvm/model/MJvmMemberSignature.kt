@@ -33,7 +33,6 @@ public sealed class MJvmMemberSignature {
 }
 
 
-@Suppress("FunctionName")
 internal fun MJvmMemberSignature(signature: JvmMemberSignature) = signature.run {
 	when (this) {
 		is JvmFieldSignature -> MJvmMemberSignature(this)

@@ -18,7 +18,6 @@ public enum class MVariance {
 }
 
 
-@Suppress("FunctionName")
 internal fun MVariance(variance: KmVariance) =
 	when (variance) {
 		KmVariance.INVARIANT -> MVariance.INVARIANT
