@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------------------------------------
-// Example output for all elements for Kotlin's Standard Library 1.6.10
+// Example output for all elements for Kotlin's Standard Library 1.8.22
 // ------------------------------------------------------------------------------------------------------
 
 module `kotlin-stdlib` {
@@ -74,6 +74,7 @@ module `kotlin-stdlib` {
 			/* part */ class MapsKt__MapWithDefaultKt
 			/* part */ class MapsKt__MapsJVMKt
 			/* part */ class MapsKt__MapsKt
+			/* part */ class MapsKt___MapsJvmKt
 			/* part */ class MapsKt___MapsKt
 		}
 
@@ -132,6 +133,8 @@ module `kotlin-stdlib` {
 
 	package kotlin.coroutines.jvm.internal
 
+	package kotlin.enums
+
 	package kotlin.experimental
 
 	package kotlin.internal
@@ -144,6 +147,14 @@ module `kotlin-stdlib` {
 			/* part */ class FilesKt__FileReadWriteKt
 			/* part */ class FilesKt__FileTreeWalkKt
 			/* part */ class FilesKt__UtilsKt
+		}
+	}
+
+	package kotlin.io.encoding {
+
+		/* multipart */ class kotlin.io.encoding.StreamEncodingKt {
+
+			/* part */ class kotlin.io.encoding.StreamEncodingKt__Base64IOStreamKt
 		}
 	}
 
@@ -232,6 +243,40 @@ module `kotlin-stdlib` {
 			/* part */ class kotlin.time.DurationUnitKt__DurationUnitKt
 		}
 	}
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+module `kotlin-stdlib-jdk7` {
+
+	package kotlin
+
+	package kotlin.io.path {
+
+		/* multipart */ class kotlin.io.path.PathsKt {
+
+			/* part */ class kotlin.io.path.PathsKt__PathReadWriteKt
+			/* part */ class kotlin.io.path.PathsKt__PathRecursiveFunctionsKt
+			/* part */ class kotlin.io.path.PathsKt__PathUtilsKt
+		}
+	}
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+module `kotlin-stdlib-jdk8` {
+
+	package kotlin.collections
+
+	package kotlin.jvm
+
+	package kotlin.jvm.optionals
+
+	package kotlin.streams
+
+	package kotlin.text
+
+	package kotlin.time
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -798,8 +843,8 @@ value class kotlin.UByte : Comparable<UByte> {
 	// JVM method = compareTo-xj2QHRw(BS)I
 	inline operator fun compareTo(other: UShort): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = dec-w2LRezQ(B)B
 	inline operator fun dec(): UByte
 
@@ -841,13 +886,13 @@ value class kotlin.UByte : Comparable<UByte> {
 	// JVM method = hashCode-impl(B)I
 	/* synthesized */ open fun hashCode(): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inc-w2LRezQ(B)B
 	inline operator fun inc(): UByte
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inv-w2LRezQ(B)B
 	inline fun inv(): UByte
 
@@ -908,6 +953,10 @@ value class kotlin.UByte : Comparable<UByte> {
 	inline operator fun rangeTo(other: UByte): UIntRange
 
 	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = rangeUntil-7apg3OU(BB)Lkotlin/ranges/UIntRange;
+	inline operator fun rangeUntil(other: UByte): UIntRange
+
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = rem-7apg3OU(BB)I
 	inline operator fun rem(other: UByte): UInt
 
@@ -960,23 +1009,23 @@ value class kotlin.UByte : Comparable<UByte> {
 	// JVM method = toString-impl(B)Ljava/lang/String;
 	open fun toString(): String
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUByte-w2LRezQ(B)B
 	inline fun toUByte(): UByte
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUInt-pVg5ArA(B)I
 	inline fun toUInt(): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toULong-s-VKNKU(B)J
 	inline fun toULong(): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUShort-Mh2AYeg(B)S
 	inline fun toUShort(): UShort
 
@@ -987,7 +1036,8 @@ value class kotlin.UByte : Comparable<UByte> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.UByteArray.Iterator : UByteIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.UByteArray.Iterator : Iterator<UByte> {
 
 	// *** PROPERTIES ***
 
@@ -1009,10 +1059,10 @@ private class kotlin.UByteArray.Iterator : UByteIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUByte-w2LRezQ()B
-	open fun nextUByte(): UByte
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-w2LRezQ()B
+	open operator fun next(): UByte
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -1060,8 +1110,8 @@ value class kotlin.UByteArray : Collection<UByte> {
 	// JVM method = equals-impl([BLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-w2LRezQ([BI)B
 	operator fun get(index: Int): UByte
 
@@ -1129,8 +1179,8 @@ value class kotlin.UInt : Comparable<UInt> {
 	// JVM method = compareTo-xj2QHRw(IS)I
 	inline operator fun compareTo(other: UShort): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = dec-pVg5ArA(I)I
 	inline operator fun dec(): UInt
 
@@ -1172,13 +1222,13 @@ value class kotlin.UInt : Comparable<UInt> {
 	// JVM method = hashCode-impl(I)I
 	/* synthesized */ open fun hashCode(): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inc-pVg5ArA(I)I
 	inline operator fun inc(): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inv-pVg5ArA(I)I
 	inline fun inv(): UInt
 
@@ -1239,6 +1289,10 @@ value class kotlin.UInt : Comparable<UInt> {
 	inline operator fun rangeTo(other: UInt): UIntRange
 
 	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = rangeUntil-WZ4Q5Ns(II)Lkotlin/ranges/UIntRange;
+	inline operator fun rangeUntil(other: UInt): UIntRange
+
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = rem-7apg3OU(IB)I
 	inline operator fun rem(other: UByte): UInt
 
@@ -1254,13 +1308,13 @@ value class kotlin.UInt : Comparable<UInt> {
 	// JVM method = rem-xj2QHRw(IS)I
 	inline operator fun rem(other: UShort): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = shl-pVg5ArA(II)I
 	inline infix fun shl(bitCount: Int): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = shr-pVg5ArA(II)I
 	inline infix fun shr(bitCount: Int): UInt
 
@@ -1301,23 +1355,23 @@ value class kotlin.UInt : Comparable<UInt> {
 	// JVM method = toString-impl(I)Ljava/lang/String;
 	open fun toString(): String
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUByte-w2LRezQ(I)B
 	inline fun toUByte(): UByte
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUInt-pVg5ArA(I)I
 	inline fun toUInt(): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toULong-s-VKNKU(I)J
 	inline fun toULong(): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUShort-Mh2AYeg(I)S
 	inline fun toUShort(): UShort
 
@@ -1328,7 +1382,8 @@ value class kotlin.UInt : Comparable<UInt> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.UIntArray.Iterator : UIntIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.UIntArray.Iterator : Iterator<UInt> {
 
 	// *** PROPERTIES ***
 
@@ -1350,10 +1405,10 @@ private class kotlin.UIntArray.Iterator : UIntIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUInt-pVg5ArA()I
-	open fun nextUInt(): UInt
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-pVg5ArA()I
+	open operator fun next(): UInt
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -1401,8 +1456,8 @@ value class kotlin.UIntArray : Collection<UInt> {
 	// JVM method = equals-impl([ILjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-pVg5ArA([II)I
 	operator fun get(index: Int): UInt
 
@@ -1470,8 +1525,8 @@ value class kotlin.ULong : Comparable<ULong> {
 	// JVM method = compareTo-xj2QHRw(JS)I
 	inline operator fun compareTo(other: UShort): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = dec-s-VKNKU(J)J
 	inline operator fun dec(): ULong
 
@@ -1513,13 +1568,13 @@ value class kotlin.ULong : Comparable<ULong> {
 	// JVM method = hashCode-impl(J)I
 	/* synthesized */ open fun hashCode(): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inc-s-VKNKU(J)J
 	inline operator fun inc(): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inv-s-VKNKU(J)J
 	inline fun inv(): ULong
 
@@ -1580,6 +1635,10 @@ value class kotlin.ULong : Comparable<ULong> {
 	inline operator fun rangeTo(other: ULong): ULongRange
 
 	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = rangeUntil-VKZWuLQ(JJ)Lkotlin/ranges/ULongRange;
+	inline operator fun rangeUntil(other: ULong): ULongRange
+
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = rem-7apg3OU(JB)J
 	inline operator fun rem(other: UByte): ULong
 
@@ -1595,13 +1654,13 @@ value class kotlin.ULong : Comparable<ULong> {
 	// JVM method = rem-xj2QHRw(JS)J
 	inline operator fun rem(other: UShort): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = shl-s-VKNKU(JI)J
 	inline infix fun shl(bitCount: Int): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = shr-s-VKNKU(JI)J
 	inline infix fun shr(bitCount: Int): ULong
 
@@ -1642,23 +1701,23 @@ value class kotlin.ULong : Comparable<ULong> {
 	// JVM method = toString-impl(J)Ljava/lang/String;
 	open fun toString(): String
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUByte-w2LRezQ(J)B
 	inline fun toUByte(): UByte
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUInt-pVg5ArA(J)I
 	inline fun toUInt(): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toULong-s-VKNKU(J)J
 	inline fun toULong(): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUShort-Mh2AYeg(J)S
 	inline fun toUShort(): UShort
 
@@ -1669,7 +1728,8 @@ value class kotlin.ULong : Comparable<ULong> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.ULongArray.Iterator : ULongIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.ULongArray.Iterator : Iterator<ULong> {
 
 	// *** PROPERTIES ***
 
@@ -1691,10 +1751,10 @@ private class kotlin.ULongArray.Iterator : ULongIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextULong-s-VKNKU()J
-	open fun nextULong(): ULong
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-s-VKNKU()J
+	open operator fun next(): ULong
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -1742,8 +1802,8 @@ value class kotlin.ULongArray : Collection<ULong> {
 	// JVM method = equals-impl([JLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-s-VKNKU([JI)J
 	operator fun get(index: Int): ULong
 
@@ -1811,8 +1871,8 @@ value class kotlin.UShort : Comparable<UShort> {
 	// JVM method = compareTo-xj2QHRw(SS)I
 	open inline operator fun compareTo(other: UShort): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = dec-Mh2AYeg(S)S
 	inline operator fun dec(): UShort
 
@@ -1854,13 +1914,13 @@ value class kotlin.UShort : Comparable<UShort> {
 	// JVM method = hashCode-impl(S)I
 	/* synthesized */ open fun hashCode(): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inc-Mh2AYeg(S)S
 	inline operator fun inc(): UShort
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = inv-Mh2AYeg(S)S
 	inline fun inv(): UShort
 
@@ -1921,6 +1981,10 @@ value class kotlin.UShort : Comparable<UShort> {
 	inline operator fun rangeTo(other: UShort): UIntRange
 
 	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = rangeUntil-xj2QHRw(SS)Lkotlin/ranges/UIntRange;
+	inline operator fun rangeUntil(other: UShort): UIntRange
+
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = rem-7apg3OU(SB)I
 	inline operator fun rem(other: UByte): UInt
 
@@ -1973,23 +2037,23 @@ value class kotlin.UShort : Comparable<UShort> {
 	// JVM method = toString-impl(S)Ljava/lang/String;
 	open fun toString(): String
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUByte-w2LRezQ(S)B
 	inline fun toUByte(): UByte
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUInt-pVg5ArA(S)I
 	inline fun toUInt(): UInt
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toULong-s-VKNKU(S)J
 	inline fun toULong(): ULong
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = toUShort-Mh2AYeg(S)S
 	inline fun toUShort(): UShort
 
@@ -2000,7 +2064,8 @@ value class kotlin.UShort : Comparable<UShort> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.UShortArray.Iterator : UShortIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.UShortArray.Iterator : Iterator<UShort> {
 
 	// *** PROPERTIES ***
 
@@ -2022,10 +2087,10 @@ private class kotlin.UShortArray.Iterator : UShortIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUShort-Mh2AYeg()S
-	open fun nextUShort(): UShort
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-Mh2AYeg()S
+	open operator fun next(): UShort
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -2073,8 +2138,8 @@ value class kotlin.UShortArray : Collection<UShort> {
 	// JVM method = equals-impl([SLjava/lang/Object;)Z
 	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-Mh2AYeg([SI)S
 	operator fun get(index: Int): UShort
 
@@ -3852,102 +3917,6 @@ abstract class kotlin.collections.ShortIterator : Iterator<Short> {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires language version >= 1.3, otherwise diagnostic error
-abstract class kotlin.collections.UByteIterator : Iterator<UByte> {
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>()V
-	constructor()
-
-
-	// *** FUNCTIONS ***
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = next-w2LRezQ()B
-	operator fun next(): UByte
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUByte-w2LRezQ()B
-	abstract fun nextUByte(): UByte
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// requires language version >= 1.3, otherwise diagnostic error
-abstract class kotlin.collections.UIntIterator : Iterator<UInt> {
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>()V
-	constructor()
-
-
-	// *** FUNCTIONS ***
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = next-pVg5ArA()I
-	operator fun next(): UInt
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUInt-pVg5ArA()I
-	abstract fun nextUInt(): UInt
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// requires language version >= 1.3, otherwise diagnostic error
-abstract class kotlin.collections.ULongIterator : Iterator<ULong> {
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>()V
-	constructor()
-
-
-	// *** FUNCTIONS ***
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = next-s-VKNKU()J
-	operator fun next(): ULong
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextULong-s-VKNKU()J
-	abstract fun nextULong(): ULong
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// requires language version >= 1.3, otherwise diagnostic error
-abstract class kotlin.collections.UShortIterator : Iterator<UShort> {
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>()V
-	constructor()
-
-
-	// *** FUNCTIONS ***
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = next-Mh2AYeg()S
-	operator fun next(): UShort
-
-	// requires language version >= 1.3, otherwise diagnostic error
-	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUShort-Mh2AYeg()S
-	abstract fun nextUShort(): UShort
-}
-
-// ------------------------------------------------------------------------------------------------------
-
 internal abstract class kotlin.collections.builders.AbstractMapBuilderEntrySet<E : Map.Entry<K, V>, K, V> : AbstractMutableSet<E : Map.Entry<K, V>> {
 
 	// *** CONSTRUCTORS ***
@@ -4325,8 +4294,8 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V>, 
 
 	// *** PROPERTIES ***
 
-	private val capacity: Int
-		// JVM method = getCapacity()I
+	internal val capacity: Int
+		// JVM method = getCapacity$kotlin_stdlib()I
 		get() = /* non-default */
 
 	open val entries: MutableSet<MutableMap.MutableEntry<K, V>>
@@ -4499,6 +4468,9 @@ internal class kotlin.collections.builders.MapBuilder<K, V> : MutableMap<K, V>, 
 
 	// JVM method = removeValue$kotlin_stdlib(Ljava/lang/Object;)Z
 	internal fun removeValue(element: V): Boolean
+
+	// JVM method = shouldCompact(I)Z
+	private fun shouldCompact(extraCapacity: Int): Boolean
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
@@ -4821,8 +4793,8 @@ internal class kotlin.collections.builders.SetBuilder<E> :
 	// JVM method = contains-WZ4Q5Ns(I)Z
 	open operator fun contains(element: UInt): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-pVg5ArA(I)I
 	open operator fun get(index: Int): UInt
 
@@ -4856,8 +4828,8 @@ internal class kotlin.collections.builders.SetBuilder<E> :
 	// JVM method = contains-VKZWuLQ(J)Z
 	open operator fun contains(element: ULong): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-s-VKNKU(I)J
 	open operator fun get(index: Int): ULong
 
@@ -4891,8 +4863,8 @@ internal class kotlin.collections.builders.SetBuilder<E> :
 	// JVM method = contains-7apg3OU(B)Z
 	open operator fun contains(element: UByte): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-w2LRezQ(I)B
 	open operator fun get(index: Int): UByte
 
@@ -4926,8 +4898,8 @@ internal class kotlin.collections.builders.SetBuilder<E> :
 	// JVM method = contains-xj2QHRw(S)Z
 	open operator fun contains(element: UShort): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = get-Mh2AYeg(I)S
 	open operator fun get(index: Int): UShort
 
@@ -5504,6 +5476,81 @@ internal abstract class kotlin.coroutines.jvm.internal.SuspendLambda :
 
 // ------------------------------------------------------------------------------------------------------
 
+private class kotlin.enums.EnumEntriesList<T : Enum<T>> :
+	kotlin.enums.EnumEntries<T : Enum<T>>,
+	AbstractList<T : Enum<T>>,
+	Serializable /* = java.io.Serializable */ {
+
+	// *** PROPERTIES ***
+
+	// JVM field = _entries:[Ljava/lang/Enum;
+	private var _entries: Array<T : Enum<T>>?
+
+	private val entries: Array<T : Enum<T>>
+		// JVM method = getEntries()[Ljava/lang/Enum;
+		get() = /* non-default */
+
+	// JVM field = entriesProvider:Lkotlin/jvm/functions/Function0;
+	private val entriesProvider: () -> Array<T : Enum<T>>
+
+	open val size: Int
+		// JVM method = getSize()I
+		get() = /* non-default */
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Lkotlin/jvm/functions/Function0;)V
+	constructor(entriesProvider: () -> Array<T : Enum<T>>)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = contains(Ljava/lang/Enum;)Z
+	open operator fun contains(element: T : Enum<T>): Boolean
+
+	// JVM method = get(I)Ljava/lang/Enum;
+	open operator fun get(index: Int): T : Enum<T>
+
+	// JVM method = indexOf(Ljava/lang/Enum;)I
+	open fun indexOf(element: T : Enum<T>): Int
+
+	// JVM method = lastIndexOf(Ljava/lang/Enum;)I
+	open fun lastIndexOf(element: T : Enum<T>): Int
+
+	// JVM method = writeReplace()Ljava/lang/Object;
+	private fun writeReplace(): Any
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal class kotlin.enums.EnumEntriesSerializationProxy<E : Enum<E>> : Serializable /* = java.io.Serializable */ {
+
+	// *** NESTED TYPES ***
+
+	companion object
+
+
+	// *** PROPERTIES ***
+
+	// JVM field = c:Ljava/lang/Class;
+	private val c: java.lang.Class<E : Enum<E>>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>([Ljava/lang/Enum;)V
+	constructor(entries: Array<E : Enum<E>>)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = readResolve()Ljava/lang/Object;
+	private fun readResolve(): Any
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 internal open class kotlin.internal.PlatformImplementations {
 
 	// *** NESTED TYPES ***
@@ -5953,6 +6000,225 @@ private class kotlin.io.TerminateException : FileSystemException {
 
 	// JVM method = <init>(Ljava/io/File;)V
 	constructor(file: java.io.File)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+open class kotlin.io.encoding.Base64 {
+
+	// *** NESTED TYPES ***
+
+	companion object Default
+
+
+	// *** PROPERTIES ***
+
+	// JVM field = isMimeScheme:Z
+	internal val isMimeScheme: Boolean
+
+	// JVM field = isUrlSafe:Z
+	internal val isUrlSafe: Boolean
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(ZZ)V
+	private constructor(isUrlSafe: Boolean, isMimeScheme: Boolean)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = bytesToStringImpl$kotlin_stdlib([B)Ljava/lang/String;
+	internal fun bytesToStringImpl(source: ByteArray): String
+
+	// JVM method = charsToBytesImpl$kotlin_stdlib(Ljava/lang/CharSequence;II)[B
+	internal fun charsToBytesImpl(source: CharSequence, startIndex: Int, endIndex: Int): ByteArray
+
+	// JVM method = checkDestinationBounds(III)V
+	private fun checkDestinationBounds(destinationSize: Int, destinationOffset: Int, capacityNeeded: Int)
+
+	// JVM method = checkSourceBounds$kotlin_stdlib(III)V
+	internal fun checkSourceBounds(sourceSize: Int, startIndex: Int, endIndex: Int)
+
+	// JVM method = decode([BII)[B
+	fun decode(source: ByteArray, startIndex: Int /* = default */, endIndex: Int /* = default */): ByteArray
+
+	// JVM method = decode(Ljava/lang/CharSequence;II)[B
+	fun decode(source: CharSequence, startIndex: Int /* = default */, endIndex: Int /* = default */): ByteArray
+
+	// JVM method = decodeImpl([B[BIII)I
+	private fun decodeImpl(source: ByteArray, destination: ByteArray, destinationOffset: Int, startIndex: Int, endIndex: Int): Int
+
+	// JVM method = decodeIntoByteArray([B[BIII)I
+	fun decodeIntoByteArray(source: ByteArray, destination: ByteArray, destinationOffset: Int /* = default */, startIndex: Int /* = default */, endIndex: Int /* = default */): Int
+
+	// JVM method = decodeIntoByteArray(Ljava/lang/CharSequence;[BIII)I
+	fun decodeIntoByteArray(source: CharSequence, destination: ByteArray, destinationOffset: Int /* = default */, startIndex: Int /* = default */, endIndex: Int /* = default */): Int
+
+	// JVM method = decodeSize([BII)I
+	private fun decodeSize(source: ByteArray, startIndex: Int, endIndex: Int): Int
+
+	// JVM method = encode([BII)Ljava/lang/String;
+	fun encode(source: ByteArray, startIndex: Int /* = default */, endIndex: Int /* = default */): String
+
+	// JVM method = encodeIntoByteArray([B[BIII)I
+	fun encodeIntoByteArray(source: ByteArray, destination: ByteArray, destinationOffset: Int /* = default */, startIndex: Int /* = default */, endIndex: Int /* = default */): Int
+
+	// JVM method = encodeIntoByteArrayImpl$kotlin_stdlib([B[BIII)I
+	internal fun encodeIntoByteArrayImpl(source: ByteArray, destination: ByteArray, destinationOffset: Int, startIndex: Int, endIndex: Int): Int
+
+	// JVM method = encodeSize(I)I
+	private fun encodeSize(sourceSize: Int): Int
+
+	// JVM method = encodeToAppendable([BLjava/lang/Appendable;II)Ljava/lang/Appendable;
+	fun <A : Appendable /* = java.lang.Appendable */> encodeToAppendable(source: ByteArray, destination: A : Appendable /* = java.lang.Appendable */, startIndex: Int /* = default */, endIndex: Int /* = default */): A : Appendable /* = java.lang.Appendable */
+
+	// JVM method = encodeToByteArray([BII)[B
+	fun encodeToByteArray(source: ByteArray, startIndex: Int /* = default */, endIndex: Int /* = default */): ByteArray
+
+	// JVM method = encodeToByteArrayImpl$kotlin_stdlib([BII)[B
+	internal fun encodeToByteArrayImpl(source: ByteArray, startIndex: Int, endIndex: Int): ByteArray
+
+	// JVM method = handlePaddingSymbol([BIII)I
+	private fun handlePaddingSymbol(source: ByteArray, padIndex: Int, endIndex: Int, byteStart: Int): Int
+
+	// JVM method = skipIllegalSymbolsIfMime([BII)I
+	private fun skipIllegalSymbolsIfMime(source: ByteArray, startIndex: Int, endIndex: Int): Int
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.encoding.DecodeInputStream : java.io.InputStream {
+
+	// *** PROPERTIES ***
+
+	// JVM field = base64:Lkotlin/io/encoding/Base64;
+	private val base64: kotlin.io.encoding.Base64
+
+	// JVM field = byteBuffer:[B
+	private val byteBuffer: ByteArray
+
+	// JVM field = byteBufferEndIndex:I
+	private var byteBufferEndIndex: Int
+
+	private val byteBufferLength: Int
+		// JVM method = getByteBufferLength()I
+		get() = /* non-default */
+
+	// JVM field = byteBufferStartIndex:I
+	private var byteBufferStartIndex: Int
+
+	// JVM field = input:Ljava/io/InputStream;
+	private val input: java.io.InputStream
+
+	// JVM field = isClosed:Z
+	private var isClosed: Boolean
+
+	// JVM field = isEOF:Z
+	private var isEOF: Boolean
+
+	// JVM field = singleByteBuffer:[B
+	private val singleByteBuffer: ByteArray
+
+	// JVM field = symbolBuffer:[B
+	private val symbolBuffer: ByteArray
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/io/InputStream;Lkotlin/io/encoding/Base64;)V
+	constructor(input: java.io.InputStream, base64: kotlin.io.encoding.Base64)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = close()V
+	open fun close()
+
+	// JVM method = copyByteBufferInto([BII)V
+	private fun copyByteBufferInto(dst: ByteArray, dstOffset: Int, length: Int)
+
+	// JVM method = decodeSymbolBufferInto([BIII)I
+	private fun decodeSymbolBufferInto(dst: ByteArray, dstOffset: Int, dstEndIndex: Int, symbolBufferLength: Int): Int
+
+	// JVM method = handlePaddingSymbol(I)I
+	private fun handlePaddingSymbol(symbolBufferLength: Int): Int
+
+	// JVM method = read()I
+	open fun read(): Int
+
+	// JVM method = read([BII)I
+	open fun read(destination: ByteArray, offset: Int, length: Int): Int
+
+	// JVM method = readNextSymbol()I
+	private fun readNextSymbol(): Int
+
+	// JVM method = resetByteBufferIfEmpty()V
+	private fun resetByteBufferIfEmpty()
+
+	// JVM method = shiftByteBufferToStartIfNeeded()V
+	private fun shiftByteBufferToStartIfNeeded()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.encoding.EncodeOutputStream : java.io.OutputStream {
+
+	// *** PROPERTIES ***
+
+	// JVM field = base64:Lkotlin/io/encoding/Base64;
+	private val base64: kotlin.io.encoding.Base64
+
+	// JVM field = byteBuffer:[B
+	private val byteBuffer: ByteArray
+
+	// JVM field = byteBufferLength:I
+	private var byteBufferLength: Int
+
+	// JVM field = isClosed:Z
+	private var isClosed: Boolean
+
+	// JVM field = lineLength:I
+	private var lineLength: Int
+
+	// JVM field = output:Ljava/io/OutputStream;
+	private val output: java.io.OutputStream
+
+	// JVM field = symbolBuffer:[B
+	private val symbolBuffer: ByteArray
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/io/OutputStream;Lkotlin/io/encoding/Base64;)V
+	constructor(output: java.io.OutputStream, base64: kotlin.io.encoding.Base64)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = checkOpen()V
+	private fun checkOpen()
+
+	// JVM method = close()V
+	open fun close()
+
+	// JVM method = copyIntoByteBuffer([BII)I
+	private fun copyIntoByteBuffer(source: ByteArray, startIndex: Int, endIndex: Int): Int
+
+	// JVM method = encodeByteBufferIntoOutput()V
+	private fun encodeByteBufferIntoOutput()
+
+	// JVM method = encodeIntoOutput([BII)I
+	private fun encodeIntoOutput(source: ByteArray, startIndex: Int, endIndex: Int): Int
+
+	// JVM method = flush()V
+	open fun flush()
+
+	// JVM method = write([BII)V
+	open fun write(source: ByteArray, offset: Int, length: Int)
+
+	// JVM method = write(I)V
+	open fun write(b: Int)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -7251,7 +7517,10 @@ internal class kotlin.ranges.CharProgressionIterator : CharIterator {
 
 // ------------------------------------------------------------------------------------------------------
 
-class kotlin.ranges.CharRange : CharProgression, ClosedRange<Char> {
+class kotlin.ranges.CharRange :
+	CharProgression,
+	ClosedRange<Char>,
+	OpenEndRange<Char> {
 
 	// *** NESTED TYPES ***
 
@@ -7259,6 +7528,11 @@ class kotlin.ranges.CharRange : CharProgression, ClosedRange<Char> {
 
 
 	// *** PROPERTIES ***
+
+	// JVM annotation-holding method = getEndExclusive$annotations()V
+	open val endExclusive: Char
+		// JVM method = getEndExclusive()Ljava/lang/Character;
+		get() = /* non-default */
 
 	open val endInclusive: Char
 		// JVM method = getEndInclusive()Ljava/lang/Character;
@@ -7391,6 +7665,37 @@ private class kotlin.ranges.ClosedFloatRange : ClosedFloatingPointRange<Float> {
 
 // ------------------------------------------------------------------------------------------------------
 
+private open class kotlin.ranges.ComparableOpenEndRange<T : Comparable<T>> : OpenEndRange<T : Comparable<T>> {
+
+	// *** PROPERTIES ***
+
+	// JVM field = endExclusive:Ljava/lang/Comparable;
+	open val endExclusive: T : Comparable<T>
+
+	// JVM field = start:Ljava/lang/Comparable;
+	open val start: T : Comparable<T>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
+	constructor(start: T : Comparable<T>, endExclusive: T : Comparable<T>)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = equals(Ljava/lang/Object;)Z
+	open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	open fun hashCode(): Int
+
+	// JVM method = toString()Ljava/lang/String;
+	open fun toString(): String
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private open class kotlin.ranges.ComparableRange<T : Comparable<T>> : ClosedRange<T : Comparable<T>> {
 
 	// *** PROPERTIES ***
@@ -7501,7 +7806,10 @@ internal class kotlin.ranges.IntProgressionIterator : IntIterator {
 
 // ------------------------------------------------------------------------------------------------------
 
-class kotlin.ranges.IntRange : IntProgression, ClosedRange<Int> {
+class kotlin.ranges.IntRange :
+	IntProgression,
+	ClosedRange<Int>,
+	OpenEndRange<Int> {
 
 	// *** NESTED TYPES ***
 
@@ -7509,6 +7817,11 @@ class kotlin.ranges.IntRange : IntProgression, ClosedRange<Int> {
 
 
 	// *** PROPERTIES ***
+
+	// JVM annotation-holding method = getEndExclusive$annotations()V
+	open val endExclusive: Int
+		// JVM method = getEndExclusive()Ljava/lang/Integer;
+		get() = /* non-default */
 
 	open val endInclusive: Int
 		// JVM method = getEndInclusive()Ljava/lang/Integer;
@@ -7624,7 +7937,10 @@ internal class kotlin.ranges.LongProgressionIterator : LongIterator {
 
 // ------------------------------------------------------------------------------------------------------
 
-class kotlin.ranges.LongRange : LongProgression, ClosedRange<Long> {
+class kotlin.ranges.LongRange :
+	LongProgression,
+	ClosedRange<Long>,
+	OpenEndRange<Long> {
 
 	// *** NESTED TYPES ***
 
@@ -7632,6 +7948,11 @@ class kotlin.ranges.LongRange : LongProgression, ClosedRange<Long> {
 
 
 	// *** PROPERTIES ***
+
+	// JVM annotation-holding method = getEndExclusive$annotations()V
+	open val endExclusive: Long
+		// JVM method = getEndExclusive()Ljava/lang/Long;
+		get() = /* non-default */
 
 	open val endInclusive: Long
 		// JVM method = getEndInclusive()Ljava/lang/Long;
@@ -7661,6 +7982,102 @@ class kotlin.ranges.LongRange : LongProgression, ClosedRange<Long> {
 
 	// JVM method = isEmpty()Z
 	open fun isEmpty(): Boolean
+
+	// JVM method = toString()Ljava/lang/String;
+	open fun toString(): String
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.ranges.OpenEndDoubleRange : OpenEndRange<Double> {
+
+	// *** PROPERTIES ***
+
+	// JVM field = _endExclusive:D
+	private val _endExclusive: Double
+
+	// JVM field = _start:D
+	private val _start: Double
+
+	open val endExclusive: Double
+		// JVM method = getEndExclusive()Ljava/lang/Double;
+		get() = /* non-default */
+
+	open val start: Double
+		// JVM method = getStart()Ljava/lang/Double;
+		get() = /* non-default */
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(DD)V
+	constructor(start: Double, endExclusive: Double)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = contains(D)Z
+	open operator fun contains(value: Double): Boolean
+
+	// JVM method = equals(Ljava/lang/Object;)Z
+	open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	open fun hashCode(): Int
+
+	// JVM method = isEmpty()Z
+	open fun isEmpty(): Boolean
+
+	// JVM method = lessThanOrEquals(DD)Z
+	private fun lessThanOrEquals(a: Double, b: Double): Boolean
+
+	// JVM method = toString()Ljava/lang/String;
+	open fun toString(): String
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.ranges.OpenEndFloatRange : OpenEndRange<Float> {
+
+	// *** PROPERTIES ***
+
+	// JVM field = _endExclusive:F
+	private val _endExclusive: Float
+
+	// JVM field = _start:F
+	private val _start: Float
+
+	open val endExclusive: Float
+		// JVM method = getEndExclusive()Ljava/lang/Float;
+		get() = /* non-default */
+
+	open val start: Float
+		// JVM method = getStart()Ljava/lang/Float;
+		get() = /* non-default */
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(FF)V
+	constructor(start: Float, endExclusive: Float)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = contains(F)Z
+	open operator fun contains(value: Float): Boolean
+
+	// JVM method = equals(Ljava/lang/Object;)Z
+	open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	open fun hashCode(): Int
+
+	// JVM method = isEmpty()Z
+	open fun isEmpty(): Boolean
+
+	// JVM method = lessThanOrEquals(FF)Z
+	private fun lessThanOrEquals(a: Float, b: Float): Boolean
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
@@ -7720,7 +8137,8 @@ open class kotlin.ranges.UIntProgression : Iterable<UInt> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.ranges.UIntProgressionIterator : UIntIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.ranges.UIntProgressionIterator : Iterator<UInt> {
 
 	// *** PROPERTIES ***
 
@@ -7755,16 +8173,19 @@ private class kotlin.ranges.UIntProgressionIterator : UIntIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextUInt-pVg5ArA()I
-	open fun nextUInt(): UInt
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-pVg5ArA()I
+	open operator fun next(): UInt
 }
 
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-class kotlin.ranges.UIntRange : UIntProgression, ClosedRange<UInt> {
+class kotlin.ranges.UIntRange :
+	UIntProgression,
+	ClosedRange<UInt>,
+	OpenEndRange<UInt> {
 
 	// *** NESTED TYPES ***
 
@@ -7772,6 +8193,13 @@ class kotlin.ranges.UIntRange : UIntProgression, ClosedRange<UInt> {
 
 
 	// *** PROPERTIES ***
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getEndExclusive-pVg5ArA$annotations()V
+	open val endExclusive: UInt
+		// JVM method = getEndExclusive-pVg5ArA()I
+		get() = /* non-default */
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
@@ -7866,7 +8294,8 @@ open class kotlin.ranges.ULongProgression : Iterable<ULong> {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.ranges.ULongProgressionIterator : ULongIterator {
+// requires language version >= 1.3, otherwise diagnostic error
+private class kotlin.ranges.ULongProgressionIterator : Iterator<ULong> {
 
 	// *** PROPERTIES ***
 
@@ -7901,16 +8330,19 @@ private class kotlin.ranges.ULongProgressionIterator : ULongIterator {
 	// JVM method = hasNext()Z
 	open operator fun hasNext(): Boolean
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = nextULong-s-VKNKU()J
-	open fun nextULong(): ULong
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = next-s-VKNKU()J
+	open operator fun next(): ULong
 }
 
 // ------------------------------------------------------------------------------------------------------
 
 // requires language version >= 1.3, otherwise diagnostic error
-class kotlin.ranges.ULongRange : ULongProgression, ClosedRange<ULong> {
+class kotlin.ranges.ULongRange :
+	ULongProgression,
+	ClosedRange<ULong>,
+	OpenEndRange<ULong> {
 
 	// *** NESTED TYPES ***
 
@@ -7918,6 +8350,13 @@ class kotlin.ranges.ULongRange : ULongProgression, ClosedRange<ULong> {
 
 
 	// *** PROPERTIES ***
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// requires language version >= 1.4, otherwise diagnostic error
+	// JVM annotation-holding method = getEndExclusive-s-VKNKU$annotations()V
+	open val endExclusive: ULong
+		// JVM method = getEndExclusive-s-VKNKU()J
+		get() = /* non-default */
 
 	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
@@ -8103,9 +8542,6 @@ private class kotlin.reflect.TypeVariableImpl : java.lang.reflect.TypeVariable<j
 
 	// JVM method = equals(Ljava/lang/Object;)Z
 	open operator fun equals(other: Any?): Boolean
-
-	// JVM method = getAnnotatedBounds()[Ljava/lang/annotation/Annotation;
-	fun getAnnotatedBounds(): Array<Annotation>
 
 	// JVM method = getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 	fun <T : Annotation> getAnnotation(annotationClass: java.lang.Class<T : Annotation>): T : Annotation?
@@ -8703,17 +9139,6 @@ abstract class kotlin.sequences.SequenceScope<in T> {
 	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = yieldAll(Lkotlin/sequences/Sequence;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	suspend fun yieldAll(sequence: Sequence<in T>)
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// anonymous object origin: SequencesKt__SequencesKt$Sequence$1
-/* local */ class kotlin.sequences.SequencesKt__SequencesKt$Sequence$1 : Sequence<T#0> {
-
-	// *** FUNCTIONS ***
-
-	// JVM method = iterator()Ljava/util/Iterator;
-	open operator fun iterator(): Iterator<T#0>
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -9518,7 +9943,7 @@ class kotlin.text.Regex : Serializable /* = java.io.Serializable */ {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.TimeMark {
+private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.ComparableTimeMark {
 
 	// *** PROPERTIES ***
 
@@ -9543,19 +9968,33 @@ private class kotlin.time.AbstractDoubleTimeSource.DoubleTimeMark : kotlin.time.
 
 	// *** FUNCTIONS ***
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
+	// JVM method = equals(Ljava/lang/Object;)Z
+	open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	open fun hashCode(): Int
+
+	// requires language version >= 1.4, otherwise diagnostic error
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+	// JVM method = minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
+	open operator fun minus(other: kotlin.time.ComparableTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
+	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.ComparableTimeMark
+
+	// JVM method = toString()Ljava/lang/String;
+	open fun toString(): String
 }
 
 // ------------------------------------------------------------------------------------------------------
 
-abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource {
+abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource.WithComparableMarks {
 
 	// *** NESTED TYPES ***
 
@@ -9576,8 +10015,8 @@ abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource {
 
 	// *** FUNCTIONS ***
 
-	// JVM method = markNow()Lkotlin/time/TimeMark;
-	open fun markNow(): kotlin.time.TimeMark
+	// JVM method = markNow()Lkotlin/time/ComparableTimeMark;
+	open fun markNow(): kotlin.time.ComparableTimeMark
 
 	// JVM method = read()D
 	protected abstract fun read(): Double
@@ -9585,7 +10024,7 @@ abstract class kotlin.time.AbstractDoubleTimeSource : kotlin.time.TimeSource {
 
 // ------------------------------------------------------------------------------------------------------
 
-private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.TimeMark {
+private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.ComparableTimeMark {
 
 	// *** PROPERTIES ***
 
@@ -9610,19 +10049,38 @@ private class kotlin.time.AbstractLongTimeSource.LongTimeMark : kotlin.time.Time
 
 	// *** FUNCTIONS ***
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = effectiveDuration-UwyO8pc$kotlin_stdlib()J
+	internal fun effectiveDuration(): kotlin.time.Duration
+
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
+	// JVM method = equals(Ljava/lang/Object;)Z
+	open operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	open fun hashCode(): Int
+
+	// requires language version >= 1.4, otherwise diagnostic error
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+	// JVM method = minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
+	open operator fun minus(other: kotlin.time.ComparableTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
+	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.ComparableTimeMark
+
+	// JVM method = toString()Ljava/lang/String;
+	open fun toString(): String
 }
 
 // ------------------------------------------------------------------------------------------------------
 
-abstract class kotlin.time.AbstractLongTimeSource : kotlin.time.TimeSource {
+abstract class kotlin.time.AbstractLongTimeSource : kotlin.time.TimeSource.WithComparableMarks {
 
 	// *** NESTED TYPES ***
 
@@ -9643,8 +10101,8 @@ abstract class kotlin.time.AbstractLongTimeSource : kotlin.time.TimeSource {
 
 	// *** FUNCTIONS ***
 
-	// JVM method = markNow()Lkotlin/time/TimeMark;
-	open fun markNow(): kotlin.time.TimeMark
+	// JVM method = markNow()Lkotlin/time/ComparableTimeMark;
+	open fun markNow(): kotlin.time.ComparableTimeMark
 
 	// JVM method = read()J
 	protected abstract fun read(): Long
@@ -9674,8 +10132,8 @@ private class kotlin.time.AdjustedTimeMark : kotlin.time.TimeMark {
 
 	// *** FUNCTIONS ***
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = elapsedNow-UwyO8pc()J
 	open fun elapsedNow(): kotlin.time.Duration
 
@@ -9810,8 +10268,8 @@ value class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 
 	// *** FUNCTIONS ***
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = addValuesMixedRanges-UwyO8pc(JJJ)J
 	private fun addValuesMixedRanges(thisMillis: Long, otherNanos: Long): kotlin.time.Duration
 
@@ -9819,13 +10277,13 @@ value class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 	// JVM method = compareTo-LRDsOJo(JJ)I
 	open operator fun compareTo(other: kotlin.time.Duration): Int
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = div-UwyO8pc(JD)J
 	operator fun div(scale: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = div-UwyO8pc(JI)J
 	operator fun div(scale: Int): kotlin.time.Duration
 
@@ -9865,13 +10323,13 @@ value class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 	// JVM method = plus-LRDsOJo(JJ)J
 	operator fun plus(other: kotlin.time.Duration): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = times-UwyO8pc(JD)J
 	operator fun times(scale: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = times-UwyO8pc(JI)J
 	operator fun times(scale: Int): kotlin.time.Duration
 
@@ -9931,8 +10389,8 @@ value class kotlin.time.Duration : Comparable<kotlin.time.Duration> {
 	// JVM method = toString-impl(JLkotlin/time/DurationUnit;I)Ljava/lang/String;
 	fun toString(unit: kotlin.time.DurationUnit, decimals: Int /* = default */): String
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = unaryMinus-UwyO8pc(J)J
 	operator fun unaryMinus(): kotlin.time.Duration
 
@@ -9972,34 +10430,64 @@ class kotlin.time.TestTimeSource : kotlin.time.AbstractLongTimeSource {
 
 // ------------------------------------------------------------------------------------------------------
 
-abstract class kotlin.time.TimeMark {
+// requires language version >= 1.3, otherwise diagnostic error
+value class kotlin.time.TimeSource.Monotonic.ValueTimeMark : kotlin.time.ComparableTimeMark {
+
+	// *** PROPERTIES ***
+
+	// JVM field = reading:J
+	internal val reading: kotlin.time.ValueTimeMarkReading /* = Long */
+
 
 	// *** CONSTRUCTORS ***
 
-	// JVM method = <init>()V
-	constructor()
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = constructor-impl(J)J
+	internal constructor(reading: kotlin.time.ValueTimeMarkReading /* = Long */)
 
 
 	// *** FUNCTIONS ***
 
 	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = compareTo-6eNON_k(JJ)I
+	operator fun compareTo(other: kotlin.time.TimeSource.Monotonic.ValueTimeMark): Int
+
 	// requires language version >= 1.4, otherwise diagnostic error
-	// JVM method = elapsedNow-UwyO8pc()J
-	abstract fun elapsedNow(): kotlin.time.Duration
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = elapsedNow-UwyO8pc(J)J
+	open fun elapsedNow(): kotlin.time.Duration
 
-	// JVM method = hasNotPassedNow()Z
-	fun hasNotPassedNow(): Boolean
+	// JVM method = equals-impl(JLjava/lang/Object;)Z
+	/* synthesized */ open operator fun equals(other: Any?): Boolean
 
-	// JVM method = hasPassedNow()Z
-	fun hasPassedNow(): Boolean
+	// JVM method = hasNotPassedNow-impl(J)Z
+	open fun hasNotPassedNow(): Boolean
+
+	// JVM method = hasPassedNow-impl(J)Z
+	open fun hasPassedNow(): Boolean
+
+	// JVM method = hashCode-impl(J)I
+	/* synthesized */ open fun hashCode(): Int
+
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = minus-UwyO8pc(JLkotlin/time/ComparableTimeMark;)J
+	open operator fun minus(other: kotlin.time.ComparableTimeMark): kotlin.time.Duration
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = minus-LRDsOJo(J)Lkotlin/time/TimeMark;
-	open operator fun minus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+	// JVM method = minus-LRDsOJo(JJ)J
+	open operator fun minus(duration: kotlin.time.Duration): kotlin.time.TimeSource.Monotonic.ValueTimeMark
 
 	// requires language version >= 1.3, otherwise diagnostic error
-	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
-	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+	// JVM method = minus-6eNON_k(JJ)J
+	operator fun minus(other: kotlin.time.TimeSource.Monotonic.ValueTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = plus-LRDsOJo(JJ)J
+	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeSource.Monotonic.ValueTimeMark
+
+	// JVM method = toString-impl(J)Ljava/lang/String;
+	/* synthesized */ open fun toString(): String
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10029,8 +10517,8 @@ data class kotlin.time.TimedValue<T> {
 	// JVM method = component1()Ljava/lang/Object;
 	/* synthesized */ operator fun component1(): T
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = component2-UwyO8pc()J
 	/* synthesized */ operator fun component2(): kotlin.time.Duration
 
@@ -10046,6 +10534,376 @@ data class kotlin.time.TimedValue<T> {
 
 	// JVM method = toString()Ljava/lang/String;
 	/* synthesized */ open fun toString(): String
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal open class kotlin.internal.jdk7.JDK7PlatformImplementations : kotlin.internal.PlatformImplementations {
+
+	// *** NESTED TYPES ***
+
+	class ReflectSdkVersion
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = addSuppressed(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+	open fun addSuppressed(cause: Throwable, exception: Throwable)
+
+	// JVM method = getSuppressed(Ljava/lang/Throwable;)Ljava/util/List;
+	open fun getSuppressed(exception: Throwable): List<Throwable>
+
+	// JVM method = sdkIsNullOrAtLeast(I)Z
+	private fun sdkIsNullOrAtLeast(version: Int): Boolean
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.path.DirectoryEntriesReader : java.nio.file.SimpleFileVisitor<java.nio.file.Path> {
+
+	// *** PROPERTIES ***
+
+	// JVM field = directoryNode:Lkotlin/io/path/PathNode;
+	private var directoryNode: kotlin.io.path.PathNode?
+
+	// JVM field = entries:Lkotlin/collections/ArrayDeque;
+	private var entries: ArrayDeque<kotlin.io.path.PathNode>
+
+	// JVM field = followLinks:Z
+	val followLinks: Boolean
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Z)V
+	constructor(followLinks: Boolean)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = preVisitDirectory(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
+	open fun preVisitDirectory(dir: java.nio.file.Path, attrs: java.nio.file.attribute.BasicFileAttributes): java.nio.file.FileVisitResult
+
+	// JVM method = readEntries(Lkotlin/io/path/PathNode;)Ljava/util/List;
+	fun readEntries(directoryNode: kotlin.io.path.PathNode): List<kotlin.io.path.PathNode>
+
+	// JVM method = visitFile(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
+	open fun visitFile(file: java.nio.file.Path, attrs: java.nio.file.attribute.BasicFileAttributes): java.nio.file.FileVisitResult
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.path.ExceptionsCollector {
+
+	// *** PROPERTIES ***
+
+	// JVM field = collectedExceptions:Ljava/util/List;
+	val collectedExceptions: MutableList<Exception /* = java.lang.Exception */>
+
+	// JVM field = limit:I
+	private val limit: Int
+
+	// JVM field = path:Ljava/nio/file/Path;
+	var path: java.nio.file.Path?
+
+	// JVM field = totalExceptions:I
+	var totalExceptions: Int
+		private set(`<set-?>`: Int) { /* non-default */ }
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(I)V
+	constructor(limit: Int /* = default */)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = collect(Ljava/lang/Exception;)V
+	fun collect(exception: Exception /* = java.lang.Exception */)
+
+	// JVM method = enterEntry(Ljava/nio/file/Path;)V
+	fun enterEntry(name: java.nio.file.Path)
+
+	// JVM method = exitEntry(Ljava/nio/file/Path;)V
+	fun exitEntry(name: java.nio.file.Path)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal class kotlin.io.path.FileVisitorBuilderImpl : kotlin.io.path.FileVisitorBuilder {
+
+	// *** PROPERTIES ***
+
+	// JVM field = isBuilt:Z
+	private var isBuilt: Boolean
+
+	// JVM field = onPostVisitDirectory:Lkotlin/jvm/functions/Function2;
+	private var onPostVisitDirectory: ((java.nio.file.Path, java.io.IOException?) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onPreVisitDirectory:Lkotlin/jvm/functions/Function2;
+	private var onPreVisitDirectory: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onVisitFile:Lkotlin/jvm/functions/Function2;
+	private var onVisitFile: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onVisitFileFailed:Lkotlin/jvm/functions/Function2;
+	private var onVisitFileFailed: ((java.nio.file.Path, java.io.IOException) -> java.nio.file.FileVisitResult)?
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = build()Ljava/nio/file/FileVisitor;
+	fun build(): java.nio.file.FileVisitor<java.nio.file.Path>
+
+	// JVM method = checkIsNotBuilt()V
+	private fun checkIsNotBuilt()
+
+	// JVM method = checkNotDefined(Ljava/lang/Object;Ljava/lang/String;)V
+	private fun checkNotDefined(function: Any?, name: String)
+
+	// JVM method = onPostVisitDirectory(Lkotlin/jvm/functions/Function2;)V
+	open fun onPostVisitDirectory(function: (@ParameterName(name = "directory") java.nio.file.Path, @ParameterName(name = "exception") java.io.IOException?) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onPreVisitDirectory(Lkotlin/jvm/functions/Function2;)V
+	open fun onPreVisitDirectory(function: (@ParameterName(name = "directory") java.nio.file.Path, @ParameterName(name = "attributes") java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onVisitFile(Lkotlin/jvm/functions/Function2;)V
+	open fun onVisitFile(function: (@ParameterName(name = "file") java.nio.file.Path, @ParameterName(name = "attributes") java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onVisitFileFailed(Lkotlin/jvm/functions/Function2;)V
+	open fun onVisitFileFailed(function: (@ParameterName(name = "file") java.nio.file.Path, @ParameterName(name = "exception") java.io.IOException) -> java.nio.file.FileVisitResult)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.path.FileVisitorImpl : java.nio.file.SimpleFileVisitor<java.nio.file.Path> {
+
+	// *** PROPERTIES ***
+
+	// JVM field = onPostVisitDirectory:Lkotlin/jvm/functions/Function2;
+	private val onPostVisitDirectory: ((java.nio.file.Path, java.io.IOException?) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onPreVisitDirectory:Lkotlin/jvm/functions/Function2;
+	private val onPreVisitDirectory: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onVisitFile:Lkotlin/jvm/functions/Function2;
+	private val onVisitFile: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?
+
+	// JVM field = onVisitFileFailed:Lkotlin/jvm/functions/Function2;
+	private val onVisitFileFailed: ((java.nio.file.Path, java.io.IOException) -> java.nio.file.FileVisitResult)?
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	constructor(onPreVisitDirectory: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?, onVisitFile: ((java.nio.file.Path, java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)?, onVisitFileFailed: ((java.nio.file.Path, java.io.IOException) -> java.nio.file.FileVisitResult)?, onPostVisitDirectory: ((java.nio.file.Path, java.io.IOException?) -> java.nio.file.FileVisitResult)?)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = postVisitDirectory(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
+	open fun postVisitDirectory(dir: java.nio.file.Path, exc: java.io.IOException?): java.nio.file.FileVisitResult
+
+	// JVM method = preVisitDirectory(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
+	open fun preVisitDirectory(dir: java.nio.file.Path, attrs: java.nio.file.attribute.BasicFileAttributes): java.nio.file.FileVisitResult
+
+	// JVM method = visitFile(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;
+	open fun visitFile(file: java.nio.file.Path, attrs: java.nio.file.attribute.BasicFileAttributes): java.nio.file.FileVisitResult
+
+	// JVM method = visitFileFailed(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
+	open fun visitFileFailed(file: java.nio.file.Path, exc: java.io.IOException): java.nio.file.FileVisitResult
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private class kotlin.io.path.PathNode {
+
+	// *** PROPERTIES ***
+
+	// JVM field = contentIterator:Ljava/util/Iterator;
+	var contentIterator: Iterator<kotlin.io.path.PathNode>?
+
+	// JVM field = key:Ljava/lang/Object;
+	val key: Any?
+
+	// JVM field = parent:Lkotlin/io/path/PathNode;
+	val parent: kotlin.io.path.PathNode?
+
+	// JVM field = path:Ljava/nio/file/Path;
+	val path: java.nio.file.Path
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/nio/file/Path;Ljava/lang/Object;Lkotlin/io/path/PathNode;)V
+	constructor(path: java.nio.file.Path, key: Any?, parent: kotlin.io.path.PathNode?)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal class kotlin.io.path.PathTreeWalk : Sequence<java.nio.file.Path> {
+
+	// *** PROPERTIES ***
+
+	private val followLinks: Boolean
+		// JVM method = getFollowLinks()Z
+		get() = /* non-default */
+
+	private val includeDirectories: Boolean
+		// JVM method = getIncludeDirectories()Z
+		get() = /* non-default */
+
+	private val isBFS: Boolean
+		// JVM method = isBFS()Z
+		get() = /* non-default */
+
+	private val linkOptions: Array<java.nio.file.LinkOption>
+		// JVM method = getLinkOptions()[Ljava/nio/file/LinkOption;
+		get() = /* non-default */
+
+	// JVM field = options:[Lkotlin/io/path/PathWalkOption;
+	private val options: Array<out kotlin.io.path.PathWalkOption>
+
+	// JVM field = start:Ljava/nio/file/Path;
+	private val start: java.nio.file.Path
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/nio/file/Path;[Lkotlin/io/path/PathWalkOption;)V
+	constructor(start: java.nio.file.Path, options: Array<out kotlin.io.path.PathWalkOption>)
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = bfsIterator()Ljava/util/Iterator;
+	private fun bfsIterator(): Iterator<java.nio.file.Path>
+
+	// JVM method = dfsIterator()Ljava/util/Iterator;
+	private fun dfsIterator(): Iterator<java.nio.file.Path>
+
+	// JVM method = iterator()Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<java.nio.file.Path>
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = yieldIfNeeded(Lkotlin/sequences/SequenceScope;Lkotlin/io/path/PathNode;Lkotlin/io/path/DirectoryEntriesReader;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	private suspend inline fun SequenceScope<java.nio.file.Path>.yieldIfNeeded(node: kotlin.io.path.PathNode, entriesReader: kotlin.io.path.DirectoryEntriesReader, entriesAction: (List<kotlin.io.path.PathNode>) -> Unit)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal open class kotlin.internal.jdk8.JDK8PlatformImplementations : kotlin.internal.jdk7.JDK7PlatformImplementations {
+
+	// *** NESTED TYPES ***
+
+	class ReflectSdkVersion
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = defaultPlatformRandom()Lkotlin/random/Random;
+	open fun defaultPlatformRandom(): kotlin.random.Random
+
+	// JVM method = getMatchResultNamedGroup(Ljava/util/regex/MatchResult;Ljava/lang/String;)Lkotlin/text/MatchGroup;
+	open fun getMatchResultNamedGroup(matchResult: java.util.regex.MatchResult, name: String): MatchGroup?
+
+	// JVM method = sdkIsNullOrAtLeast(I)Z
+	private fun sdkIsNullOrAtLeast(version: Int): Boolean
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal class kotlin.random.jdk8.PlatformThreadLocalRandom : kotlin.random.AbstractPlatformRandom {
+
+	// *** PROPERTIES ***
+
+	open val impl: java.util.Random
+		// JVM method = getImpl()Ljava/util/Random;
+		get() = /* non-default */
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = nextDouble(D)D
+	open fun nextDouble(until: Double): Double
+
+	// JVM method = nextInt(II)I
+	open fun nextInt(from: Int, until: Int): Int
+
+	// JVM method = nextLong(J)J
+	open fun nextLong(until: Long): Long
+
+	// JVM method = nextLong(JJ)J
+	open fun nextLong(from: Long, until: Long): Long
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+// anonymous object origin: SequencesKt__SequencesKt$Sequence$1
+/* local */ class kotlin.sequences.SequencesKt__SequencesKt$Sequence$1 : Sequence<T#0> {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = iterator()Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<T#0>
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+// anonymous object origin: SequencesKt__SequencesKt$Sequence$1
+/* local */ class kotlin.sequences.SequencesKt__SequencesKt$Sequence$1 : Sequence<T#0> {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = iterator()Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<T#0>
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+// anonymous object origin: SequencesKt__SequencesKt$Sequence$1
+/* local */ class kotlin.sequences.SequencesKt__SequencesKt$Sequence$1 : Sequence<T#0> {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = iterator()Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<T#0>
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+// anonymous object origin: SequencesKt__SequencesKt$Sequence$1
+/* local */ class kotlin.sequences.SequencesKt__SequencesKt$Sequence$1 : Sequence<T#0> {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = iterator()Ljava/util/Iterator;
+	open operator fun iterator(): Iterator<T#0>
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10377,22 +11235,6 @@ internal companion object kotlin.collections.ArrayDeque.Companion {
 
 	// JVM method = newCapacity$kotlin_stdlib(II)I
 	internal fun newCapacity(oldCapacity: Int, minCapacity: Int): Int
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-internal object kotlin.collections.CollectionSystemProperties {
-
-	// *** PROPERTIES ***
-
-	// JVM field = brittleContainsOptimizationEnabled:Z
-	internal val brittleContainsOptimizationEnabled: Boolean
-
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>()V
-	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -10855,6 +11697,22 @@ private object kotlin.coroutines.jvm.internal.ModuleNameRetriever {
 
 // ------------------------------------------------------------------------------------------------------
 
+private companion object kotlin.enums.EnumEntriesSerializationProxy.Companion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = serialVersionUID:J
+	private const val serialVersionUID: Long
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 private object kotlin.internal.PlatformImplementations.ReflectThrowable {
 
 	// *** PROPERTIES ***
@@ -10931,6 +11789,49 @@ internal object kotlin.io.LineReader {
 
 	// JVM method = updateCharset(Ljava/nio/charset/Charset;)V
 	private fun updateCharset(charset: java.nio.charset.Charset)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+companion object kotlin.io.encoding.Base64.Default : kotlin.io.encoding.Base64 {
+
+	// *** PROPERTIES ***
+
+	// JVM field = Mime:Lkotlin/io/encoding/Base64;
+	val Mime: kotlin.io.encoding.Base64
+
+	// JVM field = UrlSafe:Lkotlin/io/encoding/Base64;
+	val UrlSafe: kotlin.io.encoding.Base64
+
+	// JVM field = bitsPerByte:I
+	private const val bitsPerByte: Int
+
+	// JVM field = bitsPerSymbol:I
+	private const val bitsPerSymbol: Int
+
+	// JVM field = bytesPerGroup:I
+	internal const val bytesPerGroup: Int
+
+	// JVM field = mimeGroupsPerLine:I
+	private const val mimeGroupsPerLine: Int
+
+	// JVM field = mimeLineLength:I
+	internal const val mimeLineLength: Int
+
+	// JVM field = mimeLineSeparatorSymbols:[B
+	internal val mimeLineSeparatorSymbols: ByteArray
+
+	// JVM field = padSymbol:B
+	internal const val padSymbol: Byte
+
+	// JVM field = symbolsPerGroup:I
+	internal const val symbolsPerGroup: Int
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12229,135 +13130,141 @@ companion object kotlin.time.Duration.Companion {
 	// JVM method = convert(DLkotlin/time/DurationUnit;Lkotlin/time/DurationUnit;)D
 	fun convert(value: Double, sourceUnit: kotlin.time.DurationUnit, targetUnit: kotlin.time.DurationUnit): Double
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = days-UwyO8pc(D)J
 	fun days(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = days-UwyO8pc(I)J
 	fun days(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = days-UwyO8pc(J)J
 	fun days(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = hours-UwyO8pc(D)J
 	fun hours(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = hours-UwyO8pc(I)J
 	fun hours(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = hours-UwyO8pc(J)J
 	fun hours(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = microseconds-UwyO8pc(D)J
 	fun microseconds(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = microseconds-UwyO8pc(I)J
 	fun microseconds(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = microseconds-UwyO8pc(J)J
 	fun microseconds(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = milliseconds-UwyO8pc(D)J
 	fun milliseconds(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = milliseconds-UwyO8pc(I)J
 	fun milliseconds(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = milliseconds-UwyO8pc(J)J
 	fun milliseconds(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minutes-UwyO8pc(D)J
 	fun minutes(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minutes-UwyO8pc(I)J
 	fun minutes(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = minutes-UwyO8pc(J)J
 	fun minutes(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = nanoseconds-UwyO8pc(D)J
 	fun nanoseconds(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = nanoseconds-UwyO8pc(I)J
 	fun nanoseconds(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = nanoseconds-UwyO8pc(J)J
 	fun nanoseconds(value: Long): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = parse-UwyO8pc(Ljava/lang/String;)J
 	fun parse(value: String): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = parseIsoString-UwyO8pc(Ljava/lang/String;)J
 	fun parseIsoString(value: String): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = parseIsoStringOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
 	fun parseIsoStringOrNull(value: String): kotlin.time.Duration?
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = parseOrNull-FghU774(Ljava/lang/String;)Lkotlin/time/Duration;
 	fun parseOrNull(value: String): kotlin.time.Duration?
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = seconds-UwyO8pc(D)J
 	fun seconds(value: Double): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = seconds-UwyO8pc(I)J
 	fun seconds(value: Int): kotlin.time.Duration
 
-	// requires language version >= 1.3, otherwise diagnostic error
 	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
 	// JVM method = seconds-UwyO8pc(J)J
 	fun seconds(value: Long): kotlin.time.Duration
 }
 
 // ------------------------------------------------------------------------------------------------------
 
-internal object kotlin.time.MonotonicTimeSource : kotlin.time.AbstractLongTimeSource, kotlin.time.TimeSource {
+internal object kotlin.time.MonotonicTimeSource : kotlin.time.TimeSource.WithComparableMarks {
+
+	// *** PROPERTIES ***
+
+	// JVM field = zero:J
+	private val zero: Long
+
 
 	// *** CONSTRUCTORS ***
 
@@ -12367,8 +13274,25 @@ internal object kotlin.time.MonotonicTimeSource : kotlin.time.AbstractLongTimeSo
 
 	// *** FUNCTIONS ***
 
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = adjustReading-6QKq23U(JJ)J
+	fun adjustReading(timeMark: kotlin.time.TimeSource.Monotonic.ValueTimeMark, duration: kotlin.time.Duration): kotlin.time.TimeSource.Monotonic.ValueTimeMark
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = differenceBetween-fRLX17w(JJ)J
+	fun differenceBetween(one: kotlin.time.TimeSource.Monotonic.ValueTimeMark, another: kotlin.time.TimeSource.Monotonic.ValueTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = elapsedFrom-6eNON_k(J)J
+	fun elapsedFrom(timeMark: kotlin.time.TimeSource.Monotonic.ValueTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = markNow-z9LOYto()J
+	open fun markNow(): kotlin.time.TimeSource.Monotonic.ValueTimeMark
+
 	// JVM method = read()J
-	protected open fun read(): Long
+	private fun read(): Long
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
@@ -12386,7 +13310,12 @@ companion object kotlin.time.TimeSource.Companion {
 
 // ------------------------------------------------------------------------------------------------------
 
-object kotlin.time.TimeSource.Monotonic : kotlin.time.TimeSource {
+object kotlin.time.TimeSource.Monotonic : kotlin.time.TimeSource.WithComparableMarks {
+
+	// *** NESTED TYPES ***
+
+	class ValueTimeMark
+
 
 	// *** CONSTRUCTORS ***
 
@@ -12396,11 +13325,120 @@ object kotlin.time.TimeSource.Monotonic : kotlin.time.TimeSource {
 
 	// *** FUNCTIONS ***
 
-	// JVM method = markNow()Lkotlin/time/TimeMark;
-	/* delegated */ open fun markNow(): kotlin.time.TimeMark
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = markNow-z9LOYto()J
+	open fun markNow(): kotlin.time.TimeSource.Monotonic.ValueTimeMark
 
 	// JVM method = toString()Ljava/lang/String;
 	open fun toString(): String
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.internal.jdk7.JDK7PlatformImplementations.ReflectSdkVersion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = sdkVersion:Ljava/lang/Integer;
+	val sdkVersion: Int?
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.io.path.DefaultCopyActionContext : kotlin.io.path.CopyActionContext {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = copyToIgnoringExistingDirectory(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Lkotlin/io/path/CopyActionResult;
+	open fun java.nio.file.Path.copyToIgnoringExistingDirectory(target: java.nio.file.Path, followLinks: Boolean): kotlin.io.path.CopyActionResult
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal object kotlin.io.path.LinkFollowing {
+
+	// *** PROPERTIES ***
+
+	// JVM field = followLinkOption:[Ljava/nio/file/LinkOption;
+	private val followLinkOption: Array<java.nio.file.LinkOption>
+
+	// JVM field = followVisitOption:Ljava/util/Set;
+	private val followVisitOption: Set<java.nio.file.FileVisitOption>
+
+	// JVM field = nofollowLinkOption:[Ljava/nio/file/LinkOption;
+	private val nofollowLinkOption: Array<java.nio.file.LinkOption>
+
+	// JVM field = nofollowVisitOption:Ljava/util/Set;
+	private val nofollowVisitOption: Set<java.nio.file.FileVisitOption>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = toLinkOptions(Z)[Ljava/nio/file/LinkOption;
+	fun toLinkOptions(followLinks: Boolean): Array<java.nio.file.LinkOption>
+
+	// JVM method = toVisitOptions(Z)Ljava/util/Set;
+	fun toVisitOptions(followLinks: Boolean): Set<java.nio.file.FileVisitOption>
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.io.path.PathRelativizer {
+
+	// *** PROPERTIES ***
+
+	// JVM field = emptyPath:Ljava/nio/file/Path;
+	private val emptyPath: java.nio.file.Path!
+
+	// JVM field = parentPath:Ljava/nio/file/Path;
+	private val parentPath: java.nio.file.Path!
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = tryRelativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+	fun tryRelativeTo(path: java.nio.file.Path, base: java.nio.file.Path): java.nio.file.Path
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+private object kotlin.internal.jdk8.JDK8PlatformImplementations.ReflectSdkVersion {
+
+	// *** PROPERTIES ***
+
+	// JVM field = sdkVersion:Ljava/lang/Integer;
+	val sdkVersion: Int?
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	private constructor()
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -12616,6 +13654,10 @@ interface kotlin.coroutines.jvm.internal.CoroutineStackFrame {
 // ------------------------------------------------------------------------------------------------------
 
 internal interface kotlin.coroutines.jvm.internal.SuspendFunction
+
+// ------------------------------------------------------------------------------------------------------
+
+interface kotlin.enums.EnumEntries<E : Enum<E>> : List<E : Enum<E>>
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -13001,6 +14043,26 @@ interface kotlin.ranges.ClosedRange<T : Comparable<T>> {
 
 // ------------------------------------------------------------------------------------------------------
 
+interface kotlin.ranges.OpenEndRange<T : Comparable<T>> {
+
+	// *** PROPERTIES ***
+
+	abstract val endExclusive: T : Comparable<T>
+
+	abstract val start: T : Comparable<T>
+
+
+	// *** FUNCTIONS ***
+
+	// JVM method = contains(Ljava/lang/Comparable;)Z
+	open operator fun contains(value: T : Comparable<T>): Boolean
+
+	// JVM method = isEmpty()Z
+	open fun isEmpty(): Boolean
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 interface kotlin.reflect.KAnnotatedElement {
 
 	// *** PROPERTIES ***
@@ -13026,6 +14088,7 @@ interface kotlin.reflect.KCallable<out R> : kotlin.reflect.KAnnotatedElement {
 	// JVM annotation-holding method = isSuspend$annotations()V
 	abstract val isSuspend: Boolean
 
+	// JVM annotation-holding method = getName$annotations()V
 	abstract val name: String
 
 	abstract val parameters: List<kotlin.reflect.KParameter>
@@ -13512,12 +14575,78 @@ interface kotlin.text.MatchResult {
 
 // ------------------------------------------------------------------------------------------------------
 
+interface kotlin.time.ComparableTimeMark : kotlin.time.TimeMark, Comparable<kotlin.time.ComparableTimeMark> {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = compareTo(Lkotlin/time/ComparableTimeMark;)I
+	open operator fun compareTo(other: kotlin.time.ComparableTimeMark): Int
+
+	// JVM method = equals(Ljava/lang/Object;)Z
+	abstract operator fun equals(other: Any?): Boolean
+
+	// JVM method = hashCode()I
+	abstract fun hashCode(): Int
+
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = minus-UwyO8pc(Lkotlin/time/ComparableTimeMark;)J
+	abstract operator fun minus(other: kotlin.time.ComparableTimeMark): kotlin.time.Duration
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = minus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
+	open operator fun minus(duration: kotlin.time.Duration): kotlin.time.ComparableTimeMark
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/ComparableTimeMark;
+	abstract operator fun plus(duration: kotlin.time.Duration): kotlin.time.ComparableTimeMark
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+interface kotlin.time.TimeMark {
+
+	// *** FUNCTIONS ***
+
+	// requires language version >= 1.4, otherwise diagnostic error
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = elapsedNow-UwyO8pc()J
+	abstract fun elapsedNow(): kotlin.time.Duration
+
+	// JVM method = hasNotPassedNow()Z
+	open fun hasNotPassedNow(): Boolean
+
+	// JVM method = hasPassedNow()Z
+	open fun hasPassedNow(): Boolean
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = minus-LRDsOJo(J)Lkotlin/time/TimeMark;
+	open operator fun minus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+
+	// requires language version >= 1.3, otherwise diagnostic error
+	// JVM method = plus-LRDsOJo(J)Lkotlin/time/TimeMark;
+	open operator fun plus(duration: kotlin.time.Duration): kotlin.time.TimeMark
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+interface kotlin.time.TimeSource.WithComparableMarks : kotlin.time.TimeSource {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = markNow()Lkotlin/time/ComparableTimeMark;
+	abstract fun markNow(): kotlin.time.ComparableTimeMark
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 interface kotlin.time.TimeSource {
 
 	// *** NESTED TYPES ***
 
 	companion object
 	class Monotonic
+	class WithComparableMarks
 
 
 	// *** FUNCTIONS ***
@@ -13528,27 +14657,41 @@ interface kotlin.time.TimeSource {
 
 // ------------------------------------------------------------------------------------------------------
 
+interface kotlin.io.path.CopyActionContext {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = copyToIgnoringExistingDirectory(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Lkotlin/io/path/CopyActionResult;
+	abstract fun java.nio.file.Path.copyToIgnoringExistingDirectory(target: java.nio.file.Path, followLinks: Boolean): kotlin.io.path.CopyActionResult
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+interface kotlin.io.path.FileVisitorBuilder {
+
+	// *** FUNCTIONS ***
+
+	// JVM method = onPostVisitDirectory(Lkotlin/jvm/functions/Function2;)V
+	abstract fun onPostVisitDirectory(function: (@ParameterName(name = "directory") java.nio.file.Path, @ParameterName(name = "exception") java.io.IOException?) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onPreVisitDirectory(Lkotlin/jvm/functions/Function2;)V
+	abstract fun onPreVisitDirectory(function: (@ParameterName(name = "directory") java.nio.file.Path, @ParameterName(name = "attributes") java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onVisitFile(Lkotlin/jvm/functions/Function2;)V
+	abstract fun onVisitFile(function: (@ParameterName(name = "file") java.nio.file.Path, @ParameterName(name = "attributes") java.nio.file.attribute.BasicFileAttributes) -> java.nio.file.FileVisitResult)
+
+	// JVM method = onVisitFileFailed(Lkotlin/jvm/functions/Function2;)V
+	abstract fun onVisitFileFailed(function: (@ParameterName(name = "file") java.nio.file.Path, @ParameterName(name = "exception") java.io.IOException) -> java.nio.file.FileVisitResult)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 enum class kotlin.DeprecationLevel {
 
 	// *** ENUM ENTRIES ***
 	WARNING,
 	ERROR,
 	HIDDEN;
-
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>(Ljava/lang/String;I)V
-	private constructor()
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-enum class kotlin.Experimental.Level {
-
-	// *** ENUM ENTRIES ***
-	WARNING,
-	ERROR;
 
 
 	// *** CONSTRUCTORS ***
@@ -13941,12 +15084,74 @@ enum class kotlin.time.DurationUnit {
 
 // ------------------------------------------------------------------------------------------------------
 
+enum class kotlin.io.path.CopyActionResult {
+
+	// *** ENUM ENTRIES ***
+	CONTINUE,
+	SKIP_SUBTREE,
+	TERMINATE;
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/String;I)V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+enum class kotlin.io.path.OnErrorResult {
+
+	// *** ENUM ENTRIES ***
+	SKIP_SUBTREE,
+	TERMINATE;
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/String;I)V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+enum class kotlin.io.path.PathWalkOption {
+
+	// *** ENUM ENTRIES ***
+	INCLUDE_DIRECTORIES,
+	BREADTH_FIRST,
+	FOLLOW_LINKS;
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Ljava/lang/String;I)V
+	private constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.BuilderInference {
 
 	// *** CONSTRUCTORS ***
 
 	// JVM method = <init>()V
 	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.ContextFunctionTypeParams {
+
+	// *** PROPERTIES ***
+
+	val count: Int
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(I)V
+	constructor(count: Int)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -13999,28 +15204,6 @@ annotation class kotlin.DslMarker {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.2.50, otherwise diagnostic error
-annotation class kotlin.Experimental {
-
-	// *** NESTED TYPES ***
-
-	class Level
-
-
-	// *** PROPERTIES ***
-
-	val level: Experimental.Level
-
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>(Lkotlin/Experimental$Level;)V
-	constructor(level: Experimental.Level /* = default */)
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// requires compiler version >= 1.2.50, otherwise diagnostic error
 annotation class kotlin.ExperimentalMultiplatform {
 
 	// *** CONSTRUCTORS ***
@@ -14041,7 +15224,16 @@ annotation class kotlin.ExperimentalStdlibApi {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.2.50, otherwise diagnostic error
+annotation class kotlin.ExperimentalSubclassOptIn {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.ExperimentalUnsignedTypes {
 
 	// *** CONSTRUCTORS ***
@@ -14094,7 +15286,6 @@ annotation class kotlin.Metadata {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.3.70, otherwise diagnostic error
 annotation class kotlin.OptIn {
 
 	// *** PROPERTIES ***
@@ -14110,7 +15301,6 @@ annotation class kotlin.OptIn {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.2.50, otherwise diagnostic error
 annotation class kotlin.OptionalExpectation {
 
 	// *** CONSTRUCTORS ***
@@ -14173,7 +15363,6 @@ annotation class kotlin.ReplaceWith {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.3.70, otherwise diagnostic error
 annotation class kotlin.RequiresOptIn {
 
 	// *** NESTED TYPES ***
@@ -14211,6 +15400,21 @@ annotation class kotlin.SinceKotlin {
 
 // ------------------------------------------------------------------------------------------------------
 
+annotation class kotlin.SubclassOptInRequired {
+
+	// *** PROPERTIES ***
+
+	val markerClass: kotlin.reflect.KClass<out Annotation>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Lkotlin/reflect/KClass;)V
+	constructor(markerClass: kotlin.reflect.KClass<out Annotation>)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.Suppress {
 
 	// *** PROPERTIES ***
@@ -14232,22 +15436,6 @@ annotation class kotlin.UnsafeVariance {
 
 	// JVM method = <init>()V
 	constructor()
-}
-
-// ------------------------------------------------------------------------------------------------------
-
-// requires compiler version >= 1.2.50, otherwise diagnostic error
-annotation class kotlin.UseExperimental {
-
-	// *** PROPERTIES ***
-
-	val markerClass: Array<out kotlin.reflect.KClass<out Annotation>>
-
-
-	// *** CONSTRUCTORS ***
-
-	// JVM method = <init>(Lkotlin/Array;)V
-	constructor(vararg markerClass: kotlin.reflect.KClass<out Annotation> /* Array<out kotlin.reflect.KClass<out Annotation>> */)
 }
 
 // ------------------------------------------------------------------------------------------------------
@@ -14366,6 +15554,26 @@ internal annotation class kotlin.coroutines.jvm.internal.DebugMetadata {
 
 // ------------------------------------------------------------------------------------------------------
 
+annotation class kotlin.experimental.ExperimentalObjCName {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.experimental.ExperimentalObjCRefinement {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.experimental.ExperimentalTypeInference {
 
 	// *** CONSTRUCTORS ***
@@ -14427,6 +15635,16 @@ internal annotation class kotlin.internal.HidesMembers {
 // ------------------------------------------------------------------------------------------------------
 
 internal annotation class kotlin.internal.InlineOnly {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+internal annotation class kotlin.internal.IntrinsicConstEvaluation {
 
 	// *** CONSTRUCTORS ***
 
@@ -14509,6 +15727,16 @@ internal annotation class kotlin.internal.RequireKotlin {
 
 // ------------------------------------------------------------------------------------------------------
 
+annotation class kotlin.io.encoding.ExperimentalEncodingApi {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.js.ExperimentalJsExport {
 
 	// *** CONSTRUCTORS ***
@@ -14519,7 +15747,6 @@ annotation class kotlin.js.ExperimentalJsExport {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.2.40, otherwise diagnostic error
 annotation class kotlin.jvm.JvmDefault {
 
 	// *** CONSTRUCTORS ***
@@ -14530,7 +15757,17 @@ annotation class kotlin.jvm.JvmDefault {
 
 // ------------------------------------------------------------------------------------------------------
 
-// requires compiler version >= 1.4, otherwise diagnostic error
+// requires compiler version >= 1.6, otherwise diagnostic error
+annotation class kotlin.jvm.JvmDefaultWithCompatibility {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.jvm.JvmDefaultWithoutCompatibility {
 
 	// *** CONSTRUCTORS ***
@@ -14612,6 +15849,16 @@ internal annotation class kotlin.jvm.JvmPackageName {
 // ------------------------------------------------------------------------------------------------------
 
 annotation class kotlin.jvm.JvmRecord {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.jvm.JvmSerializableLambda {
 
 	// *** CONSTRUCTORS ***
 
@@ -14736,7 +15983,47 @@ annotation class kotlin.jvm.Volatile {
 
 // ------------------------------------------------------------------------------------------------------
 
+annotation class kotlin.jvm.internal.SerializedIr {
+
+	// *** PROPERTIES ***
+
+	val bytes: Array<String>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Lkotlin/Array;)V
+	constructor(bytes: Array<String> /* = default */)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.jvm.internal.SourceDebugExtension {
+
+	// *** PROPERTIES ***
+
+	val value: Array<String>
+
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>(Lkotlin/Array;)V
+	constructor(value: Array<String>)
+}
+
+// ------------------------------------------------------------------------------------------------------
+
 annotation class kotlin.time.ExperimentalTime {
+
+	// *** CONSTRUCTORS ***
+
+	// JVM method = <init>()V
+	constructor()
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+annotation class kotlin.io.path.ExperimentalPathApi {
 
 	// *** CONSTRUCTORS ***
 
@@ -14889,49 +16176,7 @@ annotation class kotlin.time.ExperimentalTime {
 /* lambda */
 
 // JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T> (a: T!, b: T!): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
 /* local */ fun <T, K> (a: T!, b: T!): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T> (a: T!, b: T!): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T, K> (a: T!, b: T!): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T : Any> (a: T : Any?, b: T : Any?): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T : Any> (a: T : Any?, b: T : Any?): Int
-
-// ------------------------------------------------------------------------------------------------------
-
-/* lambda */
-
-// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
-/* local */ fun <T> (a: T!, b: T!): Int
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -14967,6 +16212,13 @@ annotation class kotlin.time.ExperimentalTime {
 
 // JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
 /* local */ fun <T> (a: T!, b: T!): Int
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = compare(Ljava/lang/Object;Ljava/lang/Object;)I
+/* local */ fun <T, K> (a: T!, b: T!): Int
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -14995,6 +16247,13 @@ annotation class kotlin.time.ExperimentalTime {
 
 // JVM method = invoke(Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext$Element;)Lkotlin/coroutines/CoroutineContext;
 /* local */ fun (acc: kotlin.coroutines.CoroutineContext, element: kotlin.coroutines.CoroutineContext.Element): kotlin.coroutines.CoroutineContext
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke()[Ljava/lang/Enum;
+/* local */ fun <E : Enum<E>> (): Array<E : Enum<E>>
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -15367,6 +16626,62 @@ annotation class kotlin.time.ExperimentalTime {
 
 // ------------------------------------------------------------------------------------------------------
 
+/* lambda */
+
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
+/* local */ suspend fun SequenceScope<java.nio.file.Path>.()
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = <anonymous>(Lkotlin/sequences/SequenceScope;)V
+/* local */ suspend fun SequenceScope<java.nio.file.Path>.()
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/Exception;)Ljava/lang/Void;
+/* local */ fun (_: java.nio.file.Path, _: java.nio.file.Path, exception: Exception /* = java.lang.Exception */): Nothing
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Lkotlin/io/path/CopyActionContext;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lkotlin/io/path/CopyActionResult;
+/* local */ fun kotlin.io.path.CopyActionContext.(src: java.nio.file.Path, dst: java.nio.file.Path): kotlin.io.path.CopyActionResult
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Ljava/nio/file/Path;Ljava/nio/file/Path;Ljava/lang/Exception;)Ljava/lang/Void;
+/* local */ fun (_: java.nio.file.Path, _: java.nio.file.Path, exception: Exception /* = java.lang.Exception */): Nothing
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Lkotlin/io/path/CopyActionContext;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lkotlin/io/path/CopyActionResult;
+/* local */ fun kotlin.io.path.CopyActionContext.(src: java.nio.file.Path, dst: java.nio.file.Path): kotlin.io.path.CopyActionResult
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Ljava/nio/file/Path;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;
+/* local */ fun (directory: java.nio.file.Path, exception: java.io.IOException?): java.nio.file.FileVisitResult
+
+// ------------------------------------------------------------------------------------------------------
+
+/* lambda */
+
+// JVM method = invoke(Lkotlin/io/path/FileVisitorBuilder;)V
+/* local */ fun kotlin.io.path.FileVisitorBuilder.()
+
+// ------------------------------------------------------------------------------------------------------
+
 /* file-level declarations */
 
 /* facade */ class kotlin.ArrayIntrinsicsKt
@@ -15431,7 +16746,6 @@ inline infix fun <T> Comparable<T>.compareTo(other: T): Int
 
 // *** TYPE ALIASES ***
 
-@ExperimentalStdlibApi
 private typealias DeepRecursiveFunctionBlock = suspend DeepRecursiveScope<*, *>.(Any?) -> Any?
 
 
@@ -15507,13 +16821,13 @@ inline operator fun <T, V> kotlin.reflect.KMutableProperty1<T, V>.setValue(thisR
 // JVM method = createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 internal fun createFailure(exception: Throwable): Any
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runCatching(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 inline fun <R> runCatching(block: () -> R): Result<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T> Result<T>.fold(onSuccess: (@ParameterName(name = "value") T) -> R, onFailure: (@ParameterName(name = "exception") Throwable) -> R): R {
 	contract {
@@ -15526,8 +16840,8 @@ inline fun <R, T> Result<T>.fold(onSuccess: (@ParameterName(name = "value") T) -
 // JVM method = getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 inline fun <R, T : R> Result<T : R>.getOrDefault(defaultValue: R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = getOrElse(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T : R> Result<T : R>.getOrElse(onFailure: (@ParameterName(name = "exception") Throwable) -> R): R {
 	contract {
@@ -15539,8 +16853,8 @@ inline fun <R, T : R> Result<T : R>.getOrElse(onFailure: (@ParameterName(name = 
 // JVM method = getOrThrow(Ljava/lang/Object;)Ljava/lang/Object;
 inline fun <T> Result<T>.getOrThrow(): T
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = map(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T> Result<T>.map(transform: (@ParameterName(name = "value") T) -> R): Result<R> {
 	contract {
@@ -15548,13 +16862,13 @@ inline fun <R, T> Result<T>.map(transform: (@ParameterName(name = "value") T) ->
 	}
 }
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T> Result<T>.mapCatching(transform: (@ParameterName(name = "value") T) -> R): Result<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onFailure(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T> Result<T>.onFailure(action: (@ParameterName(name = "exception") Throwable) -> Unit): Result<T> {
 	contract {
@@ -15562,8 +16876,8 @@ inline fun <T> Result<T>.onFailure(action: (@ParameterName(name = "exception") T
 	}
 }
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onSuccess(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T> Result<T>.onSuccess(action: (@ParameterName(name = "value") T) -> Unit): Result<T> {
 	contract {
@@ -15571,8 +16885,8 @@ inline fun <T> Result<T>.onSuccess(action: (@ParameterName(name = "value") T) ->
 	}
 }
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = recover(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T : R> Result<T : R>.recover(transform: (@ParameterName(name = "exception") Throwable) -> R): Result<R> {
 	contract {
@@ -15580,13 +16894,13 @@ inline fun <R, T : R> Result<T : R>.recover(transform: (@ParameterName(name = "e
 	}
 }
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = recoverCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R, T : R> Result<T : R>.recoverCatching(transform: (@ParameterName(name = "exception") Throwable) -> R): Result<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runCatching(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T, R> T.runCatching(block: T.() -> R): Result<R>
 
@@ -15603,7 +16917,6 @@ internal fun Result<*>.throwOnFailure()
 
 // *** FUNCTIONS ***
 
-// requires compiler version >= 1.2.30, otherwise diagnostic hidden
 // requires language version >= 1.3, otherwise diagnostic error
 // JVM method = suspend(Lkotlin/jvm/functions/Function1;)Lkotlin/jvm/functions/Function1;
 inline fun <R> suspend(noinline block: suspend () -> R): suspend () -> R
@@ -15701,8 +17014,8 @@ typealias UnsupportedOperationException = java.lang.UnsupportedOperationExceptio
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = UByteArray(ILkotlin/jvm/functions/Function1;)[B
 inline fun UByteArray(size: Int, init: (Int) -> UByte): UByteArray
 
@@ -15744,8 +17057,8 @@ inline fun Short.toUByte(): UByte
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = UIntArray(ILkotlin/jvm/functions/Function1;)[I
 inline fun UIntArray(size: Int, init: (Int) -> UInt): UIntArray
 
@@ -15795,8 +17108,8 @@ inline fun Short.toUInt(): UInt
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = ULongArray(ILkotlin/jvm/functions/Function1;)[J
 inline fun ULongArray(size: Int, init: (Int) -> ULong): ULongArray
 
@@ -15967,8 +17280,8 @@ inline fun UShort.takeLowestOneBit(): UShort
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = UShortArray(ILkotlin/jvm/functions/Function1;)[S
 inline fun UShortArray(size: Int, init: (Int) -> UShort): UShortArray
 
@@ -16051,30 +17364,6 @@ internal fun ulongToString(v: Long): String
 
 // JVM method = ulongToString(JI)Ljava/lang/String;
 internal fun ulongToString(v: Long, base: Int): String
-
-// ------------------------------------------------------------------------------------------------------
-
-/* file-level declarations */
-
-/* facade */ class kotlin.collections.BrittleContainsOptimizationKt
-
-
-// *** FUNCTIONS ***
-
-// JVM method = convertToSetForSetOperation([Ljava/lang/Object;)Ljava/util/Collection;
-internal fun <T> Array<T>.convertToSetForSetOperation(): Collection<T>
-
-// JVM method = convertToSetForSetOperation(Ljava/lang/Iterable;)Ljava/util/Collection;
-internal fun <T> Iterable<T>.convertToSetForSetOperation(): Collection<T>
-
-// JVM method = convertToSetForSetOperation(Lkotlin/sequences/Sequence;)Ljava/util/Collection;
-internal fun <T> Sequence<T>.convertToSetForSetOperation(): Collection<T>
-
-// JVM method = convertToSetForSetOperationWith(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Collection;
-internal fun <T> Iterable<T>.convertToSetForSetOperationWith(source: Iterable<T>): Collection<T>
-
-// JVM method = safeToConvertToSet(Ljava/util/Collection;)Z
-private fun <T> Collection<T>.safeToConvertToSet(): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -16335,6 +17624,19 @@ inline fun java.util.Timer.scheduleAtFixedRate(delay: Long, period: Long, crossi
 
 /* file-level declarations */
 
+/* facade */ class kotlin.concurrent.VolatileKt
+
+
+// *** TYPE ALIASES ***
+
+@SinceKotlin(version = "1.9")
+@ExperimentalStdlibApi
+typealias Volatile = Volatile
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
 /* facade */ class kotlin.contracts.ContractBuilderKt
 
 
@@ -16361,8 +17663,8 @@ inline val coroutineContext: kotlin.coroutines.CoroutineContext
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = Continuation(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlin/coroutines/Continuation;
 inline fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, crossinline resumeWith: (Result<T>) -> Unit): kotlin.coroutines.Continuation<T>
 
@@ -16530,6 +17832,21 @@ internal fun runSuspend(block: suspend () -> Unit)
 
 /* file-level declarations */
 
+/* facade */ class kotlin.enums.EnumEntriesKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = enumEntries(Lkotlin/jvm/functions/Function0;)Lkotlin/enums/EnumEntries;
+internal fun <E : Enum<E>> enumEntries(entriesProvider: () -> Array<E : Enum<E>>): kotlin.enums.EnumEntries<E : Enum<E>>
+
+// JVM method = enumEntries([Ljava/lang/Enum;)Lkotlin/enums/EnumEntries;
+internal fun <E : Enum<E>> enumEntries(entries: Array<E : Enum<E>>): kotlin.enums.EnumEntries<E : Enum<E>>
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
 /* facade */ class kotlin.experimental.BitwiseOperationsKt
 
 
@@ -16579,9 +17896,6 @@ internal fun apiVersionIsAtLeast(major: Int, minor: Int, patch: Int): Boolean
 
 // JVM method = castToBaseType(Ljava/lang/Object;)Ljava/lang/Object;
 private inline fun <reified T : Any> castToBaseType(instance: Any): reified T : Any
-
-// JVM method = getJavaVersion()I
-private fun getJavaVersion(): Int
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -16695,7 +18009,6 @@ inline fun java.io.OutputStream.writer(charset: java.nio.charset.Charset /* = de
 // JVM method = closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 internal fun java.io.Closeable?.closeFinally(cause: Throwable?)
 
-// requires compiler version >= 1.2, otherwise diagnostic error: Requires newer compiler version to be inlined correctly.
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = use(Ljava/io/Closeable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T : java.io.Closeable?, R> T : java.io.Closeable?.use(block: (T : java.io.Closeable?) -> R): R {
@@ -16865,10 +18178,61 @@ inline fun java.net.URL.readText(charset: java.nio.charset.Charset /* = default 
 // JVM method = reader(Ljava/lang/String;)Ljava/io/StringReader;
 inline fun String.reader(): java.io.StringReader
 
-// requires compiler version >= 1.2, otherwise diagnostic error: Requires newer compiler version to be inlined correctly.
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = useLines(Ljava/io/Reader;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T> java.io.Reader.useLines(block: (Sequence<String>) -> T): T
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.io.encoding.Base64JVMKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = platformCharsToBytes(Lkotlin/io/encoding/Base64;Ljava/lang/CharSequence;II)[B
+internal inline fun kotlin.io.encoding.Base64.platformCharsToBytes(source: CharSequence, startIndex: Int, endIndex: Int): ByteArray
+
+// JVM method = platformEncodeIntoByteArray(Lkotlin/io/encoding/Base64;[B[BIII)I
+internal inline fun kotlin.io.encoding.Base64.platformEncodeIntoByteArray(source: ByteArray, destination: ByteArray, destinationOffset: Int, startIndex: Int, endIndex: Int): Int
+
+// JVM method = platformEncodeToByteArray(Lkotlin/io/encoding/Base64;[BII)[B
+internal inline fun kotlin.io.encoding.Base64.platformEncodeToByteArray(source: ByteArray, startIndex: Int, endIndex: Int): ByteArray
+
+// JVM method = platformEncodeToString(Lkotlin/io/encoding/Base64;[BII)Ljava/lang/String;
+internal inline fun kotlin.io.encoding.Base64.platformEncodeToString(source: ByteArray, startIndex: Int, endIndex: Int): String
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.io.encoding.Base64Kt
+
+
+// *** PROPERTIES ***
+
+// JVM field = base64DecodeMap:[I
+// JVM annotation-holding method = getBase64DecodeMap$annotations()V
+private val base64DecodeMap: IntArray
+
+// JVM field = base64EncodeMap:[B
+// JVM annotation-holding method = getBase64EncodeMap$annotations()V
+private val base64EncodeMap: ByteArray
+
+// JVM field = base64UrlDecodeMap:[I
+// JVM annotation-holding method = getBase64UrlDecodeMap$annotations()V
+private val base64UrlDecodeMap: IntArray
+
+// JVM field = base64UrlEncodeMap:[B
+// JVM annotation-holding method = getBase64UrlEncodeMap$annotations()V
+private val base64UrlEncodeMap: ByteArray
+
+
+// *** FUNCTIONS ***
+
+// JVM method = isInMimeAlphabet(I)Z
+internal fun isInMimeAlphabet(symbol: Int): Boolean
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -16881,6 +18245,11 @@ inline fun <T> java.io.Reader.useLines(block: (Sequence<String>) -> T): T
 
 val <T : Annotation> T : Annotation.annotationClass: kotlin.reflect.KClass<out T : Annotation>
 	// JVM method = getAnnotationClass(Ljava/lang/annotation/Annotation;)Lkotlin/reflect/KClass;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getDeclaringJavaClass$annotations(Ljava/lang/Enum;)V
+inline val <E : Enum<E>> Enum<E : Enum<E>>.declaringJavaClass: java.lang.Class<E : Enum<E>>
+	// JVM method = getDeclaringJavaClass(Ljava/lang/Enum;)Ljava/lang/Class;
 	get() = /* non-default */
 
 // JVM annotation-holding method = getJavaClass$annotations(Lkotlin/reflect/KClass;)V
@@ -17669,13 +19038,49 @@ fun Long.toDuration(unit: kotlin.time.DurationUnit): kotlin.time.Duration
 
 /* file-level declarations */
 
-/* facade */ class kotlin.time.MeasureTimeKt
+/* facade */ class kotlin.time.LongSaturatedMathKt
 
 
 // *** FUNCTIONS ***
 
 // requires language version >= 1.3, otherwise diagnostic error
+// JVM method = checkInfiniteSumDefined-PjuGub4(JJJ)J
+private fun checkInfiniteSumDefined(longNs: Long, duration: kotlin.time.Duration, durationNs: Long): Long
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = saturatingAdd-pTJri5U(JJ)J
+internal fun saturatingAdd(longNs: Long, duration: kotlin.time.Duration): Long
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = saturatingAddInHalves-pTJri5U(JJ)J
+private fun saturatingAddInHalves(longNs: Long, duration: kotlin.time.Duration): Long
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = saturatingDiff(JJ)J
+internal fun saturatingDiff(valueNs: Long, originNs: Long): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = saturatingFiniteDiff(JJ)J
+private fun saturatingFiniteDiff(value1Ns: Long, value2Ns: Long): kotlin.time.Duration
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = saturatingOriginsDiff(JJ)J
+internal fun saturatingOriginsDiff(origin1Ns: Long, origin2Ns: Long): kotlin.time.Duration
+
+// JVM method = isSaturated(J)Z
+private inline fun Long.isSaturated(): Boolean
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.time.MeasureTimeKt
+
+
+// *** FUNCTIONS ***
+
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = measureTime(Lkotlin/jvm/functions/Function0;)J
 inline fun measureTime(block: () -> Unit): kotlin.time.Duration {
 	contract {
@@ -17691,10 +19096,19 @@ inline fun <T> measureTimedValue(block: () -> T): kotlin.time.TimedValue<T> {
 	}
 }
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = measureTime(Lkotlin/time/TimeSource;Lkotlin/jvm/functions/Function0;)J
 inline fun kotlin.time.TimeSource.measureTime(block: () -> Unit): kotlin.time.Duration {
+	contract {
+		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+	}
+}
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = measureTime(Lkotlin/time/TimeSource$Monotonic;Lkotlin/jvm/functions/Function0;)J
+inline fun kotlin.time.TimeSource.Monotonic.measureTime(block: () -> Unit): kotlin.time.Duration {
 	contract {
 		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
 	}
@@ -17708,21 +19122,191 @@ inline fun <T> kotlin.time.TimeSource.measureTimedValue(block: () -> T): kotlin.
 	}
 }
 
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = measureTimedValue(Lkotlin/time/TimeSource$Monotonic;Lkotlin/jvm/functions/Function0;)Lkotlin/time/TimedValue;
+inline fun <T> kotlin.time.TimeSource.Monotonic.measureTimedValue(block: () -> T): kotlin.time.TimedValue<T> {
+	contract {
+		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+	}
+}
+
 // ------------------------------------------------------------------------------------------------------
 
 /* file-level declarations */
 
-/* facade */ class kotlin.time.TimeSourceKt
+/* facade */ class kotlin.time.MonoTimeSourceKt
+
+
+// *** TYPE ALIASES ***
+
+internal typealias ValueTimeMarkReading = Long
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.io.path.PathTreeWalkKt
 
 
 // *** FUNCTIONS ***
 
-// JVM method = compareTo(Lkotlin/time/TimeMark;Lkotlin/time/TimeMark;)I
-inline operator fun kotlin.time.TimeMark.compareTo(other: kotlin.time.TimeMark): Int
+// JVM method = keyOf(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
+private fun keyOf(path: java.nio.file.Path, linkOptions: Array<java.nio.file.LinkOption>): Any?
+
+// JVM method = createsCycle(Lkotlin/io/path/PathNode;)Z
+private fun kotlin.io.path.PathNode.createsCycle(): Boolean
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/jdk7/AutoCloseableKt
+/* facade */ class kotlin.AutoCloseableKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
+internal fun java.lang.AutoCloseable?.closeFinally(cause: Throwable?)
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = use(Ljava/lang/AutoCloseable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T : java.lang.AutoCloseable?, R> T : java.lang.AutoCloseable?.use(block: (T : java.lang.AutoCloseable?) -> R): R {
+	contract {
+		callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+	}
+}
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/collections/jdk8/CollectionsJDK8Kt
+/* facade */ class kotlin.collections.CollectionsJDK8Kt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = getOrDefault(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+inline fun <@kotlin.internal.OnlyInputTypes K, V> Map<out @kotlin.internal.OnlyInputTypes K, V>.getOrDefault(key: @kotlin.internal.OnlyInputTypes K, defaultValue: V): V
+
+// JVM method = remove(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Z
+inline fun <@kotlin.internal.OnlyInputTypes K, @kotlin.internal.OnlyInputTypes V> MutableMap<out @kotlin.internal.OnlyInputTypes K, out @kotlin.internal.OnlyInputTypes V>.remove(key: @kotlin.internal.OnlyInputTypes K, value: @kotlin.internal.OnlyInputTypes V): Boolean
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/jvm/jdk8/JvmRepeatableKt
+/* facade */ class kotlin.jvm.JvmRepeatableKt
+
+
+// *** TYPE ALIASES ***
+
+@SinceKotlin(version = "1.6")
+typealias JvmRepeatable = java.lang.annotation.Repeatable
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+/* facade */ class kotlin.jvm.optionals.OptionalsKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = asSequence(Ljava/util/Optional;)Lkotlin/sequences/Sequence;
+fun <T : Any> java.util.Optional<out T : Any>.asSequence(): Sequence<T : Any>
+
+// requires language version >= 1.7, otherwise diagnostic error
+// JVM method = getOrDefault(Ljava/util/Optional;Ljava/lang/Object;)Ljava/lang/Object;
+fun <T> java.util.Optional<out T>.getOrDefault(defaultValue: T): T
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.7, otherwise diagnostic error
+// JVM method = getOrElse(Ljava/util/Optional;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+inline fun <T> java.util.Optional<out T>.getOrElse(defaultValue: () -> T): T
+
+// JVM method = getOrNull(Ljava/util/Optional;)Ljava/lang/Object;
+fun <T : Any> java.util.Optional<T : Any>.getOrNull(): T : Any?
+
+// JVM method = toCollection(Ljava/util/Optional;Ljava/util/Collection;)Ljava/util/Collection;
+fun <T : Any, C : MutableCollection<in T : Any>> java.util.Optional<T : Any>.toCollection(destination: C : MutableCollection<in T : Any>): C : MutableCollection<in T : Any>
+
+// JVM method = toList(Ljava/util/Optional;)Ljava/util/List;
+fun <T : Any> java.util.Optional<out T : Any>.toList(): List<T : Any>
+
+// JVM method = toSet(Ljava/util/Optional;)Ljava/util/Set;
+fun <T : Any> java.util.Optional<out T : Any>.toSet(): Set<T : Any>
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/streams/jdk8/StreamsKt
+/* facade */ class kotlin.streams.StreamsKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = asSequence(Ljava/util/stream/DoubleStream;)Lkotlin/sequences/Sequence;
+fun java.util.stream.DoubleStream.asSequence(): Sequence<Double>
+
+// JVM method = asSequence(Ljava/util/stream/IntStream;)Lkotlin/sequences/Sequence;
+fun java.util.stream.IntStream.asSequence(): Sequence<Int>
+
+// JVM method = asSequence(Ljava/util/stream/LongStream;)Lkotlin/sequences/Sequence;
+fun java.util.stream.LongStream.asSequence(): Sequence<Long>
+
+// JVM method = asSequence(Ljava/util/stream/Stream;)Lkotlin/sequences/Sequence;
+fun <T> java.util.stream.Stream<T>.asSequence(): Sequence<T>
+
+// JVM method = asStream(Lkotlin/sequences/Sequence;)Ljava/util/stream/Stream;
+fun <T> Sequence<T>.asStream(): java.util.stream.Stream<T>
+
+// JVM method = toList(Ljava/util/stream/DoubleStream;)Ljava/util/List;
+fun java.util.stream.DoubleStream.toList(): List<Double>
+
+// JVM method = toList(Ljava/util/stream/IntStream;)Ljava/util/List;
+fun java.util.stream.IntStream.toList(): List<Int>
+
+// JVM method = toList(Ljava/util/stream/LongStream;)Ljava/util/List;
+fun java.util.stream.LongStream.toList(): List<Long>
+
+// JVM method = toList(Ljava/util/stream/Stream;)Ljava/util/List;
+fun <T> java.util.stream.Stream<T>.toList(): List<T>
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/text/jdk8/RegexExtensionsJDK8Kt
+/* facade */ class kotlin.text.RegexExtensionsJDK8Kt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = get(Lkotlin/text/MatchGroupCollection;Ljava/lang/String;)Lkotlin/text/MatchGroup;
+operator fun MatchGroupCollection.get(name: String): MatchGroup?
+
+// ------------------------------------------------------------------------------------------------------
+
+/* file-level declarations */
+
+// JVM: kotlin/time/jdk8/DurationConversionsJDK8Kt
+/* facade */ class kotlin.time.DurationConversionsJDK8Kt
+
+
+// *** FUNCTIONS ***
+
+// requires compiler version >= 1.4.30, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = toJavaDuration-LRDsOJo(J)Ljava/time/Duration;
+inline fun kotlin.time.Duration.toJavaDuration(): java.time.Duration
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minus(Lkotlin/time/TimeMark;Lkotlin/time/TimeMark;)J
-inline operator fun kotlin.time.TimeMark.minus(other: kotlin.time.TimeMark): kotlin.time.Duration
+// JVM method = toKotlinDuration(Ljava/time/Duration;)J
+inline fun java.time.Duration.toKotlinDuration(): kotlin.time.Duration
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -17817,6 +19401,7 @@ inline operator fun kotlin.time.TimeMark.minus(other: kotlin.time.TimeMark): kot
 /* part */ class MapsKt__MapWithDefaultKt
 /* part */ class MapsKt__MapsJVMKt
 /* part */ class MapsKt__MapsKt
+/* part */ class MapsKt___MapsJvmKt
 /* part */ class MapsKt___MapsKt
 
 // ------------------------------------------------------------------------------------------------------
@@ -17883,6 +19468,14 @@ inline operator fun kotlin.time.TimeMark.minus(other: kotlin.time.TimeMark): kot
 /* part */ class FilesKt__FileReadWriteKt
 /* part */ class FilesKt__FileTreeWalkKt
 /* part */ class FilesKt__UtilsKt
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file class */
+
+/* facade */ class kotlin.io.encoding.StreamEncodingKt
+
+/* part */ class kotlin.io.encoding.StreamEncodingKt__Base64IOStreamKt
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -17966,6 +19559,16 @@ inline operator fun kotlin.time.TimeMark.minus(other: kotlin.time.TimeMark): kot
 
 /* part */ class kotlin.time.DurationUnitKt__DurationUnitJvmKt
 /* part */ class kotlin.time.DurationUnitKt__DurationUnitKt
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file class */
+
+/* facade */ class kotlin.io.path.PathsKt
+
+/* part */ class kotlin.io.path.PathsKt__PathReadWriteKt
+/* part */ class kotlin.io.path.PathsKt__PathRecursiveFunctionsKt
+/* part */ class kotlin.io.path.PathsKt__PathUtilsKt
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -19120,6 +20723,192 @@ fun <R> Array<*>.filterIsInstance(klass: java.lang.Class<R>): List<R>
 
 // JVM method = filterIsInstanceTo([Ljava/lang/Object;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;
 fun <C : MutableCollection<in R>, R> Array<*>.filterIsInstanceTo(destination: C : MutableCollection<in R>, klass: java.lang.Class<R>): C : MutableCollection<in R>
+
+// JVM method = max([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Array<out T : Comparable<T>>.max(): T : Comparable<T>?
+
+// JVM method = max([Ljava/lang/Double;)Ljava/lang/Double;
+fun Array<out Double>.max(): Double?
+
+// JVM method = max([Ljava/lang/Float;)Ljava/lang/Float;
+fun Array<out Float>.max(): Float?
+
+// JVM method = max([B)Ljava/lang/Byte;
+fun ByteArray.max(): Byte?
+
+// JVM method = max([C)Ljava/lang/Character;
+fun CharArray.max(): Char?
+
+// JVM method = max([D)Ljava/lang/Double;
+fun DoubleArray.max(): Double?
+
+// JVM method = max([F)Ljava/lang/Float;
+fun FloatArray.max(): Float?
+
+// JVM method = max([I)Ljava/lang/Integer;
+fun IntArray.max(): Int?
+
+// JVM method = max([J)Ljava/lang/Long;
+fun LongArray.max(): Long?
+
+// JVM method = max([S)Ljava/lang/Short;
+fun ShortArray.max(): Short?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Array<out T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([ZLkotlin/jvm/functions/Function1;)Ljava/lang/Boolean;
+inline fun <R : Comparable<R>> BooleanArray.maxBy(selector: (Boolean) -> R : Comparable<R>): Boolean?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([BLkotlin/jvm/functions/Function1;)Ljava/lang/Byte;
+inline fun <R : Comparable<R>> ByteArray.maxBy(selector: (Byte) -> R : Comparable<R>): Byte?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([CLkotlin/jvm/functions/Function1;)Ljava/lang/Character;
+inline fun <R : Comparable<R>> CharArray.maxBy(selector: (Char) -> R : Comparable<R>): Char?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([DLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
+inline fun <R : Comparable<R>> DoubleArray.maxBy(selector: (Double) -> R : Comparable<R>): Double?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([FLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
+inline fun <R : Comparable<R>> FloatArray.maxBy(selector: (Float) -> R : Comparable<R>): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([ILkotlin/jvm/functions/Function1;)Ljava/lang/Integer;
+inline fun <R : Comparable<R>> IntArray.maxBy(selector: (Int) -> R : Comparable<R>): Int?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([JLkotlin/jvm/functions/Function1;)Ljava/lang/Long;
+inline fun <R : Comparable<R>> LongArray.maxBy(selector: (Long) -> R : Comparable<R>): Long?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy([SLkotlin/jvm/functions/Function1;)Ljava/lang/Short;
+inline fun <R : Comparable<R>> ShortArray.maxBy(selector: (Short) -> R : Comparable<R>): Short?
+
+// JVM method = maxWith([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Array<out T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+
+// JVM method = maxWith([ZLjava/util/Comparator;)Ljava/lang/Boolean;
+fun BooleanArray.maxWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean?
+
+// JVM method = maxWith([BLjava/util/Comparator;)Ljava/lang/Byte;
+fun ByteArray.maxWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte?
+
+// JVM method = maxWith([CLjava/util/Comparator;)Ljava/lang/Character;
+fun CharArray.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+
+// JVM method = maxWith([DLjava/util/Comparator;)Ljava/lang/Double;
+fun DoubleArray.maxWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double?
+
+// JVM method = maxWith([FLjava/util/Comparator;)Ljava/lang/Float;
+fun FloatArray.maxWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float?
+
+// JVM method = maxWith([ILjava/util/Comparator;)Ljava/lang/Integer;
+fun IntArray.maxWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int?
+
+// JVM method = maxWith([JLjava/util/Comparator;)Ljava/lang/Long;
+fun LongArray.maxWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long?
+
+// JVM method = maxWith([SLjava/util/Comparator;)Ljava/lang/Short;
+fun ShortArray.maxWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short?
+
+// JVM method = min([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Array<out T : Comparable<T>>.min(): T : Comparable<T>?
+
+// JVM method = min([Ljava/lang/Double;)Ljava/lang/Double;
+fun Array<out Double>.min(): Double?
+
+// JVM method = min([Ljava/lang/Float;)Ljava/lang/Float;
+fun Array<out Float>.min(): Float?
+
+// JVM method = min([B)Ljava/lang/Byte;
+fun ByteArray.min(): Byte?
+
+// JVM method = min([C)Ljava/lang/Character;
+fun CharArray.min(): Char?
+
+// JVM method = min([D)Ljava/lang/Double;
+fun DoubleArray.min(): Double?
+
+// JVM method = min([F)Ljava/lang/Float;
+fun FloatArray.min(): Float?
+
+// JVM method = min([I)Ljava/lang/Integer;
+fun IntArray.min(): Int?
+
+// JVM method = min([J)Ljava/lang/Long;
+fun LongArray.min(): Long?
+
+// JVM method = min([S)Ljava/lang/Short;
+fun ShortArray.min(): Short?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Array<out T>.minBy(selector: (T) -> R : Comparable<R>): T?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([ZLkotlin/jvm/functions/Function1;)Ljava/lang/Boolean;
+inline fun <R : Comparable<R>> BooleanArray.minBy(selector: (Boolean) -> R : Comparable<R>): Boolean?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([BLkotlin/jvm/functions/Function1;)Ljava/lang/Byte;
+inline fun <R : Comparable<R>> ByteArray.minBy(selector: (Byte) -> R : Comparable<R>): Byte?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([CLkotlin/jvm/functions/Function1;)Ljava/lang/Character;
+inline fun <R : Comparable<R>> CharArray.minBy(selector: (Char) -> R : Comparable<R>): Char?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([DLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
+inline fun <R : Comparable<R>> DoubleArray.minBy(selector: (Double) -> R : Comparable<R>): Double?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([FLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
+inline fun <R : Comparable<R>> FloatArray.minBy(selector: (Float) -> R : Comparable<R>): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([ILkotlin/jvm/functions/Function1;)Ljava/lang/Integer;
+inline fun <R : Comparable<R>> IntArray.minBy(selector: (Int) -> R : Comparable<R>): Int?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([JLkotlin/jvm/functions/Function1;)Ljava/lang/Long;
+inline fun <R : Comparable<R>> LongArray.minBy(selector: (Long) -> R : Comparable<R>): Long?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy([SLkotlin/jvm/functions/Function1;)Ljava/lang/Short;
+inline fun <R : Comparable<R>> ShortArray.minBy(selector: (Short) -> R : Comparable<R>): Short?
+
+// JVM method = minWith([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Array<out T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+
+// JVM method = minWith([ZLjava/util/Comparator;)Ljava/lang/Boolean;
+fun BooleanArray.minWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean?
+
+// JVM method = minWith([BLjava/util/Comparator;)Ljava/lang/Byte;
+fun ByteArray.minWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte?
+
+// JVM method = minWith([CLjava/util/Comparator;)Ljava/lang/Character;
+fun CharArray.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+
+// JVM method = minWith([DLjava/util/Comparator;)Ljava/lang/Double;
+fun DoubleArray.minWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double?
+
+// JVM method = minWith([FLjava/util/Comparator;)Ljava/lang/Float;
+fun FloatArray.minWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float?
+
+// JVM method = minWith([ILjava/util/Comparator;)Ljava/lang/Integer;
+fun IntArray.minWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int?
+
+// JVM method = minWith([JLjava/util/Comparator;)Ljava/lang/Long;
+fun LongArray.minWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long?
+
+// JVM method = minWith([SLjava/util/Comparator;)Ljava/lang/Short;
+fun ShortArray.minWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short?
 
 // JVM method = plus([Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
 operator fun <T> Array<T>.plus(element: T): Array<T>
@@ -21998,71 +23787,71 @@ inline fun <R, C : MutableCollection<in R>> LongArray.mapTo(destination: C : Mut
 // JVM method = mapTo([SLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> ShortArray.mapTo(destination: C : MutableCollection<in R>, transform: (Short) -> R): C : MutableCollection<in R>
 
-// JVM method = max([Ljava/lang/Comparable;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Array<out T : Comparable<T>>.max(): T : Comparable<T>?
+// JVM method = maxOrThrow([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Array<out T : Comparable<T>>.max(): T : Comparable<T>
 
-// JVM method = max([Ljava/lang/Double;)Ljava/lang/Double;
-fun Array<out Double>.max(): Double?
+// JVM method = maxOrThrow([Ljava/lang/Double;)D
+fun Array<out Double>.max(): Double
 
-// JVM method = max([Ljava/lang/Float;)Ljava/lang/Float;
-fun Array<out Float>.max(): Float?
+// JVM method = maxOrThrow([Ljava/lang/Float;)F
+fun Array<out Float>.max(): Float
 
-// JVM method = max([B)Ljava/lang/Byte;
-fun ByteArray.max(): Byte?
+// JVM method = maxOrThrow([B)B
+fun ByteArray.max(): Byte
 
-// JVM method = max([C)Ljava/lang/Character;
-fun CharArray.max(): Char?
+// JVM method = maxOrThrow([C)C
+fun CharArray.max(): Char
 
-// JVM method = max([D)Ljava/lang/Double;
-fun DoubleArray.max(): Double?
+// JVM method = maxOrThrow([D)D
+fun DoubleArray.max(): Double
 
-// JVM method = max([F)Ljava/lang/Float;
-fun FloatArray.max(): Float?
+// JVM method = maxOrThrow([F)F
+fun FloatArray.max(): Float
 
-// JVM method = max([I)Ljava/lang/Integer;
-fun IntArray.max(): Int?
+// JVM method = maxOrThrow([I)I
+fun IntArray.max(): Int
 
-// JVM method = max([J)Ljava/lang/Long;
-fun LongArray.max(): Long?
+// JVM method = maxOrThrow([J)J
+fun LongArray.max(): Long
 
-// JVM method = max([S)Ljava/lang/Short;
-fun ShortArray.max(): Short?
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Array<out T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = maxOrThrow([S)S
+fun ShortArray.max(): Short
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([ZLkotlin/jvm/functions/Function1;)Ljava/lang/Boolean;
-inline fun <R : Comparable<R>> BooleanArray.maxBy(selector: (Boolean) -> R : Comparable<R>): Boolean?
+// JVM method = maxByOrThrow([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Array<out T>.maxBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([BLkotlin/jvm/functions/Function1;)Ljava/lang/Byte;
-inline fun <R : Comparable<R>> ByteArray.maxBy(selector: (Byte) -> R : Comparable<R>): Byte?
+// JVM method = maxByOrThrow([ZLkotlin/jvm/functions/Function1;)Z
+inline fun <R : Comparable<R>> BooleanArray.maxBy(selector: (Boolean) -> R : Comparable<R>): Boolean
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([CLkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-inline fun <R : Comparable<R>> CharArray.maxBy(selector: (Char) -> R : Comparable<R>): Char?
+// JVM method = maxByOrThrow([BLkotlin/jvm/functions/Function1;)B
+inline fun <R : Comparable<R>> ByteArray.maxBy(selector: (Byte) -> R : Comparable<R>): Byte
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([DLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-inline fun <R : Comparable<R>> DoubleArray.maxBy(selector: (Double) -> R : Comparable<R>): Double?
+// JVM method = maxByOrThrow([CLkotlin/jvm/functions/Function1;)C
+inline fun <R : Comparable<R>> CharArray.maxBy(selector: (Char) -> R : Comparable<R>): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([FLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-inline fun <R : Comparable<R>> FloatArray.maxBy(selector: (Float) -> R : Comparable<R>): Float?
+// JVM method = maxByOrThrow([DLkotlin/jvm/functions/Function1;)D
+inline fun <R : Comparable<R>> DoubleArray.maxBy(selector: (Double) -> R : Comparable<R>): Double
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([ILkotlin/jvm/functions/Function1;)Ljava/lang/Integer;
-inline fun <R : Comparable<R>> IntArray.maxBy(selector: (Int) -> R : Comparable<R>): Int?
+// JVM method = maxByOrThrow([FLkotlin/jvm/functions/Function1;)F
+inline fun <R : Comparable<R>> FloatArray.maxBy(selector: (Float) -> R : Comparable<R>): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([JLkotlin/jvm/functions/Function1;)Ljava/lang/Long;
-inline fun <R : Comparable<R>> LongArray.maxBy(selector: (Long) -> R : Comparable<R>): Long?
+// JVM method = maxByOrThrow([ILkotlin/jvm/functions/Function1;)I
+inline fun <R : Comparable<R>> IntArray.maxBy(selector: (Int) -> R : Comparable<R>): Int
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy([SLkotlin/jvm/functions/Function1;)Ljava/lang/Short;
-inline fun <R : Comparable<R>> ShortArray.maxBy(selector: (Short) -> R : Comparable<R>): Short?
+// JVM method = maxByOrThrow([JLkotlin/jvm/functions/Function1;)J
+inline fun <R : Comparable<R>> LongArray.maxBy(selector: (Long) -> R : Comparable<R>): Long
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxByOrThrow([SLkotlin/jvm/functions/Function1;)S
+inline fun <R : Comparable<R>> ShortArray.maxBy(selector: (Short) -> R : Comparable<R>): Short
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = maxByOrNull([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -22418,32 +24207,32 @@ fun LongArray.maxOrNull(): Long?
 // JVM method = maxOrNull([S)Ljava/lang/Short;
 fun ShortArray.maxOrNull(): Short?
 
-// JVM method = maxWith([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Array<out T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = maxWithOrThrow([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Array<out T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
-// JVM method = maxWith([ZLjava/util/Comparator;)Ljava/lang/Boolean;
-fun BooleanArray.maxWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean?
+// JVM method = maxWithOrThrow([ZLjava/util/Comparator;)Z
+fun BooleanArray.maxWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean
 
-// JVM method = maxWith([BLjava/util/Comparator;)Ljava/lang/Byte;
-fun ByteArray.maxWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte?
+// JVM method = maxWithOrThrow([BLjava/util/Comparator;)B
+fun ByteArray.maxWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte
 
-// JVM method = maxWith([CLjava/util/Comparator;)Ljava/lang/Character;
-fun CharArray.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+// JVM method = maxWithOrThrow([CLjava/util/Comparator;)C
+fun CharArray.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char
 
-// JVM method = maxWith([DLjava/util/Comparator;)Ljava/lang/Double;
-fun DoubleArray.maxWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double?
+// JVM method = maxWithOrThrow([DLjava/util/Comparator;)D
+fun DoubleArray.maxWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double
 
-// JVM method = maxWith([FLjava/util/Comparator;)Ljava/lang/Float;
-fun FloatArray.maxWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float?
+// JVM method = maxWithOrThrow([FLjava/util/Comparator;)F
+fun FloatArray.maxWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float
 
-// JVM method = maxWith([ILjava/util/Comparator;)Ljava/lang/Integer;
-fun IntArray.maxWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int?
+// JVM method = maxWithOrThrow([ILjava/util/Comparator;)I
+fun IntArray.maxWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int
 
-// JVM method = maxWith([JLjava/util/Comparator;)Ljava/lang/Long;
-fun LongArray.maxWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long?
+// JVM method = maxWithOrThrow([JLjava/util/Comparator;)J
+fun LongArray.maxWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long
 
-// JVM method = maxWith([SLjava/util/Comparator;)Ljava/lang/Short;
-fun ShortArray.maxWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short?
+// JVM method = maxWithOrThrow([SLjava/util/Comparator;)S
+fun ShortArray.maxWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short
 
 // JVM method = maxWithOrNull([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Array<out T>.maxWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
@@ -22472,71 +24261,71 @@ fun LongArray.maxWithOrNull(comparator: Comparator<in Long> /* = java.util.Compa
 // JVM method = maxWithOrNull([SLjava/util/Comparator;)Ljava/lang/Short;
 fun ShortArray.maxWithOrNull(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short?
 
-// JVM method = min([Ljava/lang/Comparable;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Array<out T : Comparable<T>>.min(): T : Comparable<T>?
+// JVM method = minOrThrow([Ljava/lang/Comparable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Array<out T : Comparable<T>>.min(): T : Comparable<T>
 
-// JVM method = min([Ljava/lang/Double;)Ljava/lang/Double;
-fun Array<out Double>.min(): Double?
+// JVM method = minOrThrow([Ljava/lang/Double;)D
+fun Array<out Double>.min(): Double
 
-// JVM method = min([Ljava/lang/Float;)Ljava/lang/Float;
-fun Array<out Float>.min(): Float?
+// JVM method = minOrThrow([Ljava/lang/Float;)F
+fun Array<out Float>.min(): Float
 
-// JVM method = min([B)Ljava/lang/Byte;
-fun ByteArray.min(): Byte?
+// JVM method = minOrThrow([B)B
+fun ByteArray.min(): Byte
 
-// JVM method = min([C)Ljava/lang/Character;
-fun CharArray.min(): Char?
+// JVM method = minOrThrow([C)C
+fun CharArray.min(): Char
 
-// JVM method = min([D)Ljava/lang/Double;
-fun DoubleArray.min(): Double?
+// JVM method = minOrThrow([D)D
+fun DoubleArray.min(): Double
 
-// JVM method = min([F)Ljava/lang/Float;
-fun FloatArray.min(): Float?
+// JVM method = minOrThrow([F)F
+fun FloatArray.min(): Float
 
-// JVM method = min([I)Ljava/lang/Integer;
-fun IntArray.min(): Int?
+// JVM method = minOrThrow([I)I
+fun IntArray.min(): Int
 
-// JVM method = min([J)Ljava/lang/Long;
-fun LongArray.min(): Long?
+// JVM method = minOrThrow([J)J
+fun LongArray.min(): Long
 
-// JVM method = min([S)Ljava/lang/Short;
-fun ShortArray.min(): Short?
-
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Array<out T>.minBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = minOrThrow([S)S
+fun ShortArray.min(): Short
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([ZLkotlin/jvm/functions/Function1;)Ljava/lang/Boolean;
-inline fun <R : Comparable<R>> BooleanArray.minBy(selector: (Boolean) -> R : Comparable<R>): Boolean?
+// JVM method = minByOrThrow([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Array<out T>.minBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([BLkotlin/jvm/functions/Function1;)Ljava/lang/Byte;
-inline fun <R : Comparable<R>> ByteArray.minBy(selector: (Byte) -> R : Comparable<R>): Byte?
+// JVM method = minByOrThrow([ZLkotlin/jvm/functions/Function1;)Z
+inline fun <R : Comparable<R>> BooleanArray.minBy(selector: (Boolean) -> R : Comparable<R>): Boolean
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([CLkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-inline fun <R : Comparable<R>> CharArray.minBy(selector: (Char) -> R : Comparable<R>): Char?
+// JVM method = minByOrThrow([BLkotlin/jvm/functions/Function1;)B
+inline fun <R : Comparable<R>> ByteArray.minBy(selector: (Byte) -> R : Comparable<R>): Byte
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([DLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
-inline fun <R : Comparable<R>> DoubleArray.minBy(selector: (Double) -> R : Comparable<R>): Double?
+// JVM method = minByOrThrow([CLkotlin/jvm/functions/Function1;)C
+inline fun <R : Comparable<R>> CharArray.minBy(selector: (Char) -> R : Comparable<R>): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([FLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
-inline fun <R : Comparable<R>> FloatArray.minBy(selector: (Float) -> R : Comparable<R>): Float?
+// JVM method = minByOrThrow([DLkotlin/jvm/functions/Function1;)D
+inline fun <R : Comparable<R>> DoubleArray.minBy(selector: (Double) -> R : Comparable<R>): Double
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([ILkotlin/jvm/functions/Function1;)Ljava/lang/Integer;
-inline fun <R : Comparable<R>> IntArray.minBy(selector: (Int) -> R : Comparable<R>): Int?
+// JVM method = minByOrThrow([FLkotlin/jvm/functions/Function1;)F
+inline fun <R : Comparable<R>> FloatArray.minBy(selector: (Float) -> R : Comparable<R>): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([JLkotlin/jvm/functions/Function1;)Ljava/lang/Long;
-inline fun <R : Comparable<R>> LongArray.minBy(selector: (Long) -> R : Comparable<R>): Long?
+// JVM method = minByOrThrow([ILkotlin/jvm/functions/Function1;)I
+inline fun <R : Comparable<R>> IntArray.minBy(selector: (Int) -> R : Comparable<R>): Int
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy([SLkotlin/jvm/functions/Function1;)Ljava/lang/Short;
-inline fun <R : Comparable<R>> ShortArray.minBy(selector: (Short) -> R : Comparable<R>): Short?
+// JVM method = minByOrThrow([JLkotlin/jvm/functions/Function1;)J
+inline fun <R : Comparable<R>> LongArray.minBy(selector: (Long) -> R : Comparable<R>): Long
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minByOrThrow([SLkotlin/jvm/functions/Function1;)S
+inline fun <R : Comparable<R>> ShortArray.minBy(selector: (Short) -> R : Comparable<R>): Short
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = minByOrNull([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -22892,32 +24681,32 @@ fun LongArray.minOrNull(): Long?
 // JVM method = minOrNull([S)Ljava/lang/Short;
 fun ShortArray.minOrNull(): Short?
 
-// JVM method = minWith([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Array<out T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = minWithOrThrow([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Array<out T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
-// JVM method = minWith([ZLjava/util/Comparator;)Ljava/lang/Boolean;
-fun BooleanArray.minWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean?
+// JVM method = minWithOrThrow([ZLjava/util/Comparator;)Z
+fun BooleanArray.minWith(comparator: Comparator<in Boolean> /* = java.util.Comparator<in Boolean> */): Boolean
 
-// JVM method = minWith([BLjava/util/Comparator;)Ljava/lang/Byte;
-fun ByteArray.minWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte?
+// JVM method = minWithOrThrow([BLjava/util/Comparator;)B
+fun ByteArray.minWith(comparator: Comparator<in Byte> /* = java.util.Comparator<in Byte> */): Byte
 
-// JVM method = minWith([CLjava/util/Comparator;)Ljava/lang/Character;
-fun CharArray.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+// JVM method = minWithOrThrow([CLjava/util/Comparator;)C
+fun CharArray.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char
 
-// JVM method = minWith([DLjava/util/Comparator;)Ljava/lang/Double;
-fun DoubleArray.minWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double?
+// JVM method = minWithOrThrow([DLjava/util/Comparator;)D
+fun DoubleArray.minWith(comparator: Comparator<in Double> /* = java.util.Comparator<in Double> */): Double
 
-// JVM method = minWith([FLjava/util/Comparator;)Ljava/lang/Float;
-fun FloatArray.minWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float?
+// JVM method = minWithOrThrow([FLjava/util/Comparator;)F
+fun FloatArray.minWith(comparator: Comparator<in Float> /* = java.util.Comparator<in Float> */): Float
 
-// JVM method = minWith([ILjava/util/Comparator;)Ljava/lang/Integer;
-fun IntArray.minWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int?
+// JVM method = minWithOrThrow([ILjava/util/Comparator;)I
+fun IntArray.minWith(comparator: Comparator<in Int> /* = java.util.Comparator<in Int> */): Int
 
-// JVM method = minWith([JLjava/util/Comparator;)Ljava/lang/Long;
-fun LongArray.minWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long?
+// JVM method = minWithOrThrow([JLjava/util/Comparator;)J
+fun LongArray.minWith(comparator: Comparator<in Long> /* = java.util.Comparator<in Long> */): Long
 
-// JVM method = minWith([SLjava/util/Comparator;)Ljava/lang/Short;
-fun ShortArray.minWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short?
+// JVM method = minWithOrThrow([SLjava/util/Comparator;)S
+fun ShortArray.minWith(comparator: Comparator<in Short> /* = java.util.Comparator<in Short> */): Short
 
 // JVM method = minWithOrNull([Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Array<out T>.minWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
@@ -24529,13 +26318,13 @@ inline fun <T> Array<out T>.sumOf(selector: (T) -> Int): Int
 // JVM method = sumOfLong([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Array<out T>.sumOf(selector: (T) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)I
 inline fun <T> Array<out T>.sumOf(selector: (T) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Array<out T>.sumOf(selector: (T) -> ULong): ULong
 
@@ -24551,13 +26340,13 @@ inline fun BooleanArray.sumOf(selector: (Boolean) -> Int): Int
 // JVM method = sumOfLong([ZLkotlin/jvm/functions/Function1;)J
 inline fun BooleanArray.sumOf(selector: (Boolean) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([ZLkotlin/jvm/functions/Function1;)I
 inline fun BooleanArray.sumOf(selector: (Boolean) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([ZLkotlin/jvm/functions/Function1;)J
 inline fun BooleanArray.sumOf(selector: (Boolean) -> ULong): ULong
 
@@ -24573,13 +26362,13 @@ inline fun ByteArray.sumOf(selector: (Byte) -> Int): Int
 // JVM method = sumOfLong([BLkotlin/jvm/functions/Function1;)J
 inline fun ByteArray.sumOf(selector: (Byte) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([BLkotlin/jvm/functions/Function1;)I
 inline fun ByteArray.sumOf(selector: (Byte) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([BLkotlin/jvm/functions/Function1;)J
 inline fun ByteArray.sumOf(selector: (Byte) -> ULong): ULong
 
@@ -24595,13 +26384,13 @@ inline fun CharArray.sumOf(selector: (Char) -> Int): Int
 // JVM method = sumOfLong([CLkotlin/jvm/functions/Function1;)J
 inline fun CharArray.sumOf(selector: (Char) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([CLkotlin/jvm/functions/Function1;)I
 inline fun CharArray.sumOf(selector: (Char) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([CLkotlin/jvm/functions/Function1;)J
 inline fun CharArray.sumOf(selector: (Char) -> ULong): ULong
 
@@ -24617,13 +26406,13 @@ inline fun DoubleArray.sumOf(selector: (Double) -> Int): Int
 // JVM method = sumOfLong([DLkotlin/jvm/functions/Function1;)J
 inline fun DoubleArray.sumOf(selector: (Double) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([DLkotlin/jvm/functions/Function1;)I
 inline fun DoubleArray.sumOf(selector: (Double) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([DLkotlin/jvm/functions/Function1;)J
 inline fun DoubleArray.sumOf(selector: (Double) -> ULong): ULong
 
@@ -24639,13 +26428,13 @@ inline fun FloatArray.sumOf(selector: (Float) -> Int): Int
 // JVM method = sumOfLong([FLkotlin/jvm/functions/Function1;)J
 inline fun FloatArray.sumOf(selector: (Float) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([FLkotlin/jvm/functions/Function1;)I
 inline fun FloatArray.sumOf(selector: (Float) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([FLkotlin/jvm/functions/Function1;)J
 inline fun FloatArray.sumOf(selector: (Float) -> ULong): ULong
 
@@ -24661,13 +26450,13 @@ inline fun IntArray.sumOf(selector: (Int) -> Int): Int
 // JVM method = sumOfLong([ILkotlin/jvm/functions/Function1;)J
 inline fun IntArray.sumOf(selector: (Int) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([ILkotlin/jvm/functions/Function1;)I
 inline fun IntArray.sumOf(selector: (Int) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([ILkotlin/jvm/functions/Function1;)J
 inline fun IntArray.sumOf(selector: (Int) -> ULong): ULong
 
@@ -24683,13 +26472,13 @@ inline fun LongArray.sumOf(selector: (Long) -> Int): Int
 // JVM method = sumOfLong([JLkotlin/jvm/functions/Function1;)J
 inline fun LongArray.sumOf(selector: (Long) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([JLkotlin/jvm/functions/Function1;)I
 inline fun LongArray.sumOf(selector: (Long) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([JLkotlin/jvm/functions/Function1;)J
 inline fun LongArray.sumOf(selector: (Long) -> ULong): ULong
 
@@ -24705,13 +26494,13 @@ inline fun ShortArray.sumOf(selector: (Short) -> Int): Int
 // JVM method = sumOfLong([SLkotlin/jvm/functions/Function1;)J
 inline fun ShortArray.sumOf(selector: (Short) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([SLkotlin/jvm/functions/Function1;)I
 inline fun ShortArray.sumOf(selector: (Short) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([SLkotlin/jvm/functions/Function1;)J
 inline fun ShortArray.sumOf(selector: (Short) -> ULong): ULong
 
@@ -25273,9 +27062,6 @@ inline fun <R, V> ShortArray.zip(other: Iterable<R>, transform: (@ParameterName(
 
 // *** FUNCTIONS ***
 
-// JVM method = brittleContainsOptimizationEnabled()Z
-internal inline fun brittleContainsOptimizationEnabled(): Boolean
-
 // JVM method = build(Ljava/util/List;)Ljava/util/List;
 internal fun <E> build(builder: MutableList<E>): List<E>
 
@@ -25558,6 +27344,9 @@ fun <T> MutableCollection<in T>.addAll(elements: Iterable<T>): Boolean
 // JVM method = addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
 fun <T> MutableCollection<in T>.addAll(elements: Sequence<T>): Boolean
 
+// JVM method = convertToListIfNotCollection(Ljava/lang/Iterable;)Ljava/util/Collection;
+internal fun <T> Iterable<T>.convertToListIfNotCollection(): Collection<T>
+
 // JVM method = filterInPlace$CollectionsKt__MutableCollectionsKt(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;Z)Z
 private fun <T> MutableIterable<T>.filterInPlace(predicate: (T) -> Boolean, predicateResultToRemove: Boolean): Boolean
 
@@ -25682,6 +27471,38 @@ fun <R> Iterable<*>.filterIsInstance(klass: java.lang.Class<R>): List<R>
 
 // JVM method = filterIsInstanceTo(Ljava/lang/Iterable;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;
 fun <C : MutableCollection<in R>, R> Iterable<*>.filterIsInstanceTo(destination: C : MutableCollection<in R>, klass: java.lang.Class<R>): C : MutableCollection<in R>
+
+// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Iterable<T : Comparable<T>>.max(): T : Comparable<T>?
+
+// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Double;
+fun Iterable<Double>.max(): Double?
+
+// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Float;
+fun Iterable<Float>.max(): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Iterable<T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+
+// JVM method = maxWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Iterable<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+
+// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Iterable<T : Comparable<T>>.min(): T : Comparable<T>?
+
+// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Double;
+fun Iterable<Double>.min(): Double?
+
+// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Float;
+fun Iterable<Float>.min(): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Iterable<T>.minBy(selector: (T) -> R : Comparable<R>): T?
+
+// JVM method = minWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Iterable<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
 
 // JVM method = reverse(Ljava/util/List;)V
 fun <T> MutableList<T>.reverse()
@@ -26107,18 +27928,18 @@ inline fun <T, R : Any, C : MutableCollection<in R : Any>> Iterable<T>.mapNotNul
 // JVM method = mapTo(Ljava/lang/Iterable;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapTo(destination: C : MutableCollection<in R>, transform: (T) -> R): C : MutableCollection<in R>
 
-// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Iterable<T : Comparable<T>>.max(): T : Comparable<T>?
+// JVM method = maxOrThrow(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Iterable<T : Comparable<T>>.max(): T : Comparable<T>
 
-// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Double;
-fun Iterable<Double>.max(): Double?
+// JVM method = maxOrThrow(Ljava/lang/Iterable;)D
+fun Iterable<Double>.max(): Double
 
-// JVM method = max(Ljava/lang/Iterable;)Ljava/lang/Float;
-fun Iterable<Float>.max(): Float?
+// JVM method = maxOrThrow(Ljava/lang/Iterable;)F
+fun Iterable<Float>.max(): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Iterable<T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = maxByOrThrow(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Iterable<T>.maxBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = maxByOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -26165,24 +27986,24 @@ fun Iterable<Double>.maxOrNull(): Double?
 // JVM method = maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Float;
 fun Iterable<Float>.maxOrNull(): Float?
 
-// JVM method = maxWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Iterable<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = maxWithOrThrow(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Iterable<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
 // JVM method = maxWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Iterable<T>.maxWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
 
-// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Iterable<T : Comparable<T>>.min(): T : Comparable<T>?
+// JVM method = minOrThrow(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Iterable<T : Comparable<T>>.min(): T : Comparable<T>
 
-// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Double;
-fun Iterable<Double>.min(): Double?
+// JVM method = minOrThrow(Ljava/lang/Iterable;)D
+fun Iterable<Double>.min(): Double
 
-// JVM method = min(Ljava/lang/Iterable;)Ljava/lang/Float;
-fun Iterable<Float>.min(): Float?
+// JVM method = minOrThrow(Ljava/lang/Iterable;)F
+fun Iterable<Float>.min(): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Iterable<T>.minBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = minByOrThrow(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Iterable<T>.minBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = minByOrNull(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -26229,8 +28050,8 @@ fun Iterable<Double>.minOrNull(): Double?
 // JVM method = minOrNull(Ljava/lang/Iterable;)Ljava/lang/Float;
 fun Iterable<Float>.minOrNull(): Float?
 
-// JVM method = minWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Iterable<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = minWithOrThrow(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Iterable<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
 // JVM method = minWithOrNull(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Iterable<T>.minWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
@@ -26474,13 +28295,13 @@ inline fun <T> Iterable<T>.sumOf(selector: (T) -> Int): Int
 // JVM method = sumOfLong(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Iterable<T>.sumOf(selector: (T) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)I
 inline fun <T> Iterable<T>.sumOf(selector: (T) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Iterable<T>.sumOf(selector: (T) -> ULong): ULong
 
@@ -26985,6 +28806,30 @@ inline fun <K, V> Map.Entry<K, V>.toPair(): Pair<K, V>
 // *** FUNCTIONS ***
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
+inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>?
+
+// JVM method = maxWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
+inline fun <K, V> Map<out K, V>.maxWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
+inline fun <K, V, R : Comparable<R>> Map<out K, V>.minBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>?
+
+// JVM method = minWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
+fun <K, V> Map<out K, V>.minWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.collections.MapsKt
+
+
+// *** FUNCTIONS ***
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = all(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Z
 inline fun <K, V> Map<out K, V>.all(predicate: (Map.Entry<K, V>) -> Boolean): Boolean
 
@@ -27053,8 +28898,8 @@ inline fun <K, V, R : Any, C : MutableCollection<in R : Any>> Map<out K, V>.mapN
 inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.mapTo(destination: C : MutableCollection<in R>, transform: (Map.Entry<K, V>) -> R): C : MutableCollection<in R>
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
-inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>?
+// JVM method = maxByOrThrow(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
+inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = maxByOrNull(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
@@ -27092,15 +28937,15 @@ inline fun <K, V, R> Map<out K, V>.maxOfWith(comparator: Comparator<in R> /* = j
 // JVM method = maxOfWithOrNull(Ljava/util/Map;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <K, V, R> Map<out K, V>.maxOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (Map.Entry<K, V>) -> R): R?
 
-// JVM method = maxWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
-inline fun <K, V> Map<out K, V>.maxWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
+// JVM method = maxWithOrThrow(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
+inline fun <K, V> Map<out K, V>.maxWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>
 
 // JVM method = maxWithOrNull(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
 inline fun <K, V> Map<out K, V>.maxWithOrNull(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
-inline fun <K, V, R : Comparable<R>> Map<out K, V>.minBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>?
+// JVM method = minByOrThrow(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
+inline fun <K, V, R : Comparable<R>> Map<out K, V>.minBy(selector: (Map.Entry<K, V>) -> R : Comparable<R>): Map.Entry<K, V>
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = minByOrNull(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map$Entry;
@@ -27138,8 +28983,8 @@ inline fun <K, V, R> Map<out K, V>.minOfWith(comparator: Comparator<in R> /* = j
 // JVM method = minOfWithOrNull(Ljava/util/Map;Ljava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <K, V, R> Map<out K, V>.minOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (Map.Entry<K, V>) -> R): R?
 
-// JVM method = minWith(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
-fun <K, V> Map<out K, V>.minWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
+// JVM method = minWithOrThrow(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
+inline fun <K, V> Map<out K, V>.minWith(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>
 
 // JVM method = minWithOrNull(Ljava/util/Map;Ljava/util/Comparator;)Ljava/util/Map$Entry;
 inline fun <K, V> Map<out K, V>.minWithOrNull(comparator: Comparator<in Map.Entry<K, V>> /* = java.util.Comparator<in Map.Entry<K, V>> */): Map.Entry<K, V>?
@@ -27405,42 +29250,146 @@ inline fun ULongArray.elementAt(index: Int): ULong
 inline fun UShortArray.elementAt(index: Int): UShort
 
 // requires language version >= 1.3, otherwise diagnostic error
+// JVM method = max-GBYM_sE([B)Lkotlin/UByte;
+fun UByteArray.max(): UByte?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = max--ajY-9A([I)Lkotlin/UInt;
+fun UIntArray.max(): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = max-QwZRm1k([J)Lkotlin/ULong;
+fun ULongArray.max(): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = max-rL5Bavg([S)Lkotlin/UShort;
+fun UShortArray.max(): UShort?
+
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
+inline fun <R : Comparable<R>> UByteArray.maxBy(selector: (UByte) -> R : Comparable<R>): UByte?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
+inline fun <R : Comparable<R>> UIntArray.maxBy(selector: (UInt) -> R : Comparable<R>): UInt?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
+inline fun <R : Comparable<R>> ULongArray.maxBy(selector: (ULong) -> R : Comparable<R>): ULong?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
+inline fun <R : Comparable<R>> UShortArray.maxBy(selector: (UShort) -> R : Comparable<R>): UShort?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
+fun UByteArray.maxWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
+fun UIntArray.maxWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
+fun ULongArray.maxWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
+fun UShortArray.maxWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = min-GBYM_sE([B)Lkotlin/UByte;
+fun UByteArray.min(): UByte?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = min--ajY-9A([I)Lkotlin/UInt;
+fun UIntArray.min(): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = min-QwZRm1k([J)Lkotlin/ULong;
+fun ULongArray.min(): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = min-rL5Bavg([S)Lkotlin/UShort;
+fun UShortArray.min(): UShort?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
+inline fun <R : Comparable<R>> UByteArray.minBy(selector: (UByte) -> R : Comparable<R>): UByte?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
+inline fun <R : Comparable<R>> UIntArray.minBy(selector: (UInt) -> R : Comparable<R>): UInt?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
+inline fun <R : Comparable<R>> ULongArray.minBy(selector: (ULong) -> R : Comparable<R>): ULong?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
+inline fun <R : Comparable<R>> UShortArray.minBy(selector: (UShort) -> R : Comparable<R>): UShort?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
+fun UByteArray.minWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
+fun UIntArray.minWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
+fun ULongArray.minWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
+fun UShortArray.minWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigDecimal([BLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
 inline fun UByteArray.sumOf(selector: (UByte) -> java.math.BigDecimal): java.math.BigDecimal
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigInteger([BLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
 inline fun UByteArray.sumOf(selector: (UByte) -> java.math.BigInteger): java.math.BigInteger
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigDecimal([ILkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
 inline fun UIntArray.sumOf(selector: (UInt) -> java.math.BigDecimal): java.math.BigDecimal
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigInteger([ILkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
 inline fun UIntArray.sumOf(selector: (UInt) -> java.math.BigInteger): java.math.BigInteger
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigDecimal([JLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
 inline fun ULongArray.sumOf(selector: (ULong) -> java.math.BigDecimal): java.math.BigDecimal
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigInteger([JLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
 inline fun ULongArray.sumOf(selector: (ULong) -> java.math.BigInteger): java.math.BigInteger
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigDecimal([SLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
 inline fun UShortArray.sumOf(selector: (UShort) -> java.math.BigDecimal): java.math.BigDecimal
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfBigInteger([SLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;
 inline fun UShortArray.sumOf(selector: (UShort) -> java.math.BigInteger): java.math.BigInteger
 
@@ -27506,23 +29455,23 @@ inline val UShortArray.lastIndex: Int
 
 // *** FUNCTIONS ***
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = all-JOV_ifY([BLkotlin/jvm/functions/Function1;)Z
 inline fun UByteArray.all(predicate: (UByte) -> Boolean): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = all-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Z
 inline fun UIntArray.all(predicate: (UInt) -> Boolean): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = all-MShoTSo([JLkotlin/jvm/functions/Function1;)Z
 inline fun ULongArray.all(predicate: (ULong) -> Boolean): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = all-xTcfx_M([SLkotlin/jvm/functions/Function1;)Z
 inline fun UShortArray.all(predicate: (UShort) -> Boolean): Boolean
 
@@ -27530,8 +29479,8 @@ inline fun UShortArray.all(predicate: (UShort) -> Boolean): Boolean
 // JVM method = any-GBYM_sE([B)Z
 inline fun UByteArray.any(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = any-JOV_ifY([BLkotlin/jvm/functions/Function1;)Z
 inline fun UByteArray.any(predicate: (UByte) -> Boolean): Boolean
 
@@ -27539,8 +29488,8 @@ inline fun UByteArray.any(predicate: (UByte) -> Boolean): Boolean
 // JVM method = any--ajY-9A([I)Z
 inline fun UIntArray.any(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = any-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Z
 inline fun UIntArray.any(predicate: (UInt) -> Boolean): Boolean
 
@@ -27548,8 +29497,8 @@ inline fun UIntArray.any(predicate: (UInt) -> Boolean): Boolean
 // JVM method = any-QwZRm1k([J)Z
 inline fun ULongArray.any(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = any-MShoTSo([JLkotlin/jvm/functions/Function1;)Z
 inline fun ULongArray.any(predicate: (ULong) -> Boolean): Boolean
 
@@ -27557,8 +29506,8 @@ inline fun ULongArray.any(predicate: (ULong) -> Boolean): Boolean
 // JVM method = any-rL5Bavg([S)Z
 inline fun UShortArray.any(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = any-xTcfx_M([SLkotlin/jvm/functions/Function1;)Z
 inline fun UShortArray.any(predicate: (UShort) -> Boolean): Boolean
 
@@ -27594,43 +29543,43 @@ inline fun LongArray.asULongArray(): ULongArray
 // JVM method = asUShortArray([S)[S
 inline fun ShortArray.asUShortArray(): UShortArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWith-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V> UByteArray.associateWith(valueSelector: (UByte) -> V): Map<UByte, V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWith-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V> UIntArray.associateWith(valueSelector: (UInt) -> V): Map<UInt, V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWith-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V> ULongArray.associateWith(valueSelector: (ULong) -> V): Map<ULong, V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWith-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V> UShortArray.associateWith(valueSelector: (UShort) -> V): Map<UShort, V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWithTo-H21X9dk([BLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V, M : MutableMap<in UByte, in V>> UByteArray.associateWithTo(destination: M : MutableMap<in UByte, in V>, valueSelector: (UByte) -> V): M : MutableMap<in UByte, in V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWithTo-4D70W2E([ILjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V, M : MutableMap<in UInt, in V>> UIntArray.associateWithTo(destination: M : MutableMap<in UInt, in V>, valueSelector: (UInt) -> V): M : MutableMap<in UInt, in V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWithTo-X6OPwNk([JLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V, M : MutableMap<in ULong, in V>> ULongArray.associateWithTo(destination: M : MutableMap<in ULong, in V>, valueSelector: (ULong) -> V): M : MutableMap<in ULong, in V>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = associateWithTo-ciTST-8([SLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <V, M : MutableMap<in UShort, in V>> UShortArray.associateWithTo(destination: M : MutableMap<in UShort, in V>, valueSelector: (UShort) -> V): M : MutableMap<in UShort, in V>
 
@@ -27874,23 +29823,23 @@ inline fun ULongArray.copyOfRange(fromIndex: Int, toIndex: Int): ULongArray
 // JVM method = copyOfRange-Aa5vz7o([SII)[S
 inline fun UShortArray.copyOfRange(fromIndex: Int, toIndex: Int): UShortArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = count-JOV_ifY([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.count(predicate: (UByte) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = count-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.count(predicate: (UInt) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = count-MShoTSo([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.count(predicate: (ULong) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = count-xTcfx_M([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.count(predicate: (UShort) -> Boolean): Int
 
@@ -27926,63 +29875,63 @@ fun ULongArray.dropLast(n: Int): List<ULong>
 // JVM method = dropLast-nggk6HY([SI)Ljava/util/List;
 fun UShortArray.dropLast(n: Int): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropLastWhile-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.dropLastWhile(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropLastWhile-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.dropLastWhile(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropLastWhile-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.dropLastWhile(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropLastWhile-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.dropLastWhile(predicate: (UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropWhile-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.dropWhile(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropWhile-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.dropWhile(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropWhile-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.dropWhile(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = dropWhile-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.dropWhile(predicate: (UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = elementAtOrElse-cO-VybQ([BILkotlin/jvm/functions/Function1;)B
 inline fun UByteArray.elementAtOrElse(index: Int, defaultValue: (Int) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = elementAtOrElse-QxvSvLU([IILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.elementAtOrElse(index: Int, defaultValue: (Int) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = elementAtOrElse-Xw8i6dc([JILkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.elementAtOrElse(index: Int, defaultValue: (Int) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = elementAtOrElse-CVVdw08([SILkotlin/jvm/functions/Function1;)S
 inline fun UShortArray.elementAtOrElse(index: Int, defaultValue: (Int) -> UShort): UShort
 
@@ -28018,163 +29967,163 @@ fun ULongArray.fill(element: ULong, fromIndex: Int /* = default */, toIndex: Int
 // JVM method = fill-EtDCXyQ([SSII)V
 fun UShortArray.fill(element: UShort, fromIndex: Int /* = default */, toIndex: Int /* = default */)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filter-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.filter(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filter-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.filter(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filter-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.filter(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filter-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.filter(predicate: (UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexed-ELGow60([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UByteArray.filterIndexed(predicate: (@ParameterName(name = "index") Int, UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexed-WyvcNBI([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UIntArray.filterIndexed(predicate: (@ParameterName(name = "index") Int, UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexed-s8dVfGU([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun ULongArray.filterIndexed(predicate: (@ParameterName(name = "index") Int, ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexed-xzaTVY8([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UShortArray.filterIndexed(predicate: (@ParameterName(name = "index") Int, UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexedTo-eNpIKz8([BLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UByte>> UByteArray.filterIndexedTo(destination: C : MutableCollection<in UByte>, predicate: (@ParameterName(name = "index") Int, UByte) -> Boolean): C : MutableCollection<in UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexedTo--6EtJGI([ILjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UInt>> UIntArray.filterIndexedTo(destination: C : MutableCollection<in UInt>, predicate: (@ParameterName(name = "index") Int, UInt) -> Boolean): C : MutableCollection<in UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexedTo-pe2Q0Dw([JLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in ULong>> ULongArray.filterIndexedTo(destination: C : MutableCollection<in ULong>, predicate: (@ParameterName(name = "index") Int, ULong) -> Boolean): C : MutableCollection<in ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterIndexedTo-QqktQ3k([SLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UShort>> UShortArray.filterIndexedTo(destination: C : MutableCollection<in UShort>, predicate: (@ParameterName(name = "index") Int, UShort) -> Boolean): C : MutableCollection<in UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNot-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.filterNot(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNot-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.filterNot(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNot-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.filterNot(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNot-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.filterNot(predicate: (UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNotTo-wzUQCXU([BLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UByte>> UByteArray.filterNotTo(destination: C : MutableCollection<in UByte>, predicate: (UByte) -> Boolean): C : MutableCollection<in UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNotTo-wU5IKMo([ILjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UInt>> UIntArray.filterNotTo(destination: C : MutableCollection<in UInt>, predicate: (UInt) -> Boolean): C : MutableCollection<in UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNotTo-HqK1JgA([JLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in ULong>> ULongArray.filterNotTo(destination: C : MutableCollection<in ULong>, predicate: (ULong) -> Boolean): C : MutableCollection<in ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterNotTo-oEOeDjA([SLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UShort>> UShortArray.filterNotTo(destination: C : MutableCollection<in UShort>, predicate: (UShort) -> Boolean): C : MutableCollection<in UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterTo-wzUQCXU([BLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UByte>> UByteArray.filterTo(destination: C : MutableCollection<in UByte>, predicate: (UByte) -> Boolean): C : MutableCollection<in UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterTo-wU5IKMo([ILjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UInt>> UIntArray.filterTo(destination: C : MutableCollection<in UInt>, predicate: (UInt) -> Boolean): C : MutableCollection<in UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterTo-HqK1JgA([JLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in ULong>> ULongArray.filterTo(destination: C : MutableCollection<in ULong>, predicate: (ULong) -> Boolean): C : MutableCollection<in ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = filterTo-oEOeDjA([SLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <C : MutableCollection<in UShort>> UShortArray.filterTo(destination: C : MutableCollection<in UShort>, predicate: (UShort) -> Boolean): C : MutableCollection<in UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = find-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun UByteArray.find(predicate: (UByte) -> Boolean): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = find-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun UIntArray.find(predicate: (UInt) -> Boolean): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = find-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun ULongArray.find(predicate: (ULong) -> Boolean): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = find-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun UShortArray.find(predicate: (UShort) -> Boolean): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = findLast-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun UByteArray.findLast(predicate: (UByte) -> Boolean): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = findLast-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun UIntArray.findLast(predicate: (UInt) -> Boolean): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = findLast-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun ULongArray.findLast(predicate: (ULong) -> Boolean): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = findLast-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun UShortArray.findLast(predicate: (UShort) -> Boolean): UShort?
 
@@ -28182,8 +30131,8 @@ inline fun UShortArray.findLast(predicate: (UShort) -> Boolean): UShort?
 // JVM method = first-GBYM_sE([B)B
 inline fun UByteArray.first(): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = first-JOV_ifY([BLkotlin/jvm/functions/Function1;)B
 inline fun UByteArray.first(predicate: (UByte) -> Boolean): UByte
 
@@ -28191,8 +30140,8 @@ inline fun UByteArray.first(predicate: (UByte) -> Boolean): UByte
 // JVM method = first--ajY-9A([I)I
 inline fun UIntArray.first(): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = first-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.first(predicate: (UInt) -> Boolean): UInt
 
@@ -28200,8 +30149,8 @@ inline fun UIntArray.first(predicate: (UInt) -> Boolean): UInt
 // JVM method = first-QwZRm1k([J)J
 inline fun ULongArray.first(): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = first-MShoTSo([JLkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.first(predicate: (ULong) -> Boolean): ULong
 
@@ -28209,8 +30158,8 @@ inline fun ULongArray.first(predicate: (ULong) -> Boolean): ULong
 // JVM method = first-rL5Bavg([S)S
 inline fun UShortArray.first(): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = first-xTcfx_M([SLkotlin/jvm/functions/Function1;)S
 inline fun UShortArray.first(predicate: (UShort) -> Boolean): UShort
 
@@ -28218,8 +30167,8 @@ inline fun UShortArray.first(predicate: (UShort) -> Boolean): UShort
 // JVM method = firstOrNull-GBYM_sE([B)Lkotlin/UByte;
 fun UByteArray.firstOrNull(): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = firstOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun UByteArray.firstOrNull(predicate: (UByte) -> Boolean): UByte?
 
@@ -28227,8 +30176,8 @@ inline fun UByteArray.firstOrNull(predicate: (UByte) -> Boolean): UByte?
 // JVM method = firstOrNull--ajY-9A([I)Lkotlin/UInt;
 fun UIntArray.firstOrNull(): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = firstOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun UIntArray.firstOrNull(predicate: (UInt) -> Boolean): UInt?
 
@@ -28236,8 +30185,8 @@ inline fun UIntArray.firstOrNull(predicate: (UInt) -> Boolean): UInt?
 // JVM method = firstOrNull-QwZRm1k([J)Lkotlin/ULong;
 fun ULongArray.firstOrNull(): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = firstOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun ULongArray.firstOrNull(predicate: (ULong) -> Boolean): ULong?
 
@@ -28245,228 +30194,228 @@ inline fun ULongArray.firstOrNull(predicate: (ULong) -> Boolean): ULong?
 // JVM method = firstOrNull-rL5Bavg([S)Lkotlin/UShort;
 fun UShortArray.firstOrNull(): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = firstOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun UShortArray.firstOrNull(predicate: (UShort) -> Boolean): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMap-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UByteArray.flatMap(transform: (UByte) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMap-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UIntArray.flatMap(transform: (UInt) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMap-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> ULongArray.flatMap(transform: (ULong) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMap-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UShortArray.flatMap(transform: (UShort) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexed-ELGow60([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UByteArray.flatMapIndexed(transform: (@ParameterName(name = "index") Int, UByte) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexed-WyvcNBI([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UIntArray.flatMapIndexed(transform: (@ParameterName(name = "index") Int, UInt) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexed-s8dVfGU([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> ULongArray.flatMapIndexed(transform: (@ParameterName(name = "index") Int, ULong) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexed-xzaTVY8([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UShortArray.flatMapIndexed(transform: (@ParameterName(name = "index") Int, UShort) -> Iterable<R>): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexedTo-eNpIKz8([BLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UByteArray.flatMapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UByte) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexedTo--6EtJGI([ILjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UIntArray.flatMapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UInt) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexedTo-pe2Q0Dw([JLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> ULongArray.flatMapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, ULong) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapIndexedTo-QqktQ3k([SLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UShortArray.flatMapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UShort) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapTo-wzUQCXU([BLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UByteArray.flatMapTo(destination: C : MutableCollection<in R>, transform: (UByte) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapTo-wU5IKMo([ILjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UIntArray.flatMapTo(destination: C : MutableCollection<in R>, transform: (UInt) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapTo-HqK1JgA([JLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> ULongArray.flatMapTo(destination: C : MutableCollection<in R>, transform: (ULong) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = flatMapTo-oEOeDjA([SLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UShortArray.flatMapTo(destination: C : MutableCollection<in R>, transform: (UShort) -> Iterable<R>): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = fold-yXmHNn8([BLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UByteArray.fold(initial: R, operation: (@ParameterName(name = "acc") R, UByte) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = fold-zi1B2BA([ILjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UIntArray.fold(initial: R, operation: (@ParameterName(name = "acc") R, UInt) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = fold-A8wKCXQ([JLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> ULongArray.fold(initial: R, operation: (@ParameterName(name = "acc") R, ULong) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = fold-zww5nb8([SLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UShortArray.fold(initial: R, operation: (@ParameterName(name = "acc") R, UShort) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldIndexed-3iWJZGE([BLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UByteArray.foldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UByte) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldIndexed-yVwIW0Q([ILjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UIntArray.foldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UInt) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldIndexed-mwnnOCs([JLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> ULongArray.foldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, ULong) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldIndexed-bzxtMww([SLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UShortArray.foldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UShort) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRight-yXmHNn8([BLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UByteArray.foldRight(initial: R, operation: (UByte, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRight-zi1B2BA([ILjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UIntArray.foldRight(initial: R, operation: (UInt, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRight-A8wKCXQ([JLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> ULongArray.foldRight(initial: R, operation: (ULong, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRight-zww5nb8([SLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 inline fun <R> UShortArray.foldRight(initial: R, operation: (UShort, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRightIndexed-3iWJZGE([BLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UByteArray.foldRightIndexed(initial: R, operation: (@ParameterName(name = "index") Int, UByte, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRightIndexed-yVwIW0Q([ILjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UIntArray.foldRightIndexed(initial: R, operation: (@ParameterName(name = "index") Int, UInt, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRightIndexed-mwnnOCs([JLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> ULongArray.foldRightIndexed(initial: R, operation: (@ParameterName(name = "index") Int, ULong, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = foldRightIndexed-bzxtMww([SLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/lang/Object;
 inline fun <R> UShortArray.foldRightIndexed(initial: R, operation: (@ParameterName(name = "index") Int, UShort, @ParameterName(name = "acc") R) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEach-JOV_ifY([BLkotlin/jvm/functions/Function1;)V
 inline fun UByteArray.forEach(action: (UByte) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEach-jgv0xPQ([ILkotlin/jvm/functions/Function1;)V
 inline fun UIntArray.forEach(action: (UInt) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEach-MShoTSo([JLkotlin/jvm/functions/Function1;)V
 inline fun ULongArray.forEach(action: (ULong) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEach-xTcfx_M([SLkotlin/jvm/functions/Function1;)V
 inline fun UShortArray.forEach(action: (UShort) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEachIndexed-ELGow60([BLkotlin/jvm/functions/Function2;)V
 inline fun UByteArray.forEachIndexed(action: (@ParameterName(name = "index") Int, UByte) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEachIndexed-WyvcNBI([ILkotlin/jvm/functions/Function2;)V
 inline fun UIntArray.forEachIndexed(action: (@ParameterName(name = "index") Int, UInt) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEachIndexed-s8dVfGU([JLkotlin/jvm/functions/Function2;)V
 inline fun ULongArray.forEachIndexed(action: (@ParameterName(name = "index") Int, ULong) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = forEachIndexed-xzaTVY8([SLkotlin/jvm/functions/Function2;)V
 inline fun UShortArray.forEachIndexed(action: (@ParameterName(name = "index") Int, UShort) -> Unit)
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = getOrElse-cO-VybQ([BILkotlin/jvm/functions/Function1;)B
 inline fun UByteArray.getOrElse(index: Int, defaultValue: (Int) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = getOrElse-QxvSvLU([IILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.getOrElse(index: Int, defaultValue: (Int) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = getOrElse-Xw8i6dc([JILkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.getOrElse(index: Int, defaultValue: (Int) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = getOrElse-CVVdw08([SILkotlin/jvm/functions/Function1;)S
 inline fun UShortArray.getOrElse(index: Int, defaultValue: (Int) -> UShort): UShort
 
@@ -28486,83 +30435,83 @@ fun ULongArray.getOrNull(index: Int): ULong?
 // JVM method = getOrNull-nggk6HY([SI)Lkotlin/UShort;
 fun UShortArray.getOrNull(index: Int): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K> UByteArray.groupBy(keySelector: (UByte) -> K): Map<K, List<UByte>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-bBsjw1Y([BLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V> UByteArray.groupBy(keySelector: (UByte) -> K, valueTransform: (UByte) -> V): Map<K, List<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K> UIntArray.groupBy(keySelector: (UInt) -> K): Map<K, List<UInt>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-L4rlFek([ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V> UIntArray.groupBy(keySelector: (UInt) -> K, valueTransform: (UInt) -> V): Map<K, List<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K> ULongArray.groupBy(keySelector: (ULong) -> K): Map<K, List<ULong>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy--_j2Y-Q([JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V> ULongArray.groupBy(keySelector: (ULong) -> K, valueTransform: (ULong) -> V): Map<K, List<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K> UShortArray.groupBy(keySelector: (UShort) -> K): Map<K, List<UShort>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupBy-3bBvP4M([SLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V> UShortArray.groupBy(keySelector: (UShort) -> K, valueTransform: (UShort) -> V): Map<K, List<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-H21X9dk([BLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, M : MutableMap<in K, MutableList<UByte>>> UByteArray.groupByTo(destination: M : MutableMap<in K, MutableList<UByte>>, keySelector: (UByte) -> K): M : MutableMap<in K, MutableList<UByte>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-qOZmbk8([BLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V, M : MutableMap<in K, MutableList<V>>> UByteArray.groupByTo(destination: M : MutableMap<in K, MutableList<V>>, keySelector: (UByte) -> K, valueTransform: (UByte) -> V): M : MutableMap<in K, MutableList<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-4D70W2E([ILjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, M : MutableMap<in K, MutableList<UInt>>> UIntArray.groupByTo(destination: M : MutableMap<in K, MutableList<UInt>>, keySelector: (UInt) -> K): M : MutableMap<in K, MutableList<UInt>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-JM6gNCM([ILjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V, M : MutableMap<in K, MutableList<V>>> UIntArray.groupByTo(destination: M : MutableMap<in K, MutableList<V>>, keySelector: (UInt) -> K, valueTransform: (UInt) -> V): M : MutableMap<in K, MutableList<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-X6OPwNk([JLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, M : MutableMap<in K, MutableList<ULong>>> ULongArray.groupByTo(destination: M : MutableMap<in K, MutableList<ULong>>, keySelector: (ULong) -> K): M : MutableMap<in K, MutableList<ULong>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-QxgOkWg([JLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ULongArray.groupByTo(destination: M : MutableMap<in K, MutableList<V>>, keySelector: (ULong) -> K, valueTransform: (ULong) -> V): M : MutableMap<in K, MutableList<V>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-ciTST-8([SLjava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, M : MutableMap<in K, MutableList<UShort>>> UShortArray.groupByTo(destination: M : MutableMap<in K, MutableList<UShort>>, keySelector: (UShort) -> K): M : MutableMap<in K, MutableList<UShort>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = groupByTo-q8RuPII([SLjava/util/Map;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 inline fun <K, V, M : MutableMap<in K, MutableList<V>>> UShortArray.groupByTo(destination: M : MutableMap<in K, MutableList<V>>, keySelector: (UShort) -> K, valueTransform: (UShort) -> V): M : MutableMap<in K, MutableList<V>>
 
@@ -28582,43 +30531,43 @@ inline fun ULongArray.indexOf(element: ULong): Int
 // JVM method = indexOf-XzdR7RA([SS)I
 inline fun UShortArray.indexOf(element: UShort): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfFirst-JOV_ifY([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.indexOfFirst(predicate: (UByte) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfFirst-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.indexOfFirst(predicate: (UInt) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfFirst-MShoTSo([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.indexOfFirst(predicate: (ULong) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfFirst-xTcfx_M([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.indexOfFirst(predicate: (UShort) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfLast-JOV_ifY([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.indexOfLast(predicate: (UByte) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfLast-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.indexOfLast(predicate: (UInt) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfLast-MShoTSo([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.indexOfLast(predicate: (ULong) -> Boolean): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = indexOfLast-xTcfx_M([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.indexOfLast(predicate: (UShort) -> Boolean): Int
 
@@ -28626,8 +30575,8 @@ inline fun UShortArray.indexOfLast(predicate: (UShort) -> Boolean): Int
 // JVM method = last-GBYM_sE([B)B
 inline fun UByteArray.last(): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = last-JOV_ifY([BLkotlin/jvm/functions/Function1;)B
 inline fun UByteArray.last(predicate: (UByte) -> Boolean): UByte
 
@@ -28635,8 +30584,8 @@ inline fun UByteArray.last(predicate: (UByte) -> Boolean): UByte
 // JVM method = last--ajY-9A([I)I
 inline fun UIntArray.last(): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = last-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.last(predicate: (UInt) -> Boolean): UInt
 
@@ -28644,8 +30593,8 @@ inline fun UIntArray.last(predicate: (UInt) -> Boolean): UInt
 // JVM method = last-QwZRm1k([J)J
 inline fun ULongArray.last(): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = last-MShoTSo([JLkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.last(predicate: (ULong) -> Boolean): ULong
 
@@ -28653,8 +30602,8 @@ inline fun ULongArray.last(predicate: (ULong) -> Boolean): ULong
 // JVM method = last-rL5Bavg([S)S
 inline fun UShortArray.last(): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = last-xTcfx_M([SLkotlin/jvm/functions/Function1;)S
 inline fun UShortArray.last(predicate: (UShort) -> Boolean): UShort
 
@@ -28678,8 +30627,8 @@ inline fun UShortArray.lastIndexOf(element: UShort): Int
 // JVM method = lastOrNull-GBYM_sE([B)Lkotlin/UByte;
 fun UByteArray.lastOrNull(): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = lastOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun UByteArray.lastOrNull(predicate: (UByte) -> Boolean): UByte?
 
@@ -28687,8 +30636,8 @@ inline fun UByteArray.lastOrNull(predicate: (UByte) -> Boolean): UByte?
 // JVM method = lastOrNull--ajY-9A([I)Lkotlin/UInt;
 fun UIntArray.lastOrNull(): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = lastOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun UIntArray.lastOrNull(predicate: (UInt) -> Boolean): UInt?
 
@@ -28696,8 +30645,8 @@ inline fun UIntArray.lastOrNull(predicate: (UInt) -> Boolean): UInt?
 // JVM method = lastOrNull-QwZRm1k([J)Lkotlin/ULong;
 fun ULongArray.lastOrNull(): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = lastOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun ULongArray.lastOrNull(predicate: (ULong) -> Boolean): ULong?
 
@@ -28705,304 +30654,304 @@ inline fun ULongArray.lastOrNull(predicate: (ULong) -> Boolean): ULong?
 // JVM method = lastOrNull-rL5Bavg([S)Lkotlin/UShort;
 fun UShortArray.lastOrNull(): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = lastOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun UShortArray.lastOrNull(predicate: (UShort) -> Boolean): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = map-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UByteArray.map(transform: (UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = map-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UIntArray.map(transform: (UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = map-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> ULongArray.map(transform: (ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = map-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun <R> UShortArray.map(transform: (UShort) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexed-ELGow60([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UByteArray.mapIndexed(transform: (@ParameterName(name = "index") Int, UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexed-WyvcNBI([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UIntArray.mapIndexed(transform: (@ParameterName(name = "index") Int, UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexed-s8dVfGU([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> ULongArray.mapIndexed(transform: (@ParameterName(name = "index") Int, ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexed-xzaTVY8([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UShortArray.mapIndexed(transform: (@ParameterName(name = "index") Int, UShort) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexedTo-eNpIKz8([BLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UByteArray.mapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UByte) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexedTo--6EtJGI([ILjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UIntArray.mapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UInt) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexedTo-pe2Q0Dw([JLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> ULongArray.mapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, ULong) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapIndexedTo-QqktQ3k([SLjava/util/Collection;Lkotlin/jvm/functions/Function2;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UShortArray.mapIndexedTo(destination: C : MutableCollection<in R>, transform: (@ParameterName(name = "index") Int, UShort) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapTo-wzUQCXU([BLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UByteArray.mapTo(destination: C : MutableCollection<in R>, transform: (UByte) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapTo-wU5IKMo([ILjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UIntArray.mapTo(destination: C : MutableCollection<in R>, transform: (UInt) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapTo-HqK1JgA([JLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> ULongArray.mapTo(destination: C : MutableCollection<in R>, transform: (ULong) -> R): C : MutableCollection<in R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = mapTo-oEOeDjA([SLjava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> UShortArray.mapTo(destination: C : MutableCollection<in R>, transform: (UShort) -> R): C : MutableCollection<in R>
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = max-GBYM_sE([B)Lkotlin/UByte;
-fun UByteArray.max(): UByte?
+// JVM method = maxOrThrow-U([B)B
+fun UByteArray.max(): UByte
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = max--ajY-9A([I)Lkotlin/UInt;
-fun UIntArray.max(): UInt?
+// JVM method = maxOrThrow-U([I)I
+fun UIntArray.max(): UInt
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = max-QwZRm1k([J)Lkotlin/ULong;
-fun ULongArray.max(): ULong?
+// JVM method = maxOrThrow-U([J)J
+fun ULongArray.max(): ULong
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = max-rL5Bavg([S)Lkotlin/UShort;
-fun UShortArray.max(): UShort?
+// JVM method = maxOrThrow-U([S)S
+fun UShortArray.max(): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
-inline fun <R : Comparable<R>> UByteArray.maxBy(selector: (UByte) -> R : Comparable<R>): UByte?
-
 // requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
-inline fun <R : Comparable<R>> UIntArray.maxBy(selector: (UInt) -> R : Comparable<R>): UInt?
+// JVM method = maxByOrThrow-U([BLkotlin/jvm/functions/Function1;)B
+inline fun <R : Comparable<R>> UByteArray.maxBy(selector: (UByte) -> R : Comparable<R>): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
-inline fun <R : Comparable<R>> ULongArray.maxBy(selector: (ULong) -> R : Comparable<R>): ULong?
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxByOrThrow-U([ILkotlin/jvm/functions/Function1;)I
+inline fun <R : Comparable<R>> UIntArray.maxBy(selector: (UInt) -> R : Comparable<R>): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
-inline fun <R : Comparable<R>> UShortArray.maxBy(selector: (UShort) -> R : Comparable<R>): UShort?
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxByOrThrow-U([JLkotlin/jvm/functions/Function1;)J
+inline fun <R : Comparable<R>> ULongArray.maxBy(selector: (ULong) -> R : Comparable<R>): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = maxByOrThrow-U([SLkotlin/jvm/functions/Function1;)S
+inline fun <R : Comparable<R>> UShortArray.maxBy(selector: (UShort) -> R : Comparable<R>): UShort
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxByOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun <R : Comparable<R>> UByteArray.maxByOrNull(selector: (UByte) -> R : Comparable<R>): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxByOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun <R : Comparable<R>> UIntArray.maxByOrNull(selector: (UInt) -> R : Comparable<R>): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxByOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun <R : Comparable<R>> ULongArray.maxByOrNull(selector: (ULong) -> R : Comparable<R>): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxByOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun <R : Comparable<R>> UShortArray.maxByOrNull(selector: (UShort) -> R : Comparable<R>): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UByteArray.maxOf(selector: (UByte) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)D
 inline fun UByteArray.maxOf(selector: (UByte) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)F
 inline fun UByteArray.maxOf(selector: (UByte) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UIntArray.maxOf(selector: (UInt) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)D
 inline fun UIntArray.maxOf(selector: (UInt) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)F
 inline fun UIntArray.maxOf(selector: (UInt) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> ULongArray.maxOf(selector: (ULong) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-MShoTSo([JLkotlin/jvm/functions/Function1;)D
 inline fun ULongArray.maxOf(selector: (ULong) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-MShoTSo([JLkotlin/jvm/functions/Function1;)F
 inline fun ULongArray.maxOf(selector: (ULong) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UShortArray.maxOf(selector: (UShort) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)D
 inline fun UShortArray.maxOf(selector: (UShort) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)F
 inline fun UShortArray.maxOf(selector: (UShort) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UByteArray.maxOfOrNull(selector: (UByte) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UByteArray.maxOfOrNull(selector: (UByte) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UByteArray.maxOfOrNull(selector: (UByte) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UIntArray.maxOfOrNull(selector: (UInt) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UIntArray.maxOfOrNull(selector: (UInt) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UIntArray.maxOfOrNull(selector: (UInt) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> ULongArray.maxOfOrNull(selector: (ULong) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun ULongArray.maxOfOrNull(selector: (ULong) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun ULongArray.maxOfOrNull(selector: (ULong) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UShortArray.maxOfOrNull(selector: (UShort) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UShortArray.maxOfOrNull(selector: (UShort) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UShortArray.maxOfOrNull(selector: (UShort) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWith-LTi4i_s([BLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UByteArray.maxOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UByte) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWith-myNOsp4([ILjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UIntArray.maxOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UInt) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWith-5NtCtWE([JLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> ULongArray.maxOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (ULong) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWith-l8EHGbQ([SLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UShortArray.maxOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UShort) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWithOrNull-LTi4i_s([BLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UByteArray.maxOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UByte) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWithOrNull-myNOsp4([ILjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UIntArray.maxOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UInt) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWithOrNull-5NtCtWE([JLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> ULongArray.maxOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (ULong) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxOfWithOrNull-l8EHGbQ([SLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UShortArray.maxOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UShort) -> R): R?
 
@@ -29023,20 +30972,20 @@ fun ULongArray.maxOrNull(): ULong?
 fun UShortArray.maxOrNull(): UShort?
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = maxWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
-fun UByteArray.maxWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte?
+// JVM method = maxWithOrThrow-U([BLjava/util/Comparator;)B
+fun UByteArray.maxWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = maxWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
-fun UIntArray.maxWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt?
+// JVM method = maxWithOrThrow-U([ILjava/util/Comparator;)I
+fun UIntArray.maxWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = maxWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
-fun ULongArray.maxWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong?
+// JVM method = maxWithOrThrow-U([JLjava/util/Comparator;)J
+fun ULongArray.maxWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = maxWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
-fun UShortArray.maxWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort?
+// JVM method = maxWithOrThrow-U([SLjava/util/Comparator;)S
+fun UShortArray.maxWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort
 
 // requires language version >= 1.3, otherwise diagnostic error
 // JVM method = maxWithOrNull-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
@@ -29055,218 +31004,218 @@ fun ULongArray.maxWithOrNull(comparator: Comparator<in ULong> /* = java.util.Com
 fun UShortArray.maxWithOrNull(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort?
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = min-GBYM_sE([B)Lkotlin/UByte;
-fun UByteArray.min(): UByte?
+// JVM method = minOrThrow-U([B)B
+fun UByteArray.min(): UByte
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = min--ajY-9A([I)Lkotlin/UInt;
-fun UIntArray.min(): UInt?
+// JVM method = minOrThrow-U([I)I
+fun UIntArray.min(): UInt
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = min-QwZRm1k([J)Lkotlin/ULong;
-fun ULongArray.min(): ULong?
+// JVM method = minOrThrow-U([J)J
+fun ULongArray.min(): ULong
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = min-rL5Bavg([S)Lkotlin/UShort;
-fun UShortArray.min(): UShort?
+// JVM method = minOrThrow-U([S)S
+fun UShortArray.min(): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
-inline fun <R : Comparable<R>> UByteArray.minBy(selector: (UByte) -> R : Comparable<R>): UByte?
-
 // requires language version >= 1.3, otherwise diagnostic error
-// requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
-inline fun <R : Comparable<R>> UIntArray.minBy(selector: (UInt) -> R : Comparable<R>): UInt?
+// JVM method = minByOrThrow-U([BLkotlin/jvm/functions/Function1;)B
+inline fun <R : Comparable<R>> UByteArray.minBy(selector: (UByte) -> R : Comparable<R>): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
-inline fun <R : Comparable<R>> ULongArray.minBy(selector: (ULong) -> R : Comparable<R>): ULong?
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minByOrThrow-U([ILkotlin/jvm/functions/Function1;)I
+inline fun <R : Comparable<R>> UIntArray.minBy(selector: (UInt) -> R : Comparable<R>): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
-inline fun <R : Comparable<R>> UShortArray.minBy(selector: (UShort) -> R : Comparable<R>): UShort?
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minByOrThrow-U([JLkotlin/jvm/functions/Function1;)J
+inline fun <R : Comparable<R>> ULongArray.minBy(selector: (ULong) -> R : Comparable<R>): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = minByOrThrow-U([SLkotlin/jvm/functions/Function1;)S
+inline fun <R : Comparable<R>> UShortArray.minBy(selector: (UShort) -> R : Comparable<R>): UShort
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minByOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun <R : Comparable<R>> UByteArray.minByOrNull(selector: (UByte) -> R : Comparable<R>): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minByOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun <R : Comparable<R>> UIntArray.minByOrNull(selector: (UInt) -> R : Comparable<R>): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minByOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun <R : Comparable<R>> ULongArray.minByOrNull(selector: (ULong) -> R : Comparable<R>): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minByOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun <R : Comparable<R>> UShortArray.minByOrNull(selector: (UShort) -> R : Comparable<R>): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UByteArray.minOf(selector: (UByte) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)D
 inline fun UByteArray.minOf(selector: (UByte) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-JOV_ifY([BLkotlin/jvm/functions/Function1;)F
 inline fun UByteArray.minOf(selector: (UByte) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UIntArray.minOf(selector: (UInt) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)D
 inline fun UIntArray.minOf(selector: (UInt) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-jgv0xPQ([ILkotlin/jvm/functions/Function1;)F
 inline fun UIntArray.minOf(selector: (UInt) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> ULongArray.minOf(selector: (ULong) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-MShoTSo([JLkotlin/jvm/functions/Function1;)D
 inline fun ULongArray.minOf(selector: (ULong) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-MShoTSo([JLkotlin/jvm/functions/Function1;)F
 inline fun ULongArray.minOf(selector: (ULong) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UShortArray.minOf(selector: (UShort) -> R : Comparable<R>): R : Comparable<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)D
 inline fun UShortArray.minOf(selector: (UShort) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOf-xTcfx_M([SLkotlin/jvm/functions/Function1;)F
 inline fun UShortArray.minOf(selector: (UShort) -> Float): Float
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UByteArray.minOfOrNull(selector: (UByte) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UByteArray.minOfOrNull(selector: (UByte) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UByteArray.minOfOrNull(selector: (UByte) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UIntArray.minOfOrNull(selector: (UInt) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UIntArray.minOfOrNull(selector: (UInt) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UIntArray.minOfOrNull(selector: (UInt) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> ULongArray.minOfOrNull(selector: (ULong) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun ULongArray.minOfOrNull(selector: (ULong) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun ULongArray.minOfOrNull(selector: (ULong) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Comparable;
 inline fun <R : Comparable<R>> UShortArray.minOfOrNull(selector: (UShort) -> R : Comparable<R>): R : Comparable<R>?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Double;
 inline fun UShortArray.minOfOrNull(selector: (UShort) -> Double): Double?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/lang/Float;
 inline fun UShortArray.minOfOrNull(selector: (UShort) -> Float): Float?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWith-LTi4i_s([BLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UByteArray.minOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UByte) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWith-myNOsp4([ILjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UIntArray.minOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UInt) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWith-5NtCtWE([JLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> ULongArray.minOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (ULong) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWith-l8EHGbQ([SLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UShortArray.minOfWith(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UShort) -> R): R
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWithOrNull-LTi4i_s([BLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UByteArray.minOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UByte) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWithOrNull-myNOsp4([ILjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UIntArray.minOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UInt) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWithOrNull-5NtCtWE([JLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> ULongArray.minOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (ULong) -> R): R?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minOfWithOrNull-l8EHGbQ([SLjava/util/Comparator;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <R> UShortArray.minOfWithOrNull(comparator: Comparator<in R> /* = java.util.Comparator<in R> */, selector: (UShort) -> R): R?
 
@@ -29287,20 +31236,20 @@ fun ULongArray.minOrNull(): ULong?
 fun UShortArray.minOrNull(): UShort?
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minWith-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
-fun UByteArray.minWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte?
+// JVM method = minWithOrThrow-U([BLjava/util/Comparator;)B
+fun UByteArray.minWith(comparator: Comparator<in UByte> /* = java.util.Comparator<in UByte> */): UByte
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minWith-YmdZ_VM([ILjava/util/Comparator;)Lkotlin/UInt;
-fun UIntArray.minWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt?
+// JVM method = minWithOrThrow-U([ILjava/util/Comparator;)I
+fun UIntArray.minWith(comparator: Comparator<in UInt> /* = java.util.Comparator<in UInt> */): UInt
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minWith-zrEWJaI([JLjava/util/Comparator;)Lkotlin/ULong;
-fun ULongArray.minWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong?
+// JVM method = minWithOrThrow-U([JLjava/util/Comparator;)J
+fun ULongArray.minWith(comparator: Comparator<in ULong> /* = java.util.Comparator<in ULong> */): ULong
 
 // requires language version >= 1.3, otherwise diagnostic error
-// JVM method = minWith-eOHTfZs([SLjava/util/Comparator;)Lkotlin/UShort;
-fun UShortArray.minWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort?
+// JVM method = minWithOrThrow-U([SLjava/util/Comparator;)S
+fun UShortArray.minWith(comparator: Comparator<in UShort> /* = java.util.Comparator<in UShort> */): UShort
 
 // requires language version >= 1.3, otherwise diagnostic error
 // JVM method = minWithOrNull-XMRcp5o([BLjava/util/Comparator;)Lkotlin/UByte;
@@ -29322,8 +31271,8 @@ fun UShortArray.minWithOrNull(comparator: Comparator<in UShort> /* = java.util.C
 // JVM method = none-GBYM_sE([B)Z
 inline fun UByteArray.none(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = none-JOV_ifY([BLkotlin/jvm/functions/Function1;)Z
 inline fun UByteArray.none(predicate: (UByte) -> Boolean): Boolean
 
@@ -29331,8 +31280,8 @@ inline fun UByteArray.none(predicate: (UByte) -> Boolean): Boolean
 // JVM method = none--ajY-9A([I)Z
 inline fun UIntArray.none(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = none-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Z
 inline fun UIntArray.none(predicate: (UInt) -> Boolean): Boolean
 
@@ -29340,8 +31289,8 @@ inline fun UIntArray.none(predicate: (UInt) -> Boolean): Boolean
 // JVM method = none-QwZRm1k([J)Z
 inline fun ULongArray.none(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = none-MShoTSo([JLkotlin/jvm/functions/Function1;)Z
 inline fun ULongArray.none(predicate: (ULong) -> Boolean): Boolean
 
@@ -29349,48 +31298,48 @@ inline fun ULongArray.none(predicate: (ULong) -> Boolean): Boolean
 // JVM method = none-rL5Bavg([S)Z
 inline fun UShortArray.none(): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = none-xTcfx_M([SLkotlin/jvm/functions/Function1;)Z
 inline fun UShortArray.none(predicate: (UShort) -> Boolean): Boolean
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEach-JOV_ifY([BLkotlin/jvm/functions/Function1;)[B
 inline fun UByteArray.onEach(action: (UByte) -> Unit): UByteArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEach-jgv0xPQ([ILkotlin/jvm/functions/Function1;)[I
 inline fun UIntArray.onEach(action: (UInt) -> Unit): UIntArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEach-MShoTSo([JLkotlin/jvm/functions/Function1;)[J
 inline fun ULongArray.onEach(action: (ULong) -> Unit): ULongArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEach-xTcfx_M([SLkotlin/jvm/functions/Function1;)[S
 inline fun UShortArray.onEach(action: (UShort) -> Unit): UShortArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEachIndexed-ELGow60([BLkotlin/jvm/functions/Function2;)[B
 inline fun UByteArray.onEachIndexed(action: (@ParameterName(name = "index") Int, UByte) -> Unit): UByteArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEachIndexed-WyvcNBI([ILkotlin/jvm/functions/Function2;)[I
 inline fun UIntArray.onEachIndexed(action: (@ParameterName(name = "index") Int, UInt) -> Unit): UIntArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEachIndexed-s8dVfGU([JLkotlin/jvm/functions/Function2;)[J
 inline fun ULongArray.onEachIndexed(action: (@ParameterName(name = "index") Int, ULong) -> Unit): ULongArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = onEachIndexed-xzaTVY8([SLkotlin/jvm/functions/Function2;)[S
 inline fun UShortArray.onEachIndexed(action: (@ParameterName(name = "index") Int, UShort) -> Unit): UShortArray
 
@@ -29506,163 +31455,163 @@ inline fun UShortArray.randomOrNull(): UShort?
 // JVM method = randomOrNull-s5X_as8([SLkotlin/random/Random;)Lkotlin/UShort;
 fun UShortArray.randomOrNull(random: kotlin.random.Random): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduce-ELGow60([BLkotlin/jvm/functions/Function2;)B
 inline fun UByteArray.reduce(operation: (@ParameterName(name = "acc") UByte, UByte) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduce-WyvcNBI([ILkotlin/jvm/functions/Function2;)I
 inline fun UIntArray.reduce(operation: (@ParameterName(name = "acc") UInt, UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduce-s8dVfGU([JLkotlin/jvm/functions/Function2;)J
 inline fun ULongArray.reduce(operation: (@ParameterName(name = "acc") ULong, ULong) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduce-xzaTVY8([SLkotlin/jvm/functions/Function2;)S
 inline fun UShortArray.reduce(operation: (@ParameterName(name = "acc") UShort, UShort) -> UShort): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexed-EOyYB1Y([BLkotlin/jvm/functions/Function3;)B
 inline fun UByteArray.reduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UByte, UByte) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexed-D40WMg8([ILkotlin/jvm/functions/Function3;)I
 inline fun UIntArray.reduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UInt, UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexed-z1zDJgo([JLkotlin/jvm/functions/Function3;)J
 inline fun ULongArray.reduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") ULong, ULong) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexed-aLgx1Fo([SLkotlin/jvm/functions/Function3;)S
 inline fun UShortArray.reduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UShort, UShort) -> UShort): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexedOrNull-EOyYB1Y([BLkotlin/jvm/functions/Function3;)Lkotlin/UByte;
 inline fun UByteArray.reduceIndexedOrNull(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UByte, UByte) -> UByte): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexedOrNull-D40WMg8([ILkotlin/jvm/functions/Function3;)Lkotlin/UInt;
 inline fun UIntArray.reduceIndexedOrNull(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UInt, UInt) -> UInt): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexedOrNull-z1zDJgo([JLkotlin/jvm/functions/Function3;)Lkotlin/ULong;
 inline fun ULongArray.reduceIndexedOrNull(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") ULong, ULong) -> ULong): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceIndexedOrNull-aLgx1Fo([SLkotlin/jvm/functions/Function3;)Lkotlin/UShort;
 inline fun UShortArray.reduceIndexedOrNull(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UShort, UShort) -> UShort): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceOrNull-ELGow60([BLkotlin/jvm/functions/Function2;)Lkotlin/UByte;
 inline fun UByteArray.reduceOrNull(operation: (@ParameterName(name = "acc") UByte, UByte) -> UByte): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceOrNull-WyvcNBI([ILkotlin/jvm/functions/Function2;)Lkotlin/UInt;
 inline fun UIntArray.reduceOrNull(operation: (@ParameterName(name = "acc") UInt, UInt) -> UInt): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceOrNull-s8dVfGU([JLkotlin/jvm/functions/Function2;)Lkotlin/ULong;
 inline fun ULongArray.reduceOrNull(operation: (@ParameterName(name = "acc") ULong, ULong) -> ULong): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceOrNull-xzaTVY8([SLkotlin/jvm/functions/Function2;)Lkotlin/UShort;
 inline fun UShortArray.reduceOrNull(operation: (@ParameterName(name = "acc") UShort, UShort) -> UShort): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRight-ELGow60([BLkotlin/jvm/functions/Function2;)B
 inline fun UByteArray.reduceRight(operation: (UByte, @ParameterName(name = "acc") UByte) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRight-WyvcNBI([ILkotlin/jvm/functions/Function2;)I
 inline fun UIntArray.reduceRight(operation: (UInt, @ParameterName(name = "acc") UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRight-s8dVfGU([JLkotlin/jvm/functions/Function2;)J
 inline fun ULongArray.reduceRight(operation: (ULong, @ParameterName(name = "acc") ULong) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRight-xzaTVY8([SLkotlin/jvm/functions/Function2;)S
 inline fun UShortArray.reduceRight(operation: (UShort, @ParameterName(name = "acc") UShort) -> UShort): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexed-EOyYB1Y([BLkotlin/jvm/functions/Function3;)B
 inline fun UByteArray.reduceRightIndexed(operation: (@ParameterName(name = "index") Int, UByte, @ParameterName(name = "acc") UByte) -> UByte): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexed-D40WMg8([ILkotlin/jvm/functions/Function3;)I
 inline fun UIntArray.reduceRightIndexed(operation: (@ParameterName(name = "index") Int, UInt, @ParameterName(name = "acc") UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexed-z1zDJgo([JLkotlin/jvm/functions/Function3;)J
 inline fun ULongArray.reduceRightIndexed(operation: (@ParameterName(name = "index") Int, ULong, @ParameterName(name = "acc") ULong) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexed-aLgx1Fo([SLkotlin/jvm/functions/Function3;)S
 inline fun UShortArray.reduceRightIndexed(operation: (@ParameterName(name = "index") Int, UShort, @ParameterName(name = "acc") UShort) -> UShort): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexedOrNull-EOyYB1Y([BLkotlin/jvm/functions/Function3;)Lkotlin/UByte;
 inline fun UByteArray.reduceRightIndexedOrNull(operation: (@ParameterName(name = "index") Int, UByte, @ParameterName(name = "acc") UByte) -> UByte): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexedOrNull-D40WMg8([ILkotlin/jvm/functions/Function3;)Lkotlin/UInt;
 inline fun UIntArray.reduceRightIndexedOrNull(operation: (@ParameterName(name = "index") Int, UInt, @ParameterName(name = "acc") UInt) -> UInt): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexedOrNull-z1zDJgo([JLkotlin/jvm/functions/Function3;)Lkotlin/ULong;
 inline fun ULongArray.reduceRightIndexedOrNull(operation: (@ParameterName(name = "index") Int, ULong, @ParameterName(name = "acc") ULong) -> ULong): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightIndexedOrNull-aLgx1Fo([SLkotlin/jvm/functions/Function3;)Lkotlin/UShort;
 inline fun UShortArray.reduceRightIndexedOrNull(operation: (@ParameterName(name = "index") Int, UShort, @ParameterName(name = "acc") UShort) -> UShort): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightOrNull-ELGow60([BLkotlin/jvm/functions/Function2;)Lkotlin/UByte;
 inline fun UByteArray.reduceRightOrNull(operation: (UByte, @ParameterName(name = "acc") UByte) -> UByte): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightOrNull-WyvcNBI([ILkotlin/jvm/functions/Function2;)Lkotlin/UInt;
 inline fun UIntArray.reduceRightOrNull(operation: (UInt, @ParameterName(name = "acc") UInt) -> UInt): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightOrNull-s8dVfGU([JLkotlin/jvm/functions/Function2;)Lkotlin/ULong;
 inline fun ULongArray.reduceRightOrNull(operation: (ULong, @ParameterName(name = "acc") ULong) -> ULong): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = reduceRightOrNull-xzaTVY8([SLkotlin/jvm/functions/Function2;)Lkotlin/UShort;
 inline fun UShortArray.reduceRightOrNull(operation: (UShort, @ParameterName(name = "acc") UShort) -> UShort): UShort?
 
@@ -29730,123 +31679,123 @@ inline fun ULongArray.reversedArray(): ULongArray
 // JVM method = reversedArray-rL5Bavg([S)[S
 inline fun UShortArray.reversedArray(): UShortArray
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFold-yXmHNn8([BLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UByteArray.runningFold(initial: R, operation: (@ParameterName(name = "acc") R, UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFold-zi1B2BA([ILjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UIntArray.runningFold(initial: R, operation: (@ParameterName(name = "acc") R, UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFold-A8wKCXQ([JLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> ULongArray.runningFold(initial: R, operation: (@ParameterName(name = "acc") R, ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFold-zww5nb8([SLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UShortArray.runningFold(initial: R, operation: (@ParameterName(name = "acc") R, UShort) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFoldIndexed-3iWJZGE([BLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UByteArray.runningFoldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFoldIndexed-yVwIW0Q([ILjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UIntArray.runningFoldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFoldIndexed-mwnnOCs([JLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> ULongArray.runningFoldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningFoldIndexed-bzxtMww([SLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UShortArray.runningFoldIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UShort) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduce-ELGow60([BLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UByteArray.runningReduce(operation: (@ParameterName(name = "acc") UByte, UByte) -> UByte): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduce-WyvcNBI([ILkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UIntArray.runningReduce(operation: (@ParameterName(name = "acc") UInt, UInt) -> UInt): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduce-s8dVfGU([JLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun ULongArray.runningReduce(operation: (@ParameterName(name = "acc") ULong, ULong) -> ULong): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduce-xzaTVY8([SLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun UShortArray.runningReduce(operation: (@ParameterName(name = "acc") UShort, UShort) -> UShort): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduceIndexed-EOyYB1Y([BLkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun UByteArray.runningReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UByte, UByte) -> UByte): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduceIndexed-D40WMg8([ILkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun UIntArray.runningReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UInt, UInt) -> UInt): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduceIndexed-z1zDJgo([JLkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun ULongArray.runningReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") ULong, ULong) -> ULong): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = runningReduceIndexed-aLgx1Fo([SLkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun UShortArray.runningReduceIndexed(operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") UShort, UShort) -> UShort): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scan-yXmHNn8([BLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UByteArray.scan(initial: R, operation: (@ParameterName(name = "acc") R, UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scan-zi1B2BA([ILjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UIntArray.scan(initial: R, operation: (@ParameterName(name = "acc") R, UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scan-A8wKCXQ([JLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> ULongArray.scan(initial: R, operation: (@ParameterName(name = "acc") R, ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scan-zww5nb8([SLjava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R> UShortArray.scan(initial: R, operation: (@ParameterName(name = "acc") R, UShort) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scanIndexed-3iWJZGE([BLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UByteArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UByte) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scanIndexed-yVwIW0Q([ILjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UIntArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UInt) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scanIndexed-mwnnOCs([JLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> ULongArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, ULong) -> R): List<R>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = scanIndexed-bzxtMww([SLjava/lang/Object;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
 inline fun <R> UShortArray.scanIndexed(initial: R, operation: (@ParameterName(name = "index") Int, @ParameterName(name = "acc") R, UShort) -> R): List<R>
 
@@ -29886,8 +31835,8 @@ fun UShortArray.shuffle(random: kotlin.random.Random)
 // JVM method = single-GBYM_sE([B)B
 inline fun UByteArray.single(): UByte
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = single-JOV_ifY([BLkotlin/jvm/functions/Function1;)B
 inline fun UByteArray.single(predicate: (UByte) -> Boolean): UByte
 
@@ -29895,8 +31844,8 @@ inline fun UByteArray.single(predicate: (UByte) -> Boolean): UByte
 // JVM method = single--ajY-9A([I)I
 inline fun UIntArray.single(): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = single-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.single(predicate: (UInt) -> Boolean): UInt
 
@@ -29904,8 +31853,8 @@ inline fun UIntArray.single(predicate: (UInt) -> Boolean): UInt
 // JVM method = single-QwZRm1k([J)J
 inline fun ULongArray.single(): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = single-MShoTSo([JLkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.single(predicate: (ULong) -> Boolean): ULong
 
@@ -29913,8 +31862,8 @@ inline fun ULongArray.single(predicate: (ULong) -> Boolean): ULong
 // JVM method = single-rL5Bavg([S)S
 inline fun UShortArray.single(): UShort
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = single-xTcfx_M([SLkotlin/jvm/functions/Function1;)S
 inline fun UShortArray.single(predicate: (UShort) -> Boolean): UShort
 
@@ -29922,8 +31871,8 @@ inline fun UShortArray.single(predicate: (UShort) -> Boolean): UShort
 // JVM method = singleOrNull-GBYM_sE([B)Lkotlin/UByte;
 fun UByteArray.singleOrNull(): UByte?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = singleOrNull-JOV_ifY([BLkotlin/jvm/functions/Function1;)Lkotlin/UByte;
 inline fun UByteArray.singleOrNull(predicate: (UByte) -> Boolean): UByte?
 
@@ -29931,8 +31880,8 @@ inline fun UByteArray.singleOrNull(predicate: (UByte) -> Boolean): UByte?
 // JVM method = singleOrNull--ajY-9A([I)Lkotlin/UInt;
 fun UIntArray.singleOrNull(): UInt?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = singleOrNull-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Lkotlin/UInt;
 inline fun UIntArray.singleOrNull(predicate: (UInt) -> Boolean): UInt?
 
@@ -29940,8 +31889,8 @@ inline fun UIntArray.singleOrNull(predicate: (UInt) -> Boolean): UInt?
 // JVM method = singleOrNull-QwZRm1k([J)Lkotlin/ULong;
 fun ULongArray.singleOrNull(): ULong?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = singleOrNull-MShoTSo([JLkotlin/jvm/functions/Function1;)Lkotlin/ULong;
 inline fun ULongArray.singleOrNull(predicate: (ULong) -> Boolean): ULong?
 
@@ -29949,8 +31898,8 @@ inline fun ULongArray.singleOrNull(predicate: (ULong) -> Boolean): ULong?
 // JVM method = singleOrNull-rL5Bavg([S)Lkotlin/UShort;
 fun UShortArray.singleOrNull(): UShort?
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = singleOrNull-xTcfx_M([SLkotlin/jvm/functions/Function1;)Lkotlin/UShort;
 inline fun UShortArray.singleOrNull(predicate: (UShort) -> Boolean): UShort?
 
@@ -30178,143 +32127,143 @@ inline fun ULongArray.sum(): ULong
 // JVM method = sum-rL5Bavg([S)I
 inline fun UShortArray.sum(): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumBy-JOV_ifY([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.sumBy(selector: (UByte) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumBy-jgv0xPQ([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.sumBy(selector: (UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumBy-MShoTSo([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.sumBy(selector: (ULong) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumBy-xTcfx_M([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.sumBy(selector: (UShort) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumByDouble-JOV_ifY([BLkotlin/jvm/functions/Function1;)D
 inline fun UByteArray.sumByDouble(selector: (UByte) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumByDouble-jgv0xPQ([ILkotlin/jvm/functions/Function1;)D
 inline fun UIntArray.sumByDouble(selector: (UInt) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumByDouble-MShoTSo([JLkotlin/jvm/functions/Function1;)D
 inline fun ULongArray.sumByDouble(selector: (ULong) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumByDouble-xTcfx_M([SLkotlin/jvm/functions/Function1;)D
 inline fun UShortArray.sumByDouble(selector: (UShort) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfDouble([BLkotlin/jvm/functions/Function1;)D
 inline fun UByteArray.sumOf(selector: (UByte) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfInt([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.sumOf(selector: (UByte) -> Int): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfLong([BLkotlin/jvm/functions/Function1;)J
 inline fun UByteArray.sumOf(selector: (UByte) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([BLkotlin/jvm/functions/Function1;)I
 inline fun UByteArray.sumOf(selector: (UByte) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([BLkotlin/jvm/functions/Function1;)J
 inline fun UByteArray.sumOf(selector: (UByte) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfDouble([ILkotlin/jvm/functions/Function1;)D
 inline fun UIntArray.sumOf(selector: (UInt) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfInt([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.sumOf(selector: (UInt) -> Int): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfLong([ILkotlin/jvm/functions/Function1;)J
 inline fun UIntArray.sumOf(selector: (UInt) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([ILkotlin/jvm/functions/Function1;)I
 inline fun UIntArray.sumOf(selector: (UInt) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([ILkotlin/jvm/functions/Function1;)J
 inline fun UIntArray.sumOf(selector: (UInt) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfDouble([JLkotlin/jvm/functions/Function1;)D
 inline fun ULongArray.sumOf(selector: (ULong) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfInt([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.sumOf(selector: (ULong) -> Int): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfLong([JLkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.sumOf(selector: (ULong) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([JLkotlin/jvm/functions/Function1;)I
 inline fun ULongArray.sumOf(selector: (ULong) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([JLkotlin/jvm/functions/Function1;)J
 inline fun ULongArray.sumOf(selector: (ULong) -> ULong): ULong
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfDouble([SLkotlin/jvm/functions/Function1;)D
 inline fun UShortArray.sumOf(selector: (UShort) -> Double): Double
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfInt([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.sumOf(selector: (UShort) -> Int): Int
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfLong([SLkotlin/jvm/functions/Function1;)J
 inline fun UShortArray.sumOf(selector: (UShort) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt([SLkotlin/jvm/functions/Function1;)I
 inline fun UShortArray.sumOf(selector: (UShort) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong([SLkotlin/jvm/functions/Function1;)J
 inline fun UShortArray.sumOf(selector: (UShort) -> ULong): ULong
 
@@ -30350,43 +32299,43 @@ fun ULongArray.takeLast(n: Int): List<ULong>
 // JVM method = takeLast-nggk6HY([SI)Ljava/util/List;
 fun UShortArray.takeLast(n: Int): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeLastWhile-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.takeLastWhile(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeLastWhile-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.takeLastWhile(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeLastWhile-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.takeLastWhile(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeLastWhile-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.takeLastWhile(predicate: (UShort) -> Boolean): List<UShort>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeWhile-JOV_ifY([BLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UByteArray.takeWhile(predicate: (UByte) -> Boolean): List<UByte>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeWhile-jgv0xPQ([ILkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UIntArray.takeWhile(predicate: (UInt) -> Boolean): List<UInt>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeWhile-MShoTSo([JLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun ULongArray.takeWhile(predicate: (ULong) -> Boolean): List<ULong>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = takeWhile-xTcfx_M([SLkotlin/jvm/functions/Function1;)Ljava/util/List;
 inline fun UShortArray.takeWhile(predicate: (UShort) -> Boolean): List<UShort>
 
@@ -30474,8 +32423,8 @@ fun UShortArray.withIndex(): Iterable<IndexedValue<UShort>>
 // JVM method = zip-nl983wc([B[Ljava/lang/Object;)Ljava/util/List;
 infix fun <R> UByteArray.zip(other: Array<out R>): List<Pair<UByte, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-LuipOMY([B[Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UByteArray.zip(other: Array<out R>, transform: (@ParameterName(name = "a") UByte, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30483,8 +32432,8 @@ inline fun <R, V> UByteArray.zip(other: Array<out R>, transform: (@ParameterName
 // JVM method = zip-kdPth3s([B[B)Ljava/util/List;
 infix fun UByteArray.zip(other: UByteArray): List<Pair<UByte, UByte>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-JAKpvQM([B[BLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <V> UByteArray.zip(other: UByteArray, transform: (@ParameterName(name = "a") UByte, @ParameterName(name = "b") UByte) -> V): List<V>
 
@@ -30492,8 +32441,8 @@ inline fun <V> UByteArray.zip(other: UByteArray, transform: (@ParameterName(name
 // JVM method = zip-JQknh5Q([BLjava/lang/Iterable;)Ljava/util/List;
 infix fun <R> UByteArray.zip(other: Iterable<R>): List<Pair<UByte, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-UCnP4_w([BLjava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UByteArray.zip(other: Iterable<R>, transform: (@ParameterName(name = "a") UByte, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30501,8 +32450,8 @@ inline fun <R, V> UByteArray.zip(other: Iterable<R>, transform: (@ParameterName(
 // JVM method = zip-C-E_24M([I[Ljava/lang/Object;)Ljava/util/List;
 infix fun <R> UIntArray.zip(other: Array<out R>): List<Pair<UInt, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-ZjwqOic([I[Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UIntArray.zip(other: Array<out R>, transform: (@ParameterName(name = "a") UInt, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30510,8 +32459,8 @@ inline fun <R, V> UIntArray.zip(other: Array<out R>, transform: (@ParameterName(
 // JVM method = zip-ctEhBpI([I[I)Ljava/util/List;
 infix fun UIntArray.zip(other: UIntArray): List<Pair<UInt, UInt>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-L83TJbI([I[ILkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <V> UIntArray.zip(other: UIntArray, transform: (@ParameterName(name = "a") UInt, @ParameterName(name = "b") UInt) -> V): List<V>
 
@@ -30519,8 +32468,8 @@ inline fun <V> UIntArray.zip(other: UIntArray, transform: (@ParameterName(name =
 // JVM method = zip-HwE9HBo([ILjava/lang/Iterable;)Ljava/util/List;
 infix fun <R> UIntArray.zip(other: Iterable<R>): List<Pair<UInt, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-7znnbtw([ILjava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UIntArray.zip(other: Iterable<R>, transform: (@ParameterName(name = "a") UInt, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30528,8 +32477,8 @@ inline fun <R, V> UIntArray.zip(other: Iterable<R>, transform: (@ParameterName(n
 // JVM method = zip-f7H3mmw([J[Ljava/lang/Object;)Ljava/util/List;
 infix fun <R> ULongArray.zip(other: Array<out R>): List<Pair<ULong, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-8LME4QE([J[Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> ULongArray.zip(other: Array<out R>, transform: (@ParameterName(name = "a") ULong, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30537,8 +32486,8 @@ inline fun <R, V> ULongArray.zip(other: Array<out R>, transform: (@ParameterName
 // JVM method = zip-us8wMrg([J[J)Ljava/util/List;
 infix fun ULongArray.zip(other: ULongArray): List<Pair<ULong, ULong>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-PabeH-Q([J[JLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <V> ULongArray.zip(other: ULongArray, transform: (@ParameterName(name = "a") ULong, @ParameterName(name = "b") ULong) -> V): List<V>
 
@@ -30546,8 +32495,8 @@ inline fun <V> ULongArray.zip(other: ULongArray, transform: (@ParameterName(name
 // JVM method = zip-F7u83W8([JLjava/lang/Iterable;)Ljava/util/List;
 infix fun <R> ULongArray.zip(other: Iterable<R>): List<Pair<ULong, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-TUPTUsU([JLjava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> ULongArray.zip(other: Iterable<R>, transform: (@ParameterName(name = "a") ULong, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30555,8 +32504,8 @@ inline fun <R, V> ULongArray.zip(other: Iterable<R>, transform: (@ParameterName(
 // JVM method = zip-uaTIQ5s([S[Ljava/lang/Object;)Ljava/util/List;
 infix fun <R> UShortArray.zip(other: Array<out R>): List<Pair<UShort, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-ePBmRWY([S[Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UShortArray.zip(other: Array<out R>, transform: (@ParameterName(name = "a") UShort, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -30564,8 +32513,8 @@ inline fun <R, V> UShortArray.zip(other: Array<out R>, transform: (@ParameterNam
 // JVM method = zip-mazbYpA([S[S)Ljava/util/List;
 infix fun UShortArray.zip(other: UShortArray): List<Pair<UShort, UShort>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-gVVukQo([S[SLkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <V> UShortArray.zip(other: UShortArray, transform: (@ParameterName(name = "a") UShort, @ParameterName(name = "b") UShort) -> V): List<V>
 
@@ -30573,8 +32522,8 @@ inline fun <V> UShortArray.zip(other: UShortArray, transform: (@ParameterName(na
 // JVM method = zip-JGPC0-M([SLjava/lang/Iterable;)Ljava/util/List;
 infix fun <R> UShortArray.zip(other: Iterable<R>): List<Pair<UShort, R>>
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = zip-kBb4a-s([SLjava/lang/Iterable;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 inline fun <R, V> UShortArray.zip(other: Iterable<R>, transform: (@ParameterName(name = "a") UShort, @ParameterName(name = "b") R) -> V): List<V>
 
@@ -31089,7 +33038,6 @@ fun java.io.File.readText(charset: java.nio.charset.Charset /* = default */): St
 // JVM method = reader(Ljava/io/File;Ljava/nio/charset/Charset;)Ljava/io/InputStreamReader;
 inline fun java.io.File.reader(charset: java.nio.charset.Charset /* = default */): java.io.InputStreamReader
 
-// requires compiler version >= 1.2, otherwise diagnostic error: Requires newer compiler version to be inlined correctly.
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = useLines(Ljava/io/File;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 inline fun <T> java.io.File.useLines(charset: java.nio.charset.Charset /* = default */, block: (Sequence<String>) -> T): T
@@ -31209,6 +33157,22 @@ fun java.io.File.toRelativeString(base: java.io.File): String
 
 // JVM method = toRelativeStringOrNull$FilesKt__UtilsKt(Ljava/io/File;Ljava/io/File;)Ljava/lang/String;
 private fun java.io.File.toRelativeStringOrNull(base: java.io.File): String?
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.io.encoding.StreamEncodingKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = decodingWith(Ljava/io/InputStream;Lkotlin/io/encoding/Base64;)Ljava/io/InputStream;
+fun java.io.InputStream.decodingWith(base64: kotlin.io.encoding.Base64): java.io.InputStream
+
+// JVM method = encodingWith(Ljava/io/OutputStream;Lkotlin/io/encoding/Base64;)Ljava/io/OutputStream;
+fun java.io.OutputStream.encodingWith(base64: kotlin.io.encoding.Base64): java.io.OutputStream
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -31344,6 +33308,12 @@ fun atanh(x: Double): Double
 
 // JVM method = atanh(F)F
 inline fun atanh(x: Float): Float
+
+// JVM method = cbrt(D)D
+inline fun cbrt(x: Double): Double
+
+// JVM method = cbrt(F)F
+inline fun cbrt(x: Float): Float
 
 // JVM method = ceil(D)D
 inline fun ceil(x: Double): Double
@@ -31562,10 +33532,15 @@ inline fun Float.withSign(sign: Int): Float
 // JVM method = checkStepIsPositive(ZLjava/lang/Number;)V
 internal fun checkStepIsPositive(isPositive: Boolean, step: Number)
 
-// JVM method = contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
+// JVM method = contains(Lkotlin/ranges/ClosedRange;Ljava/lang/Object;)Z
 inline operator fun <T : Any, R> R.contains(element: T : Any?): Boolean where
-	R : Iterable<T : Any>,
-	R : ClosedRange<T : Any>
+	R : ClosedRange<T : Any>,
+	R : Iterable<T : Any>
+
+// JVM method = contains(Lkotlin/ranges/OpenEndRange;Ljava/lang/Object;)Z
+inline operator fun <T : Any, R> R.contains(element: T : Any?): Boolean where
+	R : OpenEndRange<T : Any>,
+	R : Iterable<T : Any>
 
 // JVM method = rangeTo(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lkotlin/ranges/ClosedRange;
 operator fun <T : Comparable<T>> T : Comparable<T>.rangeTo(that: T : Comparable<T>): ClosedRange<T : Comparable<T>>
@@ -31575,6 +33550,15 @@ operator fun Double.rangeTo(that: Double): ClosedFloatingPointRange<Double>
 
 // JVM method = rangeTo(FF)Lkotlin/ranges/ClosedFloatingPointRange;
 operator fun Float.rangeTo(that: Float): ClosedFloatingPointRange<Float>
+
+// JVM method = rangeUntil(Ljava/lang/Comparable;Ljava/lang/Comparable;)Lkotlin/ranges/OpenEndRange;
+operator fun <T : Comparable<T>> T : Comparable<T>.rangeUntil(that: T : Comparable<T>): OpenEndRange<T : Comparable<T>>
+
+// JVM method = rangeUntil(DD)Lkotlin/ranges/OpenEndRange;
+operator fun Double.rangeUntil(that: Double): OpenEndRange<Double>
+
+// JVM method = rangeUntil(FF)Lkotlin/ranges/OpenEndRange;
+operator fun Float.rangeUntil(that: Float): OpenEndRange<Float>
 
 // ------------------------------------------------------------------------------------------------------
 
@@ -31754,11 +33738,68 @@ operator fun ClosedRange<Short>.contains(value: Int): Boolean
 // JVM method = shortRangeContains(Lkotlin/ranges/ClosedRange;J)Z
 operator fun ClosedRange<Short>.contains(value: Long): Boolean
 
+// JVM method = contains(Lkotlin/ranges/IntRange;B)Z
+inline operator fun IntRange.contains(value: Byte): Boolean
+
 // JVM method = contains(Lkotlin/ranges/IntRange;Ljava/lang/Integer;)Z
 inline operator fun IntRange.contains(element: Int?): Boolean
 
+// JVM method = contains(Lkotlin/ranges/IntRange;J)Z
+inline operator fun IntRange.contains(value: Long): Boolean
+
+// JVM method = contains(Lkotlin/ranges/IntRange;S)Z
+inline operator fun IntRange.contains(value: Short): Boolean
+
+// JVM method = contains(Lkotlin/ranges/LongRange;B)Z
+inline operator fun LongRange.contains(value: Byte): Boolean
+
+// JVM method = contains(Lkotlin/ranges/LongRange;I)Z
+inline operator fun LongRange.contains(value: Int): Boolean
+
 // JVM method = contains(Lkotlin/ranges/LongRange;Ljava/lang/Long;)Z
 inline operator fun LongRange.contains(element: Long?): Boolean
+
+// JVM method = contains(Lkotlin/ranges/LongRange;S)Z
+inline operator fun LongRange.contains(value: Short): Boolean
+
+// JVM method = byteRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
+operator fun OpenEndRange<Byte>.contains(value: Int): Boolean
+
+// JVM method = byteRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
+operator fun OpenEndRange<Byte>.contains(value: Long): Boolean
+
+// JVM method = byteRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
+operator fun OpenEndRange<Byte>.contains(value: Short): Boolean
+
+// JVM method = doubleRangeContains(Lkotlin/ranges/OpenEndRange;F)Z
+operator fun OpenEndRange<Double>.contains(value: Float): Boolean
+
+// JVM method = intRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
+operator fun OpenEndRange<Int>.contains(value: Byte): Boolean
+
+// JVM method = intRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
+operator fun OpenEndRange<Int>.contains(value: Long): Boolean
+
+// JVM method = intRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
+operator fun OpenEndRange<Int>.contains(value: Short): Boolean
+
+// JVM method = longRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
+operator fun OpenEndRange<Long>.contains(value: Byte): Boolean
+
+// JVM method = longRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
+operator fun OpenEndRange<Long>.contains(value: Int): Boolean
+
+// JVM method = longRangeContains(Lkotlin/ranges/OpenEndRange;S)Z
+operator fun OpenEndRange<Long>.contains(value: Short): Boolean
+
+// JVM method = shortRangeContains(Lkotlin/ranges/OpenEndRange;B)Z
+operator fun OpenEndRange<Short>.contains(value: Byte): Boolean
+
+// JVM method = shortRangeContains(Lkotlin/ranges/OpenEndRange;I)Z
+operator fun OpenEndRange<Short>.contains(value: Int): Boolean
+
+// JVM method = shortRangeContains(Lkotlin/ranges/OpenEndRange;J)Z
+operator fun OpenEndRange<Short>.contains(value: Long): Boolean
 
 // JVM method = downTo(BB)Lkotlin/ranges/IntProgression;
 infix fun Byte.downTo(to: Byte): IntProgression
@@ -31810,6 +33851,42 @@ infix fun Short.downTo(to: Long): LongProgression
 
 // JVM method = downTo(SS)Lkotlin/ranges/IntProgression;
 infix fun Short.downTo(to: Short): IntProgression
+
+// JVM method = first(Lkotlin/ranges/CharProgression;)C
+fun CharProgression.first(): Char
+
+// JVM method = first(Lkotlin/ranges/IntProgression;)I
+fun IntProgression.first(): Int
+
+// JVM method = first(Lkotlin/ranges/LongProgression;)J
+fun LongProgression.first(): Long
+
+// JVM method = firstOrNull(Lkotlin/ranges/CharProgression;)Ljava/lang/Character;
+fun CharProgression.firstOrNull(): Char?
+
+// JVM method = firstOrNull(Lkotlin/ranges/IntProgression;)Ljava/lang/Integer;
+fun IntProgression.firstOrNull(): Int?
+
+// JVM method = firstOrNull(Lkotlin/ranges/LongProgression;)Ljava/lang/Long;
+fun LongProgression.firstOrNull(): Long?
+
+// JVM method = last(Lkotlin/ranges/CharProgression;)C
+fun CharProgression.last(): Char
+
+// JVM method = last(Lkotlin/ranges/IntProgression;)I
+fun IntProgression.last(): Int
+
+// JVM method = last(Lkotlin/ranges/LongProgression;)J
+fun LongProgression.last(): Long
+
+// JVM method = lastOrNull(Lkotlin/ranges/CharProgression;)Ljava/lang/Character;
+fun CharProgression.lastOrNull(): Char?
+
+// JVM method = lastOrNull(Lkotlin/ranges/IntProgression;)Ljava/lang/Integer;
+fun IntProgression.lastOrNull(): Int?
+
+// JVM method = lastOrNull(Lkotlin/ranges/LongProgression;)Ljava/lang/Long;
+fun LongProgression.lastOrNull(): Long?
 
 // JVM method = random(Lkotlin/ranges/CharRange;)C
 inline fun CharRange.random(): Char
@@ -32073,6 +34150,38 @@ infix fun ULong.downTo(to: ULong): ULongProgression
 infix fun UShort.downTo(to: UShort): UIntProgression
 
 // requires language version >= 1.3, otherwise diagnostic error
+// JVM method = first(Lkotlin/ranges/UIntProgression;)I
+fun UIntProgression.first(): UInt
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = first(Lkotlin/ranges/ULongProgression;)J
+fun ULongProgression.first(): ULong
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = firstOrNull(Lkotlin/ranges/UIntProgression;)Lkotlin/UInt;
+fun UIntProgression.firstOrNull(): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = firstOrNull(Lkotlin/ranges/ULongProgression;)Lkotlin/ULong;
+fun ULongProgression.firstOrNull(): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = last(Lkotlin/ranges/UIntProgression;)I
+fun UIntProgression.last(): UInt
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = last(Lkotlin/ranges/ULongProgression;)J
+fun ULongProgression.last(): ULong
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = lastOrNull(Lkotlin/ranges/UIntProgression;)Lkotlin/UInt;
+fun UIntProgression.lastOrNull(): UInt?
+
+// requires language version >= 1.3, otherwise diagnostic error
+// JVM method = lastOrNull(Lkotlin/ranges/ULongProgression;)Lkotlin/ULong;
+fun ULongProgression.lastOrNull(): ULong?
+
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = random(Lkotlin/ranges/UIntRange;)I
 inline fun UIntRange.random(): UInt
 
@@ -32142,16 +34251,6 @@ infix fun UShort.until(to: UShort): UIntRange
 
 // *** TYPE ALIASES ***
 
-@Deprecated(
-	message = "Use SequenceScope class instead.",
-	replaceWith = ReplaceWith(
-		imports = [],
-		expression = "SequenceScope<T>"
-	),
-	level = DeprecationLevel.ERROR
-)
-typealias SequenceBuilder<T> = SequenceScope<T>
-
 private typealias State = Int
 
 
@@ -32177,14 +34276,6 @@ private const val State_Ready: State /* = Int */
 
 
 // *** FUNCTIONS ***
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = buildIterator(Lkotlin/jvm/functions/Function2;)Ljava/util/Iterator;
-inline fun <T> buildIterator(noinline builderAction: suspend SequenceScope<T>.() -> Unit): Iterator<T>
-
-// requires language version >= 1.3, otherwise diagnostic error
-// JVM method = buildSequence(Lkotlin/jvm/functions/Function2;)Lkotlin/sequences/Sequence;
-inline fun <T> buildSequence(noinline builderAction: suspend SequenceScope<T>.() -> Unit): Sequence<T>
 
 // requires language version >= 1.3, otherwise diagnostic error
 // JVM method = iterator(Lkotlin/jvm/functions/Function2;)Ljava/util/Iterator;
@@ -32284,6 +34375,38 @@ fun <R> Sequence<*>.filterIsInstance(klass: java.lang.Class<R>): Sequence<R>
 
 // JVM method = filterIsInstanceTo(Lkotlin/sequences/Sequence;Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;
 fun <C : MutableCollection<in R>, R> Sequence<*>.filterIsInstanceTo(destination: C : MutableCollection<in R>, klass: java.lang.Class<R>): C : MutableCollection<in R>
+
+// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Sequence<T : Comparable<T>>.max(): T : Comparable<T>?
+
+// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
+fun Sequence<Double>.max(): Double?
+
+// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
+fun Sequence<Float>.max(): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Sequence<T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+
+// JVM method = maxWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Sequence<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+
+// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Sequence<T : Comparable<T>>.min(): T : Comparable<T>?
+
+// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
+fun Sequence<Double>.min(): Double?
+
+// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
+fun Sequence<Float>.min(): Float?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Sequence<T>.minBy(selector: (T) -> R : Comparable<R>): T?
+
+// JVM method = minWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Sequence<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = sumOfBigDecimal(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
@@ -32602,18 +34725,18 @@ inline fun <T, R : Any, C : MutableCollection<in R : Any>> Sequence<T>.mapNotNul
 // JVM method = mapTo(Lkotlin/sequences/Sequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.mapTo(destination: C : MutableCollection<in R>, transform: (T) -> R): C : MutableCollection<in R>
 
-// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Sequence<T : Comparable<T>>.max(): T : Comparable<T>?
+// JVM method = maxOrThrow(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Sequence<T : Comparable<T>>.max(): T : Comparable<T>
 
-// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
-fun Sequence<Double>.max(): Double?
+// JVM method = maxOrThrow(Lkotlin/sequences/Sequence;)D
+fun Sequence<Double>.max(): Double
 
-// JVM method = max(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
-fun Sequence<Float>.max(): Float?
+// JVM method = maxOrThrow(Lkotlin/sequences/Sequence;)F
+fun Sequence<Float>.max(): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Sequence<T>.maxBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = maxByOrThrow(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Sequence<T>.maxBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = maxByOrNull(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -32660,24 +34783,24 @@ fun Sequence<Double>.maxOrNull(): Double?
 // JVM method = maxOrNull(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
 fun Sequence<Float>.maxOrNull(): Float?
 
-// JVM method = maxWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Sequence<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = maxWithOrThrow(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Sequence<T>.maxWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
 // JVM method = maxWithOrNull(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Sequence<T>.maxWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
 
-// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
-fun <T : Comparable<T>> Sequence<T : Comparable<T>>.min(): T : Comparable<T>?
+// JVM method = minOrThrow(Lkotlin/sequences/Sequence;)Ljava/lang/Comparable;
+fun <T : Comparable<T>> Sequence<T : Comparable<T>>.min(): T : Comparable<T>
 
-// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Double;
-fun Sequence<Double>.min(): Double?
+// JVM method = minOrThrow(Lkotlin/sequences/Sequence;)D
+fun Sequence<Double>.min(): Double
 
-// JVM method = min(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
-fun Sequence<Float>.min(): Float?
+// JVM method = minOrThrow(Lkotlin/sequences/Sequence;)F
+fun Sequence<Float>.min(): Float
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
-inline fun <T, R : Comparable<R>> Sequence<T>.minBy(selector: (T) -> R : Comparable<R>): T?
+// JVM method = minByOrThrow(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T, R : Comparable<R>> Sequence<T>.minBy(selector: (T) -> R : Comparable<R>): T
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = minByOrNull(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
@@ -32724,8 +34847,8 @@ fun Sequence<Double>.minOrNull(): Double?
 // JVM method = minOrNull(Lkotlin/sequences/Sequence;)Ljava/lang/Float;
 fun Sequence<Float>.minOrNull(): Float?
 
-// JVM method = minWith(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
-fun <T> Sequence<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
+// JVM method = minWithOrThrow(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
+fun <T> Sequence<T>.minWith(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T
 
 // JVM method = minWithOrNull(Lkotlin/sequences/Sequence;Ljava/util/Comparator;)Ljava/lang/Object;
 fun <T> Sequence<T>.minWithOrNull(comparator: Comparator<in T> /* = java.util.Comparator<in T> */): T?
@@ -32883,13 +35006,13 @@ inline fun <T> Sequence<T>.sumOf(selector: (T) -> Int): Int
 // JVM method = sumOfLong(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Sequence<T>.sumOf(selector: (T) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)I
 inline fun <T> Sequence<T>.sumOf(selector: (T) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)J
 inline fun <T> Sequence<T>.sumOf(selector: (T) -> ULong): ULong
 
@@ -33352,6 +35475,9 @@ fun StringBuilder /* = java.lang.StringBuilder */.append(vararg value: Any? /* A
 
 // JVM method = append(Ljava/lang/StringBuilder;[Ljava/lang/String;)Ljava/lang/StringBuilder;
 fun StringBuilder /* = java.lang.StringBuilder */.append(vararg value: String? /* Array<out String?> */): StringBuilder /* = java.lang.StringBuilder */
+
+// JVM method = append(Ljava/lang/StringBuilder;[CII)Ljava/lang/StringBuilder;
+inline fun StringBuilder /* = java.lang.StringBuilder */.append(str: CharArray, offset: Int, len: Int): StringBuilder /* = java.lang.StringBuilder */
 
 // JVM method = appendLine(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
 inline fun StringBuilder /* = java.lang.StringBuilder */.appendLine(): StringBuilder /* = java.lang.StringBuilder */
@@ -34119,6 +36245,26 @@ fun String.trimStart(vararg chars: Char /* CharArray */): String
 // JVM method = elementAt(Ljava/lang/CharSequence;I)C
 inline fun CharSequence.elementAt(index: Int): Char
 
+// JVM method = max(Ljava/lang/CharSequence;)Ljava/lang/Character;
+fun CharSequence.max(): Char?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = maxBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
+inline fun <R : Comparable<R>> CharSequence.maxBy(selector: (Char) -> R : Comparable<R>): Char?
+
+// JVM method = maxWith(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
+fun CharSequence.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+
+// JVM method = min(Ljava/lang/CharSequence;)Ljava/lang/Character;
+fun CharSequence.min(): Char?
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = minBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
+inline fun <R : Comparable<R>> CharSequence.minBy(selector: (Char) -> R : Comparable<R>): Char?
+
+// JVM method = minWith(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
+fun CharSequence.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = sumOfBigDecimal(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;
 inline fun CharSequence.sumOf(selector: (Char) -> java.math.BigDecimal): java.math.BigDecimal
@@ -34430,12 +36576,12 @@ inline fun <R : Any, C : MutableCollection<in R : Any>> CharSequence.mapNotNullT
 // JVM method = mapTo(Ljava/lang/CharSequence;Ljava/util/Collection;Lkotlin/jvm/functions/Function1;)Ljava/util/Collection;
 inline fun <R, C : MutableCollection<in R>> CharSequence.mapTo(destination: C : MutableCollection<in R>, transform: (Char) -> R): C : MutableCollection<in R>
 
-// JVM method = max(Ljava/lang/CharSequence;)Ljava/lang/Character;
-fun CharSequence.max(): Char?
+// JVM method = maxOrThrow(Ljava/lang/CharSequence;)C
+fun CharSequence.max(): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = maxBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-inline fun <R : Comparable<R>> CharSequence.maxBy(selector: (Char) -> R : Comparable<R>): Char?
+// JVM method = maxByOrThrow(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
+inline fun <R : Comparable<R>> CharSequence.maxBy(selector: (Char) -> R : Comparable<R>): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = maxByOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
@@ -34476,18 +36622,18 @@ inline fun <R> CharSequence.maxOfWithOrNull(comparator: Comparator<in R> /* = ja
 // JVM method = maxOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
 fun CharSequence.maxOrNull(): Char?
 
-// JVM method = maxWith(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
-fun CharSequence.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+// JVM method = maxWithOrThrow(Ljava/lang/CharSequence;Ljava/util/Comparator;)C
+fun CharSequence.maxWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char
 
 // JVM method = maxWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
 fun CharSequence.maxWithOrNull(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
 
-// JVM method = min(Ljava/lang/CharSequence;)Ljava/lang/Character;
-fun CharSequence.min(): Char?
+// JVM method = minOrThrow(Ljava/lang/CharSequence;)C
+fun CharSequence.min(): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
-// JVM method = minBy(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
-inline fun <R : Comparable<R>> CharSequence.minBy(selector: (Char) -> R : Comparable<R>): Char?
+// JVM method = minByOrThrow(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)C
+inline fun <R : Comparable<R>> CharSequence.minBy(selector: (Char) -> R : Comparable<R>): Char
 
 // requires compiler version >= 1.3.50, otherwise diagnostic error
 // JVM method = minByOrNull(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)Ljava/lang/Character;
@@ -34528,8 +36674,8 @@ inline fun <R> CharSequence.minOfWithOrNull(comparator: Comparator<in R> /* = ja
 // JVM method = minOrNull(Ljava/lang/CharSequence;)Ljava/lang/Character;
 fun CharSequence.minOrNull(): Char?
 
-// JVM method = minWith(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
-fun CharSequence.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
+// JVM method = minWithOrThrow(Ljava/lang/CharSequence;Ljava/util/Comparator;)C
+fun CharSequence.minWith(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char
 
 // JVM method = minWithOrNull(Ljava/lang/CharSequence;Ljava/util/Comparator;)Ljava/lang/Character;
 fun CharSequence.minWithOrNull(comparator: Comparator<in Char> /* = java.util.Comparator<in Char> */): Char?
@@ -34677,13 +36823,13 @@ inline fun CharSequence.sumOf(selector: (Char) -> Int): Int
 // JVM method = sumOfLong(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)J
 inline fun CharSequence.sumOf(selector: (Char) -> Long): Long
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfUInt(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)I
 inline fun CharSequence.sumOf(selector: (Char) -> UInt): UInt
 
-// requires language version >= 1.3, otherwise diagnostic error
 // requires compiler version >= 1.3.50, otherwise diagnostic error
+// requires language version >= 1.3, otherwise diagnostic error
 // JVM method = sumOfULong(Ljava/lang/CharSequence;Lkotlin/jvm/functions/Function1;)J
 inline fun CharSequence.sumOf(selector: (Char) -> ULong): ULong
 
@@ -34802,6 +36948,351 @@ internal fun durationUnitByShortName(shortName: String): kotlin.time.DurationUni
 
 // JVM method = shortName(Lkotlin/time/DurationUnit;)Ljava/lang/String;
 internal fun kotlin.time.DurationUnit.shortName(): String
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.io.path.PathsKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = appendBytes(Ljava/nio/file/Path;[B)V
+inline fun java.nio.file.Path.appendBytes(array: ByteArray)
+
+// JVM method = appendLines(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.appendLines(lines: Iterable<CharSequence>, charset: java.nio.charset.Charset /* = default */): java.nio.file.Path
+
+// JVM method = appendLines(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.appendLines(lines: Sequence<CharSequence>, charset: java.nio.charset.Charset /* = default */): java.nio.file.Path
+
+// JVM method = appendText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)V
+fun java.nio.file.Path.appendText(text: CharSequence, charset: java.nio.charset.Charset /* = default */)
+
+// JVM method = bufferedReader(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;)Ljava/io/BufferedReader;
+inline fun java.nio.file.Path.bufferedReader(charset: java.nio.charset.Charset /* = default */, bufferSize: Int /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.BufferedReader
+
+// JVM method = bufferedWriter(Ljava/nio/file/Path;Ljava/nio/charset/Charset;I[Ljava/nio/file/OpenOption;)Ljava/io/BufferedWriter;
+inline fun java.nio.file.Path.bufferedWriter(charset: java.nio.charset.Charset /* = default */, bufferSize: Int /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.BufferedWriter
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = forEachLine(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)V
+inline fun java.nio.file.Path.forEachLine(charset: java.nio.charset.Charset /* = default */, action: (@ParameterName(name = "line") String) -> Unit)
+
+// JVM method = inputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;
+inline fun java.nio.file.Path.inputStream(vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.InputStream
+
+// JVM method = outputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
+inline fun java.nio.file.Path.outputStream(vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.OutputStream
+
+// JVM method = readBytes(Ljava/nio/file/Path;)[B
+inline fun java.nio.file.Path.readBytes(): ByteArray
+
+// JVM method = readLines(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/util/List;
+inline fun java.nio.file.Path.readLines(charset: java.nio.charset.Charset /* = default */): List<String>
+
+// JVM method = readText(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/lang/String;
+fun java.nio.file.Path.readText(charset: java.nio.charset.Charset /* = default */): String
+
+// JVM method = reader(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/io/InputStreamReader;
+inline fun java.nio.file.Path.reader(charset: java.nio.charset.Charset /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.InputStreamReader
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = useLines(Ljava/nio/file/Path;Ljava/nio/charset/Charset;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T> java.nio.file.Path.useLines(charset: java.nio.charset.Charset /* = default */, block: (Sequence<String>) -> T): T
+
+// JVM method = writeBytes(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)V
+inline fun java.nio.file.Path.writeBytes(array: ByteArray, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */)
+
+// JVM method = writeLines(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.writeLines(lines: Iterable<CharSequence>, charset: java.nio.charset.Charset /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.nio.file.Path
+
+// JVM method = writeLines(Ljava/nio/file/Path;Lkotlin/sequences/Sequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.writeLines(lines: Sequence<CharSequence>, charset: java.nio.charset.Charset /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.nio.file.Path
+
+// JVM method = writeText(Ljava/nio/file/Path;Ljava/lang/CharSequence;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)V
+fun java.nio.file.Path.writeText(text: CharSequence, charset: java.nio.charset.Charset /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */)
+
+// JVM method = writer(Ljava/nio/file/Path;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStreamWriter;
+inline fun java.nio.file.Path.writer(charset: java.nio.charset.Charset /* = default */, vararg options: java.nio.file.OpenOption /* Array<out java.nio.file.OpenOption> */): java.io.OutputStreamWriter
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.io.path.PathsKt
+
+
+// *** FUNCTIONS ***
+
+// JVM method = collectIfThrows$PathsKt__PathRecursiveFunctionsKt(Lkotlin/io/path/ExceptionsCollector;Lkotlin/jvm/functions/Function0;)V
+private inline fun collectIfThrows(collector: kotlin.io.path.ExceptionsCollector, function: () -> Unit)
+
+// JVM method = insecureEnterDirectory$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/Path;Lkotlin/io/path/ExceptionsCollector;)V
+private fun insecureEnterDirectory(path: java.nio.file.Path, collector: kotlin.io.path.ExceptionsCollector)
+
+// JVM method = insecureHandleEntry$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/Path;Lkotlin/io/path/ExceptionsCollector;)V
+private fun insecureHandleEntry(entry: java.nio.file.Path, collector: kotlin.io.path.ExceptionsCollector)
+
+// JVM method = tryIgnoreNoSuchFileException$PathsKt__PathRecursiveFunctionsKt(Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+private inline fun <R> tryIgnoreNoSuchFileException(function: () -> R): R?
+
+// JVM method = copyToRecursively(Ljava/nio/file/Path;Ljava/nio/file/Path;Lkotlin/jvm/functions/Function3;ZZ)Ljava/nio/file/Path;
+fun java.nio.file.Path.copyToRecursively(target: java.nio.file.Path, onError: (@ParameterName(name = "source") java.nio.file.Path, @ParameterName(name = "target") java.nio.file.Path, @ParameterName(name = "exception") Exception /* = java.lang.Exception */) -> kotlin.io.path.OnErrorResult /* = default */, followLinks: Boolean, overwrite: Boolean): java.nio.file.Path
+
+// JVM method = copyToRecursively(Ljava/nio/file/Path;Ljava/nio/file/Path;Lkotlin/jvm/functions/Function3;ZLkotlin/jvm/functions/Function3;)Ljava/nio/file/Path;
+fun java.nio.file.Path.copyToRecursively(target: java.nio.file.Path, onError: (@ParameterName(name = "source") java.nio.file.Path, @ParameterName(name = "target") java.nio.file.Path, @ParameterName(name = "exception") Exception /* = java.lang.Exception */) -> kotlin.io.path.OnErrorResult /* = default */, followLinks: Boolean, copyAction: kotlin.io.path.CopyActionContext.(@ParameterName(name = "source") java.nio.file.Path, @ParameterName(name = "target") java.nio.file.Path) -> kotlin.io.path.CopyActionResult /* = default */): java.nio.file.Path
+
+// JVM method = deleteRecursively(Ljava/nio/file/Path;)V
+fun java.nio.file.Path.deleteRecursively()
+
+// JVM method = deleteRecursivelyImpl$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/Path;)Ljava/util/List;
+private fun java.nio.file.Path.deleteRecursivelyImpl(): List<Exception /* = java.lang.Exception */>
+
+// JVM method = enterDirectory$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/SecureDirectoryStream;Ljava/nio/file/Path;Lkotlin/io/path/ExceptionsCollector;)V
+private fun java.nio.file.SecureDirectoryStream<java.nio.file.Path>.enterDirectory(name: java.nio.file.Path, collector: kotlin.io.path.ExceptionsCollector)
+
+// JVM method = handleEntry$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/SecureDirectoryStream;Ljava/nio/file/Path;Lkotlin/io/path/ExceptionsCollector;)V
+private fun java.nio.file.SecureDirectoryStream<java.nio.file.Path>.handleEntry(name: java.nio.file.Path, collector: kotlin.io.path.ExceptionsCollector)
+
+// JVM method = isDirectory$PathsKt__PathRecursiveFunctionsKt(Ljava/nio/file/SecureDirectoryStream;Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+private fun java.nio.file.SecureDirectoryStream<java.nio.file.Path>.isDirectory(entryName: java.nio.file.Path, vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Boolean
+
+// JVM method = toFileVisitResult$PathsKt__PathRecursiveFunctionsKt(Lkotlin/io/path/CopyActionResult;)Ljava/nio/file/FileVisitResult;
+private fun kotlin.io.path.CopyActionResult.toFileVisitResult(): java.nio.file.FileVisitResult
+
+// JVM method = toFileVisitResult$PathsKt__PathRecursiveFunctionsKt(Lkotlin/io/path/OnErrorResult;)Ljava/nio/file/FileVisitResult;
+private fun kotlin.io.path.OnErrorResult.toFileVisitResult(): java.nio.file.FileVisitResult
+
+// ------------------------------------------------------------------------------------------------------
+
+/* multi-file part */
+/* file-level declarations */
+
+/* facade */ class kotlin.io.path.PathsKt
+
+
+// *** PROPERTIES ***
+
+// JVM annotation-holding method = getExtension$annotations(Ljava/nio/file/Path;)V
+val java.nio.file.Path.extension: String
+	// JVM method = getExtension(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getInvariantSeparatorsPath$annotations(Ljava/nio/file/Path;)V
+inline val java.nio.file.Path.invariantSeparatorsPath: String
+	// JVM method = getInvariantSeparatorsPath(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getInvariantSeparatorsPathString$annotations(Ljava/nio/file/Path;)V
+val java.nio.file.Path.invariantSeparatorsPathString: String
+	// JVM method = getInvariantSeparatorsPathString(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getName$annotations(Ljava/nio/file/Path;)V
+val java.nio.file.Path.name: String
+	// JVM method = getName(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getNameWithoutExtension$annotations(Ljava/nio/file/Path;)V
+val java.nio.file.Path.nameWithoutExtension: String
+	// JVM method = getNameWithoutExtension(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+// JVM annotation-holding method = getPathString$annotations(Ljava/nio/file/Path;)V
+inline val java.nio.file.Path.pathString: String
+	// JVM method = getPathString(Ljava/nio/file/Path;)Ljava/lang/String;
+	get() = /* non-default */
+
+
+// *** FUNCTIONS ***
+
+// JVM method = Path(Ljava/lang/String;)Ljava/nio/file/Path;
+inline fun Path(path: String): java.nio.file.Path
+
+// JVM method = Path(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+inline fun Path(base: String, vararg subpaths: String /* Array<out String> */): java.nio.file.Path
+
+// JVM method = createTempDirectory(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+fun createTempDirectory(directory: java.nio.file.Path?, prefix: String? /* = default */, vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createTempDirectory(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun createTempDirectory(prefix: String? /* = default */, vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createTempFile(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+fun createTempFile(directory: java.nio.file.Path?, prefix: String? /* = default */, suffix: String? /* = default */, vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createTempFile(Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun createTempFile(prefix: String? /* = default */, suffix: String? /* = default */, vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = fileAttributeViewNotAvailable(Ljava/nio/file/Path;Ljava/lang/Class;)Ljava/lang/Void;
+internal fun fileAttributeViewNotAvailable(path: java.nio.file.Path, attributeViewClass: java.lang.Class<*>): Nothing
+
+// JVM method = fileVisitor(Lkotlin/jvm/functions/Function1;)Ljava/nio/file/FileVisitor;
+fun fileVisitor(builderAction: kotlin.io.path.FileVisitorBuilder.() -> Unit): java.nio.file.FileVisitor<java.nio.file.Path> {
+	contract {
+		callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE)
+	}
+}
+
+// JVM method = absolute(Ljava/nio/file/Path;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.absolute(): java.nio.file.Path
+
+// JVM method = absolutePathString(Ljava/nio/file/Path;)Ljava/lang/String;
+inline fun java.nio.file.Path.absolutePathString(): String
+
+// JVM method = copyTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.copyTo(target: java.nio.file.Path, vararg options: java.nio.file.CopyOption /* Array<out java.nio.file.CopyOption> */): java.nio.file.Path
+
+// JVM method = copyTo(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.copyTo(target: java.nio.file.Path, overwrite: Boolean /* = default */): java.nio.file.Path
+
+// JVM method = createDirectories(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.createDirectories(vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createDirectory(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.createDirectory(vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createFile(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.createFile(vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = createLinkPointingTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.createLinkPointingTo(target: java.nio.file.Path): java.nio.file.Path
+
+// JVM method = createSymbolicLinkPointingTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.createSymbolicLinkPointingTo(target: java.nio.file.Path, vararg attributes: java.nio.file.attribute.FileAttribute<*> /* Array<out java.nio.file.attribute.FileAttribute<*>> */): java.nio.file.Path
+
+// JVM method = deleteExisting(Ljava/nio/file/Path;)V
+inline fun java.nio.file.Path.deleteExisting()
+
+// JVM method = deleteIfExists(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.deleteIfExists(): Boolean
+
+// JVM method = div(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+inline operator fun java.nio.file.Path.div(other: java.nio.file.Path): java.nio.file.Path
+
+// JVM method = div(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;
+inline operator fun java.nio.file.Path.div(other: String): java.nio.file.Path
+
+// JVM method = exists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+inline fun java.nio.file.Path.exists(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Boolean
+
+// JVM method = fileAttributesView(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;
+inline fun <reified V : java.nio.file.attribute.FileAttributeView> java.nio.file.Path.fileAttributesView(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): reified V : java.nio.file.attribute.FileAttributeView
+
+// JVM method = fileAttributesViewOrNull(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;
+inline fun <reified V : java.nio.file.attribute.FileAttributeView> java.nio.file.Path.fileAttributesViewOrNull(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): reified V : java.nio.file.attribute.FileAttributeView?
+
+// JVM method = fileSize(Ljava/nio/file/Path;)J
+inline fun java.nio.file.Path.fileSize(): Long
+
+// JVM method = fileStore(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;
+inline fun java.nio.file.Path.fileStore(): java.nio.file.FileStore
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = forEachDirectoryEntry(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+inline fun java.nio.file.Path.forEachDirectoryEntry(glob: String /* = default */, action: (java.nio.file.Path) -> Unit)
+
+// JVM method = getAttribute(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
+inline fun java.nio.file.Path.getAttribute(attribute: String, vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Any?
+
+// JVM method = getLastModifiedTime(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
+inline fun java.nio.file.Path.getLastModifiedTime(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): java.nio.file.attribute.FileTime
+
+// JVM method = getOwner(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/UserPrincipal;
+inline fun java.nio.file.Path.getOwner(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): java.nio.file.attribute.UserPrincipal?
+
+// JVM method = getPosixFilePermissions(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;
+inline fun java.nio.file.Path.getPosixFilePermissions(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Set<java.nio.file.attribute.PosixFilePermission>
+
+// JVM method = isDirectory(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+inline fun java.nio.file.Path.isDirectory(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Boolean
+
+// JVM method = isExecutable(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isExecutable(): Boolean
+
+// JVM method = isHidden(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isHidden(): Boolean
+
+// JVM method = isReadable(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isReadable(): Boolean
+
+// JVM method = isRegularFile(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+inline fun java.nio.file.Path.isRegularFile(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Boolean
+
+// JVM method = isSameFileAs(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isSameFileAs(other: java.nio.file.Path): Boolean
+
+// JVM method = isSymbolicLink(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isSymbolicLink(): Boolean
+
+// JVM method = isWritable(Ljava/nio/file/Path;)Z
+inline fun java.nio.file.Path.isWritable(): Boolean
+
+// JVM method = listDirectoryEntries(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/util/List;
+fun java.nio.file.Path.listDirectoryEntries(glob: String /* = default */): List<java.nio.file.Path>
+
+// JVM method = moveTo(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.moveTo(target: java.nio.file.Path, vararg options: java.nio.file.CopyOption /* Array<out java.nio.file.CopyOption> */): java.nio.file.Path
+
+// JVM method = moveTo(Ljava/nio/file/Path;Ljava/nio/file/Path;Z)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.moveTo(target: java.nio.file.Path, overwrite: Boolean /* = default */): java.nio.file.Path
+
+// JVM method = notExists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+inline fun java.nio.file.Path.notExists(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Boolean
+
+// JVM method = readAttributes(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;
+inline fun <reified A : java.nio.file.attribute.BasicFileAttributes> java.nio.file.Path.readAttributes(vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): reified A : java.nio.file.attribute.BasicFileAttributes
+
+// JVM method = readAttributes(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;
+inline fun java.nio.file.Path.readAttributes(attributes: String, vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): Map<String, Any?>
+
+// JVM method = readSymbolicLink(Ljava/nio/file/Path;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.readSymbolicLink(): java.nio.file.Path
+
+// JVM method = relativeTo(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+fun java.nio.file.Path.relativeTo(base: java.nio.file.Path): java.nio.file.Path
+
+// JVM method = relativeToOrNull(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+fun java.nio.file.Path.relativeToOrNull(base: java.nio.file.Path): java.nio.file.Path?
+
+// JVM method = relativeToOrSelf(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;
+fun java.nio.file.Path.relativeToOrSelf(base: java.nio.file.Path): java.nio.file.Path
+
+// JVM method = setAttribute(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.setAttribute(attribute: String, value: Any?, vararg options: java.nio.file.LinkOption /* Array<out java.nio.file.LinkOption> */): java.nio.file.Path
+
+// JVM method = setLastModifiedTime(Ljava/nio/file/Path;Ljava/nio/file/attribute/FileTime;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.setLastModifiedTime(value: java.nio.file.attribute.FileTime): java.nio.file.Path
+
+// JVM method = setOwner(Ljava/nio/file/Path;Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.setOwner(value: java.nio.file.attribute.UserPrincipal): java.nio.file.Path
+
+// JVM method = setPosixFilePermissions(Ljava/nio/file/Path;Ljava/util/Set;)Ljava/nio/file/Path;
+inline fun java.nio.file.Path.setPosixFilePermissions(value: Set<java.nio.file.attribute.PosixFilePermission>): java.nio.file.Path
+
+// JVM method = toPath(Ljava/net/URI;)Ljava/nio/file/Path;
+inline fun java.net.URI.toPath(): java.nio.file.Path
+
+// requires compiler version >= 1.3.50, otherwise diagnostic error
+// JVM method = useDirectoryEntries(Ljava/nio/file/Path;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+inline fun <T> java.nio.file.Path.useDirectoryEntries(glob: String /* = default */, block: (Sequence<java.nio.file.Path>) -> T): T
+
+// JVM method = visitFileTree(Ljava/nio/file/Path;Ljava/nio/file/FileVisitor;IZ)V
+fun java.nio.file.Path.visitFileTree(visitor: java.nio.file.FileVisitor<java.nio.file.Path>, maxDepth: Int /* = default */, followLinks: Boolean /* = default */)
+
+// JVM method = visitFileTree(Ljava/nio/file/Path;IZLkotlin/jvm/functions/Function1;)V
+fun java.nio.file.Path.visitFileTree(maxDepth: Int /* = default */, followLinks: Boolean /* = default */, builderAction: kotlin.io.path.FileVisitorBuilder.() -> Unit) {
+	contract {
+		callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE)
+	}
+}
+
+// JVM method = walk(Ljava/nio/file/Path;[Lkotlin/io/path/PathWalkOption;)Lkotlin/sequences/Sequence;
+fun java.nio.file.Path.walk(vararg options: kotlin.io.path.PathWalkOption /* Array<out kotlin.io.path.PathWalkOption> */): Sequence<java.nio.file.Path>
 
 // ------------------------------------------------------------------------------------------------------
 
