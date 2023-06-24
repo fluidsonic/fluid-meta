@@ -173,7 +173,7 @@ public interface Meta {
 			withExceptionWrapping {
 				MFileBuilder(
 					facadeClassName = className,
-					kotlinPackageName = metadata.header.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
+					kotlinPackageName = metadata.annotationData.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
 				)
 					.also { metadata.accept(it) }
 					.build()
@@ -203,7 +203,7 @@ public interface Meta {
 					className = facadeClassName,
 					file = MFileBuilder(
 						facadeClassName = facadeClassName,
-						kotlinPackageName = metadata.header.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
+						kotlinPackageName = metadata.annotationData.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
 					)
 						.also { metadata.accept(it) }
 						.build()
@@ -277,7 +277,7 @@ public interface Meta {
 
 private fun KotlinClassMetadata(metadata: Metadata) =
 	withExceptionWrapping {
-		KotlinClassMetadata.read(KotlinClassHeader(
+		KotlinClassMetadata.read(Metadata(
 			kind = metadata.kind,
 			metadataVersion = metadata.metadataVersion,
 			data1 = metadata.data1,
