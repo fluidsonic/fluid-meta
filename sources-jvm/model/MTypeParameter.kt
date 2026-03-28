@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a type parameter declaration of a generic class or function. */
 @Suppress("EqualsOrHashCode")
 public data class MTypeParameter(
 	override val annotations: List<MAnnotation>,

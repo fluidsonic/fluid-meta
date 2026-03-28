@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a Kotlin function in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MFunction(
 	val contract: MContract?,

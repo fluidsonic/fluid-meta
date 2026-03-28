@@ -1,14 +1,17 @@
 package io.fluidsonic.meta
 
 
+/** Represents a property accessor (getter or setter) in the metadata model. */
 public sealed class MPropertyAccessor : MExecutable, MExternalizable, MInlineable, MVisibilityRestrictable {
 
+	/** Whether this accessor uses the default implementation. */
 	public abstract val isDefault: Boolean
 
 
 	public companion object;
 
 
+	/** A property getter accessor. */
 	public data class Getter(
 		override val isDefault: Boolean,
 		override val isExternal: Boolean,
@@ -28,6 +31,7 @@ public sealed class MPropertyAccessor : MExecutable, MExternalizable, MInlineabl
 	}
 
 
+	/** A property setter accessor. */
 	public data class Setter(
 		override val isDefault: Boolean,
 		override val isExternal: Boolean,

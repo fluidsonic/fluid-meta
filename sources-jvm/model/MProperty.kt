@@ -1,8 +1,6 @@
 package io.fluidsonic.meta
 
-import kotlinx.metadata.*
-
-
+/** Represents a Kotlin property in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MProperty(
 	val getter: MPropertyAccessor.Getter,
@@ -15,7 +13,7 @@ public data class MProperty(
 	val isLateinit: Boolean,
 	val isVar: Boolean,
 	val jvmFieldSignature: MJvmMemberSignature.Field?,
-	val jvmFlags: Flags,
+	val jvmFlags: Int,
 	val jvmSyntheticMethodForAnnotationsSignature: MJvmMemberSignature.Method?,
 	val name: MVariableName,
 	override val receiverParameterType: MTypeReference?,

@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** A semantic version number with major, minor, and optional patch components. */
 public data class MVersion(
 	val major: Int,
 	val minor: Int,
@@ -42,6 +43,7 @@ public data class MVersion(
 
 	public companion object {
 
+		/** A special version representing infinity, used for open-ended version requirements. */
 		public val infinity: MVersion = MVersion(256, 256, 256)
 	}
 }

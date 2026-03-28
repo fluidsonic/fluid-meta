@@ -3,8 +3,10 @@ package io.fluidsonic.meta
 import java.util.*
 
 
+/** A local identity for a declaration, used to distinguish declarations within their parent scope. */
 public sealed class MLocalId {
 
+	/** A local identity for a constructor, based on its parameter types. */
 	public class Constructor(
 		valueParameters: List<MValueParameter>
 	) : MLocalId() {
@@ -26,6 +28,7 @@ public sealed class MLocalId {
 	}
 
 
+	/** A local identity for a function, based on its name, receiver, and parameter types. */
 	public class Function(
 		name: MFunctionName,
 		receiverParameterType: MTypeReference?,
@@ -66,6 +69,7 @@ public sealed class MLocalId {
 	}
 
 
+	/** A local identity for a package, based on its name. */
 	public class Package(
 		name: MPackageName
 	) : MLocalId() {
@@ -86,6 +90,7 @@ public sealed class MLocalId {
 	}
 
 
+	/** A local identity for a property, based on its name and receiver type. */
 	public class Property(
 		name: MVariableName,
 		receiverParameterType: MTypeReference?
@@ -116,6 +121,7 @@ public sealed class MLocalId {
 	}
 
 
+	/** A local identity for a type, based on its name. */
 	public class Type(
 		name: MTypeName
 	) : MLocalId() {

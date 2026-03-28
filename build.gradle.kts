@@ -1,16 +1,16 @@
 import io.fluidsonic.gradle.*
 
 plugins {
-	id("io.fluidsonic.gradle") version "1.3.1"
+	id("io.fluidsonic.gradle") version "3.0.0"
 }
 
-fluidLibrary(name = "meta", version = "0.14.0")
+fluidLibrary(name = "meta", version = "0.15.0")
 
 fluidLibraryModule(description = "Converts Kotlin metadata into an easily usable data model") {
 	targets {
 		jvm {
 			dependencies {
-				implementation(kotlinx("metadata-jvm", "0.6.2"))
+				implementation(kotlin("metadata-jvm"))
 			}
 		}
 	}

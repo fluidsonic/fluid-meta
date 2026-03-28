@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a value parameter of a function or constructor. */
 @Suppress("EqualsOrHashCode")
 public data class MValueParameter(
 	val declaresDefaultValue: Boolean,
@@ -23,5 +24,6 @@ public data class MValueParameter(
 }
 
 
+/** Whether this value parameter is a vararg parameter. */
 public val MValueParameter.isVariadic: Boolean
 	get() = varargElementType != null

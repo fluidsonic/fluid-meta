@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a Kotlin package within a module. */
 @Suppress("EqualsOrHashCode")
 public data class MPackage(
 	override val fileTypes: List<MQualifiedTypeName>,

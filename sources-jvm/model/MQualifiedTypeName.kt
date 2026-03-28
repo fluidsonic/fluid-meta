@@ -4,6 +4,7 @@ import javax.lang.model.element.*
 import kotlin.reflect.*
 
 
+/** A fully qualified Kotlin type name, stored in Kotlin internal format (e.g., `kotlin/collections/List`). */
 @JvmInline
 public value class MQualifiedTypeName @PublishedApi internal constructor(public val kotlinInternal: String) {
 
@@ -21,6 +22,7 @@ public value class MQualifiedTypeName @PublishedApi internal constructor(public 
 
 	public companion object {
 
+		/** Creates a qualified type name from Kotlin-style package and type name strings. */
 		public fun fromKotlin(packageName: String, typeName: String): MQualifiedTypeName =
 			MQualifiedTypeName(
 				packageName = MPackageName.fromKotlin(packageName),
@@ -28,14 +30,17 @@ public value class MQualifiedTypeName @PublishedApi internal constructor(public 
 			)
 
 
+		/** Creates a qualified type name from a JVM internal name (e.g., `java/lang/String`). */
 		public fun fromJvmInternal(jvmInternal: String): MQualifiedTypeName =
 			MQualifiedTypeName(kotlinInternal = jvmInternal.replace('$', '.'))
 
 
+		/** Creates a qualified type name from a Kotlin internal name (e.g., `kotlin/collections/List`). */
 		public fun fromKotlinInternal(kotlinInternal: String): MQualifiedTypeName =
 			MQualifiedTypeName(kotlinInternal = kotlinInternal)
 
 
+		/** Creates a qualified type name from a Java class. */
 		// TODO we have to do a whole lot of conversions here between JVM-land and Kotlin-land
 		public fun of(javaClass: Class<*>): MQualifiedTypeName = when (javaClass) {
 			Any::class.java ->
@@ -51,10 +56,12 @@ public value class MQualifiedTypeName @PublishedApi internal constructor(public 
 		}
 
 
+		/** Creates a qualified type name from a Kotlin class. */
 		public fun of(kotlinClass: KClass<*>): MQualifiedTypeName =
 			of(kotlinClass.java)
 
 
+		/** Creates a qualified type name from an annotation processing element. */
 		public fun of(element: Element): MQualifiedTypeName {
 			var packageName = ""
 			val components = mutableListOf<String>()
@@ -79,22 +86,26 @@ public value class MQualifiedTypeName @PublishedApi internal constructor(public 
 }
 
 
+/** Whether this type name refers to a local type. */
 public val MQualifiedTypeName.isLocal: Boolean
 	get() = kotlinInternal.startsWith('.')
 
 
+/** The JVM internal representation of this qualified type name. */
 public val MQualifiedTypeName.jvmInternal: String
 	get() = kotlinInternal
 		.removePrefix(".")
 		.replace('.', '$')
 
 
+/** The Kotlin-style dot-separated representation of this qualified type name. */
 public val MQualifiedTypeName.kotlin: String
 	get() = kotlinInternal
 		.removePrefix(".")
 		.replace('/', '.')
 
 
+/** The package name portion of this qualified type name. */
 public val MQualifiedTypeName.packageName: MPackageName
 	get() = MPackageName.fromKotlinInternal(kotlinInternal
 		.removePrefix(".")
@@ -102,6 +113,7 @@ public val MQualifiedTypeName.packageName: MPackageName
 	)
 
 
+/** Returns the simple type name without the package prefix. */
 public fun MQualifiedTypeName.withoutPackage(): MTypeName =
 	MTypeName.fromKotlinInternal(
 		if (kotlinInternal.startsWith('.'))
@@ -113,5 +125,6 @@ public fun MQualifiedTypeName.withoutPackage(): MTypeName =
 	)
 
 
+/** Returns a new qualified type name with the given [packageName]. */
 public fun MQualifiedTypeName.withPackage(packageName: MPackageName): MQualifiedTypeName =
 	MQualifiedTypeName(packageName = packageName, typeName = withoutPackage())

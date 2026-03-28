@@ -1,8 +1,9 @@
 package io.fluidsonic.meta
 
-import kotlinx.metadata.*
+import kotlin.metadata.*
 
 
+/** Represents a Kotlin annotation applied to a declaration. */
 @Suppress("EqualsOrHashCode")
 public data class MAnnotation(
 	val arguments: Map<MVariableName, MAnnotationArgument<*>>,

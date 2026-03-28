@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a Kotlin type alias declaration. */
 @Suppress("EqualsOrHashCode")
 public data class MTypeAlias(
 	override val annotations: List<MAnnotation>,

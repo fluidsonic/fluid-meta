@@ -1,17 +1,21 @@
 package io.fluidsonic.meta
 
 
+/** Base class for all Kotlin type representations in the metadata model. */
 public sealed class MType : Meta
 
 
+/** Base class for Kotlin types that have a qualified name. */
 public sealed class MNamedType : MType(),
 	MPropertyContainer,
 	MVersionRestrictable {
 
+	/** The fully qualified name of this type. */
 	public abstract val name: MQualifiedTypeName
 }
 
 
+/** Represents a Kotlin annotation class in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MAnnotationClass(
 	override val companionName: MTypeName?,
@@ -52,6 +56,7 @@ public data class MAnnotationClass(
 }
 
 
+/** Represents a Kotlin class in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MClass(
 	val anonymousObjectOriginName: MQualifiedTypeName?,
@@ -103,21 +108,25 @@ public data class MClass(
 	public companion object;
 
 
+	/** Describes the specialization of a class (data, inner, or sealed). */
 	public sealed class Specialization {
 
 
+		/** Indicates a data class. */
 		public object Data : Specialization() {
 
 			override fun toString(): String = "data"
 		}
 
 
+		/** Indicates an inner class. */
 		public object Inner : Specialization() {
 
 			override fun toString(): String = "inner"
 		}
 
 
+		/** Indicates a sealed class, with known subclass types. */
 		public data class Sealed(
 			val subclassTypes: List<MQualifiedTypeName>
 		) : Specialization() {
@@ -137,6 +146,7 @@ public val MClass.isInline: Boolean
 	get() = isValue
 
 
+/** Represents a Kotlin enum class in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MEnumClass(
 	override val companionName: MTypeName?,
@@ -183,6 +193,7 @@ public data class MEnumClass(
 }
 
 
+/** Represents an enum entry that has its own class body in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MEnumEntryClass(
 	override val functions: List<MFunction>,
@@ -213,6 +224,7 @@ public data class MEnumEntryClass(
 }
 
 
+/** Represents a Kotlin file facade containing top-level functions, properties, and type aliases. */
 public data class MFile(
 	val facadeClassName: MQualifiedTypeName,
 	override val functions: List<MFunction>,
@@ -234,6 +246,7 @@ public data class MFile(
 }
 
 
+/** Represents a Kotlin interface in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MInterface(
 	override val companionName: MTypeName?,
@@ -280,6 +293,7 @@ public data class MInterface(
 }
 
 
+/** Represents a Kotlin lambda (synthetic class) in the metadata model. */
 public data class MLambda(
 	val function: MFunction
 ) : MType(),
@@ -298,6 +312,7 @@ public data class MLambda(
 }
 
 
+/** Represents a multi-file class facade that combines declarations from multiple files. */
 public data class MMultiFileClass(
 	val className: MQualifiedTypeName,
 	val partClassNames: List<MQualifiedTypeName>
@@ -311,6 +326,7 @@ public data class MMultiFileClass(
 }
 
 
+/** Represents one part of a multi-file class facade. */
 public data class MMultiFileClassPart(
 	val className: MQualifiedTypeName,
 	val file: MFile
@@ -324,6 +340,7 @@ public data class MMultiFileClassPart(
 }
 
 
+/** Represents a Kotlin object declaration in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MObject(
 	val constructor: MConstructor,
@@ -378,6 +395,7 @@ public data class MObject(
 }
 
 
+/** Represents an unknown or unrecognized Kotlin metadata type. */
 public object MUnknown : MType() {
 
 	override fun toString(): String =

@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a Kotlin module containing packages. */
 public data class MModule(
 	override val annotations: List<MAnnotation>,
 	val name: MModuleName,

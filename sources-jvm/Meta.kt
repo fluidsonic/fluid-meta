@@ -1,13 +1,16 @@
+@file:OptIn(UnstableMetadataApi::class)
+
 package io.fluidsonic.meta
 
-import kotlinx.metadata.*
-import kotlinx.metadata.jvm.*
+import kotlin.metadata.*
+import kotlin.metadata.jvm.*
 import java.io.*
 import java.util.jar.*
 import javax.lang.model.element.*
 import kotlin.reflect.*
 
 
+/** Entry point for reading Kotlin metadata from compiled classes, modules, and JAR files. */
 // FIXME improve API
 public interface Meta {
 
@@ -18,6 +21,7 @@ public interface Meta {
 		private val kotlinModuleJarEntryNamePattern = Regex("^META-INF/[^/]*" + Regex.escape(kotlinModuleFileSuffix))
 
 
+		/** Returns all Kotlin modules found in the same source (JAR or directory) as the given [javaClass]. */
 		public fun allModulesFromSameSourceAs(javaClass: Class<*>): Sequence<MModule> {
 			withExceptionWrapping {
 				val file = javaClass.protectionDomain.codeSource?.location?.toURI()?.let(::File)
@@ -49,16 +53,18 @@ public interface Meta {
 				}
 
 				return dataSequences
-					.mapNotNull { (name, data) -> KotlinModuleMetadata.read(data)?.let { name to it } }
+					.map { (name, data) -> name to KotlinModuleMetadata.read(data) }
 					.map { (name, data) -> of(data, name = name) }
 			}
 		}
 
 
+		/** Returns all Kotlin modules found in the same source (JAR or directory) as the given [kotlinClass]. */
 		public fun allModulesFromSameSourceAs(kotlinClass: KClass<*>): Sequence<MModule> =
 			allModulesFromSameSourceAs(kotlinClass.java)
 
 
+		/** Returns all metadata elements (types and modules) found in the same source (JAR or directory) as the given [javaClass]. */
 		public fun everythingFromSameSourceAs(javaClass: Class<*>): Sequence<Meta> =
 			withExceptionWrapping {
 				val baseDirectory = javaClass.protectionDomain.codeSource?.location?.toURI()?.let(::File)
@@ -122,125 +128,127 @@ public interface Meta {
 			}
 
 
+		/** Returns all metadata elements (types and modules) found in the same source (JAR or directory) as the given [kotlinClass]. */
 		public fun everythingFromSameSourceAs(kotlinClass: KClass<*>): Sequence<Meta> =
 			everythingFromSameSourceAs(kotlinClass.java)
 
 
+		/** Reads Kotlin metadata from a Java class and returns the corresponding [MType], or `null` if no metadata is found. */
 		public fun of(javaClass: Class<*>): MType? =
 			javaClass.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.of(javaClass)) }
 
 
+		/** Reads Kotlin metadata from an annotation processing [Element] and returns the corresponding [MType], or `null` if no metadata is found. */
 		public fun of(element: Element): MType? =
 			element.getAnnotation(Metadata::class.java)?.let { of(it, className = MQualifiedTypeName.of(element)) }
 
 
+		/** Reads Kotlin metadata from a Kotlin class and returns the corresponding [MType], or `null` if no metadata is found. */
 		public fun of(kotlinClass: KClass<*>): MType? =
 			of(kotlinClass.java)
 
 
+		/** Parses the given [Metadata] annotation and returns the corresponding [MType], or `null` if not supported. */
 		public fun of(metadata: Metadata, className: MQualifiedTypeName? = null): MType? =
-			KotlinClassMetadata(metadata)?.let { of(it, className = className) }
+			withExceptionWrapping {
+				val classMetadata = KotlinClassMetadata.readLenient(metadata)
+				of(classMetadata, className = className, packageName = metadata.packageName)
+			}
 
 
-		public fun of(metadata: KotlinClassMetadata, className: MQualifiedTypeName? = null): MType? =
+		/** Converts [KotlinClassMetadata] into the corresponding [MType], or `null` if not supported. */
+		public fun of(
+			metadata: KotlinClassMetadata,
+			className: MQualifiedTypeName? = null,
+			packageName: String = "",
+		): MType? =
 			when (metadata) {
 				is KotlinClassMetadata.Class -> of(metadata)
 				is KotlinClassMetadata.FileFacade -> of(
 					metadata,
-					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade")
+					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade"),
+					packageName = packageName,
 				)
 
 				is KotlinClassMetadata.SyntheticClass -> of(metadata)
 				is KotlinClassMetadata.MultiFileClassFacade -> of(
 					metadata,
-					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade")
+					className = className ?: throw MetaException("a class name must be provided when reading metadata of a file facade"),
 				)
 
-				is KotlinClassMetadata.MultiFileClassPart -> of(metadata)
+				is KotlinClassMetadata.MultiFileClassPart -> of(metadata, packageName = packageName)
 				is KotlinClassMetadata.Unknown -> MUnknown
 			}
 
 
+		/** Converts class metadata into the corresponding [MType]. */
 		public fun of(metadata: KotlinClassMetadata.Class): MType =
-			withExceptionWrapping {
-				MClassBuilder()
-					.also { metadata.accept(it) }
-					.build()
-			}
+			withExceptionWrapping { metadata.kmClass.toMeta() }
 
 
-		public fun of(metadata: KotlinClassMetadata.FileFacade, className: MQualifiedTypeName): MFile =
+		/** Converts file facade metadata into an [MFile]. */
+		public fun of(
+			metadata: KotlinClassMetadata.FileFacade,
+			className: MQualifiedTypeName,
+			packageName: String = "",
+		): MFile =
 			withExceptionWrapping {
-				MFileBuilder(
+				metadata.kmPackage.toMeta(
 					facadeClassName = className,
-					kotlinPackageName = metadata.annotationData.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
+					kotlinPackageName = packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) },
 				)
-					.also { metadata.accept(it) }
-					.build()
 			}
 
 
+		/** Converts module metadata into an [MModule]. */
 		public fun of(metadata: KotlinModuleMetadata, name: MModuleName): MModule =
-			withExceptionWrapping {
-				MModuleBuilder(name = name)
-					.also { metadata.accept(it) }
-					.build()
-			}
+			withExceptionWrapping { metadata.kmModule.toMeta(name) }
 
 
+		/** Converts multi-file class facade metadata into an [MMultiFileClass]. */
 		public fun of(metadata: KotlinClassMetadata.MultiFileClassFacade, className: MQualifiedTypeName): MMultiFileClass =
 			MMultiFileClass(
 				className = className,
-				partClassNames = metadata.partClassNames.map { MQualifiedTypeName.fromKotlinInternal(it) }
+				partClassNames = metadata.partClassNames.map { MQualifiedTypeName.fromKotlinInternal(it) },
 			)
 
 
-		public fun of(metadata: KotlinClassMetadata.MultiFileClassPart): MMultiFileClassPart =
+		/** Converts multi-file class part metadata into an [MMultiFileClassPart]. */
+		public fun of(metadata: KotlinClassMetadata.MultiFileClassPart, packageName: String = ""): MMultiFileClassPart =
 			withExceptionWrapping {
 				val facadeClassName = MQualifiedTypeName.fromKotlinInternal(metadata.facadeClassName)
 
 				MMultiFileClassPart(
 					className = facadeClassName,
-					file = MFileBuilder(
+					file = metadata.kmPackage.toMeta(
 						facadeClassName = facadeClassName,
-						kotlinPackageName = metadata.annotationData.packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) }
-					)
-						.also { metadata.accept(it) }
-						.build()
+						kotlinPackageName = packageName.ifEmpty { null }?.let { MPackageName.fromKotlinInternal(it) },
+					),
 				)
 			}
 
 
+		/** Converts synthetic class metadata into an [MLambda], or `null` if the synthetic class is not a lambda. */
 		public fun of(metadata: KotlinClassMetadata.SyntheticClass): MLambda? =
 			if (metadata.isLambda)
-				withExceptionWrapping {
-					try {
-						MLambdaBuilder()
-							.also { metadata.accept(it) }
-							.build()
-					}
-					catch (e: InconsistentKotlinMetadataException) {
-						// TODO https://youtrack.jetbrains.com/issue/KT-29790
-						if (e.message == "No VersionRequirement with the given id in the table")
-							return null
-
-						throw e
-					}
-				}
+				withExceptionWrapping { metadata.kmLambda?.toMeta() }
 			else
 				null
 
 
+		/** Prints all metadata elements from the same source as [javaClass] to standard output. */
 		public fun printAllElementsFromSameSourceAs(javaClass: Class<*>) {
 			printAllElementsFromSameSourceAs(javaClass, destination = PrintWriter(System.out))
 		}
 
 
+		/** Prints all metadata elements from the same source as [kotlinClass] to standard output. */
 		public fun printAllElementsFromSameSourceAs(kotlinClass: KClass<*>) {
 			printAllElementsFromSameSourceAs(kotlinClass.java)
 		}
 
 
+		/** Prints all metadata elements from the same source as [javaClass] to the given [destination]. */
 		public fun printAllElementsFromSameSourceAs(javaClass: Class<*>, destination: Writer) {
 			everythingFromSameSourceAs(javaClass)
 				.sortedBy { meta ->
@@ -268,25 +276,12 @@ public interface Meta {
 		}
 
 
+		/** Prints all metadata elements from the same source as [kotlinClass] to the given [destination]. */
 		public fun printAllElementsFromSameSourceAs(kotlinClass: KClass<*>, destination: Writer) {
 			printAllElementsFromSameSourceAs(kotlinClass.java, destination = destination)
 		}
 	}
 }
-
-
-private fun KotlinClassMetadata(metadata: Metadata) =
-	withExceptionWrapping {
-		KotlinClassMetadata.read(Metadata(
-			kind = metadata.kind,
-			metadataVersion = metadata.metadataVersion,
-			data1 = metadata.data1,
-			data2 = metadata.data2,
-			extraInt = metadata.extraInt,
-			extraString = metadata.extraString,
-			packageName = metadata.packageName,
-		))
-	}
 
 
 private inline fun <R> withExceptionWrapping(action: () -> R) =

@@ -1,8 +1,10 @@
 package io.fluidsonic.meta
 
 
+/** Represents a type argument in a generic type reference. */
 public sealed class MTypeArgument {
 
+	/** The star projection (`*`) type argument. */
 	public object StarProjection : MTypeArgument() {
 
 		override fun toString(): String =
@@ -10,6 +12,7 @@ public sealed class MTypeArgument {
 	}
 
 
+	/** A concrete type argument with a type reference and variance. */
 	public data class Type(
 		val type: MTypeReference,
 		val variance: MVariance

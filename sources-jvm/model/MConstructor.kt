@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a Kotlin constructor in the metadata model. */
 @Suppress("EqualsOrHashCode")
 public data class MConstructor(
 	val isSecondary: Boolean,
@@ -13,6 +14,7 @@ public data class MConstructor(
 	MVersionRestrictable,
 	MVisibilityRestrictable {
 
+	/** Whether this is a primary constructor. */
 	public val isPrimary: Boolean
 		get() = !isSecondary
 

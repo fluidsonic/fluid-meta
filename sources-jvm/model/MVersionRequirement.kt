@@ -1,6 +1,7 @@
 package io.fluidsonic.meta
 
 
+/** Represents a version requirement on a Kotlin declaration, indicating the minimum version needed. */
 public data class MVersionRequirement(
 	val errorCode: Int?,
 	val kind: Kind,
@@ -16,6 +17,7 @@ public data class MVersionRequirement(
 	public companion object;
 
 
+	/** The kind of version being required (API, compiler, or language). */
 	public enum class Kind {
 
 		API,
@@ -35,6 +37,7 @@ public data class MVersionRequirement(
 	}
 
 
+	/** The severity level of the version requirement diagnostic. */
 	public enum class Level {
 		ERROR,
 		HIDDEN,

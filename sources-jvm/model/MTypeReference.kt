@@ -1,15 +1,20 @@
 package io.fluidsonic.meta
 
 
+/** Represents a reference to a Kotlin type, such as a class, function type, type alias, or type parameter. */
 public sealed class MTypeReference : MAnnotatable {
 
+	/** The upper bound for a flexible type (e.g., platform types), or `null` if this is not a flexible type. */
 	public abstract val flexibleTypeUpperBound: MFlexibleTypeUpperBound?
+
+	/** Whether this type reference is nullable. */
 	public abstract val isNullable: Boolean
 
 
 	public companion object;
 
 
+	/** A reference to a class or interface type. */
 	public data class Class(
 		val abbreviatedType: MTypeReference?,
 		override val annotations: List<MAnnotation>,
@@ -29,6 +34,7 @@ public sealed class MTypeReference : MAnnotatable {
 	}
 
 
+	/** A reference to a function type. */
 	public data class Function(
 		override val annotations: List<MAnnotation>,
 		override val flexibleTypeUpperBound: MFlexibleTypeUpperBound?,
@@ -47,6 +53,7 @@ public sealed class MTypeReference : MAnnotatable {
 	}
 
 
+	/** A reference to a type alias. */
 	public data class TypeAlias(
 		val abbreviatedType: MTypeReference?,
 		override val annotations: List<MAnnotation>,
@@ -65,6 +72,7 @@ public sealed class MTypeReference : MAnnotatable {
 	}
 
 
+	/** A reference to a type parameter. */
 	public data class TypeParameter(
 		override val annotations: List<MAnnotation>,
 		val arguments: List<MTypeArgument>,
@@ -126,6 +134,7 @@ internal fun MTypeReference?.equalsExceptForNullability(other: MTypeReference?):
 }
 
 
+/** The qualified type name of this type reference, or `null` for function types and type parameters. */
 public val MTypeReference.name: MQualifiedTypeName?
 	get() = when (this) {
 		is MTypeReference.Class -> name

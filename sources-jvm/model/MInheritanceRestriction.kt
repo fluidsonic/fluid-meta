@@ -1,8 +1,9 @@
 package io.fluidsonic.meta
 
-import kotlinx.metadata.*
+import kotlin.metadata.*
 
 
+/** Represents the inheritance restriction (modality) of a Kotlin declaration. */
 public enum class MInheritanceRestriction {
 
 	ABSTRACT,
@@ -16,13 +17,12 @@ public enum class MInheritanceRestriction {
 
 	public companion object {
 
-		internal fun forFlags(flags: Flags) =
-			when {
-				Flag.IS_ABSTRACT(flags) -> ABSTRACT
-				Flag.IS_FINAL(flags) -> FINAL
-				Flag.IS_OPEN(flags) -> OPEN
-				Flag.IS_SEALED(flags) -> ABSTRACT
-				else -> throw MetaException("unknown inheritance restriction in flags ${flags.toString(16)}")
+		internal fun from(modality: Modality): MInheritanceRestriction =
+			when (modality) {
+				Modality.ABSTRACT -> ABSTRACT
+				Modality.FINAL -> FINAL
+				Modality.OPEN -> OPEN
+				Modality.SEALED -> ABSTRACT
 			}
 	}
 }
